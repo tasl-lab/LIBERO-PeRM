@@ -1,0 +1,51 @@
+# Scale H_M2 (M2 cell, K=3, N=50) — in-domain eval at step 15000.
+# Train data: perm/Scale_H_M2 (15 missions × 50 demos = 750)
+# Train config: pi05_scale_H_M2_lora_v1
+# Train run: pi05_scale_H_M2_run1
+#
+# Eval: 15 missions × 5 trials × pref only = 75 eps (training distribution match)
+# Aggregate:
+#   python LIBERO/scripts/aggregate_eval.py /data3/zhixu/LIBERO-PeRM/Policy_output/lora_ft/liberoscale/H_M2_pi05_scale_step15k/pi05_scale_H_M2_run1_step15000 --suite liberoscale
+
+experiment_name: H_M2_pi05_scale_step15k
+exp_type: lora_ft
+task_suite: liberoscale
+
+prompt_source_yaml: /data3/zhixu/LIBERO-PeRM/VLA_data/PrefScale/tasksuite_M2.yaml
+
+missions:
+  - 0-1_032
+  - 0-1_032_1
+  - 0-1_032_2
+  - 1-1_004
+  - 1-1_004_1
+  - 1-1_004_2
+  - 2-5_116
+  - 2-5_116_1
+  - 2-5_116_2
+  - 3-2_097_1
+  - 3-2_097_2
+  - 3-2_097_3
+  - 4-3_116
+  - 4-3_116_1
+  - 4-3_116_2
+
+conditions: [pref]
+num_trials: 5
+replan_steps: 5
+max_steps: null
+seed: 7
+
+save_hdf5: false
+save_video: true
+save_gif: false
+
+server:
+  vla: pi05
+  name: pi05_scale_H_M2_run1_step15000
+  host: 0.0.0.0
+  port: 8012
+  config: pi05_scale_H_M2_lora_v1
+  checkpoint: /data3/zhixu/LIBERO-PeRM/VLAs/openpi/checkpoints/pi05_scale_H_M2_lora_v1/pi05_scale_H_M2_run1/15000
+  cuda_devices: "4,5,6,7"
+  default_prompt: null

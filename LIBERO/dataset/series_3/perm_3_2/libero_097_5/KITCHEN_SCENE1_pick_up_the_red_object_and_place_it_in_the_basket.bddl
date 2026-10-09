@@ -1,0 +1,81 @@
+(define (problem LIBERO_Kitchen_Tabletop_Manipulation)
+  (:domain robosuite)
+  (:language pick up the red object and place it in the basket)
+    (:regions
+      (basket_init_region
+          (:target kitchen_table)
+          (:ranges (
+              (-0.01 0.25 0.01 0.27)
+            )
+          )
+          (:yaw_rotation (
+              (0.0 0.0)
+            )
+          )
+      )
+      (red_alphabet_soup_init_region
+          (:target kitchen_table)
+          (:ranges (
+              (-0.105 -0.075 -0.095 -0.065)
+            )
+          )
+          (:yaw_rotation (
+              (0.0 0.0)
+            )
+          )
+      )
+      (alphabet_soup_init_region
+          (:target kitchen_table)
+          (:ranges (
+              (0.10 -0.10 0.15 -0.05)
+            )
+          )
+          (:yaw_rotation (
+              (0.0 0.0)
+            )
+          )
+      )
+      (red_yellow_book_init_region
+          (:target kitchen_table)
+          (:ranges (
+              (0.13 0.05 0.18 0.10)
+            )
+          )
+          (:yaw_rotation (
+              (0.0 0.0)
+            )
+          )
+      )
+      (contain_region
+          (:target basket_1)
+      )
+    )
+
+  (:fixtures
+    kitchen_table - kitchen_table
+  )
+
+  (:objects
+    red_alphabet_soup_1 - red_alphabet_soup
+    alphabet_soup_1 - alphabet_soup
+    red_yellow_book_1 - red_yellow_book
+    basket_1 - basket
+  )
+
+  (:obj_of_interest
+    red_alphabet_soup_1
+    basket_1
+  )
+
+  (:init
+    (On red_alphabet_soup_1 kitchen_table_red_alphabet_soup_init_region)
+    (On alphabet_soup_1 kitchen_table_alphabet_soup_init_region)
+    (On red_yellow_book_1 kitchen_table_red_yellow_book_init_region)
+    (On basket_1 kitchen_table_basket_init_region)
+  )
+
+  (:goal
+    (And (In red_alphabet_soup_1 basket_1_contain_region))
+  )
+
+)

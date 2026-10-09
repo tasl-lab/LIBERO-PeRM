@@ -1,0 +1,1 @@
+./dataset/Layout_11_7/P_BENCH_SCENE_l11_7put_books_on_the_shelf.bddl

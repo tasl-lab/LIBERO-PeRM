@@ -1,0 +1,129 @@
+(define (problem LIBERO_Study_Tabletop_Manipulation)
+  (:domain robosuite)
+  (:language L11_5_1Put 2 books on the shelf)
+    (:regions
+      (wooden_two_layer_shelf_1_init_region
+          (:target study_table)
+          (:ranges (
+              (-0.01 -0.29 0.01 -0.27)
+            )
+          )
+          (:yaw_rotation (
+              (0.0 0.0)
+            )
+          )
+      )
+      (black_book_1_init_region
+          (:target study_table)
+          (:ranges (
+              (0.04000000000000001 -0.041 0.04001 -0.040101)
+            )
+          )
+          (:yaw_rotation (
+              (0.0 0.0)
+            )
+          )
+      )
+      (red_yellow_book_side_1_init_region
+          (:target study_table)
+          (:ranges (
+              (-0.0810000000000005 0.25 -0.08 0.2500019)
+            )
+          )
+          (:yaw_rotation (
+              (0.0 0.0)
+            )
+          )
+      )
+      (yellow_book_1_init_region
+          (:target study_table)
+          (:ranges (
+              (0.1 0.13 0.126 0.130502)
+            )
+          )
+          (:yaw_rotation (
+              (0.0 0.0)
+            )
+          )
+      )
+      (red_yellow_book_init_region
+          (:target study_table)
+          (:ranges (
+              (-0.1610000000000005 0.25 -0.16 0.2500019)
+            )
+          )
+          (:yaw_rotation (
+              (0 0)
+            )
+          )
+      )
+      (top_side
+          (:target wooden_two_layer_shelf_1)
+          (:ranges (
+            )
+          )
+          (:yaw_rotation (
+              (0 0)
+            )
+          )
+      )
+      (top_region
+          (:target wooden_two_layer_shelf_1)
+          (:ranges (
+            )
+          )
+          (:yaw_rotation (
+              (0 0)
+            )
+          )
+      )
+      (bottom_region
+          (:target wooden_two_layer_shelf_1)
+          (:ranges (
+            )
+          )
+          (:yaw_rotation (
+              (0 0)
+            )
+          )
+      )
+      (top_side
+          (:target wooden_two_layer_shelf_1)
+      )
+      (top_region
+          (:target wooden_two_layer_shelf_1)
+      )
+      (bottom_region
+          (:target wooden_two_layer_shelf_1)
+      )
+    )
+
+  (:fixtures
+    study_table - study_table
+    wooden_two_layer_shelf_1 - wooden_two_layer_shelf
+  )
+
+  (:objects
+    black_book_1 - black_book
+    red_yellow_book_side_1 - red_yellow_book_side
+    yellow_book_1 - yellow_book
+    yellow_book_side_1 - yellow_book_side
+  )
+
+  (:obj_of_interest
+    black_book_1
+    wooden_two_layer_shelf_1
+  )
+
+  (:init
+    (on wooden_two_layer_shelf_1 study_table_wooden_two_layer_shelf_1_init_region)
+    (on black_book_1 study_table_black_book_1_init_region)
+    (on red_yellow_book_side_1 study_table_red_yellow_book_side_1_init_region)
+    (on yellow_book_1 study_table_yellow_book_1_init_region)
+  )
+
+  (:goal
+    (And (on red_yellow_book_side_1 wooden_two_layer_shelf_1_top_side))
+  )
+
+)

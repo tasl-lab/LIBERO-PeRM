@@ -1,0 +1,85 @@
+{
+  "_comment:": [
+    "Out-of-domain configuration for put_the_bbq_sauce_in_the_basket Layout 9 - secondary items repositioned"
+  ],
+
+  "workspaces":
+    "kitchen_table"
+  ,
+
+  "bddl_file_names":
+    "libero_pbench/L9_2_out_of_domain.bddl",
+  "language_instructions":
+  "put the bbq sauce in the basket",
+
+
+
+
+  "layout_id": "9_2_out_of_domain",
+
+  "high_pref_lan": [
+    "",
+    "pick the target object from left side",
+    "pick the target object from left side"
+  ],
+  "low_pref_lan": [
+    "",
+    "",
+    "Avoid ketchup bottle"
+  ],
+
+  "mission_ids": [
+    "naive_9_2",
+    "17",
+    "m13"
+  ],
+
+  "mission_mask": [
+    0,
+    1,
+    1
+  ],
+
+  "subtask_offset":
+    [
+      {
+      "mission_id": "naive_9_2",
+      "put:basket_1": [
+        [0.0, 0.00, 0.2]
+      ],
+      "move_to:basket_1": [
+        [0.0, 0.00, 0.2]
+      ]
+      },
+      {
+      "mission_id": "17",
+      "pick_from_side:bbq_sauce_1": [
+      [-0.02, 0.004, 0]
+      ],
+      "put:basket_1": [
+        [0.00, 0.00, 0.22]
+      ],
+      "move_to:basket_1": [
+        [0.00, 0.00, 0.22]
+      ],
+        "move_to_height:basket_1":-0.45
+      },
+      {
+      "mission_id": "m13",
+      "pick_from_side:bbq_sauce_1": [
+        [-0.02, 0.004, 0]
+      ],
+      "put:basket_1": [
+        [0.05, -0.03, 0.22]
+      ],
+      "move_to:basket_1": [
+        [0.05, -0.03, 0.22]
+      ]
+      }
+
+
+
+    ],
+
+  "fluency_improvement": 0
+}

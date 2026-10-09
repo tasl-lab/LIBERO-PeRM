@@ -1,0 +1,4 @@
+1.|| ('open_drawer', 'white_cabinet_1_cabinet_middle'), ('pick', 'red_cream_cheese_1'), ('put', 'white_cabinet_1_cabinet_middle'), ('close_drawer', 'white_cabinet_1_cabinet_middle') ||
+2.|| "required": [] ||
+3.|| I Prefer to use the middle drawer for food||
+

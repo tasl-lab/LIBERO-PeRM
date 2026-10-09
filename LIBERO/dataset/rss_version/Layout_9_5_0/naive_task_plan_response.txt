@@ -1,0 +1,1 @@
+(open_drawer white_cabinet_1),(pick red_cream_cheese_1),(put white_cabinet_1),(close_drawer white_cabinet_1)

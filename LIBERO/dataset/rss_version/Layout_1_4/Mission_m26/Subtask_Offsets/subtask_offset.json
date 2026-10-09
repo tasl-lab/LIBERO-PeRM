@@ -1,0 +1,31 @@
+{
+  "mission_id": "m26",
+  "pick:green_butter_1": [
+    [
+      0.0,
+      0.02,
+      -0.02
+    ]
+  ],
+  "pick:green_chocolate_pudding_1": [
+    [
+      0.055,
+      0.0,
+      0.0
+    ]
+  ],
+  "put:basket_1": [
+    [
+      -0.02,
+      -0.03,
+      0.15
+    ]
+  ],
+  "move_to:basket_1": [
+    [
+      -0.02,
+      0.0,
+      0.2
+    ]
+  ]
+}

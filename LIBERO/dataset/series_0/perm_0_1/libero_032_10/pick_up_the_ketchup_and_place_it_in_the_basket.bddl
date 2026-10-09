@@ -1,0 +1,29 @@
+(define (problem LIBERO_Kitchen_Tabletop_Manipulation)
+  (:domain robosuite)
+  (:language Pick the ketchup and place it in the basket)
+    (:regions
+      (basket_init_region (:target kitchen_table) (:ranges ((-0.01 0.29 0.01 0.31))) (:yaw_rotation ((0.0 0.0))))
+      (blue_ketchup_init_region (:target kitchen_table) (:ranges ((-0.045 -0.075 0.005 -0.025))) (:yaw_rotation ((0.0 0.0))))
+      (ketchup_init_region (:target kitchen_table) (:ranges ((-0.105 -0.075 -0.095 -0.065))) (:yaw_rotation ((0.0 0.0))))
+      (tomato_sauce_init_region (:target kitchen_table) (:ranges ((-0.175 0.025 -0.125 0.075))) (:yaw_rotation ((0.0 0.0))))
+      (salad_dressing_init_region (:target kitchen_table) (:ranges ((0.1 0.05 0.15 0.1))) (:yaw_rotation ((0.0 0.0))))
+      (contain_region (:target basket_1))
+    )
+  (:fixtures kitchen_table - kitchen_table)
+  (:objects
+    blue_ketchup_1 - blue_ketchup
+    ketchup_1 - ketchup
+    tomato_sauce_1 - tomato_sauce
+    salad_dressing_1 - salad_dressing
+    basket_1 - basket
+  )
+  (:obj_of_interest ketchup_1 basket_1)
+  (:init
+    (On blue_ketchup_1 kitchen_table_blue_ketchup_init_region)
+    (On ketchup_1 kitchen_table_ketchup_init_region)
+    (On tomato_sauce_1 kitchen_table_tomato_sauce_init_region)
+    (On salad_dressing_1 kitchen_table_salad_dressing_init_region)
+    (On basket_1 kitchen_table_basket_init_region)
+  )
+  (:goal (And (In ketchup_1 basket_1_contain_region)))
+)

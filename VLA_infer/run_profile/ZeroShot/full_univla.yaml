@@ -1,0 +1,37 @@
+# Zero-shot eval of UniVLA (qwbu/univla-7b-224-sft-libero, libero-10 head) on
+# the full SinglePref in-domain suite.
+#
+# Sweep: 40 missions × 2 conditions (base, pref) × 3 trials = 240 episodes.
+# Paper SR (standard LIBERO, unified ckpt): Spatial 96.5 / Object 96.8
+# / Goal 95.6 / Long 92.0 / Avg 95.2%.
+#
+# Launch:
+#   server: bash VLA_infer/server_univla.sh VLA_infer/run_profile/ZeroShot/full_univla.yaml
+#   client: bash VLA_infer/run_client.sh    VLA_infer/run_profile/ZeroShot/full_univla.yaml
+
+experiment_name: univla_singpref_indomain_0shot
+exp_type: 0shot
+task_suite: single-pref-in-domain
+
+conditions: [base, pref]
+num_trials: 3
+replan_steps: 5
+max_steps: null
+seed: 7
+
+save_hdf5: false
+save_video: true
+save_gif: false
+
+server:
+  vla: univla
+  name: univla_libero_10
+  host: 0.0.0.0
+  port: 8011
+  config: univla_libero_10
+  checkpoint: /data3/zhixu/LIBERO-PeRM/checkpoints/univla_libero/univla-libero-10
+  action_decoder: /data3/zhixu/LIBERO-PeRM/checkpoints/univla_libero/univla-libero-10/action_decoder.pt
+  unnorm_key: libero_10
+  cuda_devices: "2"
+  device: "cuda:0"
+  default_prompt: null

@@ -1,0 +1,32 @@
+workspace: living_room_scene2
+language_instructions: Pick up a tomato sauce and put it in the basket
+optimized_instruction: Put a tomato sauce in basket
+libero_instruction: pick up the tomato sauce and put it in the basket
+bddl_file: LIVING_ROOM_SCENE2_pick_up_the_tomato_sauce_and_put_it_in_the_basket.bddl
+high_pref_lan: Prefer bigger objects
+low_pref_lan: ''
+subtask_offset:
+  move_to:_all: [0.0, 0.0, 0.0]
+damping_level: 0
+naive_plan:
+- [pick, tomato_sauce_1]
+- [put, basket_1]
+task_plan:
+- [pick, bigger_tomato_sauce_1]
+- [put, basket_1]
+high_prefs: []
+low_prefs:
+- type: plan_choice
+  params:
+    mode: object
+    pref_objs: [bigger_tomato_sauce_1]
+    naive_objs: [tomato_sauce_1]
+    criterion_threshold: 0.5
+    criterion_direction: 1
+  description: Prefer bigger objects
+low_pref_calibration:
+  plan_choice:
+    pref_anchor: 1.0
+    n_pref: 10
+    naive_anchor: 0.0
+    n_naive: 10

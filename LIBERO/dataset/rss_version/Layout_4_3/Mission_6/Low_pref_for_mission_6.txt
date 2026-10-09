@@ -1,0 +1,2 @@
+1.||max_acc, (0.02)||
+2.||To strictly follow the hint of no sudden acceleration, I set a very low maximum acceleration limit to ensure the bowl is moved smoothly and stably.||

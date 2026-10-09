@@ -1,0 +1,53 @@
+# Smoke test for the OpenVLA-OFT checkpoint trained jointly on LIBERO
+# Spatial + Object + Goal + 10.
+#
+# Server:
+#   conda activate openvla-oft
+#   bash /data3/zhixu/LIBERO-PeRM/VLA_infer/server_openvla_oft.sh
+#
+# Client:
+#   bash /data3/zhixu/LIBERO-PeRM/VLA_infer/run_client.sh
+#
+# The checkpoint is loaded from Hugging Face on first use unless you point
+# `server.checkpoint` at a local clone of the same model.
+
+experiment_name: openvla-7b-oft-finetuned-libero-spatial-object-goal-10_smoke
+exp_type: 0shot
+task_suite: single-pref
+
+missions:
+  - 1-1_004
+  - 2-1_019
+
+conditions: [base, pref]
+num_trials: 1
+replan_steps: 5
+max_steps: 250
+seed: 7
+
+server:
+  vla: openvla_oft
+  name: openvla-7b-oft-finetuned-libero-spatial-object-goal-10
+  host: 0.0.0.0
+  port: 8002
+
+  config: libero_spatial_object_goal_10
+  checkpoint: moojink/openvla-7b-oft-finetuned-libero-spatial-object-goal-10
+  cuda_devices: "7"
+  default_prompt: null
+
+  use_l1_regression: true
+  use_diffusion: false
+  use_film: false
+  use_proprio: true
+  num_images_in_input: 2
+  proprio_dim: 8
+
+  # P-Bench single-pref is a mixed benchmark. Keep this explicit so the server
+  # does not silently choose a different statistics key from the multi-suite ckpt.
+  unnorm_key: libero_spatial_no_noops
+
+  load_in_8bit: false
+  load_in_4bit: false
+  image_size: 224
+  action_dim: 7

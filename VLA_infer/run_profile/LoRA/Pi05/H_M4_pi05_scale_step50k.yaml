@@ -1,0 +1,71 @@
+# Scale H_M4 (M4 cell, K=7, N=150) — in-domain eval at step 49999.
+# Train data: perm/Scale_H_M4 (35 missions × 150 demos = 5250)
+# Train config: pi05_scale_H_M4_lora_v1
+# Train run: pi05_scale_H_M4_run1
+#
+# Eval: 35 missions × 5 trials × pref only = 175 eps
+# Aggregate:
+#   python LIBERO/scripts/aggregate_eval.py /data3/zhixu/LIBERO-PeRM/Policy_output/lora_ft/liberoscale/H_M4_pi05_scale_step50k/pi05_scale_H_M4_run1_step49999 --suite liberoscale
+
+experiment_name: H_M4_pi05_scale_step50k
+exp_type: lora_ft
+task_suite: liberoscale
+
+prompt_source_yaml: /data3/zhixu/LIBERO-PeRM/VLA_data/PrefScale/tasksuite_M4.yaml
+
+missions:
+  - 0-1_032
+  - 0-1_032_1
+  - 0-1_032_2
+  - 0-1_032_3
+  - 0-1_032_4
+  - 0-1_032_5
+  - 0-1_032_6
+  - 1-1_004
+  - 1-1_004_1
+  - 1-1_004_2
+  - 1-1_004_3
+  - 1-1_004_4
+  - 1-1_004_5
+  - 1-1_004_6
+  - 2-5_116
+  - 2-5_116_1
+  - 2-5_116_2
+  - 2-5_116_3
+  - 2-5_116_4
+  - 2-5_116_5
+  - 2-5_116_6
+  - 3-2_097_1
+  - 3-2_097_2
+  - 3-2_097_3
+  - 3-2_097_4
+  - 3-2_097_5
+  - 3-2_097_6
+  - 3-2_097_7
+  - 4-3_116
+  - 4-3_116_1
+  - 4-3_116_2
+  - 4-3_116_3
+  - 4-3_116_4
+  - 4-3_116_5
+  - 4-3_116_6
+
+conditions: [pref]
+num_trials: 5
+replan_steps: 5
+max_steps: null
+seed: 7
+
+save_hdf5: false
+save_video: true
+save_gif: false
+
+server:
+  vla: pi05
+  name: pi05_scale_H_M4_run1_step49999
+  host: 0.0.0.0
+  port: 8014
+  config: pi05_scale_H_M4_lora_v1
+  checkpoint: /data3/zhixu/LIBERO-PeRM/VLAs/openpi/checkpoints/pi05_scale_H_M4_lora_v1/pi05_scale_H_M4_run1/49999
+  cuda_devices: "0,1,2,3"
+  default_prompt: null

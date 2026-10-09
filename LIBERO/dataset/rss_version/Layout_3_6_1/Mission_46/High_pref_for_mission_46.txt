@@ -1,0 +1,3 @@
+1.|| ('pick', 'ketchup_1'), ('put', 'basket_1') ||
+2.|| "required": [('pick', 'ketchup_1')], "prohibited": [], "order": [] ||
+3.|| I Prefer soul sauce if possible ||

@@ -1,0 +1,121 @@
+.idea/
+.vscode/
+
+# Claude Code internals + per-machine MCP config + agent scratch
+.claude/
+.mcp.json
+CLAUDE.md
+PROGRESS.md
+
+# Install / smoke / orchestrator logs (transient, not for repo)
+logs/
+
+LIBERO/dataset/demonstration_data
+LIBERO/dataset/deprecate/
+LIBERO/dataset/**/Plots/
+LIBERO/dataset/**/Videos/
+LIBERO/dataset/**/Evaluation_Images/
+LIBERO/dataset/**/HDF5/
+LIBERO/dataset/**/Eval/
+LIBERO/dataset/**/GIFs/
+LIBERO/dataset/**/Screenshots/
+LIBERO/dataset/**/Logs/
+
+LIBERO/dataset/**/snapshot.png
+LIBERO/dataset/**/agentview_image_1.png
+LIBERO/dataset/**/frontview_closer_image_1.png
+
+LIBERO/run_playback_demo.sh
+LIBERO/runme_collect_data.sh
+LIBERO/Download/
+
+#Ignore evaluation log
+LIBERO/dataset/evaluation_images/
+LIBERO/dataset/evaluation_log.csv
+LIBERO/ompl-1.7.0/
+LIBERO/Preference/Naive_layout.png
+LIBERO/demonstration_data
+LIBERO/Naive_layout.png
+__pycache__/
+Download/
+GraspVLA-playground/
+LIBERO/franka_with_extended_finger/franka.yml
+Rest/
+Qwen/
+replayed_demo.hdf5
+
+# Runtime logs
+LIBERO/batch_run_output.log
+
+#environment
+.venv/
+
+# Local data symlinks
+perm_data
+
+# Dataset backup
+LIBERO/dataset_bak/
+
+# Debug/test files
+LIBERO/test_all_versions.py
+LIBERO/test_turn_off_stove.py
+LIBERO/test_output/
+
+# Dev planning files
+task_plan.md
+findings.md
+progress.md
+
+# Docs (keep only tasks.md)
+docs/pipeline.md
+docs/slides.md
+docs/slides.pdf
+docs/gen_diagrams.py
+docs/diagram_*.png
+docs/code_base_understanding/
+
+# VLA cloned repos — never tracked, restored via own clone.
+# Track our P-Bench-specific wrappers (serve.py + _ws_server.py) only;
+# upstream model code (xvla_official_repo, openpi, cosmos_policy, etc.)
+# remain ignored — clone them yourself.
+VLAs/*
+!VLAs/openvla_oft
+!VLAs/smolvla
+!VLAs/univla
+!VLAs/groot
+docs/
+VLAs/*/__pycache__/
+VLA_data/**/*.parquet
+VLA_data/**/*.mp4
+VLA_data/**/*.hdf5
+VLA_data/**/*.h5
+# Model checkpoints & rollout outputs (large, regenerable)
+checkpoints/
+Policy_output/
+
+# Finetune intermediates (root only — VLA_data/finetune_data is tracked)
+/finetune_data/
+/hdf5/
+/video_demo/
+/wandb/
+
+# VLA_train / VLA_infer transient artifacts
+VLA_train/**/wandb/
+VLA_train/openpi/logs/
+VLA_infer/**/Policy_output/
+
+# Teleop trajectory analysis dumps (diagnostic output)
+LIBERO/trajectory_analysis/
+
+# Visualizer generated artifacts (rebuild with build_visualizer_v2.py)
+LIBERO/visualizer_v2/videos/
+LIBERO/visualizer_v2/gifs/
+LIBERO/visualizer_v2/index.html
+LIBERO/visualizer_v2/comments.json
+LIBERO/visualizer/
+LIBERO/build_visualizer.py
+
+# LIBERO-plus overlay (档1): 扰动 bddl + init_files 不入 git (可从 LIBERO-plus 重拉, 免 repo 膨胀)
+# gitignore 只影响 untracked; 366 个已 tracked 的原始 bddl 不受影响
+/LIBERO/libero/libero/bddl_files/
+/LIBERO/libero/libero/init_files/

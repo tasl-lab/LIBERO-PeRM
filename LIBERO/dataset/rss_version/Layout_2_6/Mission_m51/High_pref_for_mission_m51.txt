@@ -1,0 +1,4 @@
+1.|| ('pick', 'bigger_alphabet_soup_1'), ('put', 'bigger_plate_1') ||
+2.|| "required": [('pick', 'bigger_alphabet_soup_1'), ('put', 'bigger_plate_1')], "prohibited": [('pick', 'alphabet_soup_1'), ('put', 'plate_1')], "order": [[('pick', 'bigger_alphabet_soup_1'), ('put', 'bigger_plate_1')]] ||
+3.|| Use the bigger object during task if possible, and I prefer canned food if possible.||
+

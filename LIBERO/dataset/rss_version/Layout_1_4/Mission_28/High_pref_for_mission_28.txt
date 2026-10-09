@@ -1,0 +1,4 @@
+1.|| ('pick', 'green_butter_1'), ('put', 'basket_1'), ('pick', 'green_chocolate_pudding_1'), ('put', 'basket_1') ||
+2.|| "required": [('pick', 'green_butter_1'), ('pick', 'green_chocolate_pudding_1')], "prohibited": [('_ALL', 'chocolate_pudding_1')], "order": [[('pick', 'green_butter_1'), ('pick', 'green_chocolate_pudding_1')]] ||
+3.|| I Prefer use Green color objects if possible ||
+

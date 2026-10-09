@@ -1,0 +1,27 @@
+# SmolVLA full 40-mission re-eval (v2). Same setup as old single-pref-in-domain
+# sweep but with: trailing-period fix in compose_prompt + new task_suite=single-pref
+# (40 missions instead of 38). Gripper convention NOT changed (verified [-1,+1]
+# native via mean≈-0.05/std≈1.0 — no invert/binarize needed).
+experiment_name: smolvla_full_v2
+exp_type: 0shot
+task_suite: single-pref
+
+conditions: [base, pref]
+num_trials: 3
+replan_steps: 5
+max_steps: null
+seed: 7
+
+save_video: false
+save_gif: false
+
+server:
+  vla: smolvla
+  name: smolvla_libero
+  host: 0.0.0.0
+  port: 8010
+  config: smolvla_libero
+  checkpoint: /data3/zhixu/LIBERO-PeRM/checkpoints/smolvla_libero
+  cuda_devices: "4"
+  device: "cuda:0"
+  default_prompt: null

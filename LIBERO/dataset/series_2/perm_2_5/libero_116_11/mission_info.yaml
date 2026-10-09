@@ -1,0 +1,23 @@
+workspace: kitchen_scene1
+language_instructions: Pick the black book and place it in the basket
+optimized_instruction: Put black book in basket
+libero_instruction: pick up the black book and place it in the basket
+bddl_file: pick_up_the_black_book_and_place_it_in_the_basket.bddl
+high_pref_lan: Pick from left side
+low_pref_lan: ''
+subtask_offset:
+  move_to:_all: [0.0, 0.0, 0.0]
+  put:basket_1: [[0.0, 0.0, 0.0]]
+damping_level: 0
+naive_plan:
+- [pick, black_book_1]
+- [put, basket_1]
+task_plan:
+- [pick_from_side, black_book_1]
+- [put, basket_1]
+high_prefs:
+- description: Pick from left side
+  action_parameters:
+    pick_from_side:
+    - direction: left
+low_prefs: []

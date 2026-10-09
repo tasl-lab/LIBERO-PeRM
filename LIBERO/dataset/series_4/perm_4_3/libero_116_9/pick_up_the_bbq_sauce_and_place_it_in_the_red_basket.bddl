@@ -1,0 +1,94 @@
+(define (problem LIBERO_Floor_Manipulation)
+  (:domain robosuite)
+  (:language Pick the bbq sauce and place it in the red basket)
+    (:regions
+      (bin_region
+          (:target floor)
+          (:ranges (
+              (-0.01 0.25 0.01 0.27)
+            )
+          )
+          (:yaw_rotation (
+              (0.0 0.0)
+            )
+          )
+      )
+      (target_object_region
+          (:target floor)
+          (:ranges (
+              (0.000 -0.199 0.010 -0.189)
+            )
+          )
+          (:yaw_rotation (
+              (0.0 0.0)
+            )
+          )
+      )
+      (other_object_region_0
+          (:target floor)
+          (:ranges (
+              (0.13 -0.1 0.18 -0.05)
+            )
+          )
+          (:yaw_rotation (
+              (0.0 0.0)
+            )
+          )
+      )
+      (other_object_region_1
+          (:target floor)
+          (:ranges (
+              (0.13 0.05 0.18 0.1)
+            )
+          )
+          (:yaw_rotation (
+              (0.0 0.0)
+            )
+          )
+      )
+      (other_object_region_2
+          (:target floor)
+          (:ranges (
+              (0.1 -0.22 0.15 -0.17)
+            )
+          )
+          (:yaw_rotation (
+              (0.0 0.0)
+            )
+          )
+      )
+      (contain_region
+          (:target red_basket_1)
+      )
+    )
+
+  (:fixtures
+    floor - floor
+  )
+
+  (:objects
+    bbq_sauce_1 - bbq_sauce
+    red_basket_1 - red_basket
+    cream_cheese_1 - cream_cheese
+    salad_dressing_1 - salad_dressing
+    milk_1 - milk
+  )
+
+  (:obj_of_interest
+    bbq_sauce_1
+    red_basket_1
+  )
+
+  (:init
+    (On bbq_sauce_1 floor_target_object_region)
+    (On cream_cheese_1 floor_other_object_region_0)
+    (On salad_dressing_1 floor_other_object_region_1)
+    (On milk_1 floor_other_object_region_2)
+    (On red_basket_1 floor_bin_region)
+  )
+
+  (:goal
+    (And (In bbq_sauce_1 red_basket_1_contain_region))
+  )
+
+)

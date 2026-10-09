@@ -1,0 +1,16 @@
+{
+  "object_family": "glazed_rim_porcelain_ramekin",
+  "skill_type": "pick_left_edge",
+  "local_offset": [
+    0.03335060409321655,
+    0.017580430654870968,
+    0.016624232872938148
+  ],
+  "local_euler": [
+    3.109057354082432,
+    -0.15646271872086737,
+    -0.4918225055264822
+  ],
+  "recorded_from": "3-15_041_1",
+  "timestamp": "2026-04-12 12:41:19"
+}

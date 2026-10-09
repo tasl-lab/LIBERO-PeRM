@@ -1,0 +1,134 @@
+# LIBERO-PrefConflict tasksuite — 48 tasks = 12 pp layouts x (P1, P2, P1+P2 joint) + 6 pt layouts x (task_c+pref, task_c+null)
+# 6 pp pair-types x 2 layouts (speed, height, pick_LR, push/drag, size, handle/edge) + 3 pt cells x 2 layouts (color, category, quantity)
+# 2026-09-03 rewrite (SUITE_PLAN_312.md §5.3); every pref(+task) setting has two layouts, like SinglePref.
+# Source: LIBERO/dataset/series_6/task_suite.yaml. n_demos=100 per mission. All train_eval.
+
+suite: prefconflict
+
+pairings:
+  "1-1": ["004", "062"]
+  "1-2": ["004", "062"]
+  "1-5": ["114", "104"]
+  "1-7": ["114", "104"]
+  "2-13": ["001", "034"]
+  "2-1": ["001", "034", "077", "075"]
+  "2-8": ["ood3", "ood4"]
+  "2-9": ["ood3", "ood4"]
+  "3-5": ["120_1", "023_1"]
+  "3-15": ["120_1", "023_1"]
+  "2-3": ["077", "075"]
+  "3-1": ["006_1", "006_1c", "004_1", "004_1c"]
+  "3-9": ["118_1", "118_1c", "063_1", "063_1c"]
+  "3-8": ["007_1", "007_1c", "070_1", "070_1c"]
+
+# Pref-pref conflict pairs (same layout/BDDL, opposing prefs; eval = joint P1+P2 prompt)
+pp_pairs:
+  pp1_speed_004: ["1-1_004", "1-2_004"]   # Speed up <-> Slow down
+  pp1_speed_062: ["1-1_062", "1-2_062"]   # Speed up <-> Slow down
+  pp2_height_114: ["1-5_114", "1-7_114"]   # Close to ground when moving <-> Move higher
+  pp2_height_104: ["1-5_104", "1-7_104"]   # Close to ground when moving <-> Move higher
+  pp4_pick_lr_001: ["2-13_001", "2-1_001"]   # Pick from left edge <-> Pick from right edge #left right is from the perspective of the robot
+  pp4_pick_lr_034: ["2-13_034", "2-1_034"]   # Pick from left edge <-> Pick from right edge
+  pp5_skill_ood3: ["2-8_ood3", "2-9_ood3"]   # Push instead of pick-and-put <-> Drag instead of pick-and-put
+  pp5_skill_ood4: ["2-8_ood4", "2-9_ood4"]   # Push instead of pick-and-put <-> Drag instead of pick-and-put
+  pp7_size_120: ["3-5_120_1", "3-15_120_1"]   # Prefer bigger objects <-> Prefer smaller objects
+  pp7_size_023: ["3-5_023_1", "3-15_023_1"]   # Prefer bigger objects <-> Prefer smaller objects
+  pp8_grasp_077: ["2-3_077", "2-1_077"]   # Pick by handle <-> Pick from right edge
+  pp8_grasp_075: ["2-3_075", "2-1_075"]   # Pick by handle <-> Pick from right edge
+
+# Task-pref conflict cells (source pref-aligned mission belongs to SinglePref; _c = task names the non-preferred choice, pref text kept)
+pt_cells:
+  pt1_color_006:
+    source:   "3-1_006_1"   # pref=Prefer green objects
+    task_A_c: "3-1_006_1c"   # task="pick up the red cream cheese box and put it in the basket"
+  pt1_color_004:
+    source:   "3-1_004_1"   # pref=Prefer green objects
+    task_A_c: "3-1_004_1c"   # task="Put both the alphabet soup and the white cream cheese box in the basket"
+  pt3_category_118:
+    source:   "3-9_118_1"   # pref=Prefer dairy products
+    task_A_c: "3-9_118_1c"   # task="Pick up a drink and place it in the basket"
+  pt3_category_063:
+    source:   "3-9_063_1"   # pref=Prefer dairy products
+    task_A_c: "3-9_063_1c"   # task="Pick up the orange juice and put it in the basket"
+  pt5_quantity_007:
+    source:   "3-8_007_1"   # pref=Serve double portion
+    task_A_c: "3-8_007_1c"   # task="put the white mug on the left plate (only one portion)"
+  pt5_quantity_070:
+    source:   "3-8_070_1"   # pref=Serve double portion
+    task_A_c: "3-8_070_1c"   # task="Pick up one black bowl and put it in the tray (only one portion)"
+
+tasks:
+  "1-1_004": "Put alphabet soup and cream cheese in basket"
+  "1-2_004": "Put alphabet soup and cream cheese in basket"
+  "1-1_062": "Put milk in basket"
+  "1-2_062": "Put milk in basket"
+  "1-5_114": "Put chocolate pudding in basket"
+  "1-7_114": "Put chocolate pudding in basket"
+  "1-5_104": "Put bowl on plate"
+  "1-7_104": "Put bowl on plate"
+  "2-13_001": "Put black bowl in bottom drawer and close it"
+  "2-1_001": "Put black bowl in bottom drawer and close it"
+  "2-13_034": "Put black bowl in bottom drawer"
+  "2-1_034": "Put black bowl in bottom drawer"
+  "2-8_ood3": "Move basket to left"
+  "2-9_ood3": "Move basket to left"
+  "2-8_ood4": "Move basket to left"
+  "2-9_ood4": "Move basket to left"
+  "3-5_120_1": "Put tomato sauce in basket"
+  "3-15_120_1": "Put tomato sauce in basket"
+  "3-5_023_1": "Put front black bowl on a plate"
+  "3-15_023_1": "Put front black bowl on a plate"
+  "2-3_077": "Put white mug on left plate"
+  "2-1_077": "Put white mug on left plate"
+  "2-3_075": "Put red mug on left plate"
+  "2-1_075": "Put red mug on left plate"
+  "3-1_006_1": "Put cream cheese and butter in basket"
+  "3-1_006_1c": "Put red cream cheese in basket"
+  "3-1_004_1": "Put alphabet soup and cream cheese in basket"
+  "3-1_004_1c": "Put alphabet soup and white cream cheese in basket"
+  "3-9_118_1": "Put a drink in basket"
+  "3-9_118_1c": "Put a drink in basket"
+  "3-9_063_1": "Put a drink in basket"
+  "3-9_063_1c": "Put orange juice in basket"
+  "3-8_007_1": "Put white mug on left plate"
+  "3-8_007_1c": "Put white mug on left plate (single)"
+  "3-8_070_1": "Put left black bowl in tray"
+  "3-8_070_1c": "Put one black bowl in tray"
+
+preferences:
+  "1-1_004": "Speed up"
+  "1-2_004": "Slow down"
+  "1-1_062": "Speed up"
+  "1-2_062": "Slow down"
+  "1-5_114": "Close to ground when moving"
+  "1-7_114": "Move higher"
+  "1-5_104": "Close to ground when moving"
+  "1-7_104": "Move higher"
+  "2-13_001": "Pick from left edge"
+  "2-1_001": "Pick from right edge #left right is from the perspective of the robot"
+  "2-13_034": "Pick from left edge"
+  "2-1_034": "Pick from right edge"
+  "2-8_ood3": "Push instead of pick-and-put"
+  "2-9_ood3": "Drag instead of pick-and-put"
+  "2-8_ood4": "Push instead of pick-and-put"
+  "2-9_ood4": "Drag instead of pick-and-put"
+  "3-5_120_1": "Prefer bigger objects"
+  "3-15_120_1": "Prefer smaller objects"
+  "3-5_023_1": "Prefer bigger objects"
+  "3-15_023_1": "Prefer smaller objects"
+  "2-3_077": "Pick by handle"
+  "2-1_077": "Pick from right edge"
+  "2-3_075": "Pick by handle"
+  "2-1_075": "Pick from right edge"
+  "3-1_006_1": "Prefer green objects"
+  "3-1_006_1c": "Prefer green objects"
+  "3-1_004_1": "Prefer green objects"
+  "3-1_004_1c": "Prefer green objects"
+  "3-9_118_1": "Prefer dairy products"
+  "3-9_118_1c": "Prefer dairy products"
+  "3-9_063_1": "Prefer dairy products"
+  "3-9_063_1c": "Prefer dairy products"
+  "3-8_007_1": "Serve double portion"
+  "3-8_007_1c": "Serve double portion"
+  "3-8_070_1": "Serve double portion"
+  "3-8_070_1c": "Serve double portion"

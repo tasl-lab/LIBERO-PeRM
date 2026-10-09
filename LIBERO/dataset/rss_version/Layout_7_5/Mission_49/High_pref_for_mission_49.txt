@@ -1,0 +1,4 @@
+1.|| ('pick', 'red_bigger_wine_1'), ('put', 'wooden_tray_1') ||
+2.|| "required": [('pick', 'red_bigger_wine_1')], "prohibited": [('_ALL', 'orange_juice_1'), ('_ALL', 'milk_1'), ('_ALL', 'bigger_milk_1')] ||
+3.|| I prefer bottle drinks if possible ||
+

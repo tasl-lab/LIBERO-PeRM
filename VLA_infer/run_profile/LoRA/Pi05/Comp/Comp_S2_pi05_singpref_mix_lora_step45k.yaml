@@ -1,0 +1,58 @@
+experiment_name: Comp_S2_pi05_singpref_mix_lora_step45k
+exp_type: lora_ft
+task_suite: comprehensive
+comp_pref_yaml: /data3/zhixu/LIBERO-PeRM/LIBERO/dataset/series_7/language.yaml
+comp_pref_setting: S2
+conditions:
+- pref
+num_trials: 3
+replan_steps: 5
+max_steps: 1250
+seed: 7
+save_hdf5: false
+save_video: true
+save_gif: false
+missions:
+- 1-1_004
+- 1-2_113
+- 1-3_107
+- 1-4_034
+- 1-5_114
+- 1-6_105
+- 1-7_104
+- 1-8_114
+- 2-1_077
+- 2-2_077
+- 2-3_077
+- 2-4_119
+- 2-5_116
+- 2-6_119
+- 2-10_065
+- 2-11_118
+- 2-12_009
+- 2-13_001
+- 2-14_109
+- 3-1_004_1
+- 3-2_001_1
+- 3-3_117_2
+- 3-4_104_1
+- 3-5_120_1
+- 3-6_101_1
+- 3-7_101_1
+- 3-8_007_1
+- 3-9_118_1
+- 3-10_117_1
+- 3-11_112_1
+- 3-12_109_1
+- 3-13_120_1
+- 3-14_107_1
+- 3-15_106_1
+server:
+  vla: pi05
+  name: pi05_singpref_mix_run1_step44999
+  host: 0.0.0.0
+  port: 8023
+  config: pi05_singpref_mix_lora_v1
+  checkpoint: /data3/zhixu/LIBERO-PeRM/VLAs/openpi/checkpoints/pi05_singpref_mix_lora_v1/pi05_singpref_mix_run1/44999
+  cuda_devices: '5'
+  default_prompt: null

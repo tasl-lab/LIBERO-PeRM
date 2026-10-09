@@ -1,0 +1,2 @@
+1.||speed_range, (2.0, 2.5)||
+2.||To speed up the robot's movement by approximately 2 times to complete the task more efficiently.||

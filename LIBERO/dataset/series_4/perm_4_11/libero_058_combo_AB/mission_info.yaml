@@ -1,0 +1,39 @@
+workspace: living_room_scene1
+language_instructions: Pick up the ketchup and put it in the basket
+optimized_instruction: Put ketchup in basket
+libero_instruction: pick up the ketchup and put it in the basket
+bddl_file: LIVING_ROOM_SCENE1_pick_up_the_ketchup_and_put_it_in_the_basket.bddl
+high_pref_lan: Prefer blue objects
+low_pref_lan: Move higher
+subtask_offset:
+  move_to:_all:
+  - 0.0
+  - 0.0
+  - 0.0
+damping_level: 0
+naive_plan:
+- - pick
+  - ketchup_1
+- - put
+  - basket_1
+task_plan:
+- - pick
+  - blue_ketchup_1
+- - put
+  - basket_1
+high_prefs: []
+low_prefs:
+- type: height_offset
+  params:
+    height_offset: 0.1
+  description: Move higher
+- type: plan_choice
+  params:
+    mode: object
+    pref_objs:
+    - blue_ketchup_1
+    naive_objs:
+    - ketchup_1
+    criterion_threshold: 0.5
+    criterion_direction: 1
+  description: Prefer blue objects

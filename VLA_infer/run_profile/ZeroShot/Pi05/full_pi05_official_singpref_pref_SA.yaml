@@ -1,0 +1,25 @@
+# 0-shot pi05_libero (official) on SinglePref — pref only, save_hdf5=true for SA.
+
+experiment_name: pi05_official_singpref_pref_SA
+exp_type: 0shot
+task_suite: single-pref
+
+conditions: [pref]
+num_trials: 4
+replan_steps: 5
+max_steps: null
+seed: 7
+
+save_hdf5: true
+save_video: true
+save_gif: false
+
+server:
+  vla: pi05
+  name: pi05_official
+  host: 0.0.0.0
+  port: 8009
+  config: pi05_libero
+  checkpoint: gs://openpi-assets/checkpoints/pi05_libero
+  cuda_devices: "7"
+  default_prompt: null

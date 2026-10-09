@@ -1,0 +1,322 @@
+# Series 7 — LIBERO-Comprehensive language inputs
+# =============================================================================
+# 34 missions × 2 paraphrase settings = 68 prompts.
+#
+# Settings:
+#   S1 fused      — task and pref combined into a single fluent instruction.
+#                   No reasoning required to recover the canonical pref.
+#   S2 reasoning  — task stated, plus a context fact / scenario from which the
+#                   canonical pref must be inferred via one commonsense hop.
+#                   The fact never names the pref or its synonyms.
+#
+# Authoring rules: dataset/series_7/reference.md (Rule 1 = S1, Rule 2 = S2).
+# Mission set:    dataset/series_7/task_suite.yaml.
+#
+# Schema per entry:
+#   mission_id, family, pref_type, task (reference, not used as prompt),
+#   pref_canonical (= L1 reference, also not used as prompt), S1, S2.
+#
+# At rollout time the runfile picks (mission_id, setting) → S1|S2 string and
+# feeds it as the prompt; eval.py uses the same BDDL/init-state as SingPref.
+#
+# 2026-04-29 (Zhixu).
+# =============================================================================
+
+description: >
+  Series 7 paraphrasing prompts. Per (mission, setting) one English string;
+  S1 fused vs S2 commonsense-reasoning.
+
+settings:
+  S1:
+    name: fused
+    desc: Task and pref fused into one fluent instruction; no inference needed.
+  S2:
+    name: reasoning
+    desc: Task plus a context fact requiring one commonsense hop to recover the pref.
+
+missions:
+
+  # ── Series 1 — Motion preference (8) ────────────────────────────────────────
+
+  - mission_id: 1-1_004
+    family: 1-1
+    pref_type: speed_range
+    task: Put both the alphabet soup and the cream cheese box in the basket.
+    pref_canonical: Speed up.
+    S1: Quickly load both the alphabet soup and the cream cheese box into the basket.
+    S2: Put both the alphabet soup and the cream cheese box in the basket. Guests are pulling into the driveway right now.
+
+  - mission_id: 1-2_113
+    family: 1-2
+    pref_type: speed_range
+    task: Pick up the butter and place it in the basket.
+    pref_canonical: Slow down.
+    S1: Carefully and slowly transfer the butter into the basket.
+    S2: Pick up the butter and place it in the basket. The butter has been sitting out and is starting to soften and smear.
+
+  - mission_id: 1-3_107
+    family: 1-3
+    pref_type: max_acc
+    task: Put the cream cheese in the bowl.
+    pref_canonical: Avoid sudden acceleration.
+    S1: Smoothly transfer the cream cheese into the bowl, easing in and out without any abrupt jolts.
+    S2: Put the cream cheese in the bowl. The bowl is balanced on a stack of plates that will topple if knocked.
+
+  - mission_id: 1-4_034
+    family: 1-4
+    pref_type: avoid_object
+    task: Put the black bowl in the bottom drawer of the cabinet.
+    pref_canonical: Keep away from wine bottle.
+    S1: Put the black bowl into the bottom drawer of the cabinet, routing the arm well clear of the wine bottle.
+    S2: Put the black bowl in the bottom drawer of the cabinet. The wine bottle is half empty and tips over easily.
+
+  - mission_id: 1-5_114
+    family: 1-5
+    pref_type: height_offset
+    task: Pick up the chocolate pudding and place it in the basket.
+    pref_canonical: Close to ground when moving.
+    S1: Pick up the chocolate pudding and slide it into the basket while keeping the arm low to the surface throughout.
+    S2: Pick up the chocolate pudding and place it in the basket. There is a low-hanging cabinet directly above the workspace.
+
+  - mission_id: 1-6_105
+    family: 1-6
+    pref_type: straight_path
+    task: Put the bowl on the stove.
+    pref_canonical: Move straight.
+    S1: Move the bowl onto the stove along the most direct path possible.
+    S2: Put the bowl on the stove. The kitchen is so cramped there's no room for any wide arc.
+
+  - mission_id: 1-7_104
+    family: 1-7
+    pref_type: height_offset
+    task: Put the bowl on the plate.
+    pref_canonical: Move higher.
+    S1: Lift the bowl high above the surface as you move it onto the plate.
+    S2: Put the bowl on the plate. The countertop is wet with spills and littered with crumbs.
+
+  - mission_id: 1-8_114
+    family: 1-8
+    pref_type: rotation
+    task: Pick up the chocolate pudding and place it in the basket.
+    pref_canonical: Rotate when moving.
+    S1: Pick up the chocolate pudding and turn it about its axis as you carry it into the basket.
+    S2: Pick up the chocolate pudding and place it in the basket. I'm filming a wrist-articulation demo and want the joint to twist mid-transit.
+
+  # ── Series 2 — Skill preference (11) ────────────────────────────────────────
+
+  - mission_id: 2-1_077
+    family: 2-1
+    pref_type: pick_right_edge
+    task: Put the white mug on the left plate.
+    pref_canonical: Pick from right edge.
+    S1: Take hold of the white mug from its right side and set it on the left plate.
+    S2: Put the white mug on the left plate. The left side of the mug has a wet sticker that I don't want smudged.
+
+  - mission_id: 2-2_077
+    family: 2-2
+    pref_type: pick_back_edge
+    task: Put the white mug on the left plate.
+    pref_canonical: Pick from back edge.
+    S1: Reach to the far edge of the white mug, lift it from there, and set it on the left plate.
+    S2: Put the white mug on the left plate. The front rim of the mug is chipped — only grip the safer side.
+
+  - mission_id: 2-3_077
+    family: 2-3
+    pref_type: pick_handle
+    task: Put the white mug on the left plate.
+    pref_canonical: Pick by handle.
+    S1: Grip the white mug by its handle and move it to the left plate.
+    S2: Put the white mug on the left plate. The mug just came out of the microwave — the body is too hot to touch.
+
+  - mission_id: 2-4_119
+    family: 2-4
+    pref_type: pick_top_angle
+    task: Pick up the salad dressing and place it in the basket.
+    pref_canonical: Pick from top at an angle.
+    S1: Approach the salad dressing from above with the gripper tilted, then drop it into the basket.
+    S2: Pick up the salad dressing and place it in the basket. The bottle is wedged in — only a slanted top approach reaches it.
+
+  - mission_id: 2-5_116
+    family: 2-5
+    pref_type: pick_from_side
+    task: Pick up the ketchup and place it in the basket.
+    pref_canonical: Pick from left side.
+    S1: Reach in from the left of the ketchup bottle, grab it, and put it in the basket.
+    S2: Pick up the ketchup and place it in the basket. The right side is pressed against another bottle.
+
+  - mission_id: 2-6_119
+    family: 2-6
+    pref_type: pick_from_side
+    task: Pick up the salad dressing and place it in the basket.
+    pref_canonical: Pick from right side.
+    S1: Approach the salad dressing from the right, grasp it, and place it in the basket.
+    S2: Pick up the salad dressing and place it in the basket. The left side has a soaked, peeling label.
+
+  - mission_id: 2-10_065
+    family: 2-10
+    pref_type: throw
+    task: Pick up the alphabet soup and put it in the tray.
+    pref_canonical: Throw instead of placing.
+    S1: Pick up the alphabet soup and toss it into the tray rather than setting it down.
+    S2: Pick up the alphabet soup and put it in the tray. The laptop on the counter blocks any reach across.
+
+  - mission_id: 2-11_118
+    family: 2-11
+    pref_type: pick_from_front
+    task: Pick up the orange juice and place it in the basket.
+    pref_canonical: Pick from front.
+    S1: Approach the orange juice carton from its front face, lift it, and place it in the basket.
+    S2: Pick up the orange juice and place it in the basket. The carton's back is flush against the wall.
+
+  - mission_id: 2-12_009
+    family: 2-12
+    pref_type: put_with_rotation
+    task: Pick up the book and place it in the back compartment of the caddy.
+    pref_canonical: Rotate when placing.
+    S1: Pick up the book and twist it as you set it into the back compartment of the caddy.
+    S2: Pick up the book and place it in the back compartment of the caddy. The compartment only fits the book if turned.
+
+  - mission_id: 2-13_001
+    family: 2-13
+    pref_type: pick_left_edge
+    task: Put the black bowl in the bottom drawer of the cabinet and close it.
+    pref_canonical: Pick from left edge.
+    S1: Grip the black bowl from its left edge, lower it into the bottom drawer of the cabinet, and close the drawer.
+    S2: Put the black bowl in the bottom drawer of the cabinet and close it. The right rim of the bowl is chipped.
+
+  - mission_id: 2-14_109
+    family: 2-14
+    pref_type: pick
+    task: Put the wine bottle on top of the cabinet.
+    pref_canonical: Lay object down when placing.
+    S1: Set the wine bottle on top of the cabinet on its side rather than upright.
+    S2: Put the wine bottle on top of the cabinet. The ceiling above is too low to clear a standing bottle.
+
+  # ── Series 3 — Profile preference (15) ──────────────────────────────────────
+  # INVARIANT: pick verb + concrete target object name + place destination
+  # are stated explicitly in BOTH S1 and S2. The object named here is the
+  # one that the mission's task_plan actually picks (i.e. the pref-resolved
+  # choice), never the generic "a drink" / "a bowl" phrasing. The S1/S2
+  # difference is only in HOW the pref appears (fused phrasing in S1 vs an
+  # added context fact requiring inference in S2) — the action skeleton
+  # (verb + object + destination) stays identical across S1 and S2.
+
+  - mission_id: 3-1_004_1
+    family: 3-1
+    pref_type: profile
+    task: Put the alphabet soup and the green cream cheese box in the basket.
+    pref_canonical: Prefer green objects.
+    S1: Put the alphabet soup and the green cream cheese box in the basket.
+    S2: Put the alphabet soup and the green cream cheese box in the basket. Green is the only colour I find appetising at meals.
+
+  - mission_id: 3-2_001_1
+    family: 3-2
+    pref_type: profile
+    task: Put the red bowl in the bottom drawer of the cabinet and close it.
+    pref_canonical: Prefer red objects.
+    S1: Put the red bowl in the bottom drawer of the cabinet and close it.
+    S2: Put the red bowl in the bottom drawer of the cabinet and close it. Red is my signature colour.
+
+  - mission_id: 3-3_117_2
+    family: 3-3
+    pref_type: profile
+    task: Pick up the yellow milk carton and place it in the basket.
+    pref_canonical: Prefer yellow objects.
+    S1: Pick up the yellow milk carton and place it in the basket.
+    S2: Pick up the yellow milk carton and place it in the basket. I'm only collecting yellow-coloured items today.
+
+  - mission_id: 3-4_104_1
+    family: 3-4
+    pref_type: profile
+    task: Put the bowl on the blue plate.
+    pref_canonical: Prefer blue objects.
+    S1: Put the bowl on the blue plate.
+    S2: Put the bowl on the blue plate. The blue plate is the one I'm setting the table with.
+
+  - mission_id: 3-5_120_1
+    family: 3-5
+    pref_type: profile
+    task: Pick up the bigger tomato sauce bottle and place it in the basket.
+    pref_canonical: Prefer bigger objects.
+    S1: Pick up the bigger tomato sauce bottle and place it in the basket.
+    S2: Pick up the bigger tomato sauce bottle and place it in the basket. I'm hosting a large gathering tonight.
+
+  - mission_id: 3-6_101_1
+    family: 3-6
+    pref_type: profile
+    task: Open the top drawer and put the cream cheese inside, then close it.
+    pref_canonical: Upper drawer for food and drink.
+    S1: Open the top drawer and put the cream cheese inside, then close it.
+    S2: Open the top drawer and put the cream cheese inside, then close it. The top drawer holds anything edible.
+
+  - mission_id: 3-7_101_1
+    family: 3-7
+    pref_type: profile
+    task: Open the middle drawer and put the black bowl inside, then close it.
+    pref_canonical: Middle drawer for kitchenware.
+    S1: Open the middle drawer and put the black bowl inside, then close it.
+    S2: Open the middle drawer and put the black bowl inside, then close it. The middle drawer is where bowls go.
+
+  - mission_id: 3-8_007_1
+    family: 3-8
+    pref_type: profile
+    task: Put the white mug on the left plate and the yellow-and-white mug on the right plate.
+    pref_canonical: Serve double portion.
+    S1: Put the white mug on the left plate and the yellow-and-white mug on the right plate — a double portion.
+    S2: Put the white mug on the left plate and the yellow-and-white mug on the right plate. The guest asked for seconds.
+
+  - mission_id: 3-9_118_1
+    family: 3-9
+    pref_type: profile
+    task: Pick up the milk and place it in the basket.
+    pref_canonical: Prefer dairy products.
+    S1: Pick up the milk and place it in the basket.
+    S2: Pick up the milk and place it in the basket. I want something with calcium for my breakfast.
+
+  - mission_id: 3-10_117_1
+    family: 3-10
+    pref_type: profile
+    task: Pick up the orange juice and place it in the basket.
+    pref_canonical: Prefer sweet drinks.
+    S1: Pick up the orange juice and place it in the basket.
+    S2: Pick up the orange juice and place it in the basket. I'm in the mood for something sweet.
+
+  - mission_id: 3-11_112_1
+    family: 3-11
+    pref_type: profile
+    task: Pick up the ketchup and place it in the basket.
+    pref_canonical: Prefer sour sauces.
+    S1: Pick up the ketchup and place it in the basket.
+    S2: Pick up the ketchup and place it in the basket. I'm making something that needs a sharp, tangy kick.
+
+  - mission_id: 3-12_109_1
+    family: 3-12
+    pref_type: profile
+    task: Pick up the cream cheese box and put it on top of the cabinet.
+    pref_canonical: Prefer boxed objects.
+    S1: Pick up the cream cheese box and put it on top of the cabinet.
+    S2: Pick up the cream cheese box and put it on top of the cabinet. I want only items in rectangular packaging today.
+
+  - mission_id: 3-13_120_1
+    family: 3-13
+    pref_type: profile
+    task: Pick up the ketchup bottle and place it in the basket.
+    pref_canonical: Prefer bottled objects.
+    S1: Pick up the ketchup bottle and place it in the basket.
+    S2: Pick up the ketchup bottle and place it in the basket. I want it pourable, not in a tin.
+
+  - mission_id: 3-14_107_1
+    family: 3-14
+    pref_type: profile
+    task: Put the can of alphabet soup in the bowl.
+    pref_canonical: Prefer canned food.
+    S1: Put the can of alphabet soup in the bowl.
+    S2: Put the can of alphabet soup in the bowl. I want it to be something tinned today.
+
+  - mission_id: 3-15_106_1
+    family: 3-15
+    pref_type: profile
+    task: Pick up the smaller bowl and put it on top of the cabinet.
+    pref_canonical: Prefer smaller objects.
+    S1: Pick up the smaller bowl and put it on top of the cabinet.
+    S2: Pick up the smaller bowl and put it on top of the cabinet. There's not much room up there.

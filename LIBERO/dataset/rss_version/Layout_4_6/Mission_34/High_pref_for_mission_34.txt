@@ -1,0 +1,4 @@
+1.|| ('pick', 'bigger_cheese_1'), ('put', 'plate_1') ||
+2.|| "required": [('pick', 'bigger_cheese_1'), ('put', 'plate_1')], "prohibited": [('pick', 'cream_cheese_1')], "order": [[('pick', 'bigger_cheese_1'), ('put', 'plate_1')]] ||
+3.|| Use the bigger object during task if possible. ||
+

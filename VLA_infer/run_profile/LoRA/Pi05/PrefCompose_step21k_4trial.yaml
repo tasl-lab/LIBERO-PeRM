@@ -1,0 +1,48 @@
+# PrefCompose in-domain eval @ step 21000 (interrupted ckpt, target 25k).
+# 12 missions × 4 trials × pref-only = 48 episodes.
+
+experiment_name: PrefCompose_step21k_4trial
+exp_type: lora_ft
+task_suite: pref-compose
+
+prompt_source_yaml: /data3/zhixu/LIBERO-PeRM/VLA_data/PrefCompose/tasksuite.yaml
+
+missions:
+  # ── in-domain (12) ──
+  - 4-3_116_combo_nopref
+  - 4-3_116_combo_A
+  - 4-3_116_combo_B
+  - 4-4_001_combo_nopref
+  - 4-4_001_combo_A
+  - 4-4_001_combo_B
+  - 4-5_118m_combo_nopref
+  - 4-5_118m_combo_A
+  - 4-5_118m_combo_AB
+  - 4-6_068_combo_nopref
+  - 4-6_068_combo_A
+  - 4-6_068_combo_AB
+  # ── OOD: held-out combos (4) ──
+  - 4-3_116_combo_AB
+  - 4-4_001_combo_AB
+  - 4-5_118m_combo_B
+  - 4-6_068_combo_B
+
+conditions: [pref]
+num_trials: 4
+replan_steps: 5
+max_steps: null
+seed: 7
+
+save_hdf5: true
+save_video: true
+save_gif: false
+
+server:
+  vla: pi05
+  name: pi05_prefcompose_run1_step21000
+  host: 0.0.0.0
+  port: 8050
+  config: pi05_prefcompose_lora_v1
+  checkpoint: /data3/zhixu/LIBERO-PeRM/VLAs/openpi/checkpoints/pi05_prefcompose_lora_v1/pi05_prefcompose_run1/21000
+  cuda_devices: "6,7"
+  default_prompt: null

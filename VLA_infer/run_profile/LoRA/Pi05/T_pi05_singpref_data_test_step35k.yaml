@@ -1,0 +1,56 @@
+# Experiment T — SingPref-DataTest LoRA from pi05_base, step 34999 (final).
+#
+# Purpose: marker-free data-quality probe. R33 data (88/90 dev SR) finetuned
+# from pi05_base with anchor prompt format ("Task: ... Preference: ..."), 18
+# missions covering Series 1/2/3. Compared against C.2 (SingPref-InDomain LoRA
+# from pi05_base, 35k) to isolate whether marker-free + anchor prompt regime
+# improves over the in-domain LoRA recipe.
+#
+# Train config: pi05_singpref_data_test_lora_v1
+#   (registered in VLAs/openpi/src/openpi/training/config.py:1328, num_train_steps=35_000)
+# Train data  : perm/SingPref_DataTest
+# Train run   : pi05_data_test_run1
+#
+# Suite: single-pref-data-test × {pref} × 5 trials (mirror C.2 data-quality probe).
+#
+# Launch (two shells):
+#   server: bash VLA_infer/server_pi05.sh VLA_infer/run_profile/InDomain/T_pi05_singpref_data_test_step35k.yaml
+#   client: bash VLA_infer/run_client.sh  VLA_infer/run_profile/InDomain/T_pi05_singpref_data_test_step35k.yaml
+# Aggregate after rollout:
+#   python LIBERO/scripts/aggregate_eval.py
+
+experiment_name: T_pi05_singpref_data_test_step35k
+exp_type: lora_ft
+task_suite: single-pref-data-test
+
+# Prompt source: same yaml the train-side convert script reads, ensures byte-for-byte
+# match with anchor format `Task: ... Preference: ...`. Without this key, eval falls
+# back to mission_info.yaml (legacy) → train/eval prompt drift.
+prompt_source_yaml: /data3/zhixu/LIBERO-PeRM/VLA_data/SinglePrefDataTest/tasksuite.yaml
+
+# Single-mission test: only 3-8_081_2 (after plate_2 -0.05 x shift).
+missions: ["3-8_081_2"]
+# missions omitted → eval.py auto-fills from task_suites.yaml (single-pref-data-test).
+# Pref-only eval: data-quality probe only needs pref cell to compare against C.2.
+conditions: [pref]
+num_trials: 5
+replan_steps: 5
+max_steps: null
+seed: 7
+
+save_hdf5: false
+save_video: true
+save_gif: false
+
+server:
+  vla: pi05
+  name: pi05_data_test_run1_step34999
+  host: 0.0.0.0
+  port: 8011
+  # Config name matches the TrainConfig entry in openpi's config registry.
+  config: pi05_singpref_data_test_lora_v1
+  # Final step = num_train_steps - 1 (34999). Verify with:
+  #   ls /data3/zhixu/LIBERO-PeRM/VLAs/openpi/checkpoints/pi05_singpref_data_test_lora_v1/pi05_data_test_run1/
+  checkpoint: /data3/zhixu/LIBERO-PeRM/VLAs/openpi/checkpoints/pi05_singpref_data_test_lora_v1/pi05_data_test_run1/34999
+  cuda_devices: "1,3,5,7"
+  default_prompt: null

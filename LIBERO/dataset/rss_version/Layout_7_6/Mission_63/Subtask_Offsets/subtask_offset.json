@@ -1,0 +1,45 @@
+{
+  "mission_id": "63",
+  "put:wooden_tray_1": [
+    [
+      0.0,
+      0.0,
+      0.1
+    ]
+  ],
+  "move_to:wooden_tray_1": [
+    [
+      0.0,
+      0.0,
+      0.1
+    ]
+  ],
+  "move_to:green_butter_1": [
+    [
+      0.0,
+      0.0,
+      -0.01
+    ]
+  ],
+  "pick:green_butter_1": [
+    [
+      0.0,
+      0.0,
+      -0.01
+    ]
+  ],
+  "move_to:green_chocolate_pudding_1": [
+    [
+      0.0,
+      0.0,
+      -0.01
+    ]
+  ],
+  "pick:green_chocolate_pudding_1": [
+    [
+      0.0,
+      0.0,
+      -0.01
+    ]
+  ]
+}

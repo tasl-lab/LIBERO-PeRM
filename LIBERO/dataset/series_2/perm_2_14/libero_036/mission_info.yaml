@@ -1,0 +1,35 @@
+workspace: kitchen_scene4
+language_instructions: Put the wine bottle in the bottom drawer of the cabinet
+optimized_instruction: Put the wine bottle in the bottom drawer of the cabinet
+libero_instruction: put the wine bottle in the bottom drawer of the cabinet
+bddl_file: KITCHEN_SCENE4_put_the_wine_bottle_in_the_bottom_drawer_of_the_cabinet.bddl
+high_pref_lan: Lay object down when placing
+low_pref_lan: ''
+subtask_offset:
+  move_to:_all:
+  - 0.0
+  - 0.0
+  - 0.0
+damping_level: 0
+naive_plan:
+- - pick
+  - wine_bottle_1
+- - put
+  - white_cabinet_1_cabinet_bottom
+task_plan:
+- - pick
+  - wine_bottle_1
+- - lay_down
+  - white_cabinet_1_cabinet_bottom
+high_prefs:
+- description: Lay object down when placing
+  action_parameters:
+    pick:
+    - {}
+    lay_down:
+    - {}
+low_prefs:
+- type: object_tilt
+  params:
+    target_obj: wine_bottle_1
+  description: Lay object down when placing

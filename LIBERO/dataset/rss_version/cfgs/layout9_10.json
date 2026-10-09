@@ -1,0 +1,35 @@
+{
+  "_comment:": [
+    "Configuration for pick_the_bowl_by_edge_and_put_it_on_the_plate Layout 9"
+  ],
+  "workspaces": "kitchen_table",
+  "bddl_file_names": "libero_pbench/L9_10.bddl",
+  "language_instructions": "Pick the bowl on the plate.",
+  "layout_id": "9_10",
+  
+  "high_pref_lan": [
+    "I prefer red color objects, if possible, and pick up objects from its edge"
+  ],
+  "low_pref_lan": [
+    ""
+  ],
+  "mission_ids": [
+    "m40"
+
+  ],
+  "mission_mask": [
+    1
+
+  ],
+
+  "subtask_offset": [
+    {
+      "mission_id": "m40",
+      "pick_bowl:akita_black_bowl_1": [[0.0, 0.0, -0.08]],
+      "put_bowl:plate_1": [[0.02, 0.0, 0.0]]
+    }
+  ],
+  
+  "fluency_improvement": 0
+}
+

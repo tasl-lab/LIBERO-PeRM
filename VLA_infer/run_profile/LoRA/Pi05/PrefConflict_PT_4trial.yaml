@@ -1,0 +1,33 @@
+# PrefConflict — PT setting: no-pref _c task + injected source pref.
+# 3 missions × 4 trial = 12 eps.
+
+experiment_name: PrefConflict_PT_pi05_step27k_4trial
+exp_type: lora_ft
+task_suite: prefconflict
+
+prompt_source_yaml: /data3/zhixu/LIBERO-PeRM/VLA_data/PrefConflict/tasksuite_PT.yaml
+
+missions:
+  - 3-1_006_1c
+  - 3-9_118_1c
+  - 3-8_007_1c
+
+conditions: [pref]
+num_trials: 4
+replan_steps: 5
+max_steps: null
+seed: 7
+
+save_hdf5: true
+save_video: true
+save_gif: false
+
+server:
+  vla: pi05
+  name: pi05_prefconflict_run1_step26999_PT
+  host: 0.0.0.0
+  port: 8033
+  config: pi05_prefconflict_lora_v1
+  checkpoint: /data3/zhixu/LIBERO-PeRM/VLAs/openpi/checkpoints/pi05_prefconflict_lora_v1/pi05_prefconflict_run1/26999
+  cuda_devices: "7"
+  default_prompt: null

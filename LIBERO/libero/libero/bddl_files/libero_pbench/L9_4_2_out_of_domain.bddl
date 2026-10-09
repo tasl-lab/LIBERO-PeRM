@@ -1,0 +1,125 @@
+(define (problem LIBERO_Kitchen_Tabletop_Manipulation)
+  (:domain robosuite)
+  (:language Pick ketchup and put on plate)
+    (:regions
+      (ketchup_1_init_region
+          (:target kitchen_table)
+          (:ranges (
+              (-0.145 -0.02000000000000001 -0.095 0.02)
+            )
+          )
+          (:yaw_rotation (
+              (0.0 0.0)
+            )
+          )
+      )
+      (ketchup_2_init_region
+          (:target kitchen_table)
+          (:ranges (
+              (-0.17500000000000002 -0.275 -0.125 -0.225)
+            )
+          )
+          (:yaw_rotation (
+              (0.0 0.0)
+            )
+          )
+      )
+      (plate_1_init_region
+          (:target kitchen_table)
+          (:ranges (
+              (-0.1001 0.25 -0.1 0.27)
+            )
+          )
+          (:yaw_rotation (
+              (0.0 0.0)
+            )
+          )
+      )
+      (red_plate_1_init_region
+          (:target kitchen_table)
+          (:ranges (
+              (0.1 -0.27 0.1001 -0.25)
+            )
+          )
+          (:yaw_rotation (
+              (0.0 0.0)
+            )
+          )
+      )
+      (blue_plate_1_init_region
+          (:target kitchen_table)
+          (:ranges (
+              (0.1 0.25 0.1001 0.27)
+            )
+          )
+          (:yaw_rotation (
+              (0.0 0.0)
+            )
+          )
+      )
+      (blue_ketchup_1_init_region
+          (:target kitchen_table)
+          (:ranges (
+              (-0.225 -0.125 -0.17500000000000002 -0.07500000000000001)
+            )
+          )
+          (:yaw_rotation (
+              (0.0 0.0)
+            )
+          )
+      )
+      (blue_ketchup_2_init_region
+          (:target kitchen_table)
+          (:ranges (
+              (0.025 -0.035 0.07500000000000001 0.015500000000000002)
+            )
+          )
+          (:yaw_rotation (
+              (0.0 0.0)
+            )
+          )
+      )
+      (white_cabinet_init_region
+          (:target kitchen_table)
+          (:ranges (
+              (-0.01 0.29 0.01 0.31)
+            )
+          )
+          (:yaw_rotation (
+              (0.0 0.0)
+            )
+          )
+      )
+    )
+
+  (:fixtures
+    kitchen_table - kitchen_table
+  )
+
+  (:objects
+    ketchup_1 ketchup_2 - ketchup
+    blue_ketchup_1 blue_ketchup_2 - blue_ketchup
+    blue_plate_1 - blue_plate
+    plate_1 - plate
+    red_plate_1 - red_plate
+  )
+
+  (:obj_of_interest
+    ketchup_1
+  )
+
+  (:init
+    (on ketchup_1 kitchen_table_ketchup_1_init_region)
+    (on ketchup_2 kitchen_table_ketchup_2_init_region)
+    (on plate_1 kitchen_table_plate_1_init_region)
+    (on red_plate_1 kitchen_table_plate_2_init_region)
+    (on blue_plate_1 kitchen_table_blue_plate_1_init_region)
+    (on blue_ketchup_1 kitchen_table_blue_ketchup_1_init_region)
+    (on blue_ketchup_2 kitchen_table_blue_ketchup_2_init_region)
+  )
+
+  (:goal
+    (And (on blue_ketchup_1 blue_plate_1))
+  )
+
+)

@@ -1,0 +1,125 @@
+(define (problem LIBERO_Kitchen_Tabletop_Manipulation)
+  (:domain robosuite)
+  (:language Pick up the bowl with food and put it on the plate)
+    (:regions
+      (white_cabinet_init_region
+          (:target kitchen_table)
+          (:ranges (
+              (-0.01 0.24 0.01 0.25)
+            )
+          )
+          (:yaw_rotation (
+              (0.0 0.0)
+            )
+          )
+      )
+      (akita_black_bowl_init_region
+          (:target kitchen_table)
+          (:ranges (
+              (0.05 -0.050001 0.050001 -0.05)
+            )
+          )
+          (:yaw_rotation (
+              (0.0 0.0)
+            )
+          )
+      )
+      (akita_black_bowl_2_init_region
+          (:target kitchen_table)
+          (:ranges (
+              (0.075 -0.2 0.1 -0.175)
+            )
+          )
+      )
+      (plate_init_region
+          (:target kitchen_table)
+          (:ranges (
+              (-0.175 -0.2 -0.15 -0.175)
+            )
+          )
+      )
+      (alphabet_soup_init_region
+          (:target kitchen_table)
+          (:ranges (
+              (-0.20 0.05 -0.15 0.10)
+            )
+          )
+          (:yaw_rotation (
+              (0.0 0.0)
+            )
+          )
+      )
+      (wine_bottle_init_region
+          (:target kitchen_table)
+          (:ranges (
+              (0.15 0.05 0.2 0.10)
+            )
+          )
+          (:yaw_rotation (
+              (0.0 0.0)
+            )
+          )
+      )
+      (cream_cheese_init_region
+          (:target kitchen_table)
+          (:ranges (
+              (0.05 -0.050001 0.050001 -0.05)
+            )
+          )
+          (:yaw_rotation (
+              (0.0 0.0)
+            )
+          )
+      )
+      (top_side
+          (:target white_cabinet_1)
+      )
+      (top_region
+          (:target white_cabinet_1)
+      )
+      (middle_region
+          (:target white_cabinet_1)
+      )
+      (bottom_region
+          (:target white_cabinet_1)
+      )
+    )
+
+  (:fixtures
+    kitchen_table - kitchen_table
+    white_cabinet_1 - white_cabinet
+  )
+
+  (:objects
+    akita_black_bowl_1 akita_black_bowl_2 - akita_black_bowl
+    cream_cheese_1 - cream_cheese
+    alphabet_soup_1 - alphabet_soup
+    wine_bottle_1 - wine_bottle
+    plate_1 - plate
+  )
+
+  (:obj_of_interest
+    akita_black_bowl_1
+    cream_cheese_1
+    plate_1
+  )
+
+  (:init
+    (On akita_black_bowl_1 kitchen_table_akita_black_bowl_init_region)
+    (On akita_black_bowl_2 kitchen_table_akita_black_bowl_2_init_region)
+    (On cream_cheese_1 akita_black_bowl_1)
+    (On plate_1 kitchen_table_plate_init_region)
+    (On white_cabinet_1 kitchen_table_white_cabinet_init_region)
+    (On alphabet_soup_1 kitchen_table_alphabet_soup_init_region)
+    (Close white_cabinet_1_top_region)
+    (On wine_bottle_1 kitchen_table_wine_bottle_init_region)
+  )
+
+  (:goal
+    (And
+    (On akita_black_bowl_1 plate_1)
+    )
+  )
+
+)
+

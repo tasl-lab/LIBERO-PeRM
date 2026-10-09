@@ -1,0 +1,3 @@
+1.||('pick', 'chocolate_pudding_1'), ('put', 'wooden_cabinet_1_cabinet_top'), ('close_drawer', 'wooden_cabinet_1_cabinet_top'), ('open_drawer', 'wooden_cabinet_1_cabinet_middle'), ('pick_bowl', 'akita_black_bowl_1'), ('put_bowl', 'wooden_cabinet_1_cabinet_middle'), ('close_drawer', 'wooden_cabinet_1_cabinet_middle') ||
+2.|| "required": [] ||
+3.|| Prefer to use the middle drawer for kitchenware. Prefer food for the top drawer. ||

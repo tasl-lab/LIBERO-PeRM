@@ -1,0 +1,111 @@
+(define (problem LIBERO_Living_Room_Tabletop_Manipulation)
+  (:domain robosuite)
+  (:language stack the left bowl on the right bowl and place them in the tray)
+    (:regions
+      (wooden_tray_init_region
+          (:target living_room_table)
+          (:ranges (
+              (-0.01 0.25 0.01 0.27)
+            )
+          )
+          (:yaw_rotation (
+              (0.0 0.0)
+            )
+          )
+      )
+      (chocolate_pudding_init_region
+          (:target living_room_table)
+          (:ranges (
+              (0.07500000000000001 -0.225 0.125 -0.17500000000000002)
+            )
+          )
+          (:yaw_rotation (
+              (0.0 0.0)
+            )
+          )
+      )
+      (akita_black_bowl_right_init_region
+          (:target living_room_table)
+          (:ranges (
+              (-0.15075 0.075 -0.1502500000000000001 0.12500000000000001)
+            )
+          )
+          (:yaw_rotation (
+              (0.0 0.0)
+            )
+          )
+      )
+      (akita_black_bowl_left_init_region
+          (:target living_room_table)
+          (:ranges (
+              (-0.075 -0.175 -0.02500000000000001 -0.125)
+            )
+          )
+          (:yaw_rotation (
+              (0.0 0.0)
+            )
+          )
+      )
+      (salad_dressing_init_region
+          (:target living_room_table)
+          (:ranges (
+              (0.07500000000000001 -0.085 0.125 -0.03500000000000002)
+            )
+          )
+          (:yaw_rotation (
+              (0.0 0.0)
+            )
+          )
+      )
+      (bigger_milk_init_region
+          (:target living_room_table)
+          (:ranges (
+              (-0.1500000000000001 -0.25 -0.1485 -0.2400000000000002)
+            )
+          )
+          (:yaw_rotation (
+              (0.0 0.0)
+            )
+          )
+      )
+      (contain_region
+          (:target wooden_tray_1)
+      )
+    )
+
+  (:fixtures
+    living_room_table - living_room_table
+  )
+
+  (:objects
+    milk_1 - milk
+    orange_juice_1 - orange_juice
+    red_bigger_wine_1 - red_bigger_wine
+    chocolate_pudding_1 - chocolate_pudding
+    wooden_tray_1 - wooden_tray
+    bigger_milk_1 - bigger_milk
+  )
+
+  (:obj_of_interest
+    milk_1
+    red_bigger_wine_1
+    wooden_tray_1
+  )
+
+  (:init
+    (On milk_1 living_room_table_chocolate_pudding_init_region)
+    (On chocolate_pudding_1 living_room_table_akita_black_bowl_left_init_region)
+    (On orange_juice_1 living_room_table_akita_black_bowl_right_init_region)
+    (On red_bigger_wine_1 living_room_table_salad_dressing_init_region)
+    (On wooden_tray_1 living_room_table_wooden_tray_init_region)
+    (On bigger_milk_1 living_room_table_bigger_milk_init_region)
+  )
+
+  (:goal
+    (And
+        (In red_bigger_wine_1 wooden_tray_1_contain_region)
+
+    )
+  )
+
+)

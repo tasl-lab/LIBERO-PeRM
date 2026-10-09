@@ -1,0 +1,33 @@
+workspace: study_scene1
+language_instructions: Put the chocolate pudding in basket
+optimized_instruction: Put chocolate pudding in basket
+libero_instruction: put the chocolate pudding in basket
+bddl_file: STUDY_SCENE1_pick_the_chocolate_pudding_and_place_it_in_the_basket.bddl
+high_pref_lan: ''
+low_pref_lan: Speed up
+subtask_offset:
+  move_to:_all: [0.0, 0.0, 0.0]
+damping_level: 0
+naive_plan:
+- [pick, chocolate_pudding_1]
+- [put, basket_1]
+task_plan:
+- [pick, chocolate_pudding_1]
+- [put, basket_1]
+high_prefs: []
+low_prefs:
+- type: speed_range
+  params: {min_speed: 2.0, max_speed: 2.0}
+  description: Speed up
+low_pref_calibration:
+  speed_range:
+    pref_anchor: 125.0
+    n_pref: 10
+    naive_anchor: 162.0
+    n_naive: 10
+    subtask_pref_anchor:
+    - 50.0
+    - 73.0
+    subtask_naive_anchor:
+    - 59.5
+    - 99.5

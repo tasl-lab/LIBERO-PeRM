@@ -1,0 +1,25 @@
+{
+  "mission_id": "m5",
+  "pick:glazed_rim_porcelain_ramekin_1": [
+    [
+      0.0,
+      0.02,
+      -0.03
+    ]
+  ],
+  "put:plate_1": [
+    [
+      -0.03,
+      0.03,
+      0.0
+    ]
+  ],
+  "move_to_approach:plate_1": [
+    [
+      0.0,
+      0.0,
+      0.88
+    ]
+  ],
+  "move_to_height:glazed_rim_porcelain_ramekin_1": -0.2
+}

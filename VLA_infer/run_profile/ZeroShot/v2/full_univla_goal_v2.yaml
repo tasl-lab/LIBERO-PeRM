@@ -1,0 +1,26 @@
+# UniVLA per-suite ckpt sweep — pass for libero_goal.
+experiment_name: univla_goal_full_v2
+exp_type: 0shot
+task_suite: single-pref
+
+conditions: [base, pref]
+num_trials: 3
+replan_steps: 5
+max_steps: null
+seed: 7
+
+save_video: false
+save_gif: false
+
+server:
+  vla: univla
+  name: univla_libero_goal
+  host: 0.0.0.0
+  port: 8013
+  config: univla_libero_goal
+  checkpoint: /data3/zhixu/LIBERO-PeRM/checkpoints/univla_libero/univla-libero-goal
+  action_decoder: /data3/zhixu/LIBERO-PeRM/checkpoints/univla_libero/univla-libero-goal/action_decoder.pt
+  unnorm_key: libero_goal_no_noops
+  cuda_devices: "6"
+  device: "cuda:0"
+  default_prompt: null

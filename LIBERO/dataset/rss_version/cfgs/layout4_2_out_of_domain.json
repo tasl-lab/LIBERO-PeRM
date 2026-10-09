@@ -1,0 +1,59 @@
+{
+  "_comment:": [
+    "Out-of-domain configuration for pick_the_bowl_and_put_it_on_the_plate Layout 4 - secondary items repositioned"
+  ],
+  "workspaces": "living_room_table",
+  "bddl_file_names": "libero_pbench/L4_2_out_of_domain.bddl",
+  "language_instructions": "Pick the center black bowl and put it on the red plate",
+  "layout_id": "4_2_out_of_domain",
+  
+  "high_pref_lan": [
+    " ",
+    "",
+    "",
+    "pick up the bowl from the edge of the bowl"
+  ],
+  "low_pref_lan": [
+    "slow down 0.5 times",
+    "Avoid the stove when you move",
+    "",
+    "slow down 0.5 times, and avoid the stove when you move"
+  ],
+  "mission_ids": [
+    "4",
+    "85",
+    "86",
+    "m4"
+  ],
+  "mission_mask": [
+    1,
+    1,
+    1,
+    1
+  ],
+
+  "subtask_offset": [
+    {
+      "mission_id": "4",
+      "pick_bowl:akita_black_bowl_1": [[0.0, 0.0, -0.06]],
+      "put_bowl:plate_1": [[0.02, 0.0, 0.0]]
+    },
+    {
+      "mission_id": "85",
+      "pick_bowl:akita_black_bowl_1": [[0.0, 0.0, -0.06]],
+      "put_bowl:plate_1": [[-0.03, -0.03, 0.0]]
+    },
+    {
+      "mission_id": "86",
+      "pick_bowl:akita_black_bowl_1": [[0.0, 0.0, -0.06]],
+      "put_bowl:plate_1": [[-0.03, -0.03, 0.0]]
+    },
+    {
+      "mission_id": "m4",
+      "pick_bowl:akita_black_bowl_1": [[0.0, 0.0, -0.06]],
+      "put_bowl:plate_1": [[0.02, 0.0, 0.0]]
+    }
+  ],
+  
+  "fluency_improvement": 0
+}

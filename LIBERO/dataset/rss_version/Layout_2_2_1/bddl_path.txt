@@ -1,0 +1,1 @@
+./dataset/Layout_2_2_1/P_BENCH_SCENE_l2_2_1put_a_drink_on_my_plate.bddl

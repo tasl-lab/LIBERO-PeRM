@@ -1,0 +1,11 @@
+{
+  "mission_id": "23",
+  "move_to:basket_1": [
+    [
+      0.0,
+      0.0,
+      -0.2
+    ]
+  ],
+  "move_to_height:basket_1": -0.4
+}

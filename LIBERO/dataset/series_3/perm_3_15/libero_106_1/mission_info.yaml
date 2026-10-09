@@ -1,0 +1,34 @@
+workspace: ''
+language_instructions: Put a bowl on top of the cabinet
+optimized_instruction: Put a bowl on top of cabinet
+libero_instruction: put the bowl on top of the cabinet
+bddl_file: put_the_bowl_on_top_of_the_cabinet.bddl
+high_pref_lan: Prefer smaller objects
+low_pref_lan: ''
+subtask_offset:
+  move_to:_all: [0.0, 0.0, 0.0]
+  put:wooden_cabinet_1: [[0.0, 0.0, -0.05]]
+damping_level: 0
+naive_plan:
+# plain `pick` cannot lift a bowl (rim-only): naive = edge grasp on the BIGGER (black) bowl
+- [pick_left_edge, akita_black_bowl_1]
+- [put, wooden_cabinet_1]
+task_plan:
+- [pick, red_bowl_1]
+- [put, wooden_cabinet_1]
+high_prefs: []
+low_prefs:
+- type: plan_choice
+  params:
+    mode: object
+    pref_objs: [red_bowl_1]
+    naive_objs: [akita_black_bowl_1]
+    criterion_threshold: 0.5
+    criterion_direction: 1
+  description: Prefer smaller objects
+low_pref_calibration:
+  plan_choice:
+    pref_anchor: 1.0
+    n_pref: 10
+    naive_anchor: 0.0
+    n_naive: 10

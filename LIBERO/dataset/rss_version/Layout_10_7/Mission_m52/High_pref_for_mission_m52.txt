@@ -1,0 +1,4 @@
+1.|| ('pick', 'bigger_tomato_sauce_1'), ('put', 'plate_1') ||
+2.|| "required": [('pick', 'bigger_tomato_sauce_1')], "prohibited": [('pick', 'macaroni_and_cheese_1')], "order": [[('pick', 'bigger_tomato_sauce_1'), ('put', 'plate_1')]] ||
+3.|| I prefer canned food if possible. ||
+

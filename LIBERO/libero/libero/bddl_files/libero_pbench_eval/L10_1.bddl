@@ -1,0 +1,143 @@
+(define (problem LIBERO_Study_Tabletop_Manipulation)
+  (:domain robosuite)
+  (:language L10_1Pick the mug and put it on the plate)
+    (:regions
+      (desk_caddy_1_init_region
+          (:target study_table)
+          (:ranges (
+              (-0.21000000000000002 0.1 -0.19 0.12)
+            )
+          )
+          (:yaw_rotation (
+              (3.141592653589793 3.141592653589793)
+            )
+          )
+      )
+      (black_book_1_init_region
+          (:target study_table)
+          (:ranges (
+              (0.2 -0.1 0.25 -0.05)
+            )
+          )
+          (:yaw_rotation (
+              (0.0 0.0)
+            )
+          )
+      )
+      (porcelain_mug_1_init_region
+          (:target study_table)
+          (:ranges (
+              (-0.025 -0.025 0.025 0.025)
+            )
+          )
+          (:yaw_rotation (
+              (0.0 0.0)
+            )
+          )
+      )
+      (red_coffee_mug_1_init_region
+          (:target study_table)
+          (:ranges (
+              (0.17500000000000002 0.125 0.225 0.175)
+            )
+          )
+          (:yaw_rotation (
+              (0.0 0.0)
+            )
+          )
+      )
+      (plate_1_init_region
+          (:target study_table)
+          (:ranges (
+              (0.1 -0.28 0.15 -0.24)
+            )
+          )
+          (:yaw_rotation (
+              (0.0 0.0)
+            )
+          )
+      )
+      (right_contain_region
+          (:target desk_caddy_1)
+          (:ranges (
+            )
+          )
+          (:yaw_rotation (
+              (0 0)
+            )
+          )
+      )
+      (left_contain_region
+          (:target desk_caddy_1)
+          (:ranges (
+            )
+          )
+          (:yaw_rotation (
+              (0 0)
+            )
+          )
+      )
+      (back_contain_region
+          (:target desk_caddy_1)
+          (:ranges (
+            )
+          )
+          (:yaw_rotation (
+              (0 0)
+            )
+          )
+      )
+      (front_contain_region
+          (:target desk_caddy_1)
+          (:ranges (
+            )
+          )
+          (:yaw_rotation (
+              (0 0)
+            )
+          )
+      )
+      (right_contain_region
+          (:target desk_caddy_1)
+      )
+      (left_contain_region
+          (:target desk_caddy_1)
+      )
+      (back_contain_region
+          (:target desk_caddy_1)
+      )
+      (front_contain_region
+          (:target desk_caddy_1)
+      )
+    )
+
+  (:fixtures
+    study_table - study_table
+    desk_caddy_1 - desk_caddy
+  )
+
+  (:objects
+    black_book_1 - black_book
+    red_coffee_mug_1 - red_coffee_mug
+    porcelain_mug_1 - porcelain_mug
+    plate_1 - plate
+  )
+
+  (:obj_of_interest
+    porcelain_mug_1
+    plate_1
+  )
+
+  (:init
+    (on desk_caddy_1 study_table_desk_caddy_1_init_region)
+    (on black_book_1 study_table_black_book_1_init_region)
+    (on porcelain_mug_1 study_table_porcelain_mug_1_init_region)
+    (on red_coffee_mug_1 study_table_red_coffee_mug_1_init_region)
+    (on plate_1 study_table_plate_1_init_region)
+  )
+
+  (:goal
+    (And (on porcelain_mug_1 plate_1))
+  )
+
+)

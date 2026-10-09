@@ -1,0 +1,29 @@
+# PrefConflict — PP Set B (eval-suite pair layouts; pair members have DIFFERENT BDDLs).
+# Set A used training pair (same libero_id within pair). Set B uses task_suites.yaml
+# prefconflict.missions list (different libero_id per pair member).
+
+suite: prefconflict_PP_setB
+
+tasks:
+  "1-1_004":    "Put alphabet soup and cream cheese in basket"
+  "1-2_113":    "Put butter in basket"
+  "1-5_114":    "Put chocolate pudding in basket"
+  "1-7_104":    "Put bowl on plate"
+  "2-13_001":   "Put black bowl in bottom drawer and close it"
+  "2-1_077":    "Put white mug on left plate"
+  "2-8_ood3":   "Move basket to left"
+  "2-9_ood3":   "Move basket to left"
+  "3-5_120_1":  "Put tomato sauce in basket"
+  "3-15_106_1": "Put a bowl on top of cabinet"
+
+preferences:
+  "1-1_004":    "Speed up, Slow down"
+  "1-2_113":    "Speed up, Slow down"
+  "1-5_114":    "Close to ground when moving, Move higher"
+  "1-7_104":    "Close to ground when moving, Move higher"
+  "2-13_001":   "Pick from left edge, Pick from right edge"
+  "2-1_077":    "Pick from left edge, Pick from right edge"
+  "2-8_ood3":   "Push instead of pick-and-put, Drag instead of pick-and-put"
+  "2-9_ood3":   "Push instead of pick-and-put, Drag instead of pick-and-put"
+  "3-5_120_1":  "Prefer bigger objects, Prefer smaller objects"
+  "3-15_106_1": "Prefer bigger objects, Prefer smaller objects"

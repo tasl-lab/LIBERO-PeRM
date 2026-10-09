@@ -1,0 +1,28 @@
+workspace: living_room_scene3
+language_instructions: Pick up the cream cheese and put it in the tray
+optimized_instruction: Put cream cheese in tray
+libero_instruction: pick up the cream cheese and put it in the tray
+bddl_file: LIVING_ROOM_SCENE3_pick_up_the_cream_cheese_and_put_it_in_the_tray.bddl
+high_pref_lan: ''
+low_pref_lan: Move straight
+subtask_offset:
+  move_to:_all: [0.0, 0.0, 0.0]
+damping_level: 0
+naive_plan:
+- [pick, cream_cheese_1]
+- [put, wooden_tray_1]
+task_plan:
+- [pick, cream_cheese_1]
+- [put, wooden_tray_1]
+high_prefs: []
+low_prefs:
+- type: straight_path
+  params:
+    max_deviation: 0.05
+  description: Move straight
+low_pref_calibration:
+  straight_path:
+    pref_anchor: 0.022946
+    n_pref: 10
+    naive_anchor: 0.336559
+    n_naive: 10

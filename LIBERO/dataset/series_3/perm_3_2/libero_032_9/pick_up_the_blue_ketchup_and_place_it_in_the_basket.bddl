@@ -1,0 +1,35 @@
+(define (problem LIBERO_Kitchen_Tabletop_Manipulation)
+  (:domain robosuite)
+  (:language Pick the blue ketchup and place it in the basket)
+    (:regions
+      (basket_init_region (:target kitchen_table) (:ranges ((-0.01 0.29 0.01 0.31))) (:yaw_rotation ((0.0 0.0))))
+      (blue_ketchup_init_region (:target kitchen_table) (:ranges ((0.0432 -0.1479 0.0532 -0.1379))) (:yaw_rotation ((0.0 0.0))))
+      (ketchup_init_region (:target kitchen_table) (:ranges ((0.13 0.05 0.18 0.1))) (:yaw_rotation ((0.0 0.0))))
+      (red_yellow_book_init_region (:target kitchen_table) (:ranges ((0.13 -0.1 0.18 -0.05))) (:yaw_rotation ((0.0 0.0))))
+      (yellow_moka_pot_init_region (:target kitchen_table) (:ranges ((-0.2051 -0.1012 -0.1551 -0.0512))) (:yaw_rotation ((0.0 0.0))))
+      (bbq_sauce_init_region (:target kitchen_table) (:ranges ((-0.105 -0.075 -0.095 -0.065))) (:yaw_rotation ((0.0 0.0))))
+      (contain_region (:target basket_1))
+    )
+  (:fixtures kitchen_table - kitchen_table)
+  (:objects
+    blue_ketchup_1 - blue_ketchup
+    ketchup_1 - ketchup
+    red_yellow_book_1 - red_yellow_book
+    yellow_moka_pot_1 - yellow_moka_pot
+    bbq_sauce_1 - bbq_sauce
+    basket_1 - basket
+  )
+  (:obj_of_interest ketchup_1 basket_1)
+  (:init
+    (On blue_ketchup_1 kitchen_table_blue_ketchup_init_region)
+    (On ketchup_1 kitchen_table_ketchup_init_region)
+    (On red_yellow_book_1 kitchen_table_red_yellow_book_init_region)
+    (On yellow_moka_pot_1 kitchen_table_yellow_moka_pot_init_region)
+    (On bbq_sauce_1 kitchen_table_bbq_sauce_init_region)
+    (On basket_1 kitchen_table_basket_init_region)
+  )
+  (:goal
+    (And (In ketchup_1 basket_1_contain_region))
+  )
+
+)

@@ -1,0 +1,87 @@
+(define (problem LIBERO_Kitchen_Tabletop_Manipulation)
+  (:domain robosuite)
+  (:language pick up the book on the left and place it on top of the shelf)
+    (:regions
+      (red_yellow_book_init_region
+          (:target kitchen_table)
+          (:ranges (
+              (-0.105 -0.075 -0.095 -0.065)
+            )
+          )
+          (:yaw_rotation (
+              (0.0 0.0)
+            )
+          )
+      )
+      (yellow_book_init_region
+          (:target kitchen_table)
+          (:ranges (
+              (0.10 -0.10 0.15 -0.05)
+            )
+          )
+          (:yaw_rotation (
+              (0.0 0.0)
+            )
+          )
+      )
+      (macaroni_and_cheese_init_region
+          (:target kitchen_table)
+          (:ranges (
+              (0.13 0.05 0.18 0.10)
+            )
+          )
+          (:yaw_rotation (
+              (0.0 0.0)
+            )
+          )
+      )
+      (wooden_two_layer_shelf_init_region
+          (:target kitchen_table)
+          (:ranges (
+              (-0.05 0.20 -0.03 0.22)
+            )
+          )
+          (:yaw_rotation (
+              (0 0)
+            )
+          )
+      )
+      (top_side
+          (:target wooden_two_layer_shelf_1)
+      )
+      (top_region
+          (:target wooden_two_layer_shelf_1)
+      )
+      (bottom_region
+          (:target wooden_two_layer_shelf_1)
+      )
+    )
+
+  (:fixtures
+    kitchen_table - kitchen_table
+    wooden_two_layer_shelf_1 - wooden_two_layer_shelf
+  )
+
+  (:objects
+    red_yellow_book_1 - red_yellow_book
+    yellow_book_1 - yellow_book
+    macaroni_and_cheese_1 - macaroni_and_cheese
+  )
+
+  (:obj_of_interest
+    red_yellow_book_1
+    wooden_two_layer_shelf_1
+  )
+
+  (:init
+    (On wooden_two_layer_shelf_1 kitchen_table_wooden_two_layer_shelf_init_region)
+    (On red_yellow_book_1 kitchen_table_red_yellow_book_init_region)
+    (On yellow_book_1 kitchen_table_yellow_book_init_region)
+    (On macaroni_and_cheese_1 kitchen_table_macaroni_and_cheese_init_region)
+  )
+
+  (:goal
+    (And (On red_yellow_book_1 wooden_two_layer_shelf_1_top_side))
+  )
+
+)

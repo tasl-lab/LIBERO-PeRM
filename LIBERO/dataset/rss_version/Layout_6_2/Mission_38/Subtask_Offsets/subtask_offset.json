@@ -1,0 +1,45 @@
+{
+  "mission_id": "38",
+  "move_to:akita_black_bowl_1": [
+    [
+      0.0,
+      0.02,
+      -0.0
+    ]
+  ],
+  "pick:akita_black_bowl_1": [
+    [
+      0.0,
+      0.02,
+      -0.0
+    ]
+  ],
+  "open_drawer:wooden_cabinet_1_cabinet_middle": [
+    [
+      0.0,
+      0.05,
+      0
+    ]
+  ],
+  "put:wooden_cabinet_1_cabinet_middle": [
+    [
+      0.0,
+      0.05,
+      0.15
+    ]
+  ],
+  "move_to:wooden_cabinet_1_cabinet_middle": [
+    [
+      0.0,
+      0.05,
+      0.2
+    ]
+  ],
+  "close_drawer:wooden_cabinet_1_cabinet_middle": [
+    [
+      0.0,
+      -0.02,
+      0
+    ]
+  ]
+}

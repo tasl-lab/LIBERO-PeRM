@@ -1,0 +1,11 @@
+1.|| ('pick_bowl', 'akita_black_bowl_1'), ('put_bowl', 'plate_1') ||
+2.|| "required": [('pick_bowl', 'akita_black_bowl_1')], "prohibited": [('pick', 'akita_black_bowl_1')] ||
+3.|| pick from the edge ||
+
+1.|| ('pick_bowl', 'akita_black_bowl_1'), ('put_bowl', 'plate_1') ||
+2.|| "required": [('pick_bowl', 'akita_black_bowl_1'), ('put_bowl', 'plate_1')], "prohibited": [('pick', 'akita_black_bowl_1')] ||
+3.|| pick from the edge ||
+
+1.|| ('pick_bowl', 'akita_black_bowl_1'), ('put_bowl', 'plate_1') ||
+2.|| "required": [('pick_bowl', 'akita_black_bowl_1')], "prohibited": [('pick', '_ALL')] ||
+3.|| pick from the edge ||

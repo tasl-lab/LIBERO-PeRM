@@ -1,0 +1,24 @@
+{
+  "mission_id": "m33",
+  "move_to:red_coffee_mug_1": [
+    [
+      0,
+      0,
+      0.05
+    ]
+  ],
+  "pick_handle:red_coffee_mug_1": [
+    [
+      0,
+      0.03,
+      0.05
+    ]
+  ],
+  "put_handle:basket_1": [
+    [
+      0.03,
+      -0.03,
+      0.0
+    ]
+  ]
+}

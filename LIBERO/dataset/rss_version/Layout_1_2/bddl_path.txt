@@ -1,0 +1,1 @@
+./dataset/Layout_1_2/P_BENCH_SCENE_l1_2put_the_bbq_sauce_in_the_basket.bddl

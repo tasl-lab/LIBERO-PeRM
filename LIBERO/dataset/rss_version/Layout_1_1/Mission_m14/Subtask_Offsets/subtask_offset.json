@@ -1,0 +1,25 @@
+{
+  "mission_id": "m14",
+  "pick_from_side:bbq_sauce_1": [
+    [
+      0.0,
+      0.015,
+      0
+    ]
+  ],
+  "put:basket_1": [
+    [
+      0.045,
+      -0.065,
+      0.22
+    ]
+  ],
+  "move_to:basket_1": [
+    [
+      0.045,
+      -0.065,
+      0.22
+    ]
+  ],
+  "move_to_height:basket_1": -0.45
+}

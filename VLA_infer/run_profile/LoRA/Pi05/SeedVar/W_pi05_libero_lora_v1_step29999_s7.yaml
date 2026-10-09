@@ -1,0 +1,29 @@
+# Seed-7 BACKFILL for setting W — the original W eval never produced output:
+# run_W_eval.md's watcher grepped "server listening on 0.0.0.0:8014" but serve.py
+# prints "Listening on ws://...", so the client never started. This runfile reruns
+# the original seed-7 eval with experiment_name UNCHANGED (no _s7 suffix) so the
+# output lands at the canonical W path that aggregate_seed_variance.py expects.
+# Changes vs source runfile: port=8041, cuda_devices="0", save_video=false.
+experiment_name: W_pi05_libero_lora_v1_step29999
+exp_type: lora_ft
+task_suite: single-pref
+prompt_source_yaml: /data3/zhixu/LIBERO-PeRM/VLA_data/SinglePref/tasksuite_v0.yaml
+conditions:
+- base
+- pref
+num_trials: 4
+replan_steps: 5
+max_steps: 1250
+seed: 7
+save_hdf5: false
+save_video: false
+save_gif: false
+server:
+  vla: pi05
+  name: pi05_libero_lora_v1_step29999
+  host: 0.0.0.0
+  port: 8041
+  config: pi05_libero_lora_v1
+  checkpoint: /data3/zhixu/LIBERO-PeRM/checkpoints/pi05_libero_lora_v1/pi05_lora_v1_repo/29999
+  cuda_devices: '0'
+  default_prompt: null

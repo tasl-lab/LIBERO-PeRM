@@ -1,0 +1,3 @@
+1.|| ('pick_bowl', 'akita_black_bowl_1'), ('put_bowl', 'basket_1'), ('pick_handle', 'red_coffee_mug_1'), ('put_handle', 'basket_1') ||
+2.|| "required": [('pick_bowl', 'akita_black_bowl_1'), ('pick_handle', 'red_coffee_mug_1'), ('put_bowl', 'basket_1'), ('put_handle', 'basket_1')], "prohibited": [('pick', 'akita_black_bowl_1'), ('pick', 'red_coffee_mug_1')], "order": [[('put_bowl', 'basket_1'), ('pick_handle', 'red_coffee_mug_1')]] ||
+3.|| Pick the mug by the handle and Pick the bowl from the edge. ||

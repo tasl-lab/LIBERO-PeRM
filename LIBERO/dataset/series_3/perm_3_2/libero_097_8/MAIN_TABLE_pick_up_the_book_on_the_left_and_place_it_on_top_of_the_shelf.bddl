@@ -1,0 +1,87 @@
+(define (problem LIBERO_Tabletop_Manipulation)
+  (:domain robosuite)
+  (:language pick up the book on the left and place it on top of the shelf)
+    (:regions
+      (yellow_book_init_region
+          (:target main_table)
+          (:ranges (
+              (-0.005 -0.005 0.005 0.005)
+            )
+          )
+          (:yaw_rotation (
+              (0.0 0.0)
+            )
+          )
+      )
+      (black_book_init_region
+          (:target main_table)
+          (:ranges (
+              (0.045 -0.155 0.055 -0.145)
+            )
+          )
+          (:yaw_rotation (
+              (0.0 0.0)
+            )
+          )
+      )
+      (red_yellow_book_init_region
+          (:target main_table)
+          (:ranges (
+              (-0.155 -0.255 -0.145 -0.245)
+            )
+          )
+          (:yaw_rotation (
+              (0.0 0.0)
+            )
+          )
+      )
+      (wooden_two_layer_shelf_init_region
+          (:target main_table)
+          (:ranges (
+              (-0.01 0.27 0.01 0.29)
+            )
+          )
+          (:yaw_rotation (
+              (0 0)
+            )
+          )
+      )
+      (top_side
+          (:target wooden_two_layer_shelf_1)
+      )
+      (top_region
+          (:target wooden_two_layer_shelf_1)
+      )
+      (bottom_region
+          (:target wooden_two_layer_shelf_1)
+      )
+    )
+
+  (:fixtures
+    main_table - table
+    wooden_two_layer_shelf_1 - wooden_two_layer_shelf
+  )
+
+  (:objects
+    yellow_book_1 - yellow_book
+    black_book_1 - black_book
+    red_yellow_book_1 - red_yellow_book
+  )
+
+  (:obj_of_interest
+    red_yellow_book_1
+    wooden_two_layer_shelf_1
+  )
+
+  (:init
+    (On wooden_two_layer_shelf_1 main_table_wooden_two_layer_shelf_init_region)
+    (On yellow_book_1 main_table_yellow_book_init_region)
+    (On black_book_1 main_table_black_book_init_region)
+    (On red_yellow_book_1 main_table_red_yellow_book_init_region)
+  )
+
+  (:goal
+    (And (On red_yellow_book_1 wooden_two_layer_shelf_1_top_side))
+  )
+
+)

@@ -1,0 +1,31 @@
+workspace: living_room_scene1
+language_instructions: Put a book on top of the shelf
+optimized_instruction: Put a book on top of shelf
+libero_instruction: put a book on top of the shelf
+bddl_file: LIVING_ROOM_SCENE1_pick_up_the_book_on_the_left_and_place_it_on_top_of_the_shelf.bddl
+high_pref_lan: Prefer red objects
+low_pref_lan: ''
+subtask_offset:
+  move_to:_all: [0.0, 0.0, 0.0]
+  move_to_height:wooden_two_layer_shelf_1: -0.1
+damping_level: 0
+naive_plan:
+- [pick, black_book_1]
+- [put, wooden_two_layer_shelf_1]
+task_plan:
+- [pick, red_yellow_book_1]
+- [put, wooden_two_layer_shelf_1]
+high_prefs: []
+low_prefs:
+- type: plan_choice
+  params:
+    mode: object
+    pref_objs: [red_yellow_book_1]
+    naive_objs: [black_book_1]
+    criterion_threshold: 0.5
+    criterion_direction: 1
+  description: Prefer red objects
+low_pref_calibration:
+  plan_choice:
+    pref_anchor: 1.0
+    n_pref: 10

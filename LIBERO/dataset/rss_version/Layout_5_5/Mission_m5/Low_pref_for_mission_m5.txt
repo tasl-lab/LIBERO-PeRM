@@ -1,0 +1,5 @@
+1.||approach_object, ("ground_1", 0.15)||
+2.||Approach the red plate with a moderate distance (0.15m) while completing your main task.||
+
+1.||speed_range, (0.5, 0.5)||
+2.||To slow down the robot's movement speed to 0.5 times the original speed as requested in the hint.||

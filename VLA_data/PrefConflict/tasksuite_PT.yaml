@@ -1,0 +1,16 @@
+# PrefConflict — PT eval setting (no-pref _c task + injected source pref).
+# 3 cells × 1 mission = 3 missions.
+# Each _c task in training had no preference; here we inject the paired
+# source mission's pref to force task↔pref conflict.
+
+suite: prefconflict_PT
+
+tasks:
+  "3-1_006_1c": "Put cream cheese and butter in basket"
+  "3-9_118_1c": "Put a drink in basket"
+  "3-8_007_1c": "Put white mug on left plate"
+
+preferences:
+  "3-1_006_1c": "Prefer green objects"        # from source 3-1_006_1
+  "3-9_118_1c": "Prefer dairy products"       # from source 3-9_118_1
+  "3-8_007_1c": "Serve double portion"        # from source 3-8_007_1

@@ -1,0 +1,2 @@
+1.||max_acc, (0.02)||
+2.||To strictly comply with the requirement of no sudden acceleration and ensure the bowl is moved smoothly, limit the maximum acceleration to a low value.||

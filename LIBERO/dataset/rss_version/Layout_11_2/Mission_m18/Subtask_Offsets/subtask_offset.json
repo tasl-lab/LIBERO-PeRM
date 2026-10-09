@@ -1,0 +1,33 @@
+{
+  "mission_id": "m18",
+  "pick_with_load:blue_plate_1": [
+    [
+      -0.01,
+      0.018,
+      0.0
+    ]
+  ],
+  "pick_with_load_rot:blue_plate_1": -1.6,
+  "move_to_height:wooden_shelf_1": -0.18,
+  "move_to_away:wooden_shelf_1": [
+    [
+      0.0,
+      0.0,
+      0.15
+    ]
+  ],
+  "move_to_straight:wooden_shelf_1": [
+    [
+      0.0,
+      0.0,
+      0.15
+    ]
+  ],
+  "put_with_load:wooden_shelf_1": [
+    [
+      0.0,
+      -0.022,
+      0.04
+    ]
+  ]
+}

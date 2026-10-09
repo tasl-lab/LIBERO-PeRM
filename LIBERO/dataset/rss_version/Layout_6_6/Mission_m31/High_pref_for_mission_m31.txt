@@ -1,0 +1,3 @@
+1.|| ('pick_bottle', 'salad_dressing_1'), ('put', 'wooden_cabinet_1'), ('pick_bowl', 'akita_black_bowl_1'), ('put_bowl', 'wooden_cabinet_1') ||
+2.|| "required": [('pick_bottle', 'salad_dressing_1'), ('pick_bowl', 'akita_black_bowl_1'), ('put_bowl', 'wooden_cabinet_1')], "prohibited": [('pick', 'salad_dressing_1'), ('pick', 'akita_black_bowl_1'), ('put', 'akita_black_bowl_1')] ||
+3.|| Pick from the top at an angle for the salad dressing and  Pick from the edge for the bowl. ||

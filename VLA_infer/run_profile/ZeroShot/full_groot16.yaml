@@ -1,0 +1,23 @@
+# Full 0-shot evaluation: GROOT N1.6 base model on all SinglePref missions
+experiment_name: groot16_singlepref_full
+exp_type: 0shot
+task_suite: single-pref
+
+# missions: omitted → uses all missions from task_suite
+
+conditions: [base, pref]
+num_trials: 5
+replan_steps: 8
+max_steps: null
+seed: 7
+
+server:
+  vla: groot
+  name: groot16_libero
+  host: 0.0.0.0
+  port: 8001
+  config: groot_n16_libero
+  checkpoint: /data3/zhixu/LIBERO-PeRM/checkpoints/groot_n16_libero
+  cuda_devices: "0,1"
+  device: "cuda:0"
+  embodiment_tag: LIBERO_PANDA

@@ -1,0 +1,38 @@
+workspace: ''
+language_instructions: Open the one layer of the drawer and put the bowl inside
+optimized_instruction: Open one drawer layer and put bowl inside
+libero_instruction: open the top drawer and put the bowl inside
+bddl_file: open_the_top_drawer_and_put_the_bowl_inside.bddl
+high_pref_lan: Middle drawer for kitchenware
+low_pref_lan: ''
+subtask_offset:
+  move_to:_all: [0.0, 0.0, 0.0]
+damping_level: 0
+naive_plan:
+# plain `pick` cannot lift a bowl (rim-only): naive = same edge skills, TOP drawer instead of middle
+- [open_drawer, wooden_cabinet_1_cabinet_top]
+- [pick_left_edge, akita_black_bowl_1]
+- [put_left_edge, wooden_cabinet_1_cabinet_top]
+- [close_drawer, wooden_cabinet_1_cabinet_top]
+task_plan:
+- [open_drawer, wooden_cabinet_1_cabinet_middle]
+- [pick_left_edge, akita_black_bowl_1]
+- [put_left_edge, wooden_cabinet_1_cabinet_middle]
+- [close_drawer, wooden_cabinet_1_cabinet_middle]
+high_prefs: []
+low_prefs:
+- type: plan_choice
+  params:
+    mode: target
+    pref_targets: [wooden_cabinet_1_cabinet_middle]
+    naive_targets: [wooden_cabinet_1_cabinet_top]
+    carried: akita_black_bowl_1
+    criterion_threshold: 0.5
+    criterion_direction: 1
+  description: Middle drawer for kitchenware
+low_pref_calibration:
+  plan_choice:
+    pref_anchor: 1.0
+    n_pref: 10
+    naive_anchor: 0.0
+    n_naive: 10

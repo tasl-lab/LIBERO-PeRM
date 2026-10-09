@@ -1,0 +1,114 @@
+(define (problem LIBERO_Kitchen_Tabletop_Manipulation)
+  (:domain robosuite)
+  (:language put the black bowl at the front on the plate)
+    (:regions
+      (wooden_cabinet_init_region
+          (:target kitchen_table)
+          (:ranges (
+              (0.0 -0.3 0.02 -0.27999999999999997)
+            )
+          )
+          (:yaw_rotation (
+              (3.141592653589793 3.141592653589793)
+            )
+          )
+      )
+      (akita_black_bowl_middle_init_region
+          (:target kitchen_table)
+          (:ranges (
+              (-0.20500000000000002 -0.014999999999999972 -0.155 0.03500000000000002)
+            )
+          )
+          (:yaw_rotation (
+              (0.0 0.0)
+            )
+          )
+      )
+      (akita_black_bowl_front_init_region
+          (:target kitchen_table)
+          (:ranges (
+              (-0.07499999999999997 -0.06500000000000003 -0.02499999999999998 -0.015000000000000034)
+            )
+          )
+          (:yaw_rotation (
+              (0.0 0.0)
+            )
+          )
+      )
+      (akita_black_bowl_back_init_region
+          (:target kitchen_table)
+          (:ranges (
+              (-0.395 -0.0049999999999999975 -0.345 0.04500000000000001)
+            )
+          )
+          (:yaw_rotation (
+              (0.0 0.0)
+            )
+          )
+      )
+      (plate_init_region
+          (:target kitchen_table)
+          (:ranges (
+              (-0.245 -0.19499999999999995 -0.195 -0.145)
+            )
+          )
+          (:yaw_rotation (
+              (0.0 0.0)
+            )
+          )
+      )
+      (top_side
+          (:target wooden_cabinet_1)
+      )
+      (top_region
+          (:target wooden_cabinet_1)
+      )
+      (middle_region
+          (:target wooden_cabinet_1)
+      )
+      (bottom_region
+          (:target wooden_cabinet_1)
+      )
+      (bigger_plate_init_region
+          (:target kitchen_table)
+          (:ranges (
+              (-0.24000000000000002 0.2100000000000002 -0.19000000000000003 0.2600000000000001)
+            )
+          )
+          (:yaw_rotation (
+              (0.0 0.0)
+            )
+          )
+      )
+    )
+
+  (:fixtures
+    kitchen_table - kitchen_table
+    wooden_cabinet_1 - wooden_cabinet
+  )
+
+  (:objects
+    akita_black_bowl_1 akita_black_bowl_2 akita_black_bowl_3 - akita_black_bowl
+    plate_1 - plate
+      bigger_plate_1 - bigger_plate
+  )
+
+  (:obj_of_interest
+    akita_black_bowl_1
+    plate_1
+  )
+
+  (:init
+    (On akita_black_bowl_1 kitchen_table_akita_black_bowl_front_init_region)
+    (On akita_black_bowl_2 kitchen_table_akita_black_bowl_middle_init_region)
+    (On akita_black_bowl_3 kitchen_table_akita_black_bowl_back_init_region)
+    (On plate_1 kitchen_table_plate_init_region)
+    (On wooden_cabinet_1 kitchen_table_wooden_cabinet_init_region)
+      (On bigger_plate_1 kitchen_table_bigger_plate_init_region)
+  )
+
+  (:goal
+    (And (On akita_black_bowl_1 bigger_plate_1))
+  )
+
+)

@@ -1,0 +1,114 @@
+(define (problem LIBERO_Living_Room_Tabletop_Manipulation)
+  (:domain robosuite)
+  (:language L2_7Pick the plate with load and put it on the microwave.)
+    (:regions
+      (cylinder_a_1_init_region
+          (:target living_room_table)
+          (:ranges (
+              (-0.16 -0.38 -0.15 -0.37)
+            )
+          )
+          (:yaw_rotation (
+              (0.0 0.0)
+            )
+          )
+      )
+      (microwave_1_init_region
+          (:target living_room_table)
+          (:ranges (
+              (0.1 -0.03 0.12 -0.02)
+            )
+          )
+          (:yaw_rotation (
+              (0 0)
+            )
+          )
+      )
+
+      (white_yellow_mug_init_region
+          (:target living_room_table)
+          (:ranges (
+              (0.3 0.3 0.31 0.31)
+            )
+          )
+          (:yaw_rotation (
+              (0.0 0.0)
+            )
+          )
+      )
+
+      (red_coffee_mug_init_region
+          (:target living_room_table)
+          (:ranges (
+              (0.25 -0.3 0.26 -0.29)
+            )
+          )
+          (:yaw_rotation (
+              (0.0 0.0)
+            )
+          )
+      )
+
+      (porcelain_mug_init_region
+          (:target living_room_table)
+          (:ranges (
+              (-0.025 -0.3 0.02500000000000001 -0.29)
+            )
+          )
+          (:yaw_rotation (
+              (0.0 0.0)
+            )
+          )
+      )
+
+      (top_side
+          (:target microwave_1)
+      )
+      (top_region
+          (:target microwave_1)
+      )
+      (heating_region
+          (:target microwave_1)
+      )
+      (bottom_region
+          (:target microwave_1)
+      )
+    )
+
+  (:fixtures
+    living_room_table - living_room_table
+    microwave_1 - microwave
+  )
+
+  (:objects
+    blue_plate_1 - blue_plate
+    red_bowl_1 - red_bowl
+    cylinder_a_1 - cylinder_a
+    alphabet_soup_1 - alphabet_soup
+    moka_pot_1 - moka_pot
+    plate_1 - plate
+  )
+
+  (:obj_of_interest
+    blue_plate_1
+    red_bowl_1
+    microwave_1
+    cylinder_b_1
+  )
+
+  (:init
+    (On plate_1 living_room_table_white_yellow_mug_init_region)
+    (On moka_pot_1 living_room_table_red_coffee_mug_init_region)
+    (On alphabet_soup_1 living_room_table_porcelain_mug_init_region)
+    (on cylinder_a_1 living_room_table_cylinder_a_1_init_region)
+    (On blue_plate_1 cylinder_a_1)
+    (On red_bowl_1 blue_plate_1)
+    (On microwave_1 living_room_table_microwave_1_init_region)
+  )
+
+  (:goal
+    (And (on blue_plate_1 microwave_1_heating_region))
+
+  )
+
+)

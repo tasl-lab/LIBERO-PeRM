@@ -1,0 +1,4 @@
+1.||avoid_object, ("ketchup_1", 0.2)||
+2.||To avoid the ketchup which has red markings, adhering to the hint of avoiding red color objects.||
+
+

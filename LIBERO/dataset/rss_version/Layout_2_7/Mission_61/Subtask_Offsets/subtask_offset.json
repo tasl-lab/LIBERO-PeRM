@@ -1,0 +1,26 @@
+{
+  "mission_id": "61",
+  "pick_with_load:blue_plate_1": [
+    [
+      0.0,
+      0.0,
+      0.0
+    ]
+  ],
+  "pick_with_load_rot:blue_plate_1": 0,
+  "move_to:microwave_1": [
+    [
+      0.0,
+      0.0,
+      0.2
+    ]
+  ],
+  "move_to_height:microwave_1": -0.1,
+  "put_with_load:microwave_1": [
+    [
+      0.0,
+      -0.04,
+      0.0
+    ]
+  ]
+}

@@ -1,0 +1,46 @@
+# Experiment W — pi05_libero_lora_v1 (self-trained LoRA on official LIBERO data) eval on SingPref.
+#
+# Pair to D (official pi05_libero full-param 0-shot): same data, same prompts (anchor from
+# tasksuite_v0.yaml), only ckpt origin differs. Prior dev hint: this LoRA may slightly
+# outperform official pi05_libero on some cells; this run gets the full picture.
+#
+# Train cfg : pi05_libero_lora_v1   (registered in VLAs/openpi/src/openpi/training/config.py)
+# Train run : pi05_lora_v1_repo
+# Ckpt       : /data3/zhixu/LIBERO-PeRM/checkpoints/pi05_libero_lora_v1/pi05_lora_v1_repo/29999  (final, num_train_steps=30_000)
+# Prompt src : /data3/zhixu/LIBERO-PeRM/VLA_data/SinglePref/tasksuite_v0.yaml  (anchor format, v0 schema, 40 mission)
+#
+# Suite: single-pref × {base, pref} × 4 trials = 320 episodes.
+# exp_type=lora_ft so eval.py compose_prompt mode 1 (anchor) is used for BOTH conditions
+# (do not switch to libero_instruction in base; user specified v0 anchor for both).
+#
+# Launch:
+#   server: bash VLA_infer/server_pi05.sh VLA_infer/run_profile/InDomain/W_pi05_libero_lora_v1_step29999.yaml
+#   client: bash VLA_infer/run_client.sh  VLA_infer/run_profile/InDomain/W_pi05_libero_lora_v1_step29999.yaml
+# Aggregate:
+#   python LIBERO/scripts/aggregate_eval.py /data3/zhixu/LIBERO-PeRM/Policy_output/lora_ft/single-pref/W_pi05_libero_lora_v1_step29999/pi05_libero_lora_v1_step29999 --suite single-pref
+
+experiment_name: W_pi05_libero_lora_v1_step29999
+exp_type: lora_ft
+task_suite: single-pref
+
+prompt_source_yaml: /data3/zhixu/LIBERO-PeRM/VLA_data/SinglePref/tasksuite_v0.yaml
+
+conditions: [base, pref]
+num_trials: 4
+replan_steps: 5
+max_steps: 1200          # match U_singlepref_rerun
+seed: 7
+
+save_hdf5: false
+save_video: true
+save_gif: false
+
+server:
+  vla: pi05
+  name: pi05_libero_lora_v1_step29999
+  host: 0.0.0.0
+  port: 8014
+  config: pi05_libero_lora_v1
+  checkpoint: /data3/zhixu/LIBERO-PeRM/checkpoints/pi05_libero_lora_v1/pi05_lora_v1_repo/29999
+  cuda_devices: "0,1"
+  default_prompt: null

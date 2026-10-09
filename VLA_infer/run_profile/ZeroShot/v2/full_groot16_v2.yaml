@@ -1,0 +1,26 @@
+# GROOT N1.6 4-in-1 full 40-mission re-eval (v2). Period-fix + new 40-mission
+# tasksuite. Single shared stats so no per-suite swap needed. replan_steps=8
+# matches the chunk size for OFT-style models.
+experiment_name: groot16_full_v2
+exp_type: 0shot
+task_suite: single-pref
+
+conditions: [base, pref]
+num_trials: 3
+replan_steps: 8
+max_steps: null
+seed: 7
+
+save_video: false
+save_gif: false
+
+server:
+  vla: groot
+  name: groot16_libero
+  host: 0.0.0.0
+  port: 8001
+  config: groot_n16_libero
+  checkpoint: /data3/zhixu/LIBERO-PeRM/checkpoints/groot_n16_libero
+  cuda_devices: "5"
+  device: "cuda:0"
+  embodiment_tag: LIBERO_PANDA

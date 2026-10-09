@@ -1,0 +1,110 @@
+(define (problem LIBERO_Kitchen_Tabletop_Manipulation)
+  (:domain robosuite)
+  (:language Pick the akita black bowl from the table and place it on the plate)
+    (:regions
+      (white_cabinet_init_region
+          (:target kitchen_table)
+          (:ranges (
+              (-0.2 0.2 -0.195 0.21)
+            )
+          )
+          (:yaw_rotation (
+              (0.0 0.0)
+            )
+          )
+      )
+      (wine_bottle_init_region
+          (:target kitchen_table)
+          (:ranges (
+              (-0.150049999999999999975 0.000000000000001 -0.1450 0.00125)
+            )
+          )
+          (:yaw_rotation (
+              (0.0 0.0)
+            )
+          )
+      )
+      (white_yellow_mug_init_region
+          (:target kitchen_table)
+          (:ranges (
+              (-0.20 0.05 -0.15 0.10)
+            )
+          )
+          (:yaw_rotation (
+              (0.0 0.0)
+            )
+          )
+      )
+      (plate_init_region
+          (:target kitchen_table)
+          (:ranges (
+              (-0.07500000000000001 -0.275 -0.025 -0.225)
+            )
+          )
+          (:yaw_rotation (
+              (0.0 0.0)
+            )
+          )
+      )
+
+      (white_porcelain_mug_1_init_region
+          (:target kitchen_table)
+          (:ranges (
+              (-0.19720008301041455 -0.05636332847518428 -0.15720008301041456 -0.006363328475184275)
+            )
+          )
+          (:yaw_rotation (
+              (-3.141592653589793 3.141592653589793)
+            )
+          )
+      )
+      (top_side
+          (:target white_storage_box_1)
+      )
+      (top_side
+          (:target white_cabinet_1)
+      )
+      (top_region
+          (:target white_cabinet_1)
+      )
+      (middle_region
+          (:target white_cabinet_1)
+      )
+      (bottom_region
+          (:target white_cabinet_1)
+      )
+    )
+
+  (:fixtures
+    kitchen_table - kitchen_table
+    white_cabinet_1 - white_cabinet
+  )
+
+  (:objects
+    wine_bottle_1 - wine_bottle
+    plate_1 - plate
+    white_yellow_mug_1 - white_yellow_mug
+    white_storage_box_1 - white_storage_box
+  )
+
+  (:obj_of_interest
+    wine_bottle_1
+    plate_1
+  )
+
+  (:init
+    (On wine_bottle_1 kitchen_table_wine_bottle_init_region)
+    (On plate_1 kitchen_table_plate_init_region)
+    (On white_storage_box_1 kitchen_table_white_cabinet_init_region)
+    (On white_yellow_mug_1 white_storage_box_1_top_side)
+    (Close white_cabinet_1_top_region)
+
+  )
+
+
+  (:goal
+    (And (On white_yellow_mug_1 plate_1))
+  )
+
+)
+

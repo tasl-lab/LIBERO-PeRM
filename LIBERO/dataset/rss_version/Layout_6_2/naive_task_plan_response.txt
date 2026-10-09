@@ -1,0 +1,1 @@
+(open_drawer wooden_cabinet_1),(pick akita_black_bowl_1),(put wooden_cabinet_1)

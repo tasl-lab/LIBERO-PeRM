@@ -1,0 +1,35 @@
+# Zero-shot eval of SmolVLA (HuggingFaceVLA/smolvla_libero) on full SinglePref in-domain suite.
+#
+# Sweep: 40 missions (single-pref-in-domain) × 2 conditions (base, pref) × 3 trials = 240 eps.
+# Model is a community 450M SmolVLA trained on LIBERO (multi-task, unified ckpt).
+# Paper SR on standard LIBERO: Spatial 90 / Object 96 / Goal 92 / Long 71 / Avg 87.3%
+# (community reproducibility reports suggest real numbers may be lower).
+#
+# Launch:
+#   server: bash VLA_infer/server_smolvla.sh VLA_infer/run_profile/ZeroShot/full_smolvla.yaml
+#   client: bash VLA_infer/run_client.sh     VLA_infer/run_profile/ZeroShot/full_smolvla.yaml
+
+experiment_name: smolvla_singpref_indomain_0shot
+exp_type: 0shot
+task_suite: single-pref-in-domain
+
+conditions: [base, pref]
+num_trials: 3
+replan_steps: 5
+max_steps: null
+seed: 7
+
+save_hdf5: false
+save_video: true
+save_gif: false
+
+server:
+  vla: smolvla
+  name: smolvla_libero
+  host: 0.0.0.0
+  port: 8010
+  config: smolvla_libero
+  checkpoint: /data3/zhixu/LIBERO-PeRM/checkpoints/smolvla_libero
+  cuda_devices: "1"
+  device: "cuda:0"
+  default_prompt: null

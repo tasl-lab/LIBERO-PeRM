@@ -1,0 +1,1 @@
+./dataset/Layout_9_10/P_BENCH_SCENE_l9_10pick_the_bowl_on_the_plate..bddl

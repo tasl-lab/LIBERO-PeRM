@@ -1,0 +1,1 @@
+./dataset/Layout_3_7/P_BENCH_SCENE_l3_7prepare_me_a_drink_in_the_basket.bddl

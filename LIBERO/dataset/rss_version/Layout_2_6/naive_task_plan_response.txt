@@ -1,0 +1,1 @@
+(pick alphabet_soup_1),(put plate_1)

@@ -1,0 +1,4 @@
+1.|| ('pick', 'butter_1'), ('put', 'basket_1'), ('pick', 'red_orange_juice_1'), ('put', 'basket_1') ||
+2.|| "required": [], "prohibited": [] ||
+3.|| I Prefer Red color objects ||
+

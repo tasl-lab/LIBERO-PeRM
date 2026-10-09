@@ -1,0 +1,11 @@
+1.|| ('pick', 'black_book_1'), ('put', 'desk_caddy_1') ||
+2.|| "required": [('pick', 'black_book_1'), ('put', 'desk_caddy_1')], "prohibited": [('_ALL', 'porcelain_mug_1'), ('_ALL', 'red_coffee_mug_1')], "order": [[('pick', 'black_book_1'), ('put', 'desk_caddy_1')]] ||
+3.|| Please rotate 90 degrees before putting the object down ||
+
+1.|| ('pick_from_side', 'black_book_1_|left|'), ('put', 'desk_caddy_1') ||
+2.|| "required": [('pick_from_side', 'black_book_1_|left|'), ('put', 'desk_caddy_1')], "prohibited": [('_ALL', 'porcelain_mug_1'), ('_ALL', 'red_coffee_mug_1')], "order": [[('pick_from_side', 'black_book_1_|left|'), ('put', 'desk_caddy_1')]] ||
+3.|| Please rotate 90 degrees before putting the object down ||
+
+1.|| ('pick_from_side', 'black_book_1_|right|'), ('put', 'desk_caddy_1') ||
+2.|| "required": [('pick_from_side', 'black_book_1_|right|'), ('put', 'desk_caddy_1')], "prohibited": [('_ALL', 'porcelain_mug_1'), ('_ALL', 'red_coffee_mug_1')], "order": [[('pick_from_side', 'black_book_1_|right|'), ('put', 'desk_caddy_1')]] ||
+3.|| Please rotate 90 degrees before putting the object down ||

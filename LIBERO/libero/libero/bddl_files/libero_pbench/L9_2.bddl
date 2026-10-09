@@ -1,0 +1,102 @@
+(define (problem LIBERO_Kitchen_Tabletop_Manipulation)
+  (:domain robosuite)
+  (:language put the ketchup in the top drawer of the cabinet)
+    (:regions
+      (basket_init_region
+          (:target kitchen_table)
+          (:ranges (
+              (-0.01 0.25 0.01 0.27)
+            )
+          )
+          (:yaw_rotation (
+              (0.0 0.0)
+            )
+          )
+      )
+      (bbq_sauce_init_region
+          (:target kitchen_table)
+          (:ranges (
+              (0.025 -0.135 0.07500000000000001 -0.08500000000000001)
+            )
+          )
+          (:yaw_rotation (
+              (0.0 0.0)
+            )
+          )
+      )
+      (white_cabinet_init_region
+          (:target kitchen_table)
+          (:ranges (
+              (-0.01 0.29 0.01 0.31)
+            )
+          )
+          (:yaw_rotation (
+              (0.0 0.0)
+            )
+          )
+      )
+      (akita_black_bowl_init_region
+          (:target kitchen_table)
+          (:ranges (
+              (-0.0949999999999999975 -0.07500000000000001 -0.045 -0.025)
+            )
+          )
+          (:yaw_rotation (
+              (0.0 0.0)
+            )
+          )
+      )
+      (ketchup_init_region
+          (:target kitchen_table)
+          (:ranges (
+              (-0.225 -0.125 -0.17500000000000001 -0.07500000000000001)
+            )
+          )
+          (:yaw_rotation (
+              (0.0 0.0)
+            )
+          )
+      )
+      (plate_init_region
+          (:target kitchen_table)
+          (:ranges (
+              (-0.17500000000000001 -0.275 -0.125 -0.225)
+            )
+          )
+          (:yaw_rotation (
+              (0.0 0.0)
+            )
+          )
+      )
+    )
+
+  (:fixtures
+    kitchen_table - kitchen_table
+  )
+
+  (:objects
+    akita_black_bowl_1 - akita_black_bowl
+    plate_1 - plate
+    ketchup_1 - ketchup
+    basket_1 - basket
+    bbq_sauce_1 - bbq_sauce
+  )
+
+  (:obj_of_interest
+    bbq_sauce_1
+  )
+
+  (:init
+    (On akita_black_bowl_1 kitchen_table_akita_black_bowl_init_region)
+    (On plate_1 kitchen_table_plate_init_region)
+    (On basket_1 kitchen_table_basket_init_region)
+    (On ketchup_1 kitchen_table_ketchup_init_region)
+    (On bbq_sauce_1 kitchen_table_bbq_sauce_init_region)
+
+  )
+
+  (:goal
+    (And (In bbq_sauce_1 basket_1_contain_region) )
+  )
+
+)

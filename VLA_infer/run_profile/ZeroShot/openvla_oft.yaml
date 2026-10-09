@@ -1,0 +1,58 @@
+# Smoke-test runfile for OpenVLA-OFT server wiring.
+#
+# This profile is set up for the base OpenVLA 7B checkpoint you already
+# downloaded locally. It is useful for checking that:
+# - the server starts
+# - the websocket connection works
+# - the client can finish a tiny evaluation run
+#
+# Important:
+# - This is NOT the recommended final LIBERO zero-shot setting.
+# - For real LIBERO evaluation, switch `server.checkpoint` to an OFT LIBERO
+#   checkpoint and update the server options accordingly.
+
+experiment_name: openvla_oft_singlepref_smoke
+exp_type: 0shot
+task_suite: single-pref
+
+missions:
+  - 1-1_004
+  - 2-1_019
+
+conditions: [base]
+num_trials: 1
+replan_steps: 5
+max_steps: 250
+seed: 7
+
+server:
+  # Identity shared by server + client validation.
+  vla: openvla_oft
+  name: openvla_7b_base_smoke
+  host: 0.0.0.0
+  port: 8002
+
+  # Local checkpoint you already downloaded.
+  config: openvla_7b_base
+  checkpoint: /data3/zhixu/LIBERO-PeRM/checkpoints/openvla/openvla-7b
+  cuda_devices: "0"
+  default_prompt: null
+
+  # Conservative base-model settings.
+  # If you later switch to an OFT LIBERO checkpoint, see the template below.
+  use_l1_regression: false
+  use_diffusion: false
+  use_film: false
+  use_proprio: false
+  num_images_in_input: 1
+
+  # Base OpenVLA ships with non-LIBERO normalization stats.
+  # This key follows the upstream model card example and is mostly for wiring checks.
+  # Replace this with a LIBERO key such as `libero_spatial_no_noops` once you use
+  # an OFT LIBERO checkpoint.
+  unnorm_key: bridge_orig
+
+  load_in_8bit: false
+  load_in_4bit: false
+  image_size: 224
+  action_dim: 7

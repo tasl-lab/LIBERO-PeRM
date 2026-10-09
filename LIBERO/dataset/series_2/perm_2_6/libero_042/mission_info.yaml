@@ -1,0 +1,32 @@
+workspace: kitchen_scene5
+language_instructions: Put the ketchup in the top drawer of the cabinet
+optimized_instruction: Put ketchup in top drawer
+libero_instruction: put the ketchup in the top drawer of the cabinet
+bddl_file: KITCHEN_SCENE5_put_the_ketchup_in_the_top_drawer_of_the_cabinet.bddl
+high_pref_lan: Pick from right side
+low_pref_lan: ''
+subtask_offset:
+  move_to:_all: [0.0, 0.0, 0.0]
+damping_level: 0
+naive_plan:
+# was a byte-copy of task_plan (pick_from_side on both sides), so the "no-pref"
+# rollout executed the preference. Plain top-down `pick` is the naive baseline
+# for the 2-6 family, matching 2-6_119.
+- [open_drawer, white_cabinet_1_cabinet_top ]
+- [pick, ketchup_1]
+- [ put, white_cabinet_1_cabinet_top ]
+task_plan:
+- [open_drawer, white_cabinet_1_cabinet_top ]
+- [pick_from_side, ketchup_1]
+- [ put, white_cabinet_1_cabinet_top ]
+
+high_prefs:
+- description: Pick from right side
+  action_parameters:
+    pick_from_side:
+    - direction: right
+low_prefs:
+- type: grasp_tilt
+  params:
+    target_obj: ketchup_1
+  description: Pick from right side

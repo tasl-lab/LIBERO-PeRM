@@ -1,0 +1,66 @@
+{
+  "_comment:": [
+    "workspaces: the scene type corresponding to each BDDL file",
+    "bddl_file_names: BDDL files to be used for data generation",
+    "language_instructions: language instructions corresponding to each BDDL file, i.e. a mission, feel free to change it if necessary",
+    "running_layout_ids: layout/scenes indices to be used for data generation, e.g. [0] means only the first bddl in bddl_file_name will be used",
+    "high_level_preferences: a list of high-level preferences that will be used during data generation",
+    "enabled_high_pref_ids: the indices of high-level preferences to be enabled during data generation",
+    "low_pref_type:a list of low-level preferences that can be used during data generation",
+    "enabled_low_pref_ids: the indices of high-level preferences to be enabled during data generation"
+  ],
+
+  "workspaces":
+    "floor",
+
+  "bddl_file_names":
+    "libero_pbench/L3_4_out_of_domain.bddl",
+
+  "language_instructions":
+    "Put a Butter and an orange_juice in the basket",
+
+
+  "layout_id": "3_4_out_of_domain",
+
+  "high_pref_lan": [
+    "I Prefer Red color objects"
+
+  ],
+  "_comment__":["↑↑↑↑↑↑↑↑↑"],
+  "low_pref_lan": [
+    ""
+  ],
+
+  "mission_ids": [
+    "29"
+  ],
+
+  "mission_mask": [
+    1
+  ],
+
+  "subtask_offset":
+    [
+      {
+      "mission_id": "29",
+
+      "move_to:basket_1": [
+        [-0.03, 0.00, 0.1],
+                [-0.0, 0.00, 0.1]
+      ],    "move_to_height:basket_1":-0.4,
+        "put:basket_1": [
+        [-0.03, 0.00, 0.1],
+                  [-0.0, 0.00, 0.1]
+      ],
+              "move_to:red_orange_juice_1": [
+        [0.0, -0.1, 0.07]
+      ],
+      "pick:red_orange_juice_1": [
+        [0.0, -0.1, 0.07]
+      ]
+      }
+    ],
+
+  "fluency_improvement": 0
+}
+

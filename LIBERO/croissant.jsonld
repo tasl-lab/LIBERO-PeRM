@@ -1,0 +1,242 @@
+{
+  "@context": {
+    "@language": "en",
+    "@vocab": "https://schema.org/",
+    "citeAs": "Zhixu Li, Keqian Tang, Litian Gong, Jingyu Yao, Wenqian Zhang, Tianze Xu, Zehao Wang, Yuping Wang, Junge Zhang, Jiachen Li. LIBERO-PeRM: Benchmarking Personalized Robotic Manipulation. NeurIPS 2026, Evaluations and Datasets Track.",
+    "column": "cr:column",
+    "conformsTo": "dct:conformsTo",
+    "cr": "http://mlcommons.org/croissant/",
+    "rai": "http://mlcommons.org/croissant/RAI/",
+    "data": {"@id": "cr:data", "@type": "@json"},
+    "dataType": {"@id": "cr:dataType", "@type": "@vocab"},
+    "dct": "http://purl.org/dc/terms/",
+    "examples": {"@id": "cr:examples", "@type": "@json"},
+    "extract": "cr:extract",
+    "field": "cr:field",
+    "fileProperty": "cr:fileProperty",
+    "fileObject": "cr:fileObject",
+    "fileSet": "cr:fileSet",
+    "format": "cr:format",
+    "includes": "cr:includes",
+    "isLiveDataset": "cr:isLiveDataset",
+    "jsonPath": "cr:jsonPath",
+    "key": "cr:key",
+    "md5": "cr:md5",
+    "parentField": "cr:parentField",
+    "path": "cr:path",
+    "recordSet": "cr:recordSet",
+    "references": "cr:references",
+    "regex": "cr:regex",
+    "repeated": "cr:repeated",
+    "replace": "cr:replace",
+    "sc": "https://schema.org/",
+    "separator": "cr:separator",
+    "source": "cr:source",
+    "subField": "cr:subField",
+    "transform": "cr:transform"
+  },
+  "@type": "sc:Dataset",
+  "name": "LIBERO-PeRM",
+  "alternateName": ["LIBERO-PeRM Personalized Robotic Manipulation Benchmark"],
+  "description": "LIBERO-PeRM is a benchmark for personalized (preference-aware) robotic manipulation, built on top of the LIBERO simulation environment. It contains seven series of tasks covering motion preferences (Series 1), skill preferences (Series 2), user-profile preferences (Series 3), multi-preference compositions (Series 4), preference scaling (Series 5), preference conflicts (Series 6), and a language paraphrasing axis (Series 7, LIBERO-Comprehensive). All physical scenes reuse the LIBERO BDDL layouts; preferences are layered as additional task constraints, demonstrations, and language instructions. Series 7 introduces no new demonstrations and only adds two paraphrased prompt settings (S1 fused / S2 commonsense reasoning) on top of the Series 1-3 mission set. The dataset is released for research use as supplementary material to an anonymous submission.",
+  "conformsTo": "http://mlcommons.org/croissant/1.0",
+  "version": "1.0.0",
+  "datePublished": "2026-05-07",
+  "license": "https://creativecommons.org/licenses/by/4.0/",
+  "url": "https://github.com/tasl-lab/LIBERO-PeRM",
+  "citeAs": "Anonymous. LIBERO-PeRM: Benchmarking Personalized Robotic Manipulation. Anonymous submission, 2026.",
+  "creator": [
+    {"@type": "Person", "name": "Zhixu Li"},
+    {"@type": "Person", "name": "Keqian Tang"},
+    {"@type": "Person", "name": "Litian Gong"},
+    {"@type": "Person", "name": "Jingyu Yao"},
+    {"@type": "Person", "name": "Wenqian Zhang"},
+    {"@type": "Person", "name": "Tianze Xu"},
+    {"@type": "Person", "name": "Zehao Wang"},
+    {"@type": "Person", "name": "Yuping Wang"},
+    {"@type": "Person", "name": "Junge Zhang"},
+    {"@type": "Person", "name": "Jiachen Li"}
+  ],
+  "publisher": {
+    "@type": "Organization",
+    "name": "Anonymous"
+  },
+  "keywords": [
+    "robot learning",
+    "manipulation",
+    "preference",
+    "language paraphrasing",
+    "LIBERO",
+    "benchmark"
+  ],
+
+  "distribution": [
+    {
+      "@type": "cr:FileObject",
+      "@id": "task-suites-yaml",
+      "name": "task_suites.yaml",
+      "description": "Registry mapping benchmark suite names to mission_id lists.",
+      "contentUrl": "configs/task_suites.yaml",
+      "encodingFormat": "application/yaml",
+      "sha256": "6890e191027ad324b0eddf09fff2fb971c11c2842183217e91178da366d246ee"
+    },
+    {
+      "@type": "cr:FileSet",
+      "@id": "mission-bddl",
+      "name": "mission-bddl",
+      "description": "Per-mission BDDL scene definitions (regions, fixtures, objects, init, goal).",
+      "containedIn": {"@id": "task-suites-yaml"},
+      "encodingFormat": "application/octet-stream",
+      "includes": "dataset/series_*/perm_*/libero_*/*.bddl"
+    },
+    {
+      "@type": "cr:FileSet",
+      "@id": "mission-info",
+      "name": "mission-info",
+      "description": "Per-mission YAML configuration: task plan, naive plan, preference annotations, libero_instruction, optimized_instruction.",
+      "containedIn": {"@id": "task-suites-yaml"},
+      "encodingFormat": "application/yaml",
+      "includes": "dataset/series_*/perm_*/libero_*/mission_info.yaml"
+    },
+    {
+      "@type": "cr:FileObject",
+      "@id": "series7-language-yaml",
+      "name": "series_7_language.yaml",
+      "description": "Series 7 (LIBERO-Comprehensive) per-(mission, setting) paraphrased language prompts. Two settings: S1 (fused, no reasoning) / S2 (commonsense, requires inference).",
+      "contentUrl": "dataset/series_7/language.yaml",
+      "encodingFormat": "application/yaml",
+      "sha256": "f4e40caef94920c74895d3a737be921cfeb7e90d280b4f1999a7d9de22f98c43"
+    },
+    {
+      "@type": "cr:FileObject",
+      "@id": "series7-reference-md",
+      "name": "series_7_reference.md",
+      "description": "Authoring rules for Series 7 paraphrasing (Rule 1 fused = S1, Rule 2 commonsense = S2). Includes hard constraints, quality checklists, and per-pref-family seed banks.",
+      "contentUrl": "dataset/series_7/reference.md",
+      "encodingFormat": "text/markdown",
+      "sha256": "070bed590f371afed452cab1e21ed5d2d05379bab2e42b0bc46d74009e243668"
+    }
+  ],
+
+  "recordSet": [
+    {
+      "@type": "cr:RecordSet",
+      "@id": "missions",
+      "name": "missions",
+      "description": "One record per mission across all seven series.",
+      "key": {"@id": "missions/mission_id"},
+      "field": [
+        {
+          "@type": "cr:Field",
+          "@id": "missions/mission_id",
+          "name": "mission_id",
+          "description": "Stable identifier of the form '<series>-<subseries>_<layout>[_<variant>]', e.g. '1-1_004', '3-9_118_1'. Derived from the parent directory path 'perm_<series>_<sub>/libero_<layout>'.",
+          "dataType": "sc:Text",
+          "source": {
+            "fileSet": {"@id": "mission-info"},
+            "extract": {"fileProperty": "fullpath"}
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "missions/series",
+          "name": "series",
+          "description": "Series number in {1,2,3,4,5,6,7}.",
+          "dataType": "sc:Integer"
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "missions/task",
+          "name": "task",
+          "description": "Plain-language LIBERO task instruction (verbatim from BDDL filename).",
+          "dataType": "sc:Text",
+          "source": {
+            "fileSet": {"@id": "mission-info"},
+            "extract": {"jsonPath": "$.libero_instruction"}
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "missions/preference",
+          "name": "preference",
+          "description": "Canonical preference clause appended to the task. Empty for no-preference baseline.",
+          "dataType": "sc:Text",
+          "source": {
+            "fileSet": {"@id": "mission-info"},
+            "extract": {"jsonPath": "$.high_pref_lan"}
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "missions/bddl_file",
+          "name": "bddl_file",
+          "description": "Relative path to the mission's BDDL scene definition.",
+          "dataType": "sc:Text",
+          "source": {
+            "fileSet": {"@id": "mission-info"},
+            "extract": {"jsonPath": "$.bddl_file"}
+          }
+        }
+      ]
+    },
+    {
+      "@type": "cr:RecordSet",
+      "@id": "series7_prompts",
+      "name": "series7_prompts",
+      "description": "Per-(mission, setting) paraphrased prompts for Series 7 (LIBERO-Comprehensive). 34 missions x 2 settings = 68 prompts.",
+      "key": [
+        {"@id": "series7_prompts/mission_id"},
+        {"@id": "series7_prompts/setting"}
+      ],
+      "field": [
+        {
+          "@type": "cr:Field",
+          "@id": "series7_prompts/mission_id",
+          "name": "mission_id",
+          "dataType": "sc:Text"
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "series7_prompts/setting",
+          "name": "setting",
+          "description": "S1 = fused paraphrase (no reasoning); S2 = commonsense paraphrase (requires inference).",
+          "dataType": "sc:Text"
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "series7_prompts/text",
+          "name": "text",
+          "description": "The paraphrased natural-language prompt fed to the policy at rollout time. Resolved from series_7_language.yaml at the entry whose mission_id matches and the field name equals the chosen setting (S1 or S2).",
+          "dataType": "sc:Text",
+          "source": {
+            "fileObject": {"@id": "series7-language-yaml"},
+            "extract": {"jsonPath": "$.missions[*]"}
+          }
+        }
+      ]
+    }
+  ],
+
+  "rai:dataCollection": "Scenes are imported from the public LIBERO simulation benchmark. Preference annotations and Series 7 paraphrases were authored by the dataset creators using manual writing with automated paraphrasing assistance, then manually reviewed against the rules in dataset/series_7/reference.md. No human-subject data was collected; all interactions take place inside the MuJoCo physics simulator.",
+  "rai:dataCollectionType": ["Synthetic", "Other (simulation rollouts)"],
+  "rai:dataCollectionMissingData": "No human-derived data, therefore no missing-respondent issue. A small number of (mission, preference) cells where scripted skill controllers fail to produce a successful rollout are explicitly excluded from the released training HDF5 set; they remain enumerated in dataset/series_*/...mission_info.yaml so coverage gaps are auditable.",
+  "rai:dataCollectionRawData": "Per-rollout raw observations (RGB frames, proprioception, end-effector pose, gripper state, action chunks) and per-step preference rewards. Raw rollouts are stored as HDF5 grouped by mission; aggregated training shards live in VLA_data/ (excluded from the public release; users regenerate from the included scripts).",
+  "rai:dataCollectionTimeframe": "Initial dataset construction: 2026-04 to 2026-05. Frozen for submission on 2026-05-07.",
+  "rai:dataPreprocessingProtocol": "Demonstrations were generated by deterministic scripted skill controllers in simulation; no human teleoperation, no real-world recordings. Static no-op frames are filtered following OpenVLA Appendix E.1. Mission-info YAML fields are propagated by idempotent scripts; values are reviewed before merge.",
+  "rai:dataAnnotationProtocol": "Preference annotations and Series 7 paraphrases follow a written specification (dataset/series_7/reference.md). Each (mission, setting) string was checked against per-rule hard constraints (no canonical-pref keyword leakage, unique preference recovery for S2, action-skeleton invariance) before inclusion.",
+  "rai:dataAnnotationPlatform": "Annotation was performed directly in the source repository through ordinary text editors and per-mission YAML/Markdown files; no third-party crowdsourcing platform was used.",
+  "rai:dataAnnotationAnalysis": "Inter-annotator agreement is not applicable: the entire dataset was authored and reviewed by a single anonymous research team following the rule specification. Each Series 7 entry was double-checked against the per-rule quality checklists in dataset/series_7/reference.md before inclusion.",
+  "rai:dataAnnotatorDemographics": "All preference and paraphrase annotations were authored by members of the anonymous research team (graduate-level researchers fluent in English with robotics-research background). No external annotators were employed and no demographic data was collected.",
+  "rai:dataAnnotationPerItemTime": "Estimated 5-15 minutes per (mission, setting) for Series 7 paraphrase authoring including rule-compliance review; estimated 10-30 minutes per mission for Series 1-3 preference authoring including BDDL goal editing.",
+  "rai:dataReleaseMaintenancePlan": "Released as a frozen snapshot accompanying an anonymous submission. Versioned via the `version` field; no live updates. Issues and corrections will be surfaced in the README of the supplementary repository if the submission is accepted.",
+  "rai:dataUseCases": [
+    "Research evaluation of preference-following ability of vision-language-action (VLA) policies in simulated robotic manipulation.",
+    "Studying language-grounding robustness of policies under paraphrase perturbations (Series 7 only)."
+  ],
+  "rai:dataLimitations": "All scenes are simulated and use a fixed Franka Panda + LIBERO asset set; results may not transfer to real hardware. Preferences are limited to the seven taxonomies introduced in the paper. Series 3 user-profile preferences encode short, schematic profiles only and are not intended to model real users. Sample size is small per preference family (one mission per family in Series 7).",
+  "rai:dataBiases": "The dataset inherits LIBERO's object catalogue and scene composition, which over-represents indoor kitchen / office settings. The paraphrase axis (Series 7) was authored in English only and may not generalise across languages or dialects. Preference labels are generated by the authors and do not reflect a representative population of human users.",
+  "rai:dataPersonalSensitiveInformation": "None. The dataset contains no personally identifiable information (PII), no biometric data, no images of real people, and no real-world audio or video recordings. All content is synthetic, generated inside the MuJoCo simulator by scripted controllers.",
+  "rai:dataSocialImpact": "The dataset is intended to advance research on preference-aware robotic manipulation. It does not enable surveillance, profiling, or any application that affects real persons. Released under CC BY 4.0 for both research and commercial use, with attribution. Use of derived policies on physical hardware is outside the dataset's intended scope; users bear sole responsibility for any sim-to-real transfer.",
+  "rai:dataReleaseRiskMitigation": "Internal paths, author names, machine identifiers, and training infrastructure metadata were stripped before release. No external network endpoints, no API keys, and no third-party model weights are included; users must obtain VLA model checkpoints separately from their original maintainers.",
+  "isLiveDataset": false
+}

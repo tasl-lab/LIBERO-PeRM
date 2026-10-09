@@ -1,0 +1,1 @@
+./dataset/Layout_10_7/P_BENCH_SCENE_l10_7put_a_food_on_my_plate.bddl

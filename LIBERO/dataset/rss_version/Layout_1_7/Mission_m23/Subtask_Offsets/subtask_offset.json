@@ -1,0 +1,59 @@
+{
+  "mission_id": "m23",
+  "move_to:bigger_cheese_2": [
+    [
+      0.01,
+      -0.02,
+      -0.1
+    ]
+  ],
+  "pick:bigger_cheese_2": [
+    [
+      0.01,
+      -0.02,
+      -0.1
+    ]
+  ],
+  "move_to:plate_1": [
+    [
+      0.04,
+      0.06,
+      0
+    ]
+  ],
+  "put:plate_1": [
+    [
+      0.04,
+      0.06,
+      0
+    ]
+  ],
+  "move_to:bigger_cheese_1": [
+    [
+      0.15,
+      0.0,
+      0.1
+    ]
+  ],
+  "pick:bigger_cheese_1": [
+    [
+      0.15,
+      0.0,
+      0
+    ]
+  ],
+  "put:yellow_plate_1": [
+    [
+      0.04,
+      -0.04,
+      0.02
+    ]
+  ],
+  "move_to:yellow_plate_1": [
+    [
+      0.0,
+      -0.04,
+      0.02
+    ]
+  ]
+}

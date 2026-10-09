@@ -1,0 +1,29 @@
+experiment_name: openvla_base_singpref_0shot
+exp_type: 0shot
+task_suite: single-pref
+conditions: [base, pref]
+num_trials: 3
+replan_steps: 5
+max_steps: null
+seed: 7
+prompt_source_yaml: /bigdata/jlilab/lgong024/workspace/P_Bench_oft/VLA_data/SinglePref/tasksuite.yaml
+save_video: true
+server:
+  vla: openvla_oft
+  name: openvla_base_singpref_0shot
+  host: 0.0.0.0
+  port: 8002
+  config: openvla_7b_base
+  checkpoint: /bigdata/jlilab/lgong024/workspace/P_Bench_oft/checkpoints/openvla/openvla-7b
+  cuda_devices: "0"
+  default_prompt: null
+  use_l1_regression: false
+  use_diffusion: false
+  use_film: false
+  use_proprio: false
+  num_images_in_input: 1
+  unnorm_key: bridge_orig
+  load_in_8bit: false
+  load_in_4bit: false
+  image_size: 224
+  action_dim: 7

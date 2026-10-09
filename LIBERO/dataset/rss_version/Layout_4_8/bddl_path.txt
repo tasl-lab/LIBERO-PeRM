@@ -1,0 +1,1 @@
+./dataset/Layout_4_8/P_BENCH_SCENE_l4_8pick_up_the_cheese_and_put_it_on_the_plate.bddl

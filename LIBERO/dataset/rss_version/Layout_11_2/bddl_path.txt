@@ -1,0 +1,1 @@
+./dataset/Layout_11_2/P_BENCH_SCENE_l11_2pick_up_the_blue_plate_with_load_and_put_it_on_the_wooden_shelf.bddl

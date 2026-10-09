@@ -1,0 +1,94 @@
+(define (problem LIBERO_Tabletop_Manipulation)
+  (:domain robosuite)
+  (:language Pick the blue ketchup and place it in the basket)
+    (:regions
+      (basket_init_region
+          (:target main_table)
+          (:ranges (
+              (-0.025 0.2 0.025 0.25)
+            )
+          )
+          (:yaw_rotation (
+              (0.0 0.0)
+            )
+          )
+      )
+      (blue_ketchup_init_region
+          (:target main_table)
+          (:ranges (
+              (-0.1052 -0.2438 -0.0952 -0.2338)
+            )
+          )
+          (:yaw_rotation (
+              (0.0 0.0)
+            )
+          )
+      )
+      (red_alphabet_soup_init_region
+          (:target main_table)
+          (:ranges (
+              (-0.005 -0.105 0.005 -0.095)
+            )
+          )
+          (:yaw_rotation (
+              (0.0 0.0)
+            )
+          )
+      )
+      (yellow_moka_pot_init_region
+          (:target main_table)
+          (:ranges (
+              (0.0015 0.0087 0.0515 0.0587)
+            )
+          )
+          (:yaw_rotation (
+              (0.0 0.0)
+            )
+          )
+      )
+      (yellow_cookies_init_region
+          (:target main_table)
+          (:ranges (
+              (-0.0811 -0.0530 -0.0311 -0.0030)
+            )
+          )
+          (:yaw_rotation (
+              (0.0 0.0)
+            )
+          )
+      )
+      (contain_region
+          (:target basket_1)
+      )
+    )
+
+  (:fixtures
+    main_table - table
+  )
+
+  (:objects
+    blue_ketchup_1 - blue_ketchup
+    red_alphabet_soup_1 - red_alphabet_soup
+    yellow_moka_pot_1 - yellow_moka_pot
+    yellow_cookies_1 - yellow_cookies
+    basket_1 - basket
+  )
+
+  (:obj_of_interest
+    blue_ketchup_1
+    basket_1
+  )
+
+  (:init
+    (On blue_ketchup_1 main_table_blue_ketchup_init_region)
+    (On red_alphabet_soup_1 main_table_red_alphabet_soup_init_region)
+    (On yellow_moka_pot_1 main_table_yellow_moka_pot_init_region)
+    (On yellow_cookies_1 main_table_yellow_cookies_init_region)
+    (On basket_1 main_table_basket_init_region)
+  )
+
+  (:goal
+    (And (In blue_ketchup_1 basket_1_contain_region))
+  )
+
+)

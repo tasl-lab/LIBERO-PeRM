@@ -1,0 +1,62 @@
+{
+  "_comment:": [
+    "workspaces: the scene type corresponding to each BDDL file",
+    "bddl_file_names: BDDL files to be used for data generation",
+    "language_instructions: language instructions corresponding to each BDDL file, i.e. a mission, feel free to change it if necessary",
+    "running_layout_ids: layout/scenes indices to be used for data generation, e.g. [0] means only the first bddl in bddl_file_name will be used",
+    "high_level_preferences: a list of high-level preferences that will be used during data generation",
+    "enabled_high_pref_ids: the indices of high-level preferences to be enabled during data generation",
+    "low_pref_type:a list of low-level preferences that can be used during data generation",
+    "enabled_low_pref_ids: the indices of high-level preferences to be enabled during data generation"
+  ],
+
+  "workspaces":
+    "study_table",
+
+  "bddl_file_names":
+    "libero_pbench/L11_6.bddl",
+
+  "language_instructions":
+    "Put all BBQ sauces and the plate into the basket",
+
+  "layout_id": "11_6",
+
+  "high_pref_lan": [
+    "Pick the plate with load from the horizontal side, and pick BBQ sauce from the left side"
+  ],
+
+  "low_pref_lan": [
+    ""
+  ],
+
+  "mission_ids": [
+    "m36"
+  ],
+
+  "mission_mask": [
+    1
+  ],
+
+  "subtask_offset":
+    [
+      {
+      "mission_id": "m36",
+      "pick_from_side:bbq_sauce_1": [
+        [-0.03, 0.0, 0.0]
+      ],
+      "put:basket_1": [
+        [0, 0.0, 0.1]
+      ],
+      "move_to:basket_1": [
+        [0, 0.0, 0.1]
+      ],
+        "pick_with_load:plate_1": [
+            [0.0, 0.04, 0.00]
+        ],
+        "put_with_load:basket_1": [
+            [0.0, -0.03, 0.00]
+        ]
+      }
+    ],
+  "fluency_improvement": 0
+}

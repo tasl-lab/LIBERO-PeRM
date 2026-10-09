@@ -1,0 +1,1 @@
+(pick porcelain_mug_1),(put plate_1)

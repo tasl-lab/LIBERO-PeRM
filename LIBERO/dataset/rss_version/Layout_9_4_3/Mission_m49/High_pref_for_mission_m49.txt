@@ -1,0 +1,5 @@
+1.|| ('pick', 'blue_ketchup_1'), ('put', 'blue_plate_1'), ('pick', 'blue_ketchup_2'), ('put', 'blue_plate_2') ||
+2.|| "required": [('pick', 'blue_ketchup_1'), ('pick', 'blue_ketchup_2')], "prohibited": [('_ALL', 'ketchup_1'), ('_ALL', 'ketchup_2')], "order": [[('pick', 'blue_ketchup_1'), ('put', 'blue_plate_1')], [('pick', 'blue_ketchup_2'), ('put', 'blue_plate_2')]] ||
+3.|| I Prefer Blue color objects,if possible, and I Prefer double serving of objects, if possible ||
+
+

@@ -1,0 +1,35 @@
+# PrefScale L3 pref-OOD eval — pref=Prefer red objects. 6 missions × 4 trials = 24 eps.
+
+experiment_name: H_L3_pi05_scale_step30k_pref_ood_red
+exp_type: lora_ft
+task_suite: liberoscale_pref_ood
+
+prompt_source_yaml: /data3/zhixu/LIBERO-PeRM/VLA_data/PrefScale/tasksuite_pref_ood_red.yaml
+
+missions:
+  - 0-1_032_7
+  - 0-1_032_8
+  - 0-1_032_9
+  - 0-1_032_10
+  - 0-1_032_11
+  - 0-1_032_12
+
+conditions: [pref]
+num_trials: 4
+replan_steps: 5
+max_steps: null
+seed: 7
+
+save_hdf5: false
+save_video: true
+save_gif: false
+
+server:
+  vla: pi05
+  name: pi05_scale_H_L3_run1_step29999
+  host: 0.0.0.0
+  port: 8041
+  config: pi05_scale_H_L3_lora_v1
+  checkpoint: /data3/zhixu/LIBERO-PeRM/VLAs/openpi/checkpoints/pi05_scale_H_L3_lora_v1/pi05_scale_H_L3_run1/29999
+  cuda_devices: "1"
+  default_prompt: null

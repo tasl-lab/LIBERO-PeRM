@@ -1,0 +1,49 @@
+# Template for a real OpenVLA-OFT LIBERO zero-shot run.
+#
+# Use this after you download or train an OpenVLA-OFT LIBERO checkpoint.
+# Example checkpoints from the official README:
+# - moojink/openvla-7b-oft-finetuned-libero-spatial
+# - moojink/openvla-7b-oft-finetuned-libero-object
+# - moojink/openvla-7b-oft-finetuned-libero-goal
+# - moojink/openvla-7b-oft-finetuned-libero-10
+
+experiment_name: openvla_oft_singlepref_full
+exp_type: 0shot
+task_suite: single-pref
+
+# Omit `missions` to evaluate the whole single-pref suite.
+# missions: null
+
+conditions: [base, pref]
+num_trials: 3
+replan_steps: 5
+max_steps: null
+seed: 7
+
+server:
+  vla: openvla_oft
+  name: openvla_oft_libero
+  host: 0.0.0.0
+  port: 8002
+
+  # Update these two fields to match your actual checkpoint.
+  config: libero_spatial
+  checkpoint: moojink/openvla-7b-oft-finetuned-libero-spatial
+  cuda_devices: "0"
+  default_prompt: null
+
+  # Recommended LIBERO-OFT-style settings.
+  use_l1_regression: true
+  use_diffusion: false
+  use_film: false
+  use_proprio: true
+  num_images_in_input: 2
+  proprio_dim: 8
+
+  # If your checkpoint was trained on a different LIBERO suite, update this too.
+  unnorm_key: libero_spatial_no_noops
+
+  load_in_8bit: false
+  load_in_4bit: false
+  image_size: 224
+  action_dim: 7

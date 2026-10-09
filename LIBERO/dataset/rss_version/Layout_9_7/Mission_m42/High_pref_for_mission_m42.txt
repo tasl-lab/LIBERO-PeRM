@@ -1,0 +1,3 @@
+1.|| ('open_drawer', 'white_cabinet_1_cabinet_top'), ('pick', 'cream_cheese_1'), ('put', 'white_cabinet_1_cabinet_top'), ('close_drawer', 'white_cabinet_1_cabinet_top') ||
+2.|| "required": [('pick', 'cream_cheese_1'), ('put', 'white_cabinet_1_cabinet_top')], "prohibited": [('pick', 'alphabet_soup_1'), ('pick_bottle', 'wine_bottle_1'), ('pick_bowl', 'akita_black_bowl_1')], "order": [[('open_drawer', 'white_cabinet_1_cabinet_top'), ('pick', 'cream_cheese_1')], [('pick', 'cream_cheese_1'), ('put', 'white_cabinet_1_cabinet_top')], [('put', 'white_cabinet_1_cabinet_top'), ('close_drawer', 'white_cabinet_1_cabinet_top')]] ||
+3.|| I Prefer box-shape objects if possible ||

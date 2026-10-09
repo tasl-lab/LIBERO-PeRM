@@ -1,0 +1,3 @@
+1.|| ('pick_with_load', 'blue_plate_1'), ('put_with_load', 'microwave_1') ||
+2.|| "required": [('pick_with_load', 'blue_plate_1'), ('put_with_load', 'microwave_1')], "prohibited": [('pick', 'cylinder_a_1'), ('pick', 'blue_plate_1'), ('pick_bowl', 'blue_plate_1')], "order": [[('pick_with_load', 'blue_plate_1'), ('put_with_load', 'microwave_1')]] ||
+3.|| Pick the plate with load carefully, do not drop the load on plate. ||

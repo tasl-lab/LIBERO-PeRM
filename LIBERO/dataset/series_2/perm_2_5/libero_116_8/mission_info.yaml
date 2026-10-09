@@ -1,0 +1,36 @@
+workspace: kitchen_scene1
+language_instructions: Pick the ketchup and place it in the basket
+optimized_instruction: Put ketchup in basket
+libero_instruction: pick up the ketchup and place it in the basket
+bddl_file: KITCHEN_SCENE1_pick_up_the_ketchup_and_place_it_in_the_basket.bddl
+high_pref_lan: Pick from left side
+low_pref_lan: ''
+subtask_offset:
+  move_to:_all: [0.0, 0.0, 0.0]
+  put:basket_1: [[0.0, 0.0, 0.0]]
+
+damping_level: 0
+naive_plan:
+- [pick, ketchup_1]
+- [put, basket_1]
+task_plan:
+- [pick_from_side, ketchup_1]
+- [put, basket_1]
+high_prefs:
+- description: Pick from left side
+  action_parameters:
+    pick_from_side:
+    - direction: left
+low_prefs:
+- type: grasp_tilt
+  params:
+    target_obj: ketchup_1
+    criterion_threshold: 0.261799
+    criterion_direction: 1
+  description: Pick from left side
+low_pref_calibration:
+  grasp_tilt:
+    pref_anchor: 0.716313
+    n_pref: 10
+    naive_anchor: 0.103695
+    n_naive: 10

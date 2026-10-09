@@ -1,0 +1,23 @@
+workspace: ''
+language_instructions: Pick the salad dressing and place it in the basket
+optimized_instruction: Put salad dressing in basket
+libero_instruction: pick up the salad dressing and place it in the basket
+bddl_file: pick_up_the_salad_dressing_and_place_it_in_the_basket.bddl
+high_pref_lan: Pick from left side
+low_pref_lan: ''
+subtask_offset:
+  move_to:_all: [0.0, 0.0, 0.0]
+  put:basket_1: [[0.0, 0.0, 0.0]]
+damping_level: 0
+naive_plan:
+- [pick, salad_dressing_1]
+- [put, basket_1]
+task_plan:
+- [pick_from_side, salad_dressing_1]
+- [put, basket_1]
+high_prefs:
+- description: Pick from left side
+  action_parameters:
+    pick_from_side:
+    - direction: left
+low_prefs: []

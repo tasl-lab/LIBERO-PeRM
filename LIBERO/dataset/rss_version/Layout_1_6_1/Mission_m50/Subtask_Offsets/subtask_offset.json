@@ -1,0 +1,52 @@
+{
+  "mission_id": "m50",
+  "pick_from_side:bbq_sauce_1": [
+    [
+      0.0,
+      0.008,
+      0
+    ]
+  ],
+  "put:blue_plate_1": [
+    [
+      0.0,
+      0.0,
+      0.1
+    ]
+  ],
+  "pick:ketchup_1": [
+    [
+      -0.01,
+      -0.02,
+      0.01
+    ]
+  ],
+  "move_to:ketchup_1": [
+    [
+      -0.01,
+      -0.02,
+      0.01
+    ]
+  ],
+  "move_to:blue_plate_1": [
+    [
+      0.0,
+      0.0,
+      0.1
+    ]
+  ],
+  "put:blue_plate_2": [
+    [
+      0.0,
+      0.0,
+      0.1
+    ]
+  ],
+  "move_to:blue_plate_2": [
+    [
+      0.0,
+      0.0,
+      0.1
+    ]
+  ]
+}

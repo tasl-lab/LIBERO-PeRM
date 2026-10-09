@@ -1,0 +1,1 @@
+./dataset/Layout_7_6/P_BENCH_SCENE_l7_6pick_up_butter_and_chocolate_pudding_and_put_them_on_the_tray.bddl

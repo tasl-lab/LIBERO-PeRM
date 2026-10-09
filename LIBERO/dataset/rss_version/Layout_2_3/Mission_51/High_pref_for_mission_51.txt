@@ -1,0 +1,3 @@
+1.|| ('pick', 'alphabet_soup_1'), ('put', 'plate_1') ||
+2.|| "required": [('pick', 'alphabet_soup_1')], "prohibited": [('pick', 'cookies_1'), ('pick', 'popcorn_1')] ||
+3.|| I prefer canned food if possible.||

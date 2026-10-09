@@ -1,0 +1,32 @@
+{
+  "_comment:": [
+    "Out-of-domain configuration for pick_the_mug_by_handle_and_put_it_on_the_plate Layout 10 - secondary items repositioned"
+  ],
+  "workspaces": "study_table",
+  "bddl_file_names": "libero_pbench/L10_1_out_of_domain.bddl",
+  "language_instructions": "Pick the mug and put it on the plate",
+  "layout_id": "10_1_out_of_domain",
+  
+  "high_pref_lan": [
+    "Pick and put the mug by its handle"
+  ],
+  "low_pref_lan": [
+    ""
+  ],
+  "mission_ids": [
+    "13"
+  ],
+  "mission_mask": [
+    1
+  ],
+
+  "subtask_offset": [
+    {
+      "mission_id": "13",
+      "pick_handle:porcelain_mug_1": [[0.0, 0.0, 0.0]],
+      "put_handle:plate_1": [[-0.07, -0.04, 0.0]]
+    }
+  ],
+  
+  "fluency_improvement": 0
+}

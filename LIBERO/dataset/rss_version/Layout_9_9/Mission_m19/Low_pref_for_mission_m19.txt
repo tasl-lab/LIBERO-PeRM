@@ -1,0 +1,2 @@
+1.||avoid_object, ("wine_bottle_1", 0.15)||
+2.|| To avoid colliding with the tomato sauce while moving the mug.||

@@ -1,0 +1,17 @@
+{
+  "mission_id": "64",
+  "put:wooden_tray_1": [
+    [
+      0.0,
+      0.0,
+      0.1
+    ]
+  ],
+  "move_to:wooden_tray_1": [
+    [
+      0.0,
+      0.0,
+      0.1
+    ]
+  ]
+}

@@ -1,0 +1,57 @@
+workspace: kitchen_scene1
+language_instructions: Put the black bowl on the plate
+optimized_instruction: Put black bowl on plate
+libero_instruction: put the black bowl on the plate
+bddl_file: KITCHEN_SCENE1_put_the_black_bowl_on_the_plate.bddl
+high_pref_lan: Pick from back edge
+low_pref_lan: ''
+subtask_offset:
+  move_to:_all:
+  - 0.0
+  - 0.0
+  - 0.0
+  pick_back_edge:akita_black_bowl_1:
+  - - 0.0
+    - 0.0
+    - -0.03
+  put_back_edge:plate_1:
+  - - 0.0
+    - 0.0
+    - -0.02
+damping_level: 0
+naive_plan:
+- - pick_right_edge
+  - akita_black_bowl_1
+- - put
+  - plate_1
+task_plan:
+- - pick_back_edge
+  - akita_black_bowl_1
+- - put_back_edge
+  - plate_1
+high_prefs:
+- description: Pick from back edge
+  action_parameters:
+    pick_back_edge:
+    - {}
+    put_back_edge:
+    - {}
+low_prefs:
+- type: grasp_offset
+  params:
+    axis: x
+    frame: world
+    signed: true
+    target_obj: akita_black_bowl_1
+    criterion_threshold: -0.002364
+    criterion_direction: -1
+    target_objs:
+    - akita_black_bowl_1
+    - yellow_bowl_1
+  description: Pick from back edge
+low_pref_calibration:
+  grasp_offset:
+    pref_anchor: -0.036653
+    n_pref: 10
+    naive_anchor: 0.031925
+    n_naive: 10

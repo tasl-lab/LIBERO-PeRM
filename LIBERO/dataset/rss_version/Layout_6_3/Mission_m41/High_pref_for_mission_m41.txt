@@ -1,0 +1,4 @@
+ 1.|| ('pick', 'chocolate_pudding_1'), ('put', 'wooden_cabinet_1_cabinet_top'), ('close_drawer', 'wooden_cabinet_1_cabinet_top') ||
+2.|| "required": [], "prohibited": [], "order": [] ||
+3.|| I Prefer box-shape objects if possible ||
+

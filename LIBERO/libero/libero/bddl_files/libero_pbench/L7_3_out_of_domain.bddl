@@ -1,0 +1,118 @@
+(define (problem LIBERO_Living_Room_Tabletop_Manipulation)
+  (:domain robosuite)
+  (:language Prepare a food and a drink in basket)
+    (:regions
+      (popcorn_1_init_region
+          (:target living_room_table)
+          (:ranges (
+              (-0.075 -0.175 -0.02500000000000001 -0.125)
+            )
+          )
+          (:yaw_rotation (
+              (0.0 0.0)
+            )
+          )
+      )
+      (milk_1_init_region
+          (:target living_room_table)
+          (:ranges (
+              (0.07500000000000001 -0.225 0.125 -0.17500000000000002)
+            )
+          )
+          (:yaw_rotation (
+              (0.0 0.0)
+            )
+          )
+      )
+      (orange_juice_1_init_region
+          (:target living_room_table)
+          (:ranges (
+              (-0.075 0.025 -0.02500000000000001 0.07500000000000001)
+            )
+          )
+          (:yaw_rotation (
+              (0.0 0.0)
+            )
+          )
+      )
+      (cream_cheese_1_init_region
+          (:target living_room_table)
+          (:ranges (
+              (-0.1500000000000001 -0.0 -0.1485 0.00500000000000002)
+            )
+          )
+          (:yaw_rotation (
+              (0.0 0.0)
+            )
+          )
+      )
+      (wooden_tray_1_init_region
+          (:target living_room_table)
+          (:ranges (
+              (-0.01 0.25 0.01 0.27)
+            )
+          )
+          (:yaw_rotation (
+              (0.0 0.0)
+            )
+          )
+      )
+      (red_alphabet_soup_1_init_region
+          (:target living_room_table)
+          (:ranges (
+              (0.07500000000000001 -0.025 0.125 0.02500000000000002)
+            )
+          )
+          (:yaw_rotation (
+              (0.0 0.0)
+            )
+          )
+      )
+      (contain_region
+          (:target wooden_tray_1)
+          (:ranges (
+            )
+          )
+          (:yaw_rotation (
+              (0 0)
+            )
+          )
+      )
+      (contain_region
+          (:target wooden_tray_1)
+      )
+    )
+
+  (:fixtures
+    living_room_table - living_room_table
+  )
+
+  (:objects
+    milk_1 - milk
+    orange_juice_1 - orange_juice
+    cream_cheese_1 - cream_cheese
+    popcorn_1 - popcorn
+    wooden_tray_1 - wooden_tray
+    red_alphabet_soup_1 - red_alphabet_soup
+  )
+
+  (:obj_of_interest
+    milk_1
+    cream_cheese_1
+    wooden_tray_1
+  )
+
+  (:init
+    (on popcorn_1 living_room_table_popcorn_1_init_region)
+    (on milk_1 living_room_table_milk_1_init_region)
+    (on orange_juice_1 living_room_table_orange_juice_1_init_region)
+    (on cream_cheese_1 living_room_table_cream_cheese_1_init_region)
+    (on wooden_tray_1 living_room_table_wooden_tray_1_init_region)
+    (on red_alphabet_soup_1 living_room_table_red_alphabet_soup_1_init_region)
+  )
+
+  (:goal
+    (And (in milk_1 wooden_tray_1_contain_region) (in cream_cheese_1 wooden_tray_1_contain_region))
+  )
+
+)

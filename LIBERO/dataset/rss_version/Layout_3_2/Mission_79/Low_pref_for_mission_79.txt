@@ -1,0 +1,2 @@
+1.||avoid_object, ("alphabet_soup_1", 0.2)||
+2.||To avoid colliding with the alphabet soup can located in front of the basket while moving it to the left.||

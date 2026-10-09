@@ -1,0 +1,27 @@
+# UniVLA per-suite ckpt sweep — pass for libero_10.
+experiment_name: univla_10_full_v2_repro
+exp_type: 0shot
+task_suite: single-pref
+
+conditions: [base, pref]
+num_trials: 3
+replan_steps: 5
+max_steps: null
+seed: 7
+save_hdf5: true
+
+save_video: false
+save_gif: false
+
+server:
+  vla: univla
+  name: univla_libero_10
+  host: 0.0.0.0
+  port: 8014
+  config: univla_libero_10
+  checkpoint: /data3/zhixu/LIBERO-PeRM/checkpoints/univla_libero/univla-libero-10
+  action_decoder: /data3/zhixu/LIBERO-PeRM/checkpoints/univla_libero/univla-libero-10/action_decoder.pt
+  unnorm_key: libero_10_no_noops
+  cuda_devices: "7"
+  device: "cuda:0"
+  default_prompt: null

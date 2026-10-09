@@ -1,0 +1,38 @@
+{
+  "mission_id": "35",
+  "pick:red_cream_cheese_1": [
+    [
+      0.0,
+      0.0,
+      -0.03
+    ]
+  ],
+  "open_drawer:white_cabinet_1_cabinet_top": [
+    [
+      -0.01,
+      -0.03,
+      -0.03
+    ]
+  ],
+  "put:white_cabinet_1_cabinet_top": [
+    [
+      0.0,
+      0.0,
+      0.2
+    ]
+  ],
+  "move_to:white_cabinet_1_cabinet_top": [
+    [
+      0.0,
+      0.0,
+      0.2
+    ]
+  ],
+  "close_drawer:white_cabinet_1_cabinet_top": [
+    [
+      0.0,
+      0.02,
+      0
+    ]
+  ]
+}

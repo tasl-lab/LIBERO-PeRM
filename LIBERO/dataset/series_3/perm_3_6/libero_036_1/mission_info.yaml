@@ -1,0 +1,34 @@
+workspace: kitchen_scene4
+language_instructions: Put the wine bottle in the bottom drawer of the cabinet
+optimized_instruction: Put wine bottle in bottom drawer
+libero_instruction: put the wine bottle in the bottom drawer of the cabinet
+bddl_file: KITCHEN_SCENE4_put_the_wine_bottle_in_the_bottom_drawer_of_the_cabinet.bddl
+high_pref_lan: Upper drawer for food and drink
+low_pref_lan: ''
+subtask_offset:
+  move_to:_all: [0.0, 0.0, 0.0]
+  move_to:wine_bottle_1:
+  - [0.0, 0.0, 0.10]
+  # pick:wine_bottle_1:  # commented: grasp_params handles this offset
+  - - 0.0
+    - 0.0
+    - 0.0
+damping_level: 0
+naive_plan:
+- [pick, wine_bottle_1]
+- [put, white_cabinet_1_cabinet_bottom]
+task_plan:
+- [open_drawer, white_cabinet_1_cabinet_top]
+- [pick, wine_bottle_1]
+- [put, white_cabinet_1_cabinet_top]
+high_prefs: []
+low_prefs:
+- type: plan_choice
+  params:
+    mode: target
+    pref_targets: [white_cabinet_1_cabinet_top]
+    naive_targets: [white_cabinet_1_cabinet_bottom]
+    carried: wine_bottle_1
+    criterion_threshold: 0.5
+    criterion_direction: 1
+  description: Upper drawer for food and drink

@@ -1,0 +1,4 @@
+1.|| ('pick_from_side', 'bbq_sauce_1_|right|'), ('put', 'basket_1') ||
+2.|| "required": [('pick_from_side', 'bbq_sauce_1_|right|')], "prohibited": [('pick', 'bbq_sauce_1'), ('pick_bottle', 'bbq_sauce_1')] ||
+3.|| pick the target object from right side ||
+

@@ -1,0 +1,36 @@
+experiment_name: openvla_oft_4in1_singpref_0shot
+exp_type: 0shot
+task_suite: single-pref
+conditions: [base, pref]
+num_trials: 4
+# OFT recommends consuming the FULL action chunk (NUM_ACTIONS_CHUNK=8) before
+# re-querying. pi05 uses 5 but OFT explicitly warns: "For best performance (in
+# terms of both speed and success rate), we recommend executing the full
+# action chunk." (run_libero_eval.py:303)
+replan_steps: 8
+max_steps: null
+seed: 7
+prompt_source_yaml: /bigdata/jlilab/lgong024/workspace/P_Bench_oft/VLA_data/SinglePref/tasksuite.yaml
+save_hdf5: false
+save_video: true
+save_gif: false
+server:
+  vla: openvla_oft
+  name: openvla_oft_4in1
+  host: 0.0.0.0
+  port: 8003
+  config: openvla_oft_4in1
+  checkpoint: /bigdata/jlilab/lgong024/workspace/P_Bench_oft/checkpoints/moojink/openvla-7b-oft-finetuned-libero-spatial-object-goal-10
+  cuda_devices: "0"
+  default_prompt: null
+  use_l1_regression: true
+  use_diffusion: false
+  use_film: false
+  use_proprio: true
+  num_images_in_input: 2
+  proprio_dim: 8
+  unnorm_key: libero_goal_no_noops
+  load_in_8bit: false
+  load_in_4bit: false
+  image_size: 224
+  action_dim: 7

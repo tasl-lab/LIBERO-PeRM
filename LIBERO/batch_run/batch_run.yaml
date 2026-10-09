@@ -1,0 +1,314 @@
+mode:  data_gen        # dev | test | data_gen   (CLI --mode 可覆盖)
+dev_batch_size: 2                # dev 模式下每个 mission 生成的 rollout 数 (用 dev_mission_ids)
+test_batch_size: 5               # test 模式下每个 mission 生成的 rollout 数 (用 test_mission_ids)
+data_gen_batch_size: 100         # PrefCompose — 12 missions × 100 = 1200 demos
+data_gen_max_attempts: 140       # 100 demos 留 ~40% 余量
+overwrite_old: 1                # 1=覆盖已有 HDF5 数据, 0=跳过已存在的
+use_forcibly: 1                 # 1=强制生成最终合集hdf5（忽略不完整状态）, 0=遇到异常状态(e.g. low SR)跳过
+parallel_execution: True        # True=Python 并行直接跑, False=生成 .sh 脚本
+workers: 6 #最大并发 mission 数 (训练并跑时 6 紧但 OK, 8+ OOM), 16 worker 独占 ~55GB
+tasksuite: SinglePref           # paper_figures temporary — series 1/2/3 missions
+save_eval_hdf5: False           # True=每个成功 rollout 额外复制一份到 <mission>/Eval/ 给 VLM evaluation 用 (磁盘占用翻倍)
+save_gif: False                 # True=生成每个 rollout 的 GIF 到 <mission>/GIFs/
+dev_mission_ids:
+# --- paper_figures retry 3 missing (2026-05-06) ---
+  - 1-5_114      # Close to ground
+  - 1-7_104      # Move higher
+  - 3-4_104_1    # Prefer blue
+# --- paper_figures already done (2026-05-06) ---
+#  - 1-2_113      # Slow down
+#  - 2-10_065     # Throw / drop
+#  - 2-12_009     # Rotate when placing
+#  - 3-5_120_1    # Prefer bigger
+# --- PrefScale pref-OOD all 6 (paused for paper_figures) ---
+#  - 0-1_032_7
+#  - 0-1_032_8
+#  - 0-1_032_9
+#  - 0-1_032_10
+#  - 0-1_032_11
+#  - 0-1_032_12
+# --- old retest entries (paused) ---
+#  - 1-1_004_7
+#  - 1-1_004_8
+#  - 2-5_116_8
+# --- PrefCompose 12-mission dev sanity (paused) ---
+#  - 4-3_116_combo_nopref
+#  - 4-3_116_combo_A
+#  - 4-3_116_combo_B
+#  - 4-4_001_combo_nopref
+#  - 4-4_001_combo_A
+#  - 4-4_001_combo_B
+#  - 4-5_118m_combo_nopref
+#  - 4-5_118m_combo_A
+#  - 4-5_118m_combo_AB
+#  - 4-6_068_combo_nopref
+#  - 4-6_068_combo_A
+#  - 4-6_068_combo_AB
+# --- PrefScale OOD layout sanity (2026-05-06): 9/9 BDDL load OK; 6/6 fresh-built SR=1.00; 3/3 main_table problem-class held-out SR=0 (by design, OOD eval-only) ---
+#  - 4-3_116_7
+#  - 4-3_116_8
+#  - 4-3_116_9
+#  - 0-1_032_7
+#  - 0-1_032_8
+#  - 0-1_032_9
+#  - 1-1_004_7
+#  - 1-1_004_8
+#  - 2-5_116_8
+# --- 4-6 AB lay_down reset_pose 验证 (saved) ---
+#  - 4-6_068_combo_AB
+# --- PrefConflict batch 2 retest: 2-8_ood3 (push height -0.15) ---
+#  - 2-8_ood3
+#  - 2-9_ood3
+#  - 3-9_063_1
+#  - 3-8_070_1
+# --- 7 NEW dev test (paused, 6/7 OK) ---
+#  - 1-2_004
+#  - 1-7_114
+#  - 2-1_001
+#  - 3-15_120_1
+#  - 3-1_006_1c
+#  - 3-9_118_1c
+#  - 3-8_007_1c
+# --- L4 ∅-decoupling: 12 no-pref missions (paused) ---
+#  - 1-1_004_nopref
+#  - 1-1_004_1_nopref
+#  - 1-1_004_2_nopref
+#  - 2-5_116_nopref
+#  - 2-5_116_2_nopref
+#  - 2-5_116_3_nopref
+#  - 3-2_097_1_nopref
+#  - 3-2_097_2_nopref
+#  - 3-2_097_4_nopref
+#  - 4-3_116_nopref
+#  - 4-3_116_2_nopref
+#  - 4-3_116_3_nopref
+# --- 24 mission video review: 4 slot × 6 layout (2026-05-02 v2 — paused) ---
+#  - 1-1_004_1
+#  - 1-1_004_2
+#  - 1-1_004_3
+#  - 1-1_004_4
+#  - 1-1_004_5
+#  - 1-1_004_6
+#  - 2-5_116_1
+#  - 2-5_116_2
+#  - 2-5_116_3
+#  - 2-5_116_4
+#  - 2-5_116_5
+#  - 2-5_116_6
+#  - 3-2_097_2
+#  - 3-2_097_3
+#  - 3-2_097_4
+#  - 3-2_097_5
+#  - 3-2_097_6
+#  - 3-2_097_7
+#  - 4-3_116_1
+#  - 4-3_116_2
+#  - 4-3_116_3
+#  - 4-3_116_4
+#  - 4-3_116_5
+#  - 4-3_116_6
+# --- legacy 8 mission rerun (paused) ---
+#  - 3-2_097_4
+#  - 3-2_097_5
+#  - 3-2_097_6
+#  - 3-2_097_7
+#  - 3-2_097_8
+#  - 3-2_097_9
+#  - 3-2_097_10
+#  - 4-3_116
+# --- legacy probe (paused) ---
+#  - 2-14_109
+# --- v4 sweep (paused) ---
+# Series 1 (10)
+#  - 1-1_004
+#  - 1-1_006
+#  - 1-2_113
+#  - 1-3_107
+#  - 1-3_109
+#  - 1-4_034
+#  - 1-5_114
+#  - 1-6_105
+#  - 1-7_104
+#  - 1-8_114
+# Series 2 (15)
+#  - 2-1_019
+#  - 2-1_077
+#  - 2-2_019
+#  - 2-2_077
+#  - 2-3_077
+#  - 2-4_112
+#  - 2-4_119
+#  - 2-5_112
+#  - 2-5_116
+#  - 2-6_119
+#  - 2-10_065
+#  - 2-11_118
+#  - 2-12_009
+#  - 2-13_001
+#  - 2-14_109
+# Series 3 (17)
+#  - 3-1_004_1
+#  - 3-1_006_1
+#  - 3-2_001_1
+#  - 3-3_117_2
+#  - 3-4_104_1
+#  - 3-5_120_1
+#  - 3-6_101_1
+#  - 3-7_101_1
+#  - 3-8_007_1
+#  - 3-9_118_1
+#  - 3-10_117_1
+#  - 3-11_112_1
+#  - 3-12_109_1
+#  - 3-13_120_1
+#  - 3-14_107_1
+#  - 3-14_114_1
+#  - 3-15_106_1
+
+data_gen_mission_ids:
+  - 1-2_113
+  - 1-5_114
+  - 1-7_104
+  - 2-10_065
+  - 2-12_009
+  - 3-4_104_1
+  - 3-5_120_1
+# --- PrefCompose data_gen (paused) ---
+#  - 4-3_116_combo_nopref
+#  - 4-3_116_combo_A
+#  - 4-3_116_combo_B
+#  - 4-4_001_combo_nopref
+  - 4-4_001_combo_A
+  - 4-4_001_combo_B
+  - 4-5_118m_combo_nopref
+  - 4-5_118m_combo_A
+  - 4-5_118m_combo_AB
+  - 4-6_068_combo_nopref
+  - 4-6_068_combo_A
+  - 4-6_068_combo_AB
+# --- PrefConflict batch 2: 4 missing × 100 demos (DONE 2026-05-05) ---
+#  - 2-8_ood3                   # pp5 push P1
+#  - 2-9_ood3                   # pp5 drag P2
+#  - 3-9_063_1                  # pt3 task_B aux (Prefer dairy)
+#  - 3-8_070_1                  # pt5 task_B aux (Serve double portion)
+# --- PrefConflict batch 1: 7 NEW × 100 demos (DONE 2026-05-05) ---
+#  - 1-2_004
+#  - 1-7_114
+#  - 2-1_001
+#  - 3-15_120_1
+#  - 3-1_006_1c
+#  - 3-9_118_1c
+#  - 3-8_007_1c
+# --- L4 ∅-decoupling 12 nopref (paused) ---
+#  - 1-1_004_nopref
+#  - 1-1_004_1_nopref
+#  - 1-1_004_2_nopref
+#  - 2-5_116_nopref
+#  - 2-5_116_2_nopref
+#  - 2-5_116_3_nopref
+#  - 3-2_097_1_nopref
+#  - 3-2_097_2_nopref
+#  - 3-2_097_4_nopref
+#  - 4-3_116_nopref
+#  - 4-3_116_2_nopref
+#  - 4-3_116_3_nopref
+# --- PrefScale full 5×7 grid: 35 missions × 300 demos (2026-05-02 — paused) ---
+# Slot 0-1 no-pref baseline
+#  - 0-1_032
+#  - 0-1_032_1
+#  - 0-1_032_2
+#  - 0-1_032_3
+#  - 0-1_032_4
+#  - 0-1_032_5
+#  - 0-1_032_6
+# Slot 1-1 motion (Speed up)
+#  - 1-1_004
+#  - 1-1_004_1
+#  - 1-1_004_2
+#  - 1-1_004_3
+#  - 1-1_004_4
+#  - 1-1_004_5
+#  - 1-1_004_6
+# Slot 2-5 skill (Pick from left side)
+#  - 2-5_116
+#  - 2-5_116_1
+#  - 2-5_116_2
+#  - 2-5_116_3
+#  - 2-5_116_4
+#  - 2-5_116_5
+#  - 2-5_116_6
+# Slot 3-2 profile (Prefer red)
+#  - 3-2_097_1
+#  - 3-2_097_2
+#  - 3-2_097_3
+#  - 3-2_097_4
+#  - 3-2_097_5
+#  - 3-2_097_6
+#  - 3-2_097_7
+# Slot 4-3 multi (left + speed)
+#  - 4-3_116
+#  - 4-3_116_1
+#  - 4-3_116_2
+#  - 4-3_116_3
+#  - 4-3_116_4
+#  - 4-3_116_5
+#  - 4-3_116_6
+# --- legacy K=1 baseline (paused) ---
+#  - 1-1_004
+#  - 2-5_116
+#  - 3-2_097_1
+#  - 4-3_116
+# --- v5 SinglePref data_gen: 42 missions (2026-04-27, dev SR 207/210=98.6%) ---
+# Series 1 (10)
+#  - 1-1_004
+#  - 1-1_006
+#  - 1-2_113
+#  - 1-3_107
+#  - 1-3_109
+#  - 1-4_034
+#  - 1-5_114
+#  - 1-6_105
+#  - 1-7_104
+#  - 1-8_114
+# Series 2 (13) — dropped 2-4_112 / 2-5_112 (persistent 0/4 even with overfit U)
+#  - 2-1_019
+#  - 2-1_077
+#  - 2-2_019
+#  - 2-2_077
+#  - 2-3_077
+#  - 2-4_119
+#  - 2-5_116
+#  - 2-6_119
+#  - 2-10_065
+#  - 2-11_118
+#  - 2-12_009
+#  - 2-13_001
+#  - 2-14_109
+# Series 3 (17)
+#  - 3-1_004_1
+#  - 3-1_006_1
+#  - 3-2_001_1
+#  - 3-3_117_2
+#  - 3-4_104_1
+#  - 3-5_120_1
+#  - 3-6_101_1
+#  - 3-7_101_1
+#  - 3-8_007_1
+#  - 3-9_118_1
+#  - 3-10_117_1
+#  - 3-11_112_1
+#  - 3-12_109_1
+#  - 3-13_120_1
+#  - 3-14_107_1
+#  - 3-14_114_1
+#  - 3-15_106_1
+
+
+test_mission_ids:
+# Keqian
+#  - 1-2_113
+#  - 1-6
+#  - 1-7_104
+#  - 1-8_114
+#  - 1-5_114
+

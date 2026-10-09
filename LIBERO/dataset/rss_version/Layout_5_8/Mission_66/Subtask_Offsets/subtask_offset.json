@@ -1,0 +1,55 @@
+{
+  "mission_id": "66",
+  "open_drawer:wooden_cabinet_1_cabinet_top": [
+    [
+      0.0,
+      0,
+      -0.03
+    ]
+  ],
+  "close_drawer:wooden_cabinet_1_cabinet_top": [
+    [
+      0.02,
+      -0.02,
+      0.0
+    ]
+  ],
+  "put:wooden_cabinet_1_cabinet_top": [
+    [
+      0.0,
+      0,
+      0.18
+    ],
+    [
+      -0.0,
+      0,
+      0.18
+    ]
+  ],
+  "move_to:wooden_cabinet_1_cabinet_top": [
+    [
+      0.0,
+      0,
+      0.18
+    ],
+    [
+      0.0,
+      0,
+      0.18
+    ]
+  ],
+  "move_to:cream_cheese_1": [
+    [
+      0.0,
+      0.025,
+      0.0
+    ]
+  ],
+  "pick:cream_cheese_1": [
+    [
+      0.0,
+      0.025,
+      0.0
+    ]
+  ]
+}

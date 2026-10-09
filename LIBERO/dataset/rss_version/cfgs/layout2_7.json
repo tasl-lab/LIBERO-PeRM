@@ -1,0 +1,64 @@
+{
+  "_comment:": [
+    "workspaces: the scene type corresponding to each BDDL file",
+    "bddl_file_names: BDDL files to be used for data generation",
+    "language_instructions: language instructions corresponding to each BDDL file, i.e. a mission, feel free to change it if necessary",
+    "running_layout_ids: layout/scenes indices to be used for data generation, e.g. [0] means only the first bddl in bddl_file_name will be used",
+    "high_level_preferences: a list of high-level preferences that will be used during data generation",
+    "enabled_high_pref_ids: the indices of high-level preferences to be enabled during data generation",
+    "low_pref_type:a list of low-level preferences that can be used during data generation",
+    "enabled_low_pref_ids: the indices of high-level preferences to be enabled during data generation"
+  ],
+
+  "workspaces":
+    "living_room_table"
+  ,
+
+  "bddl_file_names":
+    "libero_pbench/L2_7.bddl",
+
+  "language_instructions":
+  "Pick the plate with load and put it on the microwave."
+,
+
+
+  "layout_id": "2_7",
+
+  "high_pref_lan": [
+    "Pick the plate with load carefully, do not drop the load on plate."
+  ],
+  "_comment__":["↑↑↑↑↑pick plate with load layout 2.7↑↑↑↑"],
+  "low_pref_lan": [
+    ""
+  ],
+
+  "mission_ids": [
+    "61"
+  ],
+
+  "mission_mask": [
+    1
+  ],
+
+  "subtask_offset":
+    [
+      {
+      "mission_id": "61",
+      "pick_with_load:blue_plate_1": [
+        [0.0, 0.0, 0.0]
+      ],
+      "pick_with_load_rot:blue_plate_1": 0,
+      "move_to:microwave_1": [
+        [0.0, 0.00, 0.2]
+      ],"move_to_height:microwave_1":-0.1,
+      "put_with_load:microwave_1": [
+        [0.0, -0.04, 0.0]
+      ]
+      }
+    ],
+
+  "fluency_improvement": 0
+}
+
+
+

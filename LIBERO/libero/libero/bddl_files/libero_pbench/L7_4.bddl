@@ -1,0 +1,94 @@
+(define (problem LIBERO_Living_Room_Tabletop_Manipulation)
+  (:domain robosuite)
+  (:language stack the left bowl on the right bowl and place them in the tray)
+    (:regions
+      (wooden_tray_init_region
+          (:target living_room_table)
+          (:ranges (
+              (-0.01 0.25 0.01 0.27)
+            )
+          )
+          (:yaw_rotation (
+              (0.0 0.0)
+            )
+          )
+      )
+      (ketchup_init_region
+          (:target living_room_table)
+          (:ranges (
+              (0.07500000000000001 -0.225 0.125 -0.17500000000000002)
+            )
+          )
+          (:yaw_rotation (
+              (0.0 0.0)
+            )
+          )
+      )
+      (bbq_sauce_right_init_region
+          (:target living_room_table)
+          (:ranges (
+              (-0.125 0.025 -0.07500000000000001 0.07500000000000001)
+            )
+          )
+          (:yaw_rotation (
+              (0.0 0.0)
+            )
+          )
+      )
+      (bbq_sauce_left_init_region
+          (:target living_room_table)
+          (:ranges (
+              (-0.125 -0.175 -0.07500000000000001 -0.125)
+            )
+          )
+          (:yaw_rotation (
+              (0.0 0.0)
+            )
+          )
+      )
+      (salad_dressing_init_region
+          (:target living_room_table)
+          (:ranges (
+              (0.125 -0.65 0.155 -0.05500000000000001)
+            )
+          )
+          (:yaw_rotation (
+              (0.0 0.0)
+            )
+          )
+      )
+      (contain_region
+          (:target wooden_tray_1)
+      )
+    )
+
+  (:fixtures
+    living_room_table - living_room_table
+  )
+
+  (:objects
+    bbq_sauce_1 - bbq_sauce
+    red_salad_dressing_1 - red_salad_dressing
+    new_salad_dressing_1 - new_salad_dressing
+    ketchup_1 - ketchup
+    wooden_tray_1 - wooden_tray
+  )
+
+  (:obj_of_interest
+    bbq_sauce_1
+    wooden_tray_1
+  )
+
+  (:init
+    (On ketchup_1 living_room_table_ketchup_init_region)
+    (On bbq_sauce_1 living_room_table_bbq_sauce_left_init_region)
+    (On red_salad_dressing_1 living_room_table_bbq_sauce_right_init_region)
+    (On new_salad_dressing_1 living_room_table_salad_dressing_init_region)
+    (On wooden_tray_1 living_room_table_wooden_tray_init_region)
+  )
+
+  (:goal
+    (And  (In ketchup_1 wooden_tray_1_contain_region))
+  )
+
+)

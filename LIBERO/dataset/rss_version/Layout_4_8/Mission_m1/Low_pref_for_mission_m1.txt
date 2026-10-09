@@ -1,0 +1,5 @@
+1.||speed_range, (2.0, 2.0)||
+2.|| To speed up the robot's movement by 2 times as requested in the hint.||
+
+1.||avoid_object, ("flat_stove_1", 0.25)||
+2.|| To keep a safe distance from the stove to prevent collision or heat damage.||

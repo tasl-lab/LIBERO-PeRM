@@ -1,0 +1,41 @@
+# PrefScale M2 layout-OOD eval. 12 OOD missions × 4 trials = 48 eps.
+
+experiment_name: H_M2_pi05_scale_step20k_layout_ood
+exp_type: lora_ft
+task_suite: liberoscale_layout_ood
+
+prompt_source_yaml: /data3/zhixu/LIBERO-PeRM/VLA_data/PrefScale/tasksuite.yaml
+
+missions:
+  - 1-1_004_7
+  - 1-1_004_8
+  - 1-1_004_9
+  - 2-5_116_7
+  - 2-5_116_8
+  - 2-5_116_9
+  - 3-2_097_8
+  - 3-2_097_9
+  - 3-2_097_10
+  - 4-3_116_7
+  - 4-3_116_8
+  - 4-3_116_9
+
+conditions: [pref]
+num_trials: 4
+replan_steps: 5
+max_steps: null
+seed: 7
+
+save_hdf5: false
+save_video: true
+save_gif: false
+
+server:
+  vla: pi05
+  name: pi05_scale_H_M2_run1_step19999
+  host: 0.0.0.0
+  port: 8041
+  config: pi05_scale_H_M2_lora_v1
+  checkpoint: /data3/zhixu/LIBERO-PeRM/VLAs/openpi/checkpoints/pi05_scale_H_M2_lora_v1/pi05_scale_H_M2_run1/19999
+  cuda_devices: "7"
+  default_prompt: null

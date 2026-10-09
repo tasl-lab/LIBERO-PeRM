@@ -1,0 +1,185 @@
+# ComprePref suite — Hard variant (preference hidden in context, requires inference).
+# 40 missions inherited from SinglePref. The preference is no longer stated
+# explicitly; instead it must be inferred from situational context embedded
+# in the task description. `preferences` field is left empty so the runtime
+# emits "Task: <hard_task>." (no Preference clause).
+# Pair file: tasksuite_simple.yaml (paraphrase, keywords intact).
+
+pairings:
+  "1-1":   ['004', '006']
+  "1-2":   ['113']
+  "1-3":   ['107', '109']
+  "1-4":   ['034']
+  "1-5":   ['114']
+  "1-6":   ['105']
+  "1-7":   ['104']
+  "1-8":   ['114']
+  "2-1":   ['019', '077']
+  "2-2":   ['019', '077']
+  "2-3":   ['077']
+  "2-4":   ['119']
+  "2-5":   ['116']
+  "2-6":   ['119']
+  "2-10":  ['065']
+  "2-11":  ['118']
+  "2-12":  ['009']
+  "2-13":  ['001']
+  "2-14":  ['109']
+  "3-1":   ['004_1', '006_1']
+  "3-2":   ['001_1']
+  "3-3":   ['117_2']
+  "3-4":   ['104_1']
+  "3-5":   ['120_1']
+  "3-6":   ['101_1']
+  "3-7":   ['101_1']
+  "3-8":   ['007_1']
+  "3-9":   ['118_1']
+  "3-10":  ['117_1']
+  "3-11":  ['112_1']
+  "3-12":  ['109_1']
+  "3-13":  ['120_1']
+  "3-14":  ['107_1', '114_1']
+  "3-15":  ['106_1']
+
+libero_instructions:
+  "1-1_004": "put both the alphabet soup and the cream cheese box in the basket"
+  "1-1_006": "put both the cream cheese box and the butter in the basket"
+  "1-2_113": "pick up the butter and place it in the basket"
+  "1-3_107": "put the cream cheese in the bowl"
+  "1-3_109": "put the wine bottle on top of the cabinet"
+  "1-4_034": "put the black bowl in the bottom drawer of the cabinet"
+  "1-5_114": "pick up the chocolate pudding and place it in the basket"
+  "1-6_105": "put the bowl on the stove"
+  "1-7_104": "put the bowl on the plate"
+  "1-8_114": "pick up the chocolate pudding and place it in the basket"
+  "2-1_019": "put the black bowl on the plate"
+  "2-1_077": "put the white mug on the left plate"
+  "2-2_019": "put the black bowl on the plate"
+  "2-2_077": "put the white mug on the left plate"
+  "2-3_077": "put the white mug on the left plate"
+  "2-4_119": "pick up the salad dressing and place it in the basket"
+  "2-5_116": "pick up the ketchup and place it in the basket"
+  "2-6_119": "pick up the salad dressing and place it in the basket"
+  "2-10_065": "pick up the alphabet soup and put it in the tray"
+  "2-11_118": "pick up the orange juice and place it in the basket"
+  "2-12_009": "pick up the book and place it in the back compartment of the caddy"
+  "2-13_001": "put the black bowl in the bottom drawer of the cabinet and close it"
+  "2-14_109": "put the wine bottle on top of the cabinet"
+  "3-1_004_1": "put both the alphabet soup and the cream cheese box in the basket"
+  "3-1_006_1": "put both the cream cheese box and the butter in the basket"
+  "3-2_001_1": "put the black bowl in the bottom drawer of the cabinet and close it"
+  "3-3_117_2": "pick up the milk and place it in the basket"
+  "3-4_104_1": "put the bowl on the plate"
+  "3-5_120_1": "pick up the tomato sauce and place it in the basket"
+  "3-6_101_1": "open the top drawer and put the bowl inside"
+  "3-7_101_1": "open the top drawer and put the bowl inside"
+  "3-8_007_1": "put the white mug on the left plate and put the yellow and white mug on the right plate"
+  "3-9_118_1": "pick up the orange juice and place it in the basket"
+  "3-10_117_1": "pick up the milk and place it in the basket"
+  "3-11_112_1": "pick up the bbq sauce and place it in the basket"
+  "3-12_109_1": "put the wine bottle on top of the cabinet"
+  "3-13_120_1": "pick up the tomato sauce and place it in the basket"
+  "3-14_107_1": "put the cream cheese in the bowl"
+  "3-14_114_1": "pick up the chocolate pudding and place it in the basket"
+  "3-15_106_1": "put the bowl on top of the cabinet"
+
+# ─── Hard tasks (preference hidden in context) ───────────────────
+# Pref is implicit; the model must infer behaviour from the situation.
+tasks:
+  # Series 1 (low-pref baked into urgency / fragility / obstacle context)
+  "1-1_004":  "I'm running late for dinner. Get the alphabet soup and cream cheese into the basket as fast as you can"
+  "1-1_006":  "The guests just rang the doorbell. Hurry the cream cheese and butter into the basket"
+  "1-2_113":  "The alphabet soup container is half open and could spill. Take it gently into the basket without rushing"
+  "1-3_107":  "The cream cheese is partially melted and runny. Set it on the bowl without any jerky moves"
+  "1-3_109":  "The wine bottle is uncorked and the cabinet top is uneven. Place it on top of the cabinet smoothly, no abrupt motion"
+  "1-4_034":  "Put the black bowl in the bottom drawer. There's a fragile wine bottle on the counter — keep your arm well away from it"
+  "1-5_114":  "There's a low ceiling fan running above the table. Get the wine bottle on top of the cabinet while keeping the arm path low"
+  "1-6_105":  "A pet is wandering across the table. Take the bowl to the stove on the most direct line — no detours"
+  "1-7_104":  "The table between you and the plate is cluttered with utensils. Lift the bowl high above them before placing it on the plate"
+  "1-8_114":  "The wine bottle's label faces away — twist it as you carry it onto the cabinet so the label ends up facing me"
+
+  # Series 2 (skill-pref baked into damage / temperature / orientation context)
+  "2-1_019":  "The left edge of the black bowl is wet from spilled soup. Grasp it from the dry side and place on the plate"
+  "2-1_077":  "The white mug's left side has a hot tea sticker still warm. Grasp from the dry right side and place on the left plate"
+  "2-2_019":  "The front rim of the black bowl is chipped. Pick it up from the back edge and place it on the plate"
+  "2-2_077":  "The front of the white mug has wet paint. Pick it up from the back edge and place it on the left plate"
+  "2-3_077":  "The mug body is too hot to touch directly. Use its handle to lift and place it on the left plate"
+  "2-4_119":  "The salad dressing bottle is lying tilted. Approach from above at an angle to right it, then put it in the basket"
+  "2-5_116":  "The ketchup bottle's right side has a fresh leak. Grab from the dry left side and put it in the basket"
+  "2-6_119":  "The salad dressing bottle's left side has a wet label sticker. Grab from the right side and put it in the basket"
+  "2-10_065": "The tray is across the table — too far to reach by placing. Toss the alphabet soup into the tray"
+  "2-11_118": "The orange juice carton has labels on its sides and back. Reach in from the front and put it in the basket"
+  "2-12_009": "The book is wider than the back caddy slot in one orientation. Rotate it as you set it into the back compartment"
+  "2-13_001": "The right edge of the black bowl is sticky from sauce. Grab from the left edge, drop it into the bottom drawer and close it"
+  "2-14_109": "The cabinet top clearance is too low for an upright bottle. Lay the wine bottle on its side as you place it on the cabinet"
+
+  # Series 3 (profile-pref baked into preference reasoning / theme context)
+  "3-1_004_1":  "I follow a fresh-greens-only diet. Put the green-looking items between alphabet soup and cream cheese into the basket"
+  "3-1_006_1":  "I follow a fresh-greens-only diet. Put the green-looking items between cream cheese and butter into the basket"
+  "3-2_001_1":  "I'm hosting a Christmas dinner with a red theme. Place the festive-colored bowl into the bottom drawer and close it"
+  "3-3_117_2":  "I want a sunny breakfast theme. Pick the yellow-tinted milk and put it in the basket"
+  "3-4_104_1":  "I'm decorating with a cool ocean palette. Pick the blue-toned ketchup and put it in the basket"
+  "3-5_120_1":  "I'm cooking for a family of four. Grab the larger tomato sauce and put it in the basket"
+  "3-6_101_1":  "In this kitchen, food and drink belong in the upper drawer. Place an appropriate item inside its rightful drawer"
+  "3-7_101_1":  "In this kitchen, kitchenware lives in the middle drawer. Open the right drawer layer and put the bowl inside"
+  "3-8_007_1":  "Two guests are arriving and need matching servings. Place the white mug on the left plate as a double portion"
+  "3-9_118_1":  "I'm restocking the dairy section. Pick a milky drink and put it in the basket"
+  "3-10_117_1": "I'm making a sweet milkshake. Pick the sweet drink and put it in the basket"
+  "3-11_112_1": "I'm making a sour vinaigrette. Pick the sour-tasting sauce and put it in the basket"
+  "3-12_109_1": "Boxed packages stack stably on the cabinet top — pick a boxed item and put it on top of the cabinet"
+  "3-13_120_1": "Bottled sauces pour cleaner. Pick the bottled tomato sauce and put it in the basket"
+  "3-14_107_1": "I trust canned goods most. Pick a canned food and put it in the bowl"
+  "3-14_114_1": "I trust canned goods most. Pick a canned snack and put it in the basket"
+  "3-15_106_1": "Cabinet top space is tight. Pick a smaller bowl and put it on top of the cabinet"
+
+# Hard variant: pref intentionally absent. Runtime prompt = "Task: ...".
+preferences:
+  "1-1_004":   ""
+  "1-1_006":   ""
+  "1-2_113":   ""
+  "1-3_107":   ""
+  "1-3_109":   ""
+  "1-4_034":   ""
+  "1-5_114":   ""
+  "1-6_105":   ""
+  "1-7_104":   ""
+  "1-8_114":   ""
+  "2-1_019":   ""
+  "2-1_077":   ""
+  "2-2_019":   ""
+  "2-2_077":   ""
+  "2-3_077":   ""
+  "2-4_119":   ""
+  "2-5_116":   ""
+  "2-6_119":   ""
+  "2-10_065":  ""
+  "2-11_118":  ""
+  "2-12_009":  ""
+  "2-13_001":  ""
+  "2-14_109":  ""
+  "3-1_004_1": ""
+  "3-1_006_1": ""
+  "3-2_001_1": ""
+  "3-3_117_2": ""
+  "3-4_104_1": ""
+  "3-5_120_1": ""
+  "3-6_101_1": ""
+  "3-7_101_1": ""
+  "3-8_007_1": ""
+  "3-9_118_1": ""
+  "3-10_117_1": ""
+  "3-11_112_1": ""
+  "3-12_109_1": ""
+  "3-13_120_1": ""
+  "3-14_107_1": ""
+  "3-14_114_1": ""
+  "3-15_106_1": ""
+
+
+# ─── Original SingPref tasks/preferences (kept for diff/audit; not used) ───
+# tasks_singlepref:
+#   "1-1_004": "Put alphabet soup and cream cheese in basket"
+#   ...
+# preferences_singlepref:
+#   "1-1_004": "Speed up"
+#   ...

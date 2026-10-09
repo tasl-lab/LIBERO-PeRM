@@ -1,0 +1,4 @@
+1.|| ('push', 'basket_1_|left|') ||
+2.|| "required": [('push', 'basket_1_|left|')], "prohibited": [('pick', '_ALL'), ('put', '_ALL'), ('_ALL', 'alphabet_soup_1')], "order": [] ||
+3.|| Use push instead of pick and put. Keep away from alphabet soup. ||
+

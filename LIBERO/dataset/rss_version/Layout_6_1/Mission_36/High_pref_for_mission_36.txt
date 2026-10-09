@@ -1,0 +1,4 @@
+1.|| ('pick', 'bigger_cheese_1'), ('put', 'wooden_cabinet_1_cabinet_top'), ('close_drawer', 'wooden_cabinet_1_cabinet_top') ||
+2.|| "required": [] ||
+3.|| I Prefer to use the upper drawer for food||
+

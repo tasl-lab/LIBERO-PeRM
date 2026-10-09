@@ -1,0 +1,31 @@
+{
+  "mission_id": "m11",
+  "move_to:salad_dressing_1": [
+    [
+      -0.04,
+      -0.01,
+      -0.03
+    ]
+  ],
+  "pick_bottle:salad_dressing_1": [
+    [
+      -0.04,
+      -0.01,
+      -0.03
+    ]
+  ],
+  "put:red_basket_1": [
+    [
+      0.05,
+      0.05,
+      0.3
+    ]
+  ],
+  "move_to:red_basket_1": [
+    [
+      0.05,
+      0.05,
+      0.4
+    ]
+  ]
+}

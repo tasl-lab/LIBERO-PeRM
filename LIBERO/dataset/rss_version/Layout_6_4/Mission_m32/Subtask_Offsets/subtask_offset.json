@@ -1,0 +1,24 @@
+{
+  "mission_id": "m31",
+  "pick_bottle:salad_dressing_1": [
+    [
+      -0.05,
+      0,
+      -0.03
+    ]
+  ],
+  "move_to:wooden_cabinet_1": [
+    [
+      0,
+      0.2,
+      0.3
+    ]
+  ],
+  "put:wooden_cabinet_1": [
+    [
+      0,
+      -0.04,
+      0.3
+    ]
+  ]
+}

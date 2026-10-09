@@ -1,0 +1,57 @@
+workspace: kitchen_scene4
+language_instructions: Put a sauce in basket
+optimized_instruction: Put a sauce in basket
+libero_instruction: pick up the blue ketchup and place it in the basket
+bddl_file: pick_up_the_blue_ketchup_and_place_it_in_the_basket.bddl
+high_pref_lan: Pick from left side
+low_pref_lan: Speed up
+subtask_offset:
+  move_to:_all:
+  - 0.0
+  - 0.0
+  - 0.0
+damping_level: 0
+naive_plan:
+- - pick
+  - blue_ketchup_1
+- - put
+  - basket_1
+task_plan:
+- - pick_from_side
+  - blue_ketchup_1
+- - put
+  - basket_1
+high_prefs:
+- description: Pick from left side
+  action_parameters:
+    pick_from_side:
+    - direction: left
+low_prefs:
+- type: speed_range
+  params:
+    min_speed: 2.0
+    max_speed: 2.0
+  description: Speed up
+- type: grasp_tilt
+  params:
+    target_obj: blue_ketchup_1
+    criterion_threshold: 0.261799
+    criterion_direction: 1
+  description: Pick from left side
+low_pref_calibration:
+  speed_range:
+    pref_anchor: 152.0
+    n_pref: 10
+    naive_anchor: 174.5
+    n_naive: 10
+    subtask_pref_anchor:
+    - 60.0
+    - 77.5
+    subtask_naive_anchor:
+    - 69.0
+    - 88.0
+  grasp_tilt:
+    pref_anchor: 0.691582
+    n_pref: 10
+    naive_anchor: 0.155704
+    n_naive: 10

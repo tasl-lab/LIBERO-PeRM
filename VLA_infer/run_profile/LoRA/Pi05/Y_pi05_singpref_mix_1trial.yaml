@@ -1,0 +1,32 @@
+# Y — pi05_singpref_mix step 44999, single-pref full 40 missions, pref-only, 1 trial.
+# For SA / mapped-SA collection (SR already on file).
+#
+# Launch:
+#   server: bash VLA_infer/server_pi05.sh VLA_infer/run_profile/LoRA/Pi05/Y_pi05_singpref_mix_1trial.yaml
+#   client: bash VLA_infer/run_client.sh  VLA_infer/run_profile/LoRA/Pi05/Y_pi05_singpref_mix_1trial.yaml
+
+experiment_name: Y_pi05_singpref_mix_step45k_1trial
+exp_type: lora_ft
+task_suite: single-pref
+
+prompt_source_yaml: /data4/zhixu/SinglePref/tasksuite_v0.yaml
+
+conditions: [pref]
+num_trials: 1
+replan_steps: 5
+max_steps: null
+seed: 7
+
+save_hdf5: true
+save_video: true
+save_gif: false
+
+server:
+  vla: pi05
+  name: pi05_singpref_mix_run1_step44999
+  host: 0.0.0.0
+  port: 8021
+  config: pi05_singpref_mix_lora_v1
+  checkpoint: /data3/zhixu/LIBERO-PeRM/VLAs/openpi/checkpoints/pi05_singpref_mix_lora_v1/pi05_singpref_mix_run1/44999
+  cuda_devices: "5"
+  default_prompt: null

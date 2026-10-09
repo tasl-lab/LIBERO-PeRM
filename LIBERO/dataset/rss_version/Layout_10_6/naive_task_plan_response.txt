@@ -1,0 +1,1 @@
+(pick macaroni_and_cheese_1),(put plate_1)

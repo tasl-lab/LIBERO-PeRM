@@ -1,0 +1,36 @@
+workspace: living_room_scene4
+language_instructions: Pick up the black bowl on the left and put it in the tray
+optimized_instruction: Put left black bowl in tray
+libero_instruction: pick up the black bowl on the left and put it in the tray
+bddl_file: LIVING_ROOM_SCENE4_pick_up_the_black_bowl_on_the_left_and_put_it_in_the_tray.bddl
+high_pref_lan: Serve double portion
+low_pref_lan: ''
+subtask_offset:
+  move_to:_all: [0.0, 0.0, 0.0]
+  pick_left_edge:akita_black_bowl_1:
+  - - 0.0
+    - 0.0
+    - 0.02
+  pick_left_edge:akita_black_bowl_2:
+  - - 0.0
+    - 0.0
+    - 0.02
+damping_level: 0
+naive_plan:
+- [pick_left_edge, akita_black_bowl_1]
+- [put_left_edge, wooden_tray_1]
+task_plan:
+- [pick_left_edge, akita_black_bowl_1]
+- [put_left_edge, wooden_tray_1]
+- [pick_left_edge, akita_black_bowl_2]
+- [put_left_edge, wooden_tray_1]
+high_prefs: []
+low_prefs:
+- type: plan_choice
+  params:
+    mode: object
+    pref_objs: [akita_black_bowl_2]
+    naive_objs: []
+    criterion_threshold: 0.5
+    criterion_direction: 1
+  description: Serve double portion

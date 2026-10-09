@@ -1,0 +1,1 @@
+./dataset/Layout_10_5/P_BENCH_SCENE_l10_5pick_up_the_book_and_put_on_right_of_the_caddy.bddl

@@ -1,0 +1,102 @@
+(define (problem LIBERO_Kitchen_Tabletop_Manipulation)
+  (:domain robosuite)
+  (:language put the ketchup in the top drawer of the cabinet)
+    (:regions
+      (basket_init_region
+          (:target kitchen_table)
+          (:ranges (
+              (-0.01 0.25 0.01 0.27)
+            )
+          )
+          (:yaw_rotation (
+              (0.0 0.0)
+            )
+          )
+      )
+      (bbq_sauce_init_region
+          (:target kitchen_table)
+          (:ranges (
+              (0.025 -0.135 0.07500000000000001 -0.08500000000000001)
+            )
+          )
+          (:yaw_rotation (
+              (0.0 0.0)
+            )
+          )
+      )
+      (white_cabinet_init_region
+          (:target kitchen_table)
+          (:ranges (
+              (-0.01 0.29 0.01 0.31)
+            )
+          )
+          (:yaw_rotation (
+              (0.0 0.0)
+            )
+          )
+      )
+      (akita_black_bowl_init_region
+          (:target kitchen_table)
+          (:ranges (
+              (-0.14 -0.10 -0.09 -0.05)
+            )
+          )
+          (:yaw_rotation (
+              (0.0 0.0)
+            )
+          )
+      )
+      (ketchup_init_region
+          (:target kitchen_table)
+          (:ranges (
+              (-0.19 -0.16 -0.14 -0.11)
+            )
+          )
+          (:yaw_rotation (
+              (0.0 0.0)
+            )
+          )
+      )
+      (plate_init_region
+          (:target kitchen_table)
+          (:ranges (
+              (-0.21 -0.25 -0.16 -0.20)
+            )
+          )
+          (:yaw_rotation (
+              (0.0 0.0)
+            )
+          )
+      )
+    )
+
+  (:fixtures
+    kitchen_table - kitchen_table
+  )
+
+  (:objects
+    yellow_bowl_1 - yellow_bowl
+    red_plate_1 - red_plate
+    green_ketchup_1 - green_ketchup
+    basket_1 - basket
+    bbq_sauce_1 - bbq_sauce
+  )
+
+  (:obj_of_interest
+    bbq_sauce_1
+  )
+
+  (:init
+    (On yellow_bowl_1 kitchen_table_akita_black_bowl_init_region)
+    (On red_plate_1 kitchen_table_plate_init_region)
+    (On basket_1 kitchen_table_basket_init_region)
+    (On green_ketchup_1 kitchen_table_ketchup_init_region)
+    (On bbq_sauce_1 kitchen_table_bbq_sauce_init_region)
+
+  )
+
+  (:goal
+    (And (In bbq_sauce_1 basket_1_contain_region) )
+  )
+
+)

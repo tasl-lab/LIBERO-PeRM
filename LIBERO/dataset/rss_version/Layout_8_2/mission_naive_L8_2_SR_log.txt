@@ -1,0 +1,3 @@
+Success rate for mission naive_L8_2: 0/1
+Success rate for mission naive_L8_2: 0/1
+Success rate for mission naive_L8_2: 0/1

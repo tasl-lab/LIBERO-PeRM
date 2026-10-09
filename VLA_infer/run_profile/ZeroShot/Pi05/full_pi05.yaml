@@ -1,0 +1,36 @@
+# Full 0-shot sweep for pi0.5 on LIBERO-SingPref.
+# 70 missions (all of single-pref) × 2 conditions × 5 trials = 700 episodes.
+#
+# This yaml drives BOTH sides:
+#   server: bash server_pi05.sh run_profile/ZeroShot/full_pi05.yaml
+#   client: bash run_client.sh  run_profile/ZeroShot/full_pi05.yaml
+
+experiment_name: pi05_singlepref_full
+exp_type: 0shot
+task_suite: single-pref
+
+# `missions` omitted → eval.py auto-fills with the full suite (70 missions)
+# missions: null
+
+conditions: [base, pref]
+num_trials: 3
+replan_steps: 5
+max_steps: null
+seed: 7
+
+# --- output toggles ---
+save_hdf5: false
+save_video: true
+save_gif: false
+
+server:
+  # --- identity ---
+  vla: pi05
+  name: pi05_lora
+  host: 0.0.0.0
+  port: 8000
+  # --- policy loading ---
+  config: pi05_libero_lora_v1
+  checkpoint: /data3/zhixu/LIBERO-PeRM/checkpoints/pi05_libero_lora_v1/pi05_lora_v1_repo/25000
+  cuda_devices: "2,3"
+  default_prompt: null

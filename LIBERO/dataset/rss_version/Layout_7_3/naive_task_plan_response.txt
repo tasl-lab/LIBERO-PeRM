@@ -1,0 +1,1 @@
+(pick orange_juice_1),(put wooden_tray_1),(pick chocolate_pudding_1),(put wooden_tray_1)

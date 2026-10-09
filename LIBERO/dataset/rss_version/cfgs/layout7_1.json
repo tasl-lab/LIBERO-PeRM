@@ -1,0 +1,35 @@
+{
+  "_comment:": [
+    "Configuration for pick_the_salad_dressing_into_the_basket Layout 7"
+  ],
+  "workspaces": "living_room_table",
+  "bddl_file_names": "libero_pbench/L7_1.bddl",
+  "language_instructions": "Pick the salad dressing and put it into the basket",
+  "layout_id": "7_1",
+  
+  "high_pref_lan": [
+    "Pick the top of the object"
+  ],
+  "low_pref_lan": [
+    ""
+  ],
+  "mission_ids": [
+    "15"
+  ],
+  "mission_mask": [
+    1
+  ],
+
+  "subtask_offset": [
+    {
+      "mission_id": "15",
+      "pick_bottle:new_salad_dressing_1": [[-0.08, 0.0, -0.002]],
+      "put:basket_1": [[0.0, -0.02, 0.2]],
+      "move_to:basket_1": [[0.0, -0.02, 0.2]],
+      "move_to_height:basket_1":-0.3
+    }
+  ],
+  
+  "fluency_improvement": 0
+}
+

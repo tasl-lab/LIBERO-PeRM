@@ -1,0 +1,29 @@
+workspace: kitchen_scene4
+language_instructions: Put the black bowl in the bottom drawer of the cabinet
+optimized_instruction: Put black bowl in bottom drawer
+libero_instruction: put the black bowl in the bottom drawer of the cabinet
+bddl_file: KITCHEN_SCENE4_put_the_black_bowl_in_the_bottom_drawer_of_the_cabinet.bddl
+high_pref_lan: ''
+low_pref_lan: Close to ground when moving
+subtask_offset:
+  move_to:_all: [0.0, 0.0, 0.0]
+#  put_back_edge:white_cabinet_1_cabinet_bottom: [[0.0, 0.05, 0.0]]
+damping_level: 0
+naive_plan:
+- [pick_right_edge, akita_black_bowl_1]
+- [put_right_edge, white_cabinet_1_cabinet_bottom]
+task_plan:
+- [pick_right_edge, akita_black_bowl_1]
+- [put_right_edge, white_cabinet_1_cabinet_bottom]
+high_prefs: []
+low_prefs:
+- type: height_offset
+  params:
+    height_offset: -0.05
+  description: Close to ground when moving
+low_pref_calibration:
+  height_offset:
+    pref_anchor: 0.18665
+    n_pref: 10
+    naive_anchor: 0.241698
+    n_naive: 10

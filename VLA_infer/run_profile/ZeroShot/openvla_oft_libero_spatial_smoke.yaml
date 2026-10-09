@@ -1,0 +1,48 @@
+# Smoke test for the official OpenVLA-OFT LIBERO spatial checkpoint.
+#
+# Usage:
+#   bash VLA_infer/server_openvla_oft.sh VLA_infer/run_profile/ZeroShot/openvla_oft_libero_spatial_smoke.yaml
+#   bash VLA_infer/run_client.sh        VLA_infer/run_profile/ZeroShot/openvla_oft_libero_spatial_smoke.yaml
+#
+# If you have not downloaded the checkpoint locally, the OpenVLA-OFT env must
+# be able to reach Hugging Face to load `moojink/openvla-7b-oft-finetuned-libero-spatial`.
+
+experiment_name: openvla_oft_libero_spatial_smoke
+exp_type: 0shot
+task_suite: single-pref
+
+missions:
+  - 1-1_004
+  - 2-1_019
+
+conditions: [base, pref]
+num_trials: 1
+replan_steps: 5
+max_steps: 250
+seed: 7
+
+server:
+  vla: openvla_oft
+  name: openvla_oft_libero_spatial
+  host: 0.0.0.0
+  port: 8002
+
+  # Official OFT LIBERO checkpoint.
+  config: libero_spatial
+  checkpoint: moojink/openvla-7b-oft-finetuned-libero-spatial
+  cuda_devices: "0"
+  default_prompt: null
+
+  # Match the official LIBERO evaluation defaults as closely as possible.
+  use_l1_regression: true
+  use_diffusion: false
+  use_film: false
+  use_proprio: true
+  num_images_in_input: 2
+  proprio_dim: 8
+  unnorm_key: libero_spatial_no_noops
+
+  load_in_8bit: false
+  load_in_4bit: false
+  image_size: 224
+  action_dim: 7

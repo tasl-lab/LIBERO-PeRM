@@ -1,0 +1,44 @@
+workspace: main_table
+language_instructions: Put the wine bottle on top of the cabinet
+optimized_instruction: Put wine bottle on top of cabinet
+libero_instruction: put the wine bottle on top of the cabinet
+bddl_file: put_the_wine_bottle_on_top_of_the_cabinet.bddl
+high_pref_lan: Lay object down when placing
+low_pref_lan: ''
+subtask_offset:
+  move_to:_all:
+  - 0.0
+  - 0.0
+  - -0.1
+damping_level: 0
+skill_debug: true
+naive_plan:
+- - pick
+  - wine_bottle_1
+- - put
+  - wooden_cabinet_1_top_side
+task_plan:
+- - pick
+  - wine_bottle_1
+- - lay_down
+  - wooden_cabinet_1_top_side
+high_prefs:
+- description: Lay object down when placing
+  action_parameters:
+    pick:
+    - {}
+    lay_down:
+    - {}
+low_prefs:
+- type: object_tilt
+  params:
+    target_obj: wine_bottle_1
+    criterion_threshold: 0.523599
+    criterion_direction: 1
+  description: Lay object down when placing
+low_pref_calibration:
+  object_tilt:
+    pref_anchor: 0.891737
+    n_pref: 10
+    naive_anchor: 0.056094
+    n_naive: 10

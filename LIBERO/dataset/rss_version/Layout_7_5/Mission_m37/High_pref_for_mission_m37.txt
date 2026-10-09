@@ -1,0 +1,3 @@
+1.|| ('pick_bottle', 'red_bigger_wine_1'), ('put', 'wooden_tray_1') ||
+2.|| "required": [('pick_bottle', 'red_bigger_wine_1')], "prohibited": [('pick_from_side', '_ALL')], "order": [] ||
+3.|| I prefer bottle drinks if possible, and I prefer pick the top part of objects if possible ||

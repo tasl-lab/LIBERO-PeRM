@@ -1,0 +1,24 @@
+{
+  "mission_id": "32",
+  "pick_from_side:bbq_sauce_1": [
+    [
+      0.0,
+      0.008,
+      0
+    ]
+  ],
+  "put:blue_plate_1": [
+    [
+      0.0,
+      0.0,
+      0.1
+    ]
+  ],
+  "move_to:blue_plate_1": [
+    [
+      0.0,
+      0.0,
+      0.1
+    ]
+  ]
+}

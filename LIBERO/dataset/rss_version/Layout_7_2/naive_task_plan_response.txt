@@ -1,0 +1,1 @@
+(pick bigger_cheese_1),(put plate_1)
