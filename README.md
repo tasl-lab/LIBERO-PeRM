@@ -234,8 +234,7 @@ which used a 40-mission SinglePref split; the registries above describe the rele
   title     = {LIBERO-PeRM: Benchmarking Personalized Robotic Manipulation},
   author    = {Li, Zhixu and Tang, Keqian and Gong, Litian and Yao, Jingyu and Zhang, Wenqian and
                Xu, Tianze and Wang, Zehao and Wang, Yuping and Zhang, Junge and Li, Jiachen},
-  booktitle = {Advances in Neural Information Processing Systems (NeurIPS),
-               Evaluations and Datasets Track},
+  booktitle = {Advances in Neural Information Processing Systems (NeurIPS)},
   year      = {2026}
 }
 ```
