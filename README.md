@@ -4,6 +4,8 @@
 ![NeurIPS 2026](https://img.shields.io/badge/NeurIPS-2026-blue)
 [![Website](https://img.shields.io/badge/Website-LIBERO--PeRM-orange)](https://libero-perm.github.io/)
 ![Dataset](https://img.shields.io/badge/Dataset-Coming%20Soon-yellow)
+[![Lab](https://img.shields.io/badge/Lab-TASL-green)](https://tasl-lab.github.io/)
+[![License](https://img.shields.io/badge/License-MIT-lightgrey)](LICENSE)
 
 Zhixu Li<sup>1,\*,†</sup>, Keqian Tang<sup>1,\*</sup>, Litian Gong<sup>1,\*</sup>, Jingyu Yao<sup>2</sup>, Wenqian Zhang<sup>1</sup>,
 Tianze Xu<sup>5</sup>, Zehao Wang<sup>3</sup>, Yuping Wang<sup>4</sup>, Junge Zhang<sup>3</sup>, Jiachen Li<sup>3,‡</sup>
@@ -261,4 +263,4 @@ which used a 40-mission SinglePref split; the registries above describe the rele
 ## Acknowledgements
 
 LIBERO-PeRM builds on [LIBERO](https://libero-project.github.io/); the code under `LIBERO/` keeps its MIT license
-(`LIBERO/LICENSE`).
+(`LIBERO/LICENSE`). The rest of the repository is released under the MIT license (`LICENSE`).
