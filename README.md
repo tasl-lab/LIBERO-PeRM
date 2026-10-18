@@ -1,5 +1,19 @@
 # LIBERO-PeRM: Benchmarking Personalized Robotic Manipulation
 
+[![Paper](https://img.shields.io/badge/Paper-arXiv-b31b1b)](https://arxiv.org/abs/2610.22372)
+![NeurIPS 2026](https://img.shields.io/badge/NeurIPS-2026-blue)
+[![Website](https://img.shields.io/badge/Website-LIBERO--PeRM-orange)](https://libero-perm.github.io/)
+![Dataset](https://img.shields.io/badge/Dataset-Coming%20Soon-yellow)
+
+Zhixu Li<sup>1,\*,†</sup>, Keqian Tang<sup>1,\*</sup>, Litian Gong<sup>1,\*</sup>, Jingyu Yao<sup>2</sup>, Wenqian Zhang<sup>1</sup>,
+Tianze Xu<sup>5</sup>, Zehao Wang<sup>3</sup>, Yuping Wang<sup>4</sup>, Junge Zhang<sup>3</sup>, Jiachen Li<sup>3,‡</sup>
+
+<sup>1</sup>University of California, Riverside &nbsp; <sup>2</sup>Yale University &nbsp; <sup>3</sup>Georgia Institute of Technology &nbsp;
+<sup>4</sup>University of Michigan &nbsp; <sup>5</sup>University of Toronto
+<sup>\*</sup>Equal contribution &nbsp; <sup>†</sup>Project lead &nbsp; <sup>‡</sup>Corresponding author
+
+---
+
 ![LIBERO-PeRM: five task suites and five key research topics](assets/teaser.png)
 
 **LIBERO-PeRM** is a benchmark for **personalized robotic manipulation**, built on the
@@ -11,8 +25,13 @@ generates preference-conditioned demonstrations with per-episode preference-sati
 motion, skill and user profile.
 
 NeurIPS 2026, Evaluations & Datasets Track.
-Project page: <https://libero-perm.github.io/> · Code: <https://github.com/tasl-lab/LIBERO-PeRM>.
-Links to the paper and the dataset are added here once they are public.
+
+## Release checklist
+
+- [x] Paper (arXiv), project page and code
+- [ ] LIBERO-SinglePref, LIBERO-PrefScale and LIBERO-ComprePref task suites (by Oct 25, 2026)
+- [ ] LIBERO-PrefConflict and LIBERO-PrefCompose task suites (by Nov 1, 2026)
+- [ ] Framework for adding new preferences (by Nov 8, 2026)
 
 ## The benchmark
 
