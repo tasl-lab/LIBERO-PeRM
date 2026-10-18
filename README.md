@@ -263,4 +263,5 @@ which used a 40-mission SinglePref split; the registries above describe the rele
 ## Acknowledgements
 
 LIBERO-PeRM builds on [LIBERO](https://libero-project.github.io/); the code under `LIBERO/` keeps its MIT license
-(`LIBERO/LICENSE`). The rest of the repository is released under the MIT license (`LICENSE`).
+(`LIBERO/LICENSE`). The rest of the code is released under the MIT license (`LICENSE`); the dataset is released under
+[CC BY 4.0](https://creativecommons.org/licenses/by/4.0/).
