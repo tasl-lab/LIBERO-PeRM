@@ -1,7 +1,7 @@
 # LIBERO-PeRM: Benchmarking Personalized Robotic Manipulation
 
 [![Paper](https://img.shields.io/badge/Paper-arXiv-b31b1b)](https://arxiv.org/abs/2610.22372)
-![NeurIPS 2026](https://img.shields.io/badge/NeurIPS-2026-blue)
+[![NeurIPS 2026](https://img.shields.io/badge/NeurIPS-2026-blue)](https://neurips.cc/virtual/2026/loc/atlanta/poster/139040)
 [![Website](https://img.shields.io/badge/Website-LIBERO--PeRM-orange)](https://libero-perm.github.io/)
 ![Dataset](https://img.shields.io/badge/Dataset-Coming%20Soon-yellow)
 [![Lab](https://img.shields.io/badge/Lab-TASL-green)](https://tasl-lab.github.io/)
