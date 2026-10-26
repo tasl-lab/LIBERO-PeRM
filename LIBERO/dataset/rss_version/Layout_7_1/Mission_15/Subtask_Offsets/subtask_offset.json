@@ -1,0 +1,25 @@
+{
+  "mission_id": "15",
+  "pick_bottle:new_salad_dressing_1": [
+    [
+      -0.08,
+      0.0,
+      -0.002
+    ]
+  ],
+  "put:basket_1": [
+    [
+      0.0,
+      -0.02,
+      0.2
+    ]
+  ],
+  "move_to:basket_1": [
+    [
+      0.0,
+      -0.02,
+      0.2
+    ]
+  ],
+  "move_to_height:basket_1": -0.3
+}

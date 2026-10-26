@@ -1,0 +1,56 @@
+# PrefScale L4 4-trial pref-only eval. 27 missions × 4 = 108 eps.
+
+experiment_name: H_L4_pi05_scale_step30k_4trial
+exp_type: lora_ft
+task_suite: liberoscale
+
+prompt_source_yaml: /data3/zhixu/LIBERO-PeRM/VLA_data/PrefScale/tasksuite_L4.yaml
+
+missions:
+  - 0-1_032
+  - 0-1_032_1
+  - 0-1_032_2
+  - 1-1_004
+  - 1-1_004_1
+  - 1-1_004_2
+  - 1-1_004_nopref
+  - 1-1_004_1_nopref
+  - 1-1_004_2_nopref
+  - 2-5_116
+  - 2-5_116_2
+  - 2-5_116_3
+  - 2-5_116_nopref
+  - 2-5_116_2_nopref
+  - 2-5_116_3_nopref
+  - 3-2_097_1
+  - 3-2_097_2
+  - 3-2_097_4
+  - 3-2_097_1_nopref
+  - 3-2_097_2_nopref
+  - 3-2_097_4_nopref
+  - 4-3_116
+  - 4-3_116_2
+  - 4-3_116_3
+  - 4-3_116_nopref
+  - 4-3_116_2_nopref
+  - 4-3_116_3_nopref
+
+conditions: [pref]
+num_trials: 4
+replan_steps: 5
+max_steps: null
+seed: 7
+
+save_hdf5: true
+save_video: true
+save_gif: false
+
+server:
+  vla: pi05
+  name: pi05_scale_H_L4_run1_step29999
+  host: 0.0.0.0
+  port: 8031
+  config: pi05_scale_H_L4_lora_v1
+  checkpoint: /data3/zhixu/LIBERO-PeRM/VLAs/openpi/checkpoints/pi05_scale_H_L4_lora_v1/pi05_scale_H_L4_run1/29999
+  cuda_devices: "1"
+  default_prompt: null

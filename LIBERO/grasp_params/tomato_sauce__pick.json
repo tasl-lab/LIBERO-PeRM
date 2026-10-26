@@ -1,0 +1,16 @@
+{
+  "object_family": "tomato_sauce",
+  "skill_type": "pick",
+  "local_offset": [
+    0.0,
+    0.024515558289772133,
+    0.0
+  ],
+  "local_euler": [
+    1.5719690790654735,
+    0.051207668817333074,
+    1.567547764577879
+  ],
+  "recorded_from": "derived from bigger_tomato_sauce__pick (mesh y-scale 0.015->0.01, offset y /1.5)",
+  "timestamp": "2026-07-13"
+}

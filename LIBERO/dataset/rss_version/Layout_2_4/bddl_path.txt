@@ -1,0 +1,1 @@
+./dataset/Layout_2_4/P_BENCH_SCENE_l2_4pick_the_plate_with_load_and_put_it_on_the_microwave.bddl

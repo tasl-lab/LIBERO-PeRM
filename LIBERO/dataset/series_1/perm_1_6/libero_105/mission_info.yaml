@@ -1,0 +1,35 @@
+workspace: ''
+language_instructions: Put the bowl on the stove
+optimized_instruction: Put bowl on stove
+libero_instruction: put the bowl on the stove
+bddl_file: put_the_bowl_on_the_stove.bddl
+high_pref_lan: ''
+low_pref_lan: Move straight
+subtask_offset:
+  move_to:_all:
+  - 0.0
+  - 0.0
+  - 0.0
+damping_level: 0
+naive_plan:
+- - pick
+  - akita_black_bowl_1
+- - put
+  - flat_stove_1
+task_plan:
+- - pick_left_edge
+  - akita_black_bowl_1
+- - put_left_edge
+  - flat_stove_1_cook_region
+high_prefs: []
+low_prefs:
+- type: straight_path
+  params:
+    max_deviation: 0.05
+  description: Move straight
+low_pref_calibration:
+  straight_path:
+    pref_anchor: 0.043001
+    n_pref: 100
+    naive_anchor: 0.383314
+    n_naive: 10

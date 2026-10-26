@@ -1,0 +1,32 @@
+{
+  "_comment:": [
+    "Simplified configuration for pick_the_bowl_and_put_it_on_the_plate Layout 5 with 3 low-level preference variants"
+  ],
+  "workspaces": "living_room_table",
+  "bddl_file_names": "libero_pbench/L5_1.bddl",
+  "language_instructions": "Pick the center black bowl and put it on the red plate",
+  "layout_id": "5_1",
+  
+  "high_pref_lan": [
+    " "
+  ],
+  "low_pref_lan": [
+    "speed up 2 times"
+  ],
+  "mission_ids": [
+    "1"
+  ],
+  "mission_mask": [
+    1
+  ],
+
+  "subtask_offset": [
+    {
+      "mission_id": "1",
+      "pick_bowl:akita_black_bowl_1": [[0.0, 0.0, 0]],
+      "put_bowl:plate_1": [[0.02, 0.0, 0.0]]
+    }
+  ],
+  
+  "fluency_improvement": 0
+}

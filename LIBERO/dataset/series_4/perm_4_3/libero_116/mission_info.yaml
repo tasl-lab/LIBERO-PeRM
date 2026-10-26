@@ -1,0 +1,52 @@
+workspace: ''
+language_instructions: Put the ketchup in basket
+optimized_instruction: Put ketchup in basket
+libero_instruction: put the ketchup in basket
+bddl_file: pick_up_the_ketchup_and_place_it_in_the_basket.bddl
+high_pref_lan: Pick from left side
+low_pref_lan: Speed up
+subtask_offset:
+  move_to:_all: [0.0, 0.0, 0.0]
+  put:basket_1:
+  - [0.0, 0.0, 0.0]
+damping_level: 0
+naive_plan:
+- [pick, ketchup_1]
+- [put, basket_1]
+task_plan:
+- [pick_from_side, ketchup_1]
+- [put, basket_1]
+high_prefs:
+- description: Pick from left side
+  action_parameters:
+    pick_from_side:
+    - {direction: left}
+low_prefs:
+- type: speed_range
+  params:
+    min_speed: 2.0
+    max_speed: 2.0
+  description: Speed up
+- type: grasp_tilt
+  params:
+    target_obj: ketchup_1
+    criterion_threshold: 0.261799
+    criterion_direction: 1
+  description: Pick from left side
+low_pref_calibration:
+  speed_range:
+    pref_anchor: 132.0
+    n_pref: 10
+    naive_anchor: 192.0
+    n_naive: 10
+    subtask_pref_anchor:
+    - 41.0
+    - 78.0
+    subtask_naive_anchor:
+    - 64.0
+    - 111.5
+  grasp_tilt:
+    pref_anchor: 0.707419
+    n_pref: 10
+    naive_anchor: 0.083649
+    n_naive: 10

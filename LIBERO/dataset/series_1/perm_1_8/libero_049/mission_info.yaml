@@ -1,0 +1,20 @@
+workspace: kitchen_scene8
+language_instructions: Turn off the stove
+optimized_instruction: Turn off stove
+libero_instruction: turn off the stove
+bddl_file: KITCHEN_SCENE8_turn_off_the_stove.bddl
+high_pref_lan: ''
+low_pref_lan: Rotate when moving
+subtask_offset:
+  move_to:_all: [0.0, 0.0, 0.0]
+damping_level: 0
+naive_plan:
+- [turn_off_stove, flat_stove_1]
+task_plan:
+- [turn_off_stove, flat_stove_1]
+high_prefs: []
+low_prefs:
+- type: rotation
+  params:
+    angle_per_step: 0.1
+  description: Rotate when moving

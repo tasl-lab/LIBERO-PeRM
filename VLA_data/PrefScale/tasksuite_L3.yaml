@@ -1,0 +1,117 @@
+# LIBERO-Scale L3 cell: K=5, N=90, total = 5×5×90 = 2250 demos
+# 25 missions × 90 demos. Auto-generated from PrefScale/tasksuite.yaml (master)
+
+pairings:
+  "0-1": ['032', '032_1', '032_2', '032_3', '032_4']        # no-pref baseline
+  "1-1": ['004', '004_1', '004_2', '004_3', '004_4']        # motion (Speed up)
+  "2-5": ['116', '116_1', '116_2', '116_3', '116_4']        # skill (Pick from left side)
+  "3-2": ['097_1', '097_2', '097_3', '097_4', '097_5']      # profile (Prefer red objects)
+  "4-3": ['116', '116_1', '116_2', '116_3', '116_4']        # multi (Pick from left side + Speed up)
+
+tasks:
+  "0-1_032": "Put a sauce in basket"
+  "0-1_032_1": "Put an item in basket"
+  "0-1_032_2": "Put an item in basket"
+  "0-1_032_3": "Put a sauce in basket"
+  "0-1_032_4": "Put a sauce in basket"
+  "1-1_004": "Put alphabet soup and cream cheese in basket"
+  "1-1_004_1": "Put alphabet soup and cream cheese in basket"
+  "1-1_004_2": "Put alphabet soup and cream cheese in basket"
+  "1-1_004_3": "Put the black book in basket"
+  "1-1_004_4": "Put the black book in basket"
+  "2-5_116": "Put the ketchup in basket"
+  "2-5_116_1": "Put the ketchup in basket"
+  "2-5_116_2": "Put the ketchup in basket"
+  "2-5_116_3": "Put the bbq sauce in basket"
+  "2-5_116_4": "Put the bbq sauce in basket"
+  "3-2_097_1": "Put a book on top of the shelf"
+  "3-2_097_2": "Put a book on top of the shelf"
+  "3-2_097_3": "Put a book on top of the shelf"
+  "3-2_097_4": "Put the alphabet soup in basket"
+  "3-2_097_5": "Put the alphabet soup in basket"
+  "4-3_116": "Put the ketchup in basket"
+  "4-3_116_1": "Put the ketchup in basket"
+  "4-3_116_2": "Put the ketchup in basket"
+  "4-3_116_3": "Put the bbq sauce in basket"
+  "4-3_116_4": "Put the bbq sauce in basket"
+
+preferences:
+  "0-1_032": ""
+  "0-1_032_1": ""
+  "0-1_032_2": ""
+  "0-1_032_3": ""
+  "0-1_032_4": ""
+  "1-1_004": "Speed up"
+  "1-1_004_1": "Speed up"
+  "1-1_004_2": "Speed up"
+  "1-1_004_3": "Speed up"
+  "1-1_004_4": "Speed up"
+  "2-5_116": "Pick from left side"
+  "2-5_116_1": "Pick from left side"
+  "2-5_116_2": "Pick from left side"
+  "2-5_116_3": "Pick from left side"
+  "2-5_116_4": "Pick from left side"
+  "3-2_097_1": "Prefer red objects"
+  "3-2_097_2": "Prefer red objects"
+  "3-2_097_3": "Prefer red objects"
+  "3-2_097_4": "Prefer red objects"
+  "3-2_097_5": "Prefer red objects"
+  "4-3_116": "Pick from left side. Speed up"
+  "4-3_116_1": "Pick from left side. Speed up"
+  "4-3_116_2": "Pick from left side. Speed up"
+  "4-3_116_3": "Pick from left side. Speed up"
+  "4-3_116_4": "Pick from left side. Speed up"
+
+n_demos:
+  "0-1_032": 90
+  "0-1_032_1": 90
+  "0-1_032_2": 90
+  "0-1_032_3": 90
+  "0-1_032_4": 90
+  "1-1_004": 90
+  "1-1_004_1": 90
+  "1-1_004_2": 90
+  "1-1_004_3": 90
+  "1-1_004_4": 90
+  "2-5_116": 90
+  "2-5_116_1": 90
+  "2-5_116_2": 90
+  "2-5_116_3": 90
+  "2-5_116_4": 90
+  "3-2_097_1": 90
+  "3-2_097_2": 90
+  "3-2_097_3": 90
+  "3-2_097_4": 90
+  "3-2_097_5": 90
+  "4-3_116": 90
+  "4-3_116_1": 90
+  "4-3_116_2": 90
+  "4-3_116_3": 90
+  "4-3_116_4": 90
+
+role:
+  "0-1_032": "train_eval"
+  "0-1_032_1": "train_eval"
+  "0-1_032_2": "train_eval"
+  "0-1_032_3": "train_eval"
+  "0-1_032_4": "train_eval"
+  "1-1_004": "train_eval"
+  "1-1_004_1": "train_eval"
+  "1-1_004_2": "train_eval"
+  "1-1_004_3": "train_eval"
+  "1-1_004_4": "train_eval"
+  "2-5_116": "train_eval"
+  "2-5_116_1": "train_eval"
+  "2-5_116_2": "train_eval"
+  "2-5_116_3": "train_eval"
+  "2-5_116_4": "train_eval"
+  "3-2_097_1": "train_eval"
+  "3-2_097_2": "train_eval"
+  "3-2_097_3": "train_eval"
+  "3-2_097_4": "train_eval"
+  "3-2_097_5": "train_eval"
+  "4-3_116": "train_eval"
+  "4-3_116_1": "train_eval"
+  "4-3_116_2": "train_eval"
+  "4-3_116_3": "train_eval"
+  "4-3_116_4": "train_eval"

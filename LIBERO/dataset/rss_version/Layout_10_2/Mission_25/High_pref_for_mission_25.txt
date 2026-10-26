@@ -1,0 +1,3 @@
+1.|| ('pick', 'yellow_book_1'), ('put', 'desk_caddy_1') ||
+2.|| "required": [('pick', 'yellow_book_1')], "prohibited": [('pick', 'black_book_1')], "order": [[('pick', 'yellow_book_1'), ('put', 'desk_caddy_1')]] ||
+3.|| Prefer yellow color objects, only consider small objects like books and not large objects like caddy. ||

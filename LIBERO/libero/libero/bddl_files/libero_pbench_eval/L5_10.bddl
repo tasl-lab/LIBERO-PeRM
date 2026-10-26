@@ -1,0 +1,196 @@
+(define (problem LIBERO_Tabletop_Manipulation)
+  (:domain robosuite)
+  (:language L5_10Pick the mug and put on plate.)
+    (:regions
+      (wine_bottle_1_init_region
+          (:target main_table)
+          (:ranges (
+              (-0.01 -0.15 -0.0 -0.14)
+            )
+          )
+          (:yaw_rotation (
+              (0 0)
+            )
+          )
+      )
+      (plate_1_init_region
+          (:target main_table)
+          (:ranges (
+              (0.05 0.19 0.07 0.21)
+            )
+          )
+          (:yaw_rotation (
+              (0 0)
+            )
+          )
+      )
+      (cream_cheese_1_init_region
+          (:target main_table)
+          (:ranges (
+              (0.16 0.0 0.18 0.001)
+            )
+          )
+          (:yaw_rotation (
+              (0 0)
+            )
+          )
+      )
+      (yellow_moka_pot_1_init_region
+          (:target main_table)
+          (:ranges (
+              (-0.21 0.19 -0.19 0.21)
+            )
+          )
+          (:yaw_rotation (
+              (0 0)
+            )
+          )
+      )
+      (white_storage_box_1_init_region
+          (:target main_table)
+          (:ranges (
+              (0.02 -0.28 0.04 -0.26)
+            )
+          )
+          (:yaw_rotation (
+              (0 0)
+            )
+          )
+      )
+      (flat_stove_1_init_region
+          (:target main_table)
+          (:ranges (
+              (-0.42 -0.15 -0.4 -0.13)
+            )
+          )
+          (:yaw_rotation (
+              (0 0)
+            )
+          )
+      )
+      (next_to_plate_region
+          (:target main_table)
+          (:ranges (
+              (0.0 0.3 0.02 0.32)
+            )
+          )
+          (:yaw_rotation (
+              (0 0)
+            )
+          )
+      )
+      (next_to_box_region
+          (:target main_table)
+          (:ranges (
+              (0.12 -0.08 0.14 -0.06)
+            )
+          )
+          (:yaw_rotation (
+              (0 0)
+            )
+          )
+      )
+      (next_to_ramekin_region
+          (:target main_table)
+          (:ranges (
+              (-0.19 0.31 -0.17 0.33)
+            )
+          )
+          (:yaw_rotation (
+              (0 0)
+            )
+          )
+      )
+      (table_center
+          (:target main_table)
+          (:ranges (
+              (-0.1 -0.01 -0.05 0.01)
+            )
+          )
+          (:yaw_rotation (
+              (0 0)
+            )
+          )
+      )
+      (table_front
+          (:target main_table)
+          (:ranges (
+              (0.19 -0.01 0.21 0.01)
+            )
+          )
+          (:yaw_rotation (
+              (0 0)
+            )
+          )
+      )
+      (top_side
+          (:target white_storage_box_1)
+          (:ranges (
+            )
+          )
+          (:yaw_rotation (
+              (0 0)
+            )
+          )
+      )
+      (cook_region
+          (:target flat_stove_1)
+          (:ranges (
+            )
+          )
+          (:yaw_rotation (
+              (0 0)
+            )
+          )
+      )
+      (top_side
+          (:target white_storage_box_1)
+      )
+      (bottom_side
+          (:target white_storage_box_1)
+      )
+      (right_side
+          (:target white_storage_box_1)
+      )
+      (left_side
+          (:target white_storage_box_1)
+      )
+      (cook_region
+          (:target flat_stove_1)
+      )
+    )
+
+  (:fixtures
+    main_table - table
+    white_storage_box_1 - white_storage_box
+    flat_stove_1 - flat_stove
+  )
+
+  (:objects
+    white_porcelain_mug_1 - white_porcelain_mug
+    cream_cheese_1 - cream_cheese
+    wine_bottle_1 - wine_bottle
+    yellow_moka_pot_1 - yellow_moka_pot
+    plate_1 - plate
+  )
+
+  (:obj_of_interest
+    cream_cheese_1
+    plate_1
+  )
+
+  (:init
+    (on white_porcelain_mug_1 white_storage_box_1_top_side)
+    (on wine_bottle_1 main_table_wine_bottle_1_init_region)
+    (on plate_1 main_table_plate_1_init_region)
+    (on cream_cheese_1 main_table_cream_cheese_1_init_region)
+    (on yellow_moka_pot_1 main_table_yellow_moka_pot_1_init_region)
+    (on white_storage_box_1 main_table_white_storage_box_1_init_region)
+    (on flat_stove_1 main_table_flat_stove_1_init_region)
+  )
+
+  (:goal
+    (And (on white_porcelain_mug_1 plate_1))
+  )
+
+)

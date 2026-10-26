@@ -1,0 +1,5 @@
+1.|| ('pick_from_side', 'red_yellow_book_side_1_|right|'), ('put', 'wooden_two_layer_shelf_1')||
+2.|| "required": [], "prohibited": [], "order": [] ||
+3.|| I prefer pick objects from right side||
+
+

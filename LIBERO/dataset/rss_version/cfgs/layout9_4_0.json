@@ -1,0 +1,75 @@
+{
+  "_comment:": [
+    "workspaces: the scene type corresponding to each BDDL file",
+    "bddl_file_names: BDDL files to be used for data generation",
+    "language_instructions: language instructions corresponding to each BDDL file, i.e. a mission, feel free to change it if necessary",
+    "running_layout_ids: layout/scenes indices to be used for data generation, e.g. [0] means only the first bddl in bddl_file_name will be used",
+    "high_level_preferences: a list of high-level preferences that will be used during data generation",
+    "enabled_high_pref_ids: the indices of high-level preferences to be enabled during data generation",
+    "low_pref_type:a list of low-level preferences that can be used during data generation",
+    "enabled_low_pref_ids: the indices of high-level preferences to be enabled during data generation"
+  ],
+
+  "workspaces":
+    "kitchen_table"
+  ,
+
+  "bddl_file_names":
+    "libero_pbench/L9_4_0.bddl",
+  "language_instructions":
+  "Pick ketchup and put on plate",
+
+
+
+
+  "layout_id": "9_4_0",
+
+  "high_pref_lan": [
+    ""
+
+  ],
+  "low_pref_lan": [
+    ""
+  ],
+
+  "mission_ids": [
+    "89"
+
+  ],
+
+  "mission_mask": [
+    1
+  ],
+
+
+
+  "__comment": ["↓↓↓↓↓↓↓↓Below is the offset for skill-obj pair, so that you don't need to change the code each when you manually check a demo video↓↓↓↓↓↓↓↓",
+                "↓↓↓↓↓↓↓↓To make it simple, we assume each time you only run single mission (i.e. skill-obj sequence), and only the subtask_offset will effect, the rest is just extra back up ↓↓↓↓↓↓↓↓"],
+
+  "subtask_offset":
+    [
+      {
+      "mission_id": "89",
+      "put:basket_1": [
+        [0.0, 0.00, 0.2]
+      ],
+      "move_to:basket_1": [
+        [0.0, 0.00, 0.2]
+      ]
+      }
+
+
+
+    ],
+
+
+
+  "___comment":["↑↑↑↑↑↑↑↑Here we may have multiple offset for same skill-obj pair, these offset will be used under rotation ↑↑↑↑↑↑↑↑"],
+  "_comment_":["↓↓↓↓↓↓↓↓The fluency improvement are used to remove unnecessary arm rise,down so that accelerate, but may cause bug, so set false in default ↓↓↓↓↓↓↓↓"],
+  "fluency_improvement": 0
+
+
+}
+
+
+

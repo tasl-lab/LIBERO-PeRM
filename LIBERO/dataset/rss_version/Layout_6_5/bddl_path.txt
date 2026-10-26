@@ -1,0 +1,1 @@
+./dataset/Layout_6_5/P_BENCH_SCENE_l6_5put_the_pudding_into_the_drawer.bddl

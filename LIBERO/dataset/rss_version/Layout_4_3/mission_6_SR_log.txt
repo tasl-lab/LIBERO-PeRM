@@ -1,0 +1,39 @@
+Success rate for mission 6: 1/1
+<<<<<<< HEAD
+Success rate for mission 6: 0/1
+Success rate for mission 6: 1/1
+=======
+>>>>>>> ce49e9d (commit before merge)
+Success rate for mission 6: 1/1
+Success rate for mission 6: 1/1
+Success rate for mission 6: 1/1
+Success rate for mission 6: 1/1
+Success rate for mission 6: 0/1
+Success rate for mission 6: 1/1
+Success rate for mission 6: 1/1
+Success rate for mission 6: 1/1
+Success rate for mission 6: 1/1
+Success rate for mission 6: 1/1
+Success rate for mission 6: 1/1
+Success rate for mission 6: 1/1
+Success rate for mission 6: 1/1
+Success rate for mission 6: 1/1
+Success rate for mission 6: 1/1
+Success rate for mission 6: 1/1
+Success rate for mission 6: 1/1
+Success rate for mission 6: 1/1
+Success rate for mission 6: 1/1
+Success rate for mission 6: 1/1
+Success rate for mission 6: 1/1
+Success rate for mission 6: 1/1
+Success rate for mission 6: 34/34
+Success rate for mission 6: 1/1
+Success rate for mission 6: 34/35
+Success rate for mission 6: 1/1
+Success rate for mission 6: 34/34
+Success rate for mission 6: 1/1
+Success rate for mission 6: 34/34
+Success rate for mission 6: 1/1
+Success rate for mission 6: 34/34
+Success rate for mission 6: 1/1
+Success rate for mission 6: 34/34

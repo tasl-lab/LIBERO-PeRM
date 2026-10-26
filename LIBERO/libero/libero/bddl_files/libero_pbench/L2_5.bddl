@@ -1,0 +1,105 @@
+(define (problem LIBERO_Living_Room_Tabletop_Manipulation)
+  (:domain robosuite)
+  (:language put all bbq sauces and the plate in the basket)
+    (:regions 
+      (cylinder_init_region
+          (:target living_room_table)
+          (:ranges (
+              (-0.025 -0.325 0.025 -0.275)
+            )
+          )
+          (:yaw_rotation (
+              (0.0 0.0)
+            )
+          )
+      )
+      (bin_region
+          (:target living_room_table)
+          (:ranges (
+              (-0.01 0.25 0.01 0.27)
+            )
+          )
+      )
+
+      (bbq_sauce_1_init_region
+          (:target living_room_table)
+          (:ranges (
+              (0.06 -0.02 0.09 0.0)
+            )
+          )
+          (:yaw_rotation (
+              (0.0 0.0)
+            )
+          )
+      )
+      (porcelain_mug_init_region
+          (:target living_room_table)
+          (:ranges (
+              (-0.125 -0.175 -0.075 -0.15)
+            )
+          )
+          (:yaw_rotation (
+              (0.0 0.0)
+            )
+          )
+      )
+      (bbq_sauce_2_init_region
+          (:target living_room_table)
+          (:ranges (
+              (-0.055 -0.08 0.0 -0.07)
+            )
+          )
+          (:yaw_rotation (
+              (0.0 0.0)
+            )
+          )
+      )
+      (red_coffee_mug_init_region
+          (:target living_room_table)
+          (:ranges (
+              (-0.225 -0.025 -0.17500000000000002 0.025)
+            )
+          )
+          (:yaw_rotation (
+              (0.0 0.0)
+            )
+          )
+      )
+      
+      (contain_region
+          (:target basket_1)
+      )
+    )
+
+  (:fixtures
+    living_room_table - living_room_table
+  )
+
+  (:objects
+    red_coffee_mug_1 - red_coffee_mug
+    bbq_sauce_1 bbq_sauce_2 - bbq_sauce
+    plate_1 - plate
+    basket_1 - basket
+    cylinder_a_1 - cylinder_a
+  )
+
+  (:obj_of_interest
+    plate_1
+    bbq_sauce_1
+    bbq_sauce_2
+    basket_1
+  )
+
+  (:init 
+    (On plate_1 cylinder_a_1)
+    (On cylinder_a_1 living_room_table_cylinder_init_region)
+    (On bbq_sauce_1 living_room_table_bbq_sauce_1_init_region)
+    (On red_coffee_mug_1 living_room_table_red_coffee_mug_init_region)
+    (On bbq_sauce_2 living_room_table_bbq_sauce_2_init_region)
+    (On basket_1 living_room_table_bin_region)
+  )
+
+  (:goal
+    (And (In bbq_sauce_1 basket_1_contain_region) (In bbq_sauce_2 basket_1_contain_region) (In plate_1 basket_1_contain_region))
+  )
+)

@@ -1,0 +1,2 @@
+1.||speed_range, (0.3, 0.6)||
+2.|| To slow down the robot's movement speed to between 30% and 60% of the original speed, ensuring the white mug is handled carefully and placed gently on the plate.||

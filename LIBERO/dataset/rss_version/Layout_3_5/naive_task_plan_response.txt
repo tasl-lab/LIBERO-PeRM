@@ -1,0 +1,1 @@
+(pick cookies_1),(put basket_1),(pick milk_1),(put basket_1)

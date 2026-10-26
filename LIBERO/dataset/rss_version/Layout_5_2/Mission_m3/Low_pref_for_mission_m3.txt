@@ -1,0 +1,4 @@
+1.||speed_range, (0.5, 0.5)||
+2.||To slow down the robot's movement speed to 0.5 times the original speed as requested in the hint.||
+3.||avoid_object, ("flat_stove_1", 0.1)||
+4.||To avoid the stove by maintaining a safety distance of 0.1 meters during the manipulation.||

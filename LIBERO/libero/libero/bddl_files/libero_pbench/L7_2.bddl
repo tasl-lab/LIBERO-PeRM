@@ -1,0 +1,108 @@
+(define (problem LIBERO_Living_Room_Tabletop_Manipulation)
+  (:domain robosuite)
+  (:language Pick the salad dressing by its top and place it in the bigger_cheese)
+    (:regions
+      (bigger_cheese_init_region
+          (:target living_room_table)
+          (:ranges (
+              (0.05 0.20 0.10 0.25)
+            )
+          )
+          (:yaw_rotation (
+              (0.0 0.0)
+            )
+          )
+      )
+      (bigger_cheese_2_init_region
+          (:target living_room_table)
+          (:ranges (
+              (0.05 0.12 0.10 0.16)
+            )
+          )
+          (:yaw_rotation (
+              (0.0 0.0)
+            )
+          )
+      )
+      (cream_cheese_init_region
+          (:target living_room_table)
+          (:ranges (
+              (0.025 -0.225 0.075 -0.175)
+            )
+          )
+          (:yaw_rotation (
+              (0.0 0.0)
+            )
+          )
+      )
+      (plate_right_init_region
+          (:target living_room_table)
+          (:ranges (
+              (-0.125 0.025 -0.075 0.075)
+            )
+          )
+          (:yaw_rotation (
+              (0.0 0.0)
+            )
+          )
+      )
+      (plate_left_init_region
+          (:target living_room_table)
+          (:ranges (
+              (-0.125 -0.175 -0.075 -0.125)
+            )
+          )
+          (:yaw_rotation (
+              (0.0 0.0)
+            )
+          )
+      )
+      (salad_dressing_init_region
+          (:target living_room_table)
+          (:ranges (
+              (0.08 -0.025 0.09 0.025)
+            )
+          )
+          (:yaw_rotation (
+              (0.0 0.0)
+            )
+          )
+      )
+      (contain_region
+          (:target bigger_cheese_1)
+      )
+    )
+
+  (:fixtures
+    living_room_table - living_room_table
+  )
+
+  (:objects
+    plate_1 plate_2 - plate
+    yellow_milk_1 - yellow_milk
+    cream_cheese_1 - cream_cheese
+    bigger_cheese_1 bigger_cheese_2 - bigger_cheese
+  )
+
+  (:obj_of_interest
+    yellow_milk_1
+    bigger_cheese_1
+  )
+
+  (:init
+    (On cream_cheese_1 living_room_table_cream_cheese_init_region)
+    (On plate_1 living_room_table_plate_left_init_region)
+    (On plate_2 living_room_table_plate_right_init_region)
+    (On yellow_milk_1 living_room_table_salad_dressing_init_region)
+    (On bigger_cheese_1 living_room_table_bigger_cheese_init_region)
+  )
+
+  (:goal
+    (And
+    (On bigger_cheese_1 plate_1)
+    (On cream_cheese_1 plate_2)
+    )
+  )
+
+)
+

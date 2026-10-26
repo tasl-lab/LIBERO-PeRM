@@ -1,0 +1,24 @@
+{
+  "mission_id": "74",
+  "pick_bowl:blue_plate_1": [
+    [
+      0.0,
+      0.0,
+      0.0
+    ]
+  ],
+  "move_to:microwave_1": [
+    [
+      0.0,
+      0.0,
+      0.2
+    ]
+  ],
+  "put_bowl:microwave_1": [
+    [
+      0.0,
+      0.05,
+      0.0
+    ]
+  ]
+}

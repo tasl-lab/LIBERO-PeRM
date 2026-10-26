@@ -1,0 +1,76 @@
+(define (problem LIBERO_Kitchen_Tabletop_Manipulation)
+  (:domain robosuite)
+  (:language pick the plate with a bowl on it)
+    (:regions
+      (cylinder_init_region
+          (:target kitchen_table)
+          (:ranges (
+              (-0.16 -0.37 -0.15 -0.36)
+            )
+          )
+          (:yaw_rotation (
+              (0.0 0.0)
+            )
+          )
+      )
+
+      (obstacle_cylinder_init_region
+          (:target kitchen_table)
+          (:ranges (
+              (0.04 -0.2 0.05 -0.15)
+            )
+          )
+          (:yaw_rotation (
+              (0.0 0.0)
+            )
+          )
+      )
+
+      (microwave_init_region
+          (:target kitchen_table)
+          (:ranges (
+              (0.07 -0.03 0.08 -0.02)
+            )
+          )
+          (:yaw_rotation (
+              (3.1415926 3.1415926)
+            )
+          )
+      )
+    )
+
+
+  (:fixtures
+    kitchen_table - kitchen_table
+    microwave_1 - microwave
+  )
+
+  (:objects
+    blue_plate_1 - blue_plate
+    red_bowl_1 - red_bowl
+    cylinder_a_1 - cylinder_a
+    cylinder_b_1 - cylinder_b
+    cookies_1 - cookies
+  )
+
+  (:obj_of_interest
+    blue_plate_1
+    red_bowl_1
+    microwave_1
+    cylinder_b_1
+  )
+
+  (:init
+    (On cylinder_a_1 kitchen_table_cylinder_init_region)
+    (On cylinder_b_1 kitchen_table_obstacle_cylinder_init_region)
+    (On blue_plate_1 cylinder_a_1)
+    (On cookies_1 blue_plate_1)
+    (On microwave_1 kitchen_table_microwave_init_region)
+  )
+
+  (:goal
+    (And
+      (On blue_plate_1 microwave_1)
+    )
+  )
+)

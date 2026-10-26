@@ -1,0 +1,1 @@
+./dataset/Layout_8_5/P_BENCH_SCENE_l8_5put_the_white_mug_on_the_plate.bddl

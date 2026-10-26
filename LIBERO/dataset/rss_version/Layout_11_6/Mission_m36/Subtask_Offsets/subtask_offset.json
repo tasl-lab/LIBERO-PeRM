@@ -1,0 +1,38 @@
+{
+  "mission_id": "m36",
+  "pick_from_side:bbq_sauce_1": [
+    [
+      -0.03,
+      0.0,
+      0.0
+    ]
+  ],
+  "put:basket_1": [
+    [
+      0,
+      0.0,
+      0.1
+    ]
+  ],
+  "move_to:basket_1": [
+    [
+      0,
+      0.0,
+      0.1
+    ]
+  ],
+  "pick_with_load:plate_1": [
+    [
+      0.0,
+      0.04,
+      0.0
+    ]
+  ],
+  "put_with_load:basket_1": [
+    [
+      0.0,
+      -0.03,
+      0.0
+    ]
+  ]
+}

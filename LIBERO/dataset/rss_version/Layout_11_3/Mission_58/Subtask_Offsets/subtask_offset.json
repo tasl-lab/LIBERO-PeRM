@@ -1,0 +1,17 @@
+{
+  "mission_id": "58",
+  "move_to:wooden_two_layer_shelf_1": [
+    [
+      0.0,
+      0.0,
+      0.4
+    ]
+  ],
+  "put_handle:wooden_two_layer_shelf_1": [
+    [
+      0.05,
+      -0.05,
+      0.3
+    ]
+  ]
+}

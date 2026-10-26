@@ -1,0 +1,50 @@
+# Series-2 (skill pref) skill-compliance check.
+# 13 series-2 missions × 1 trial × pref condition + save_hdf5 for VLM auto-eval.
+#
+# Launch (single GPU):
+#   server: bash VLA_infer/server_pi05.sh VLA_infer/run_profile/LoRA/Pi05/U_singpref_series2_skill_check.yaml
+#   client: bash VLA_infer/run_client.sh  VLA_infer/run_profile/LoRA/Pi05/U_singpref_series2_skill_check.yaml
+
+experiment_name: U_pi05_singpref_step45k_series2_skill
+exp_type: lora_ft
+task_suite: single-pref
+
+prompt_source_yaml: /data4/zhixu/SinglePref/tasksuite_v0.yaml
+
+# Override task_suite missions: only series-2, exclude 7/8/9 (no train data).
+missions:
+  - 2-1_019
+  - 2-1_077
+  - 2-2_019
+  - 2-2_077
+  - 2-3_077
+  - 2-4_112
+  - 2-4_119
+  - 2-5_112
+  - 2-5_116
+  - 2-6_119
+  - 2-10_065
+  - 2-11_118
+  - 2-12_009
+  - 2-13_001
+  - 2-14_109
+
+conditions: [pref]
+num_trials: 1
+replan_steps: 5
+max_steps: null
+seed: 7
+
+save_hdf5: true
+save_video: true
+save_gif: false
+
+server:
+  vla: pi05
+  name: pi05_singpref_run1_step44999
+  host: 0.0.0.0
+  port: 8012
+  config: pi05_singpref_lora_v1
+  checkpoint: /data3/zhixu/LIBERO-PeRM/VLAs/openpi/checkpoints/pi05_singpref_lora_v1/pi05_singpref_run1/44999
+  cuda_devices: "5"
+  default_prompt: null

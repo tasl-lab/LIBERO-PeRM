@@ -1,0 +1,1 @@
+(pick black_book_1),(put wooden_two_layer_shelf_1),(pick yellow_book_1),(put wooden_two_layer_shelf_1)

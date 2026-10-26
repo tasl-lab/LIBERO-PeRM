@@ -1,0 +1,62 @@
+# Source of truth for `single-pref-data-test` suite (18 missions).
+# Filtered + simplified from /data3/zhixu/LIBERO-PeRM/LIBERO/dataset/perm_missions.yaml.
+# Convert script reads tasks + preferences from THIS file when training
+# the SinglePrefDataTest LoRA run. Edit here to paraphrase prompt without
+# touching mission_info.yaml or perm_missions.yaml.
+
+pairings:
+  "1-1": ["004", "006"]
+  "1-4": ["034", "053"]
+  "1-7": ["039", "015"]
+
+  "2-1":  ["019", "077"]
+  "2-5":  ["116", "112"]
+  "2-12": ["085", "093"]
+
+  "3-1":  ["004_1", "006_1"]
+  "3-4":  ["058_1", "081_1"]
+  "3-8":  ["081_2", "007_1"]
+
+tasks:
+  "1-1_004": "Put alphabet soup and cream cheese in basket"
+  "1-1_006": "Put cream cheese and butter in basket"
+  "1-4_034": "Put black bowl in bottom drawer"
+  "1-4_053": "Put white bowl on top of cabinet"
+  "1-7_039": "Put black bowl in top drawer"
+  "1-7_015": "Put chocolate pudding in top drawer and close it"
+
+  "2-1_019":  "Put black bowl on plate"
+  "2-1_077":  "Put white mug on left plate"
+  "2-5_116":  "Put ketchup in basket"
+  "2-5_112":  "Put BBQ sauce in basket"
+  "2-12_085": "Put book in right caddy compartment"
+  "2-12_093": "Put book in right caddy compartment"
+
+  "3-1_004_1":  "Put alphabet soup and cream cheese in basket"
+  "3-1_006_1":  "Put cream cheese and butter in basket"
+  "3-4_058_1":  "Put ketchup in basket"
+  "3-4_081_1":  "Put red mug on plate"
+  "3-8_081_2":  "Put red mug on plate"
+  "3-8_007_1":  "Put white mug on left plate"
+
+preferences:
+  "1-1_004": "Speed up"
+  "1-1_006": "Speed up"
+  "1-4_034": "Keep away from wine bottle"
+  "1-4_053": "Keep away from stove"
+  "1-7_039": "Move higher"
+  "1-7_015": "Move higher"
+
+  "2-1_019":  "Pick right edge"
+  "2-1_077":  "Pick right edge"
+  "2-5_116":  "Pick from left side"
+  "2-5_112":  "Pick from left side"
+  "2-12_085": "Rotate when placing"
+  "2-12_093": "Rotate when placing"
+
+  "3-1_004_1":  "Prefer green objects"
+  "3-1_006_1":  "Prefer green objects"
+  "3-4_058_1":  "Prefer blue objects"
+  "3-4_081_1":  "Prefer blue objects"
+  "3-8_081_2":  "Serve double portion"
+  "3-8_007_1":  "Serve double portion"

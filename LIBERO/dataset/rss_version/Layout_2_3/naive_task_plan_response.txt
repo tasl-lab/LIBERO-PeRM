@@ -1,0 +1,1 @@
+(pick cookies_1),(put plate_1)

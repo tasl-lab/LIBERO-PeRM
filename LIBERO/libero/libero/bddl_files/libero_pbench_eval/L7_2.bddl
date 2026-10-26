@@ -1,0 +1,111 @@
+(define (problem LIBERO_Living_Room_Tabletop_Manipulation)
+  (:domain robosuite)
+  (:language L7_2Put the cheese on the plate)
+    (:regions
+      (cream_cheese_1_init_region
+          (:target living_room_table)
+          (:ranges (
+              (0.025 -0.225 0.075 -0.175)
+            )
+          )
+          (:yaw_rotation (
+              (0.0 0.0)
+            )
+          )
+      )
+      (plate_1_init_region
+          (:target living_room_table)
+          (:ranges (
+              (-0.125 -0.175 -0.075 -0.125)
+            )
+          )
+          (:yaw_rotation (
+              (0.0 0.0)
+            )
+          )
+      )
+      (plate_2_init_region
+          (:target living_room_table)
+          (:ranges (
+              (-0.125 0.025 -0.075 0.075)
+            )
+          )
+          (:yaw_rotation (
+              (0.0 0.0)
+            )
+          )
+      )
+      (yellow_milk_1_init_region
+          (:target living_room_table)
+          (:ranges (
+              (0.08 -0.025 0.09 0.025)
+            )
+          )
+          (:yaw_rotation (
+              (0.0 0.0)
+            )
+          )
+      )
+      (bigger_cheese_1_init_region
+          (:target living_room_table)
+          (:ranges (
+              (0.05 0.2 0.1 0.25)
+            )
+          )
+          (:yaw_rotation (
+              (0.0 0.0)
+            )
+          )
+      )
+      (bigger_cheese_2_init_region
+          (:target living_room_table)
+          (:ranges (
+              (0.05 0.12 0.1 0.16)
+            )
+          )
+          (:yaw_rotation (
+              (0.0 0.0)
+            )
+          )
+      )
+      (contain_region
+          (:target bigger_cheese_1)
+          (:ranges (
+            )
+          )
+          (:yaw_rotation (
+              (0 0)
+            )
+          )
+      )
+    )
+
+  (:fixtures
+    living_room_table - living_room_table
+  )
+
+  (:objects
+    plate_1 plate_2 - plate
+    yellow_milk_1 - yellow_milk
+    cream_cheese_1 - cream_cheese
+    bigger_cheese_1 bigger_cheese_2 - bigger_cheese
+  )
+
+  (:obj_of_interest
+    yellow_milk_1
+    bigger_cheese_1
+  )
+
+  (:init
+    (on cream_cheese_1 living_room_table_cream_cheese_1_init_region)
+    (on plate_1 living_room_table_plate_1_init_region)
+    (on plate_2 living_room_table_plate_2_init_region)
+    (on yellow_milk_1 living_room_table_yellow_milk_1_init_region)
+    (on bigger_cheese_1 living_room_table_bigger_cheese_1_init_region)
+  )
+
+  (:goal
+    (And (on bigger_cheese_1 plate_1) (on cream_cheese_1 plate_2))
+  )
+
+)

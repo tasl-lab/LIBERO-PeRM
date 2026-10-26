@@ -1,0 +1,11 @@
+1.|| ('push', 'basket_1_|left|') ||
+2.|| "required": [('push', 'basket_1')], "prohibited": [('pick', '_ALL'), ('put', '_ALL')], "order": [] ||
+3.|| Use push instead of pick and put ||
+
+1.|| ('push', 'basket_1_|left|') ||
+2.|| "required": [('push', '_ALL')], "prohibited": [('pick', 'basket_1'), ('put', 'basket_1')], "order": [] ||
+3.|| Use push instead of pick and put ||
+
+1.|| ('push', 'basket_1_|left|') ||
+2.|| "required": [('push', 'basket_1')], "prohibited": [('pick', '_ALL'), ('put', '_ALL')], "order": [] ||
+3.|| Use push instead of pick and put ||

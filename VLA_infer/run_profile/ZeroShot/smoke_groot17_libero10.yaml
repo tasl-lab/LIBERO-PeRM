@@ -1,0 +1,25 @@
+# Smoke test: GR00T N1.7 libero_10 checkpoint (official NVIDIA)
+experiment_name: groot17_libero10_singlepref_smoke
+exp_type: 0shot
+task_suite: single-pref
+
+missions:
+  - 1-1_004
+  - 2-1_019
+
+conditions: [base, pref]
+num_trials: 2
+replan_steps: 8
+max_steps: null
+seed: 7
+
+server:
+  vla: groot
+  name: groot17_libero10
+  host: 0.0.0.0
+  port: 8001
+  config: groot_n17_libero_10
+  checkpoint: /data3/zhixu/LIBERO-PeRM/checkpoints/groot_n17_libero_10
+  cuda_devices: "0"
+  device: "cuda:0"
+  embodiment_tag: LIBERO_PANDA

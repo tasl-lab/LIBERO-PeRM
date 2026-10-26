@@ -1,0 +1,98 @@
+(define (problem LIBERO_Living_Room_Tabletop_Manipulation)
+  (:domain robosuite)
+  (:language L2_4Pick the plate with load and put it on the microwave.)
+    (:regions
+      (cylinder_a_1_init_region
+          (:target living_room_table)
+          (:ranges (
+              (-0.16 -0.38 -0.15 -0.37)
+            )
+          )
+          (:yaw_rotation (
+              (0.0 0.0)
+            )
+          )
+      )
+      (cylinder_b_1_init_region
+          (:target living_room_table)
+          (:ranges (
+              (0.04 -0.25 0.05 -0.2)
+            )
+          )
+          (:yaw_rotation (
+              (0.0 0.0)
+            )
+          )
+      )
+      (microwave_1_init_region
+          (:target living_room_table)
+          (:ranges (
+              (0.07 -0.03 0.08 -0.02)
+            )
+          )
+          (:yaw_rotation (
+              (3.1415926 3.1415926)
+            )
+          )
+      )
+
+      (top_side
+          (:target microwave_1)
+      )
+      (top_region
+          (:target microwave_1)
+      )
+      (middle_region
+          (:target microwave_1)
+      )
+      (bottom_region
+          (:target microwave_1)
+      )
+      (top_side
+          (:target white_storage_box_1)
+      )
+      (bottom_side
+          (:target white_storage_box_1)
+      )
+      (right_side
+          (:target white_storage_box_1)
+      )
+      (left_side
+          (:target white_storage_box_1)
+      )
+    )
+
+  (:fixtures
+    living_room_table - living_room_table
+    microwave_1 - microwave
+    white_storage_box_1 - white_storage_box
+  )
+
+  (:objects
+    blue_plate_1 - blue_plate
+    red_bowl_1 - red_bowl
+    cylinder_a_1 - cylinder_a
+    cylinder_b_1 - cylinder_b
+  )
+
+  (:obj_of_interest
+    blue_plate_1
+    red_bowl_1
+    microwave_1
+    cylinder_b_1
+  )
+
+  (:init
+    (on cylinder_a_1 living_room_table_cylinder_a_1_init_region)
+    (on cylinder_b_1 living_room_table_cylinder_b_1_init_region)
+    (On blue_plate_1 cylinder_a_1)
+    (On red_bowl_1 blue_plate_1)
+    (On microwave_1 living_room_table_microwave_1_init_region)
+  )
+
+  (:goal
+    (And (on blue_plate_1 microwave_1_top_side))
+
+  )
+
+)

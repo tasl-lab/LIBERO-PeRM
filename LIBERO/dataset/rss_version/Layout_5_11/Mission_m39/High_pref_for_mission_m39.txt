@@ -1,0 +1,3 @@
+1.|| ('pick_bowl', 'red_bowl_1'), ('put_bowl', 'red_plate_1') ||
+2.|| "required": [('pick_bowl', 'red_bowl_1'), ('put_bowl', 'red_plate_1')], "prohibited": [('pick', 'red_bowl_1')], "order": [[('pick_bowl', 'red_bowl_1'), ('put_bowl', 'red_plate_1')]] ||
+3.|| I prefer red color objects, if possible, and pick up objects from its edge ||

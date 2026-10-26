@@ -1,0 +1,421 @@
+
+# Task suite → mission_id registry.
+# Source of truth for which missions belong to which benchmark suite.
+# Consumed by:
+#   - ZeroShotEval/rollout.py, batch_rollout.py
+#   - batch_eval/run_eval.py (VLM compliance)
+#   - aggregate.py
+#
+# Each mission_id resolves to dataset/series_X/perm_X_Y/libero_ZZZ[_N]/.
+#
+# INVARIANT: single-pref entries must match VLA_data/SinglePref/Mission_*.hdf5 1:1
+# (the training-data truth). Run LIBERO/configs/check_suite_sync.py to verify.
+
+single-pref:
+  description: >
+    v2 (2026-04-26): 36 missions whose layout id falls strictly outside [10, 99]
+    (i.e. <10 or >99). Subset of perm_missions.yaml pairings, matches
+    batch_run.yaml dev_mission_ids. Replaces the 47-mission legacy set below.
+  missions:
+    # ── Series 1 (10) ──
+    - 1-1_004
+    - 1-1_006
+    - 1-2_113
+    - 1-3_107
+    - 1-3_109
+    - 1-4_034
+    - 1-5_114
+    - 1-6_105
+    - 1-7_104
+    - 1-8_114
+
+    # ── Series 2 (14) ──
+    - 2-1_019
+    - 2-1_077
+    - 2-2_019
+    - 2-2_077        # dropped 2026-04-26: mug+back_edge persistent 0/5
+    - 2-3_077
+    # 2-4_112 dropped 2026-04-28: pref "Pick from top at an angle" — even with overfit U LoRA, persistent 0/4 SR
+    - 2-4_119
+    # 2-5_112 dropped 2026-04-28: pref "Pick from left side" — same reason as 2-4_112
+    - 2-5_116
+    - 2-6_119
+    - 2-10_065
+    - 2-11_118
+    - 2-12_009
+    - 2-13_001
+    - 2-14_109
+
+    # ── Series 3 (17) ──
+    - 3-1_004_1
+    - 3-1_006_1
+    - 3-2_001_1
+    - 3-3_117_2
+    - 3-4_104_1
+    - 3-5_120_1
+    - 3-6_101_1
+    - 3-7_101_1
+    - 3-8_007_1
+    - 3-9_118_1
+    - 3-10_117_1
+    - 3-11_112_1
+    - 3-12_109_1
+    - 3-13_120_1
+    - 3-14_107_1
+    - 3-14_114_1
+    - 3-15_106_1
+
+# --- legacy single-pref (47 missions, deprecated 2026-04-26) ---
+# single-pref-legacy:
+#   description: >
+#     Series 1 (motion pref) + Series 2 (skill pref) + Series 3 (user profile pref).
+#     Each mission carries exactly one preference dimension.
+#     NOTE: 18 missions moved to single-pref-data-test (latest data-gen output, R33 88/90).
+#     Remaining missions here are the unrenewed legacy set.
+#   missions:
+#     # ── Series 1: Motion preferences ──
+#     - 1-2_062
+#     - 1-2_065
+#     - 1-3_107
+#     - 1-3_109
+#     - 1-5_034
+#     - 1-5_070
+#     - 1-6_067
+#     - 1-6_071
+#     - 1-8_049
+#     - 1-8_061
+#     # ── Series 2: Skill preferences ──
+#     - 2-2_019
+#     - 2-2_077
+#     - 2-3_075
+#     - 2-3_077
+#     - 2-4_112
+#     - 2-4_119
+#     - 2-6_042
+#     - 2-8_ood3
+#     - 2-8_ood4
+#     - 2-9_ood3
+#     - 2-9_ood4
+#     - 2-10_015
+#     - 2-10_065
+#     - 2-11_062
+#     - 2-11_118
+#     - 2-13_001
+#     - 2-13_034
+#     - 2-14_068
+#     - 2-14_109
+#     # ── Series 3: User profile preferences ──
+#     - 3-2_001_1
+#     - 3-2_097_1
+#     - 3-3_019_1
+#     - 3-3_084_1
+#     - 3-5_023_1
+#     - 3-5_064_1
+#     - 3-6_012_1
+#     - 3-6_036_1
+#     - 3-7_018_1
+#     - 3-7_101_1
+#     - 3-9_063_1
+#     - 3-9_118_1
+#     - 3-10_062_1
+#     - 3-10_117_1
+#     - 3-11_072_1
+#     - 3-11_112_1
+#     - 3-12_036_2
+#     - 3-12_060_1
+#     - 3-13_046_1
+#     - 3-13_120_1
+#     - 3-14_107_1
+#     - 3-14_114_1
+#     - 3-15_040_1
+#     - 3-15_041_1
+
+single-pref-data-test:
+  description: >
+    18 missions (3 series × 3 prefs × 2) used to validate data-gen heuristic
+    refactor on 2026-04-25 (R33 = 88/90 SR). Reproduces the dev sweep coverage.
+  missions:
+    - 1-1_004
+    - 1-1_006
+    - 1-4_034
+    - 1-4_053
+    - 1-7_015
+    - 1-7_039
+    - 2-1_019
+    - 2-1_077
+    - 2-5_112
+    - 2-5_116
+    - 2-12_085
+    - 2-12_093
+    - 3-1_004_1
+    - 3-1_006_1
+    - 3-4_058_1
+    - 3-4_081_1
+    - 3-8_007_1
+    - 3-8_081_2
+
+single-pref-in-domain:
+  description: >
+    In-domain subset of single-pref: missions whose libero ID suffix
+    falls strictly outside [10, 99] (i.e., <10 or >99), excluding OOD.
+    Filtered from perm_missions.yaml pairings (Zhixu, 2026-04-19).
+  missions:
+    # ── Series 1 (7) ──
+    - 1-1_004
+    - 1-1_006
+#    - 1-2  #keqian
+    - 1-3_107
+    - 1-3_109
+    - 1-4_034
+    - 1-5_114
+
+    # ── Series 2 (9) ──
+    - 2-1_019
+    - 2-1_077
+    - 2-2_019
+    - 2-2_077
+    - 2-3_077
+    # 2-4_112 dropped 2026-04-28: see single-pref note
+    - 2-4_119
+    # 2-5_112 dropped 2026-04-28: see single-pref note
+    - 2-5_116
+    - 2-6_119
+#    - 2-10_015
+    - 2-10_065
+    - 2-11_118
+    - 2-12_009
+    - 2-13_001
+    - 2-14_109
+
+    # ── Series 3 (17) ──
+    - 3-1_004_1
+    - 3-1_006_1
+    - 3-2_001_1
+    - 3-3_117_2        # NOTE: pairings lists 117_2 but only libero_117_1/ exists on disk
+    - 3-4_104_1
+    - 3-5_120_1
+    - 3-6_101_1
+    - 3-7_101_1
+    - 3-8_007_1
+    - 3-9_118_1
+    - 3-10_117_1
+    - 3-11_112_1
+    - 3-12_109_1
+    - 3-13_120_1
+    - 3-14_107_1
+    - 3-14_114_1
+    - 3-15_106_1
+
+multi-pref:
+  description: "Series 4 (planned). Multiple preferences per mission."
+  missions: []
+
+pref-learn-eff:
+  description: "Multi-scale demo subsets for learning efficiency (training-required)."
+  missions: []
+
+liberoscale_b0:
+  description: >
+    Series 5 / Scale Suite — B0 cell only (no-preference baseline).
+    Single mission 0-1_032: pick blue_ketchup → basket. NO pref.
+    Used as anchor for "task following without pref" in scaling curve.
+  missions:
+    - 0-1_032
+
+liberoscale:
+  description: >
+    LIBERO-Scale (Series 5, RQ3 layout-OOD).
+    5 slots × 7 layouts (base + _1.._6) for K=7 cell.
+    Each slot: task + pref FROZEN, only layout varies.
+    Slots: 0-1 (no-pref baseline), 1-1 (motion: Speed up), 2-5 (skill: Pick from left side),
+           3-2 (profile: Prefer red), 4-3 (multi: left + speed).
+  missions:
+    # ── Slot 0-1 (7): no-pref baseline, blue_ketchup in basket ──
+    - 0-1_032
+    - 0-1_032_1
+    - 0-1_032_2
+    - 0-1_032_3
+    - 0-1_032_4
+    - 0-1_032_5
+    - 0-1_032_6
+    # ── Slot 1-1 (10): motion pref Speed up, soup+cheese in basket ──
+    - 1-1_004        # example
+    - 1-1_004_1      # train: light, swap distractors
+    - 1-1_004_2      # train: light+, add clutter (7 obj)
+    - 1-1_004_3      # train: medium, big rearrange (7 obj)
+    - 1-1_004_4      # train: heavy, kitchen scene
+    - 1-1_004_5      # train: heavy, study scene
+    - 1-1_004_6      # train: visual, +wooden_cabinet corner
+    - 1-1_004_7      # held-out: main_table problem class
+    - 1-1_004_8      # held-out: kitchen v2
+    - 1-1_004_9      # held-out: living_room minimalist
+    # ── Slot 2-5 (10): skill pref Pick from left side, ketchup in basket ──
+    - 2-5_116        # example
+    - 2-5_116_1      # train: light, swap distractors (Floor)
+    - 2-5_116_2      # train: light v2, different distractor set (Floor)
+    - 2-5_116_3      # train: clutter 6-obj (Floor)
+    - 2-5_116_4      # train: minimalist 2-distractor (Floor)
+    - 2-5_116_5      # train: heavy, Kitchen Tabletop
+    - 2-5_116_6      # train: Kitchen with different distractor types
+    - 2-5_116_7      # held-out: main_table problem class
+    - 2-5_116_8      # held-out: kitchen v2
+    - 2-5_116_9      # held-out: floor minimalist (3 obj)
+    # ── Slot 3-2 (10): profile pref Prefer red, pick book on shelf ──
+    - 3-2_097_1      # example
+    - 3-2_097_2      # train: light, swap book positions (Study)
+    - 3-2_097_3      # train: heavy, Living_Room scene change
+    - 3-2_097_4      # train: light+, 5 book candidates (Study)
+    - 3-2_097_5      # train: medium, books + cream_cheese/butter (Study)
+    - 3-2_097_6      # train: medium, books + alphabet_soup/orange_juice (Study)
+    - 3-2_097_7      # train: visual+, +red_basket multi-red distractor (Study)
+    - 3-2_097_8      # held-out: main_table problem class
+    - 3-2_097_9      # held-out: minimalist 2-book (Study)
+    - 3-2_097_10     # held-out: kitchen scene
+    # ── Slot 4-3 (7): multi-pref left+speed, ketchup/bbq → basket/red_basket ──
+    - 4-3_116
+    - 4-3_116_1
+    - 4-3_116_2
+    - 4-3_116_3
+    - 4-3_116_4
+    - 4-3_116_5
+    - 4-3_116_6
+
+liberoscale_layout_ood:
+  description: >
+    LIBERO-Scale Layout-OOD eval (held-out from liberoscale).
+    4 pref slot × 3 unseen layouts = 12 missions. task + pref FROZEN per slot,
+    only layout (fixture / distractor set / target pose) varies vs training.
+    Eval-only — no demo HDF5. conditions=[pref] only (sweep RQ3 decision).
+  missions:
+    # ── Slot 1-1 (motion: Speed up) ──
+    - 1-1_004_7
+    - 1-1_004_8
+    - 1-1_004_9
+    # ── Slot 2-5 (skill: Pick from left side) ──
+    - 2-5_116_7
+    - 2-5_116_8
+    - 2-5_116_9
+    # ── Slot 3-2 (profile: Prefer red) ──
+    - 3-2_097_8
+    - 3-2_097_9
+    - 3-2_097_10
+    # ── Slot 4-3 (multi: left + speed) ──
+    - 4-3_116_7
+    - 4-3_116_8
+    - 4-3_116_9
+
+liberoscale_pref_ood:
+  description: >
+    LIBERO-Scale Pref-OOD eval (different-task generalization).
+    3 unseen layouts of nopref-baseline task (0-1_032 family).
+    task ≠ training-pref tasks; layout unseen; eval sweeps each of the 4
+    trained prefs (1-1/2-5/3-2/4-3) onto these 3 layouts → 4 × 3 = 12 cells.
+    Eval-only — no demo HDF5. mission_info ships nopref; pref injected at runfile.
+  missions:
+    - 0-1_032_7
+    - 0-1_032_8
+    - 0-1_032_9
+
+pref-compose:
+  description: >
+    LIBERO-Compose (Series 4, RQ4 a/b). 4 layouts × 4 conditions
+    (nopref / A / B / A+B) = 16 missions. C1 Decompose: train (nopref+A+A+B) eval B.
+    C2 Compose: train (nopref+A+B) eval A+B. See series_4/COMPOSE_EXPERIMENT.md.
+  missions:
+    # ── 4-3 / 116 (Pick from left side + Speed up) ──
+    - 4-3_116_combo_nopref
+    - 4-3_116_combo_A   # Pick from left side
+    - 4-3_116_combo_B   # Speed up
+    - 4-3_116_combo_AB  # left + speed
+    # ── 4-4 / 001 (Rotate when placing + Prefer red) ──
+    - 4-4_001_combo_nopref
+    - 4-4_001_combo_A   # Rotate when placing
+    - 4-4_001_combo_B   # Prefer red
+    - 4-4_001_combo_AB
+    # ── 4-5 / 118m (Pick from top + Prefer dairy, milk-renamed BDDL) ──
+    - 4-5_118m_combo_nopref
+    - 4-5_118m_combo_A  # Pick from top
+    - 4-5_118m_combo_B  # Prefer dairy
+    - 4-5_118m_combo_AB
+    # ── 4-6 / 068 (Lay object down + Serve double portion) ──
+    - 4-6_068_combo_nopref
+    - 4-6_068_combo_A   # Lay object down
+    - 4-6_068_combo_B   # Serve double portion (BDDL needs 2nd ketchup, TODO)
+    - 4-6_068_combo_AB
+
+prefconflict:
+  description: >
+    LIBERO-PrefConflict (Suite 4, RQ5).
+    5 pp opposing-pref pairs × 2 = 10 missions + 3 pt task-pref conflict cells (_c
+    new task lan) = 13 test missions. R₁/R₂ training adds 5 + 3 aux missions
+    (not listed here; see series_6/task_suite.yaml `training_aux`).
+    See LIBERO/dataset/series_6/task_suite.yaml + conflict_pair_reference.md.
+  missions:
+    # ── pp pair 1 speed (M-M) ──
+    - 1-1_004      # Speed up
+    - 1-2_113      # Slow down
+    # ── pp pair 2 height (M-M) ──
+    - 1-7_104      # Move higher
+    - 1-5_114      # Close to ground when moving
+    # ── pp pair 4 pick LR (S-S) ──
+    - 2-13_001     # Pick from left edge
+    - 2-1_077      # Pick from right edge
+    # ── pp pair 5 push/drag (S-S) — OOD pool ──
+    - 2-8_ood3     # Push instead of pick-and-put
+    - 2-9_ood3     # Drag instead of pick-and-put
+    # ── pp pair 7 size (U-U) ──
+    - 3-5_120_1    # Prefer bigger objects
+    - 3-15_106_1   # Prefer smaller objects
+    # ── pt cells (3) — new conflict task-lan variants (_c suffix) ──
+    - 3-1_006_1c   # pt1 color  (pref green  / task asks red)
+    - 3-9_118_1c   # pt3 category (pref dairy / task asks canned)
+    - 3-8_007_1c   # pt5 quantity (pref double / task asks single)
+
+comprehensive:
+  description: >
+    LIBERO-Comprehensive (Suite 5, Q7 / RQ1-paraphrase axis), series 7.
+    34 missions × 2 paraphrase settings (S1 fused / S2 commonsense) = 68 prompts.
+    0 new demo — strict subset of single-pref; reuses SingPref BDDLs / init states.
+    Mission set + per-mission S1/S2 prompts live in `dataset/series_7/{task_suite,language}.yaml`;
+    eval.py reads via `comp_pref_yaml` + `comp_pref_setting` runfile fields.
+    Mission selection: best-0-shot pref-SR mission per pref family (34 families).
+  missions:
+    # ── Series 1 (8) — motion pref, one per family ──
+    - 1-1_004
+    - 1-2_113
+    - 1-3_107
+    - 1-4_034
+    - 1-5_114
+    - 1-6_105
+    - 1-7_104
+    - 1-8_114
+
+    # ── Series 2 (11) — skill pref, one per family ──
+    - 2-1_077
+    - 2-2_077
+    - 2-3_077
+    - 2-4_119
+    - 2-5_116
+    - 2-6_119
+    - 2-10_065
+    - 2-11_118
+    - 2-12_009
+    - 2-13_001
+    - 2-14_109
+
+    # ── Series 3 (15) — profile pref, one per family ──
+    - 3-1_004_1
+    - 3-2_001_1
+    - 3-3_117_2
+    - 3-4_104_1
+    - 3-5_120_1
+    - 3-6_101_1
+    - 3-7_101_1
+    - 3-8_007_1
+    - 3-9_118_1
+    - 3-10_117_1
+    - 3-11_112_1
+    - 3-12_109_1
+    - 3-13_120_1
+    - 3-14_107_1
+    - 3-15_106_1

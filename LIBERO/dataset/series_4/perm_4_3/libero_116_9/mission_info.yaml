@@ -1,0 +1,53 @@
+workspace: ''
+language_instructions: Put the bbq sauce in basket
+optimized_instruction: Put bbq sauce in basket
+libero_instruction: put the bbq sauce in basket
+bddl_file: pick_up_the_bbq_sauce_and_place_it_in_the_red_basket.bddl
+high_pref_lan: Pick from left side
+low_pref_lan: Speed up
+damping_level: 0
+naive_plan:
+- [pick, bbq_sauce_1]
+- [put, red_basket_1]
+task_plan:
+- [pick_from_side, bbq_sauce_1]
+- [put, red_basket_1]
+high_prefs:
+- description: Pick from left side
+  action_parameters:
+    pick_from_side:
+    - {direction: left}
+low_prefs:
+- type: speed_range
+  params:
+    min_speed: 2.0
+    max_speed: 2.0
+  description: Speed up
+- type: grasp_tilt
+  params:
+    target_obj: bbq_sauce_1
+    criterion_threshold: 0.261799
+    criterion_direction: 1
+  description: Pick from left side
+subtask_offset:
+  move_to:_all: [0.0, 0.0, 0.0]
+  put:red_basket_1:
+  - [0.0, 0.0, 0.0]
+  move_to_height:red_basket_1: 0.1
+low_pref_calibration:
+  speed_range:
+    pref_anchor: 133.0
+    n_pref: 10
+    naive_anchor: 152.5
+    n_naive: 10
+    subtask_pref_anchor:
+    - 32.5
+    - 88.5
+    subtask_naive_anchor:
+    - 53.0
+    - 64.0
+  grasp_tilt:
+    pref_anchor: 0.660886
+    n_pref: 10
+    naive_anchor: 0.053764
+    n_naive: 10

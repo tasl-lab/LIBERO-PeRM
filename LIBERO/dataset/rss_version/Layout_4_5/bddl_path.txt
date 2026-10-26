@@ -1,0 +1,1 @@
+./dataset/Layout_4_5/P_BENCH_SCENE_l4_5pick_the_porcelain_ramekin_and_put_it_on_the_plate.bddl

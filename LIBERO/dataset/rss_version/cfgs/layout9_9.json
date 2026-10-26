@@ -1,0 +1,37 @@
+{
+  "_comment:": [
+    "Configuration for pick_the_bowl_by_edge_and_put_it_on_the_plate Layout 9"
+  ],
+  "workspaces": "kitchen_table",
+  "bddl_file_names": "libero_pbench/L9_9.bddl",
+  "language_instructions": "Pick the mug and put on plate.",
+  "layout_id": "9_9",
+  
+  "high_pref_lan": [
+    "pick up objects from its edge"
+  ],
+  "low_pref_lan": [
+    "Avoid wine bottle on the table"
+  ],
+  "mission_ids": [
+    "m19"
+
+  ],
+  "mission_mask": [
+    1
+
+  ],
+
+  "subtask_offset": [
+    {
+
+      "mission_id": "m19",
+      "move_to_away:plate_1": [[0.0, 0.0, 0.25]],
+      "pick_bowl:white_yellow_mug_1": [[-0.04, 0.0, -0.03]],
+      "put_bowl:plate_1": [[0.01, 0.0, 0.0]]
+    }
+  ],
+  
+  "fluency_improvement": 0
+}
+

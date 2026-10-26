@@ -1,0 +1,57 @@
+# Experiment D — LIBERO-SingPref 0-shot, pi0.5 official pretrained checkpoint.
+#
+# Goal: measure the pretrained model's 0-shot preference-following ability on
+# the full single-pref suite, paired base vs pref under identical init states.
+# The pi05_libero checkpoint was trained on the public LIBERO benchmark demos
+# (no P_Bench preference data), so any base↔pref metric gap here reflects what
+# pre-training already gives us "for free" on our preference-aware tasks.
+#
+# Sweep: 40 missions (single-pref-in-domain) × 2 conditions (base, pref) × 3 trials
+#      = 240 episodes.
+#
+# single-pref-in-domain is the in-domain subset of single-pref defined in
+# LIBERO/configs/task_suites.yaml (Series 1: 7, Series 2: 16, Series 3: 17).
+#
+# Series 3 `base` condition auto-routes to no_pref_layout/ via
+# PolicyEval/eval.py:pick_bddl (line 120). Pref condition uses default bddl.
+#
+# Launch (two shells):
+#   server: bash VLA_infer/server_pi05.sh VLA_infer/run_profile/ZeroShot/D_pi05_official.yaml
+#   client: bash VLA_infer/run_client.sh  VLA_infer/run_profile/ZeroShot/D_pi05_official.yaml
+#
+# Aggregate after completion:
+#   python LIBERO/scripts/aggregate_eval.py
+
+experiment_name: D_pi05_official_singpref_indomain_0shot
+exp_type: 0shot
+task_suite: single-pref-in-domain
+
+# missions omitted → eval.py auto-fills from task_suites.yaml
+# (40 missions in single-pref-in-domain).
+# missions: null
+
+conditions: [base, pref]
+num_trials: 3
+replan_steps: 5
+max_steps: null
+seed: 7
+
+# --- output toggles (match full_pi05_official.yaml's defaults) ---
+save_hdf5: false          # eval only needs rollout_summary + video
+save_video: true          # mp4 for QA
+save_gif: false
+
+server:
+  # --- identity ---
+  vla: pi05
+  name: pi05_official
+  host: 0.0.0.0
+  port: 8009
+  # --- policy loading ---
+  config: pi05_libero
+  # gs:// path — openpi's download.maybe_download caches at
+  # ~/.cache/openpi/openpi-assets/checkpoints/pi05_libero/. Already present
+  # on this device, so no re-download.
+  checkpoint: gs://openpi-assets/checkpoints/pi05_libero
+  cuda_devices: "4,5,6,7"
+  default_prompt: null

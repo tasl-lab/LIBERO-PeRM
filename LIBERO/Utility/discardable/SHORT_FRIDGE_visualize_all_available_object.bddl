@@ -1,0 +1,57 @@
+(define (problem LIBERO_Floor_Manipulation)
+  (:domain robosuite)
+  (:language Visualize all available object)
+    (:regions
+      (short_fridge_init_region
+          (:target Test_workspace)
+          (:ranges (
+              (-0.025 -0.025 0.025 0.025)
+            )
+          )
+          (:yaw_rotation (
+              (-3.141592653589793 3.141592653589793)
+            )
+          )
+      )
+      (target_region
+          (:target Test_workspace)
+          (:ranges (
+              (-0.01 -0.31 0.01 -0.29)
+            )
+          )
+          (:yaw_rotation (
+              (3.141592653589793 3.141592653589793)
+            )
+          )
+      )
+      (upper_region
+          (:target short_fridge_1)
+      )
+      (middle_region
+          (:target short_fridge_1)
+      )
+      (lower_region
+          (:target short_fridge_1)
+      )
+    )
+
+  (:fixtures
+  )
+
+  (:objects
+    short_fridge_1 - short_fridge
+  )
+
+  (:obj_of_interest
+    short_fridge_1
+  )
+
+  (:init
+    (On short_fridge_1 short_fridge_init_region)
+  )
+
+  (:goal
+    (And)
+  )
+
+)

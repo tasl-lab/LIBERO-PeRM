@@ -1,0 +1,108 @@
+(define (problem LIBERO_Kitchen_Tabletop_Manipulation)
+  (:domain robosuite)
+  (:language Pick the akita black bowl from the table and place it on the cream_cheese)
+    (:regions
+      (white_cabinet_init_region
+          (:target kitchen_table)
+          (:ranges (
+              (-0.01 0.24 0.01 0.25)
+            )
+          )
+          (:yaw_rotation (
+              (0.0 0.0)
+            )
+          )
+      )
+      (akita_black_bowl_init_region
+          (:target kitchen_table)
+          (:ranges (
+              (0.0049999999999999975 -0.07500000000000001 0.055 -0.025)
+            )
+          )
+          (:yaw_rotation (
+              (0.0 0.0)
+            )
+          )
+      )
+      (alphabet_soup_init_region
+          (:target kitchen_table)
+          (:ranges (
+              (-0.20 0.05 -0.15 0.10)
+            )
+          )
+          (:yaw_rotation (
+              (0.0 0.0)
+            )
+          )
+      )
+      (wine_bottle_init_region
+          (:target kitchen_table)
+          (:ranges (
+              (0.15 0.05 0.2 0.10)
+            )
+          )
+          (:yaw_rotation (
+              (0.0 0.0)
+            )
+          )
+      )
+      (cream_cheese_init_region
+          (:target kitchen_table)
+          (:ranges (
+              (-0.07500000000000001 -0.275 -0.025 -0.225)
+            )
+          )
+          (:yaw_rotation (
+              (0.0 0.0)
+            )
+          )
+      )
+      (top_side
+          (:target white_cabinet_1)
+      )
+      (top_region
+          (:target white_cabinet_1)
+      )
+      (middle_region
+          (:target white_cabinet_1)
+      )
+      (bottom_region
+          (:target white_cabinet_1)
+      )
+    )
+
+  (:fixtures
+    kitchen_table - kitchen_table
+    white_cabinet_1 - white_cabinet
+  )
+
+  (:objects
+    akita_black_bowl_1 - akita_black_bowl
+    cream_cheese_1 - cream_cheese
+    alphabet_soup_1 - alphabet_soup
+    wine_bottle_1 - wine_bottle
+  )
+
+  (:obj_of_interest
+    akita_black_bowl_1
+    cream_cheese_1
+  )
+
+  (:init
+    (On akita_black_bowl_1 kitchen_table_akita_black_bowl_init_region)
+    (On cream_cheese_1 kitchen_table_cream_cheese_init_region)
+    (On white_cabinet_1 kitchen_table_white_cabinet_init_region)
+    (On alphabet_soup_1 kitchen_table_alphabet_soup_init_region)
+    (Close white_cabinet_1_top_region)
+    (On wine_bottle_1 kitchen_table_wine_bottle_init_region)
+  )
+
+  (:goal
+    (And
+    (Close white_cabinet_1_top_region)
+    (In cream_cheese_1 white_cabinet_1_top_region)
+    )
+  )
+
+)
+

@@ -1,0 +1,1 @@
+(pick akita_black_bowl_1),(put basket_1),(pick red_coffee_mug_1),(put basket_1)

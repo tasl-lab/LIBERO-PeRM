@@ -1,0 +1,57 @@
+# LIBERO-Scale L1 cell: K=2, N=225, total = 5×2×225 = 2250 demos
+# 10 missions × 225 demos. Auto-generated from PrefScale/tasksuite.yaml (master)
+
+pairings:
+  "0-1": ['032', '032_1']                                   # no-pref baseline
+  "1-1": ['004', '004_1']                                   # motion (Speed up)
+  "2-5": ['116', '116_1']                                   # skill (Pick from left side)
+  "3-2": ['097_1', '097_2']                                 # profile (Prefer red objects)
+  "4-3": ['116', '116_1']                                   # multi (Pick from left side + Speed up)
+
+tasks:
+  "0-1_032": "Put a sauce in basket"
+  "0-1_032_1": "Put an item in basket"
+  "1-1_004": "Put alphabet soup and cream cheese in basket"
+  "1-1_004_1": "Put alphabet soup and cream cheese in basket"
+  "2-5_116": "Put the ketchup in basket"
+  "2-5_116_1": "Put the ketchup in basket"
+  "3-2_097_1": "Put a book on top of the shelf"
+  "3-2_097_2": "Put a book on top of the shelf"
+  "4-3_116": "Put the ketchup in basket"
+  "4-3_116_1": "Put the ketchup in basket"
+
+preferences:
+  "0-1_032": ""
+  "0-1_032_1": ""
+  "1-1_004": "Speed up"
+  "1-1_004_1": "Speed up"
+  "2-5_116": "Pick from left side"
+  "2-5_116_1": "Pick from left side"
+  "3-2_097_1": "Prefer red objects"
+  "3-2_097_2": "Prefer red objects"
+  "4-3_116": "Pick from left side. Speed up"
+  "4-3_116_1": "Pick from left side. Speed up"
+
+n_demos:
+  "0-1_032": 225
+  "0-1_032_1": 225
+  "1-1_004": 225
+  "1-1_004_1": 225
+  "2-5_116": 225
+  "2-5_116_1": 225
+  "3-2_097_1": 225
+  "3-2_097_2": 225
+  "4-3_116": 225
+  "4-3_116_1": 225
+
+role:
+  "0-1_032": "train_eval"
+  "0-1_032_1": "train_eval"
+  "1-1_004": "train_eval"
+  "1-1_004_1": "train_eval"
+  "2-5_116": "train_eval"
+  "2-5_116_1": "train_eval"
+  "3-2_097_1": "train_eval"
+  "3-2_097_2": "train_eval"
+  "4-3_116": "train_eval"
+  "4-3_116_1": "train_eval"

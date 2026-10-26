@@ -1,0 +1,42 @@
+workspace: study_scene1
+language_instructions: Pick up the book and place it in the back compartment of the
+  caddy
+optimized_instruction: Put book in back caddy compartment
+libero_instruction: pick up the book and place it in the back compartment of the caddy
+bddl_file: STUDY_SCENE1_pick_up_the_book_and_place_it_in_the_back_compartment_of_the_caddy.bddl
+high_pref_lan: Rotate when placing
+low_pref_lan: ''
+subtask_offset:
+  move_to:_all:
+  - 0.0
+  - 0.0
+  - 0.05
+damping_level: 0
+naive_plan:
+- - pick
+  - black_book_1
+- - put
+  - desk_caddy_1
+task_plan:
+- - pick
+  - black_book_1
+- - put_with_rotation
+  - desk_caddy_1_back
+high_prefs:
+- description: Rotate when placing
+  action_parameters:
+    put_with_rotation:
+    - {}
+low_prefs:
+- type: place_rotation
+  params:
+    target_obj: black_book_1
+    criterion_threshold: 0.523599
+    criterion_direction: 1
+  description: Rotate when placing
+low_pref_calibration:
+  place_rotation:
+    pref_anchor: 0.763715
+    n_pref: 10
+    naive_anchor: 0.034516
+    n_naive: 10

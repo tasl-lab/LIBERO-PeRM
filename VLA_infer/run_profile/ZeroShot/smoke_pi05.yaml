@@ -1,0 +1,38 @@
+# Smoke-test runfile — 2 missions × 2 conditions × 2 trials = 8 episodes.
+#
+# This yaml drives BOTH sides:
+#   server: bash server_pi05.sh run_profile/ZeroShot/smoke_pi05.yaml
+#   client: bash run_client.sh  run_profile/ZeroShot/smoke_pi05.yaml
+# Client checks that the server's reported metadata (config_name, checkpoint_dir)
+# matches server.config / server.checkpoint below exactly.
+
+experiment_name: pi05_singlepref_smoke
+exp_type: 0shot                     # 0shot | lora_ft
+task_suite: single-pref
+
+missions:                           # explicit subset for smoke test
+  - 1-1_004
+  - 2-1_019
+
+conditions: [base, pref]
+num_trials: 2
+replan_steps: 5
+max_steps: null                     # null → rollout.py default (600)
+seed: 7
+
+# --- output toggles (defaults shown; override per-run as needed) ---
+save_hdf5: false                    # default off — eval only needs summary + video
+save_video: true                    # mp4 for QA
+save_gif: false                     # extra gif alongside mp4
+
+server:
+  # --- identity (client + server both use) ---
+  vla: pi05                         # routes to openpi/serve.py; the {model} path segment
+  name: pi05_lora               # friendly label → output tree + server metadata
+  host: 0.0.0.0
+  port: 8000
+  # --- policy loading (server reads) ---
+  config: pi05_libero_lora_v1
+  checkpoint: /data3/zhixu/LIBERO-PeRM/checkpoints/pi05_libero_lora_v1/pi05_lora_v1_repo/25000
+  cuda_devices: "0,1"               # exported as CUDA_VISIBLE_DEVICES by server_pi05.sh
+  default_prompt: null              # optional, openpi-specific

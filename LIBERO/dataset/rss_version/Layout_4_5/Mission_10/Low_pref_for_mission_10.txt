@@ -1,0 +1,2 @@
+1.||approach_object, ("ground_1", 0.15)||
+2.||Approach the red plate with a moderate distance (0.15m) while completing your main task.||

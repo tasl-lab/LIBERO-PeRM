@@ -1,0 +1,1 @@
+(pick bbq_sauce_1),(put wooden_tray_1)

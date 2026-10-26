@@ -1,0 +1,28 @@
+# Seed-variant rerun for error bars (5-seed mean±std, main-table SingPref row).
+# Source runfile : /data3/zhixu/LIBERO-PeRM/VLA_infer/run_profile/LoRA/Pi05/V_pi05_libero_singpref_step45k.yaml
+# Changes vs src : experiment_name+=_s407; seed=407; port=8048; cuda_devices="7"; save_video=false
+# NOTE experiment_name suffix is REQUIRED: init-state cache is keyed by the
+# output dir (cell_root), so reusing the old name would replay seed-7 states.
+experiment_name: V_pi05_libero_singpref_step45k_s407
+exp_type: lora_ft
+task_suite: single-pref
+prompt_source_yaml: /data3/zhixu/LIBERO-PeRM/VLA_data/SinglePref/tasksuite_v0.yaml
+conditions:
+- base
+- pref
+num_trials: 4
+replan_steps: 5
+max_steps: 1250
+seed: 407
+save_hdf5: false
+save_video: false
+save_gif: false
+server:
+  vla: pi05
+  name: pi05_libero_singpref_run1_step44999
+  host: 0.0.0.0
+  port: 8048
+  config: pi05_libero_singpref_lora_v1
+  checkpoint: /data3/zhixu/LIBERO-PeRM/VLAs/openpi/checkpoints/pi05_libero_singpref_lora_v1/pi05_libero_singpref_run1/44999
+  cuda_devices: '7'
+  default_prompt: null

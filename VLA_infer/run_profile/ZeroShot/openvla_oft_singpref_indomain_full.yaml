@@ -1,0 +1,54 @@
+# Full in-domain single-pref zero-shot sweep with the local OpenVLA-OFT
+# checkpoint trained jointly on LIBERO Spatial + Object + Goal + 10.
+#
+# Launch:
+#   server: bash VLA_infer/server_openvla_oft.sh VLA_infer/run_profile/ZeroShot/openvla_oft_singpref_indomain_full.yaml
+#   client: bash VLA_infer/run_client.sh        VLA_infer/run_profile/ZeroShot/openvla_oft_singpref_indomain_full.yaml
+#
+# Aggregate after completion:
+#   cd LIBERO && python scripts/aggregate_eval.py \
+#     /data3/zhixu/LIBERO-PeRM/Policy_output/0shot/single-pref-in-domain/openvla_oft_singpref_indomain_full/openvla-7b-oft-finetuned-libero-spatial-object-goal-10 \
+#     --suite single-pref-in-domain
+
+experiment_name: openvla_oft_singpref_indomain_full
+exp_type: 0shot
+task_suite: single-pref-in-domain
+
+# missions omitted -> eval.py loads all missions from task_suites.yaml
+
+conditions: [base, pref]
+num_trials: 1
+replan_steps: 5
+max_steps: null
+seed: 7
+
+save_hdf5: false
+save_video: true
+save_gif: false
+
+server:
+  vla: openvla_oft
+  name: openvla-7b-oft-finetuned-libero-spatial-object-goal-10
+  host: 0.0.0.0
+  port: 8002
+
+  config: libero_spatial_object_goal_10
+  checkpoint: /data3/zhixu/LIBERO-PeRM/checkpoints/openvla_oft/openvla-7b-oft-finetuned-libero-spatial-object-goal-10
+  cuda_devices: "0"
+  default_prompt: null
+  debug_input: true
+
+  use_l1_regression: true
+  use_diffusion: false
+  use_film: false
+  use_proprio: true
+  num_images_in_input: 2
+  proprio_dim: 8
+
+  # Keep the LIBERO no-noop stats explicit for this mixed-suite checkpoint.
+  unnorm_key: libero_spatial_no_noops
+
+  load_in_8bit: false
+  load_in_4bit: false
+  image_size: 224
+  action_dim: 7

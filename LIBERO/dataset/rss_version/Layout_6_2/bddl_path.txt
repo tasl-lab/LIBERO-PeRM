@@ -1,0 +1,1 @@
+./dataset/Layout_6_2/P_BENCH_SCENE_l6_2put_the_bowl_into_the_drawer.bddl

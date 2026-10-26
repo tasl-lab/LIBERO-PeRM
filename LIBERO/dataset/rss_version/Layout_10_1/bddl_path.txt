@@ -1,0 +1,1 @@
+./dataset/Layout_10_1/P_BENCH_SCENE_l10_1pick_the_mug_and_put_it_on_the_plate.bddl

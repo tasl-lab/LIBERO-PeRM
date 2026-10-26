@@ -1,0 +1,1 @@
+./dataset/Layout_6_1/P_BENCH_SCENE_l6_1put_the_cheese_into_the_drawer.bddl

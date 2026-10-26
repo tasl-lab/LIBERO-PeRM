@@ -1,0 +1,1 @@
+./dataset/Layout_7_3/P_BENCH_SCENE_l7_3prepare_a_food_and_a_drink_in_basket.bddl

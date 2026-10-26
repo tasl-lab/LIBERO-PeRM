@@ -1,0 +1,26 @@
+# X-VLA per-suite LoRA — v2 rerun on 40-mission single-pref.
+# Uses current eval.py (with trailing-period fix) + matching replan_steps to chunk size.
+experiment_name: xvla_goal_full_v2
+exp_type: 0shot
+task_suite: single-pref
+
+conditions: [base, pref]
+num_trials: 3
+replan_steps: 10              # = X-VLA chunk size (steps:10), avoids mid-chunk re-query
+max_steps: null
+seed: 7
+
+save_video: false
+save_gif: false
+
+server:
+  vla: xvla
+  protocol: http
+  controller_mode: absolute
+  name: xvla_official_goal
+  host: 127.0.0.1
+  port: 8020
+  config: xvla_official_goal
+  checkpoint: /data3/zhixu/LIBERO-PeRM/checkpoints/xvla_official/X-VLA-libero-goal-peft
+  steps: 10
+  default_prompt: null

@@ -1,0 +1,25 @@
+# Smoke test: FT binary at step 20000 (final)
+experiment_name: groot16_ft_binary_singlepref_smoke_step20k
+exp_type: lora_ft
+task_suite: single-pref
+
+missions:
+  - 1-1_004
+  - 2-1_019
+
+conditions: [base, pref]
+num_trials: 2
+replan_steps: 8
+max_steps: null
+seed: 7
+
+server:
+  vla: groot
+  name: groot16_ft_binary_step20k
+  host: 0.0.0.0
+  port: 8001
+  config: groot_n16_perm_singlepref_binary_step20k
+  checkpoint: /data3/zhixu/LIBERO-PeRM/checkpoints/groot_n16_perm_singlepref_binary/checkpoint-20000
+  cuda_devices: "0"
+  device: "cuda:0"
+  embodiment_tag: LIBERO_PANDA

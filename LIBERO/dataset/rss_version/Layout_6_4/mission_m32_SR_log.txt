@@ -1,0 +1,5 @@
+Success rate for mission m32: 0/1
+Success rate for mission m32: 0/1
+Success rate for mission m32: 1/1
+Success rate for mission m32: 1/1
+Success rate for mission m32: 0/1

@@ -1,0 +1,1 @@
+./dataset/Layout_6_6/P_BENCH_SCENE_l6_6put_both_the_salad_dressing_and_the_bowl_on_the_drawer.bddl

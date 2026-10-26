@@ -1,0 +1,64 @@
+{
+  "_comment:": [
+    "workspaces: the scene type corresponding to each BDDL file",
+    "bddl_file_names: BDDL files to be used for data generation",
+    "language_instructions: language instructions corresponding to each BDDL file, i.e. a mission, feel free to change it if necessary",
+    "running_layout_ids: layout/scenes indices to be used for data generation, e.g. [0] means only the first bddl in bddl_file_name will be used",
+    "high_level_preferences: a list of high-level preferences that will be used during data generation",
+    "enabled_high_pref_ids: the indices of high-level preferences to be enabled during data generation",
+    "low_pref_type:a list of low-level preferences that can be used during data generation",
+    "enabled_low_pref_ids: the indices of high-level preferences to be enabled during data generation"
+  ],
+
+  "workspaces":
+    "kitchen_table",
+
+  "bddl_file_names":
+    "libero_pbench/L6_7.bddl",
+
+  "language_instructions":
+    "Put my bowl and pudding into the drawer",
+
+
+  "layout_id": "6_7",
+
+  "high_pref_lan": [
+    "Prefer to use the middle drawer for kitchenware. Prefer food for the top drawer."
+  ],
+  
+  "low_pref_lan": [
+    ""
+  ],
+
+  "mission_ids": [
+    "m45"
+  ],
+
+  "mission_mask": [
+    1
+  ],
+
+  "subtask_offset": [
+    {
+      "mission_id": "m45",
+      "move_to:wooden_cabinet_1_cabinet_top":[
+        [0.0, 0.25, 0.10]
+      ],
+      "put:wooden_cabinet_1_cabinet_top":[
+        [0.0, 0.0, 0.15]
+      ],
+        "open_drawer:wooden_cabinet_1_cabinet_middle": [
+        [0.0, 0.05, 0]
+      ],
+
+      "put:wooden_cabinet_1_cabinet_middle": [
+        [0.0, 0.05, 0.15]
+      ],
+      "move_to:wooden_cabinet_1_cabinet_middle": [
+        [0.0, 0.05, 0.2]
+      ]
+    }
+  ],
+
+  "fluency_improvement": 0
+}

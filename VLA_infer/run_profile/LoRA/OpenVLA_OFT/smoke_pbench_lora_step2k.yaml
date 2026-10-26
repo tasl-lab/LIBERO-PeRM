@@ -1,0 +1,43 @@
+# Smoke eval for the 2K-step perm LoRA finetune.
+# Trained on RLDS smoke set (3 missions × 10 demos) — see
+#   ProjectProfile/experiments/run_command/OpenVLA_OFT/run_openvla_oft_pbench_rlds_smoke.md
+# Expectation: SR ≈ 0% (under-trained from base); purpose = verify
+# server↔client wiring + that the LoRA ckpt loads without runtime errors.
+
+experiment_name: perm_smoke_lora_step2k
+exp_type: lora_ft
+task_suite: single-pref
+missions:
+  - 1-1_006
+  - 2-1_019
+  - 3-1_004_1
+conditions: [base, pref]
+num_trials: 2
+replan_steps: 8           # full action chunk (NUM_ACTIONS_CHUNK=8)
+max_steps: null
+seed: 7
+prompt_source_yaml: /data4/zhixu/SinglePref/tasksuite.yaml
+save_hdf5: false
+save_video: true
+save_gif: false
+
+server:
+  vla: openvla_oft
+  name: perm_smoke_lora_step2k
+  host: 0.0.0.0
+  port: 8014
+  config: perm_smoke_lora
+  checkpoint: /data3/zhixu/LIBERO-PeRM/checkpoints/openvla_oft_perm_smoke/openvla-7b+perm+b4+lr-0.0005+lora-r32+dropout-0.0--image_aug--perm-smoke-30demo
+  cuda_devices: "1"
+  default_prompt: null
+  use_l1_regression: true
+  use_diffusion: false
+  use_film: false
+  use_proprio: true
+  num_images_in_input: 2
+  proprio_dim: 8
+  unnorm_key: perm
+  load_in_8bit: false
+  load_in_4bit: false
+  image_size: 224
+  action_dim: 7

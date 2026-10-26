@@ -1,0 +1,2 @@
+1.||speed_range, (0.25, 0.5)||
+2.||Slow down the robot's movement speed to a maximum of 0.5 times the normal speed to ensure the black bowl is handled carefully and placed precisely.||

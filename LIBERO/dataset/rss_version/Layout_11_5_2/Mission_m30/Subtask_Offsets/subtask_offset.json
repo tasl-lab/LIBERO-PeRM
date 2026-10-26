@@ -1,0 +1,29 @@
+{
+  "mission_id": "m30",
+  "pick_bottle:black_book_1": [
+    [
+      -0.08,
+      0.0,
+      0.0
+    ]
+  ],
+  "move_to:wooden_two_layer_shelf_1": [
+    [
+      0.1,
+      0.01,
+      0.35
+    ]
+  ],
+  "put:wooden_two_layer_shelf_1": [
+    [
+      0.1,
+      0.01,
+      0.35
+    ],
+    [
+      0.0,
+      0.03,
+      0.4
+    ]
+  ]
+}

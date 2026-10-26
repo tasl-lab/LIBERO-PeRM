@@ -1,0 +1,58 @@
+workspace: living_room_scene5
+language_instructions: Put a mug on the left plate
+optimized_instruction: Put a mug on the left plate
+libero_instruction: put the white mug on the left plate
+bddl_file: LIVING_ROOM_SCENE5_put_the_white_mug_on_the_left_plate.bddl
+high_pref_lan: Pick from back edge and Prefer yellow objects
+low_pref_lan: ''
+subtask_offset:
+  move_to:_all:
+  - 0.0
+  - 0.0
+  - 0.1
+  pick_back_edge:white_yellow_mug_1:
+  - - 0.03
+    - 0.0
+    - 0.0
+  put_back_edge:plate_1:
+  - - 0.0
+    - 0.04
+    - 0.0
+damping_level: 0
+naive_plan:
+- - pick
+  - porcelain_mug_1
+- - put
+  - plate_1
+task_plan:
+- - pick_back_edge
+  - white_yellow_mug_1
+- - put_back_edge
+  - plate_1
+high_prefs:
+- description: Pick from back edge
+  action_parameters:
+    pick_back_edge:
+    - {}
+    put_back_edge:
+    - {}
+low_prefs:
+- type: grasp_offset
+  params:
+    axis: x
+    frame: world
+    signed: true
+    target_obj: white_yellow_mug_1
+    criterion_threshold: -0.025468
+    criterion_direction: -1
+  description: Pick from back edge
+- type: plan_choice
+  params:
+    mode: object
+    pref_objs:
+    - white_yellow_mug_1
+    naive_objs:
+    - porcelain_mug_1
+    criterion_threshold: 0.5
+    criterion_direction: 1
+  description: Prefer yellow objects

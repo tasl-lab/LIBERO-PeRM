@@ -1,0 +1,2 @@
+1.||avoid_object, ("flat_stove_1", 0.1)||
+2.|| Avoid the stove while moving the bowl to prevent heat damage or accidents.||

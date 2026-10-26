@@ -1,0 +1,1 @@
+./dataset/Layout_3_2/P_BENCH_SCENE_l3_2move_the_basket_to_left.bddl

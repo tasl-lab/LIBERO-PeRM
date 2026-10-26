@@ -1,0 +1,1 @@
+./dataset/Layout_11_1/P_BENCH_SCENE_l11_1pick_up_a_book_and_place_it_in_the_right_region_of_the_caddy.bddl

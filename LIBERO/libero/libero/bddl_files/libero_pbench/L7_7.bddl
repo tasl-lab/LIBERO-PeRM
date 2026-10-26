@@ -1,0 +1,111 @@
+(define (problem LIBERO_Living_Room_Tabletop_Manipulation)
+  (:domain robosuite)
+  (:language pick up butter and chocolate_pudding and put them on tray)
+    (:regions
+      (wooden_tray_init_region
+          (:target living_room_table)
+          (:ranges (
+              (-0.01 0.25 0.01 0.27)
+            )
+          )
+          (:yaw_rotation (
+              (0.0 0.0)
+            )
+          )
+      )
+      (butter_init_region
+          (:target living_room_table)
+          (:ranges (
+              (0.125 -0.125 0.15 -0.1)
+            )
+          )
+      )
+      (chocolate_pudding_init_region
+          (:target living_room_table)
+          (:ranges (
+              (0.1 0.1 0.12 0.12)
+            )
+          )
+      )
+      (green_chocolate_pudding_init_region
+          (:target living_room_table)
+          (:ranges (
+              (0.07500000000000001 -0.225 0.125 -0.17500000000000002)
+            )
+          )
+          (:yaw_rotation (
+              (0.0 0.0)
+            )
+          )
+      )
+      (moka_pot_init_region
+          (:target living_room_table)
+          (:ranges (
+              (0.125 -0.175 0.15 -0.150000000000002)
+            )
+          )
+          (:yaw_rotation (
+              (0.0 0.0)
+            )
+          )
+      )
+      (green_butter_init_region
+          (:target living_room_table)
+          (:ranges (
+              (-0.125 -0.175 -0.07500000000000001 -0.125)
+            )
+          )
+          (:yaw_rotation (
+              (0.0 0.0)
+            )
+          )
+      )
+      (salad_dressing_init_region
+          (:target living_room_table)
+          (:ranges (
+              (-0.275 -0.125 -0.225 -0.07500000000000001)
+            )
+          )
+          (:yaw_rotation (
+              (0.0 0.0)
+            )
+          )
+      )
+      (contain_region
+          (:target wooden_tray_1)
+      )
+    )
+
+  (:fixtures
+    living_room_table - living_room_table
+  )
+
+  (:objects
+    new_salad_dressing_1 - new_salad_dressing
+    chocolate_pudding_1 - chocolate_pudding
+    green_chocolate_pudding_1 - green_chocolate_pudding
+    butter_1 - butter
+    green_butter_1 - green_butter
+    wooden_tray_1 - wooden_tray
+    moka_pot_1 - moka_pot
+  )
+
+  (:obj_of_interest
+    green_chocolate_pudding_1
+    green_butter_1
+    wooden_tray_1
+  )
+
+  (:init
+    (On chocolate_pudding_1 living_room_table_chocolate_pudding_init_region)
+    (On new_salad_dressing_1 living_room_table_salad_dressing_init_region)
+    (On wooden_tray_1 living_room_table_wooden_tray_init_region)
+    (On green_butter_1 living_room_table_green_butter_init_region)
+    (On green_chocolate_pudding_1 green_chocolate_pudding_init_region)
+    (On butter_1 living_room_table_butter_init_region)
+    (On moka_pot_1 living_room_table_moka_pot_init_region)
+  )
+  (:goal
+    (And (In green_chocolate_pudding_1 wooden_tray_1_contain_region) (In green_butter_1 wooden_tray_1_contain_region))
+  )
+)

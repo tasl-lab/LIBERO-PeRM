@@ -1,0 +1,4 @@
+1.|| ('pick_bottle', 'bbq_sauce_1'), ('put', 'basket_1') ||
+2.|| "required": [('pick_bottle', 'bbq_sauce_1')], "prohibited": [('pick', 'bbq_sauce_1'), ('pick_from_side', 'bbq_sauce_1')] ||
+3.|| pick the top of the target object, like pick a bottle ||
+

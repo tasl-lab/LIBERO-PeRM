@@ -1,0 +1,4 @@
+1.|| ('open_drawer', 'white_cabinet_1_cabinet_top'), ('pick', 'red_cream_cheese_1'), ('put', 'white_cabinet_1_cabinet_top'), ('close_drawer', 'white_cabinet_1_cabinet_top') ||
+2.|| "required": [('open_drawer', 'white_cabinet_1_cabinet_top'), ('put', 'white_cabinet_1_cabinet_top')], "prohibited": [('put', 'white_cabinet_1_cabinet_middle'), ('put', 'white_cabinet_1_cabinet_bottom')], "order": [[('open_drawer', 'white_cabinet_1_cabinet_top'), ('put', 'white_cabinet_1_cabinet_top')]] ||
+3.|| I Prefer to use the upper drawer for food ||
+

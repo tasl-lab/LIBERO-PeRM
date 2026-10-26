@@ -1,0 +1,6 @@
+1.||speed_range, (2.0, 2.5)||
+2.||To speed up the execution of the task by 2 times as requested.||
+
+1.||avoid_object, ("flat_stove_1", 0.25)||
+2.||To keep a safe distance from the stove to prevent any accidents due to heat.||
+

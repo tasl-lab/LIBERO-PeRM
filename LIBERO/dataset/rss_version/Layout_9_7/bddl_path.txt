@@ -1,0 +1,1 @@
+./dataset/Layout_9_7/P_BENCH_SCENE_l9_7fill_my_drawer_with_food.bddl

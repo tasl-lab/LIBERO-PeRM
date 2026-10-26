@@ -1,0 +1,3 @@
+1.|| ('pick', 'bigger_cheese_2'), ('put', 'plate_1'), ('pick', 'bigger_cheese_1'), ('put', 'yellow_plate_1') ||
+2.|| "required": [('pick', 'bigger_cheese_2'), ('pick', 'bigger_cheese_1')], "prohibited": [], "order": [] ||
+3.|| I Prefer double serving of objects ||

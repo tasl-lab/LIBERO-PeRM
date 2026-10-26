@@ -1,0 +1,48 @@
+(define (problem LIBERO_Floor_Manipulation)
+  (:domain robosuite)
+  (:language Visualize all available object)
+    (:regions
+      (red_plate_init_region
+          (:target Test_workspace)
+          (:ranges (
+              (-0.025 -0.025 0.025 0.025)
+            )
+          )
+          (:yaw_rotation (
+              (-3.141592653589793 3.141592653589793)
+            )
+          )
+      )
+      (target_region
+          (:target Test_workspace)
+          (:ranges (
+              (-0.01 -0.31 0.01 -0.29)
+            )
+          )
+          (:yaw_rotation (
+              (3.141592653589793 3.141592653589793)
+            )
+          )
+      )
+    )
+
+  (:fixtures
+  )
+
+  (:objects
+    red_plate_1 - red_plate
+  )
+
+  (:obj_of_interest
+    red_plate_1
+  )
+
+  (:init
+    (On red_plate_1 red_plate_init_region)
+  )
+
+  (:goal
+    (And)
+  )
+
+)

@@ -1,0 +1,107 @@
+(define (problem LIBERO_Kitchen_Tabletop_Manipulation)
+  (:domain robosuite)
+  (:language pick the plate with load and put it on the microwave.)
+    (:regions
+      (cylinder_a_1_init_region
+          (:target kitchen_table)
+          (:ranges (
+              (0.04 -0.15 0.12 -0.13)
+            )
+          )
+          (:yaw_rotation (
+              (0.0 0.0)
+            )
+          )
+      )
+      (milk_1_init_region
+          (:target kitchen_table)
+          (:ranges (
+              (0.04 -0.25 0.05 -0.23)
+            )
+          )
+          (:yaw_rotation (
+              (0.0 0.0)
+            )
+          )
+      )
+      (microwave_1_init_region
+          (:target kitchen_table)
+          (:ranges (
+              (0.07 0.02 0.08 0.03)
+            )
+          )
+          (:yaw_rotation (
+              (3.1415926 3.1415926)
+            )
+          )
+      )
+
+      (mug_1_init_region
+          (:target kitchen_table)
+          (:ranges (
+              (0.24 -0.28 0.25 -0.27)
+            )
+          )
+          (:yaw_rotation (
+              (0, 0)
+            )
+          )
+      )
+
+      (empty_plate_init_region
+          (:target kitchen_table)
+          (:ranges (
+              (0.17 0.20 0.20 0.23)
+            )
+          )
+      )
+
+      (top_side
+          (:target microwave_1)
+      )
+      (top_region
+          (:target microwave_1)
+      )
+      (middle_region
+          (:target microwave_1)
+      )
+      (bottom_region
+          (:target microwave_1)
+      )
+    )
+
+  (:fixtures
+    kitchen_table - kitchen_table
+    microwave_1 - microwave
+  )
+
+  (:objects
+    plate_1 plate_2 - plate
+    red_bowl_1 - red_bowl
+    cylinder_a_1 - cylinder_a
+
+    milk_1 - milk
+    white_yellow_mug_1 - white_yellow_mug
+  )
+
+  (:obj_of_interest
+    plate_1
+    red_bowl_1
+    microwave_1
+  )
+
+  (:init
+    (on cylinder_a_1 kitchen_table_cylinder_a_1_init_region)
+    (On plate_1 cylinder_a_1)
+    (On red_bowl_1 blue_plate_1)
+    (On microwave_1 kitchen_table_microwave_1_init_region)
+    (On milk_1 kitchen_table_milk_1_init_region)
+    (On white_yellow_mug_1 kitchen_table_mug_1_init_region)
+    (On plate_2 kitchen_table_empty_plate_init_region)
+  )
+
+  (:goal
+    (And (on blue_plate_1 microwave_1))
+  )
+
+)

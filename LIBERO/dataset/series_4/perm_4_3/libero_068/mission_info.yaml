@@ -1,0 +1,57 @@
+workspace: living_room_scene3
+language_instructions: Pick up the ketchup and put it in the tray
+optimized_instruction: Pick up the ketchup and put it in the tray
+libero_instruction: pick up the ketchup and put it in the tray
+bddl_file: LIVING_ROOM_SCENE3_pick_up_the_ketchup_and_put_it_in_the_tray.bddl
+high_pref_lan: Pick from left side
+low_pref_lan: Speed up
+subtask_offset:
+  move_to:_all:
+  - 0.0
+  - 0.0
+  - 0.0
+damping_level: 0
+naive_plan:
+- - pick
+  - ketchup_1
+- - put
+  - wooden_tray_1
+task_plan:
+- - pick_from_side
+  - ketchup_1
+- - put
+  - wooden_tray_1
+high_prefs:
+- description: Pick from left side
+  action_parameters:
+    pick_from_side:
+    - direction: left
+low_prefs:
+- type: speed_range
+  params:
+    min_speed: 2.0
+    max_speed: 2.0
+  description: Speed up
+- type: grasp_tilt
+  params:
+    target_obj: ketchup_1
+    criterion_threshold: 0.261799
+    criterion_direction: 1
+  description: Pick from left side
+low_pref_calibration:
+  speed_range:
+    pref_anchor: 127.0
+    n_pref: 10
+    naive_anchor: 165.5
+    n_naive: 10
+    subtask_pref_anchor:
+    - 43.0
+    - 53.0
+    subtask_naive_anchor:
+    - 65.0
+    - 63.5
+  grasp_tilt:
+    pref_anchor: 0.658018
+    n_pref: 10
+    naive_anchor: 0.012819
+    n_naive: 10

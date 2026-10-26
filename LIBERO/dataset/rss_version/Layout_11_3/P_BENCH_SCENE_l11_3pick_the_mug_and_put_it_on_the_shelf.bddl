@@ -1,0 +1,140 @@
+(define (problem LIBERO_Study_Tabletop_Manipulation)
+  (:domain robosuite)
+  (:language L11_3pick the mug and put it on the shelf)
+    (:regions
+      (wooden_two_layer_shelf_1_init_region
+          (:target study_table)
+          (:ranges (
+              (-0.01 -0.29 0.01 -0.27)
+            )
+          )
+          (:yaw_rotation (
+              (0.0 0.0)
+            )
+          )
+      )
+      (yellow_book_1_init_region
+          (:target study_table)
+          (:ranges (
+              (-0.01 -0.01 0.01 0.01)
+            )
+          )
+          (:yaw_rotation (
+              (0.0 0.0)
+            )
+          )
+      )
+      (yellow_book_2_init_region
+          (:target study_table)
+          (:ranges (
+              (-0.060000000000000005 -0.26 -0.04 -0.24)
+            )
+          )
+          (:yaw_rotation (
+              (0.0 0.0)
+            )
+          )
+      )
+      (black_book_1_init_region
+          (:target study_table)
+          (:ranges (
+              (0.04 -0.16 0.060000000000000005 -0.13999999999999999)
+            )
+          )
+          (:yaw_rotation (
+              (0.0 0.0)
+            )
+          )
+      )
+      (red_coffee_mug_init_region
+          (:target study_table)
+          (:ranges (
+              (0.1 -0.05 0.12 -0.02)
+            )
+          )
+          (:yaw_rotation (
+              (0 0)
+            )
+          )
+      )
+      (top_side
+          (:target wooden_two_layer_shelf_1)
+          (:ranges (
+            )
+          )
+          (:yaw_rotation (
+              (0 0)
+            )
+          )
+      )
+      (top_region
+          (:target wooden_two_layer_shelf_1)
+          (:ranges (
+            )
+          )
+          (:yaw_rotation (
+              (0 0)
+            )
+          )
+      )
+      (bottom_region
+          (:target wooden_two_layer_shelf_1)
+          (:ranges (
+            )
+          )
+          (:yaw_rotation (
+              (0 0)
+            )
+          )
+      )
+      (red_coffee_mug_1_init_region
+          (:target study_table)
+          (:ranges (
+              (-0.15301326103124988 -0.052780484957719094 -0.10301326103124989 -0.0027804849577190913)
+            )
+          )
+          (:yaw_rotation (
+              (-3.141592653589793 3.141592653589793)
+            )
+          )
+      )
+      (top_side
+          (:target wooden_two_layer_shelf_1)
+      )
+      (top_region
+          (:target wooden_two_layer_shelf_1)
+      )
+      (bottom_region
+          (:target wooden_two_layer_shelf_1)
+      )
+    )
+
+  (:fixtures
+    study_table - study_table
+    wooden_two_layer_shelf_1 - wooden_two_layer_shelf
+  )
+
+  (:objects
+    black_book_1 - black_book
+    yellow_book_1 yellow_book_2 - yellow_book
+    red_coffee_mug_1 - red_coffee_mug
+  )
+
+  (:obj_of_interest
+    black_book_1
+    wooden_two_layer_shelf_1
+  )
+
+  (:init
+    (on wooden_two_layer_shelf_1 study_table_wooden_two_layer_shelf_1_init_region)
+    (on yellow_book_1 study_table_yellow_book_1_init_region)
+    (on yellow_book_2 study_table_yellow_book_2_init_region)
+    (on black_book_1 study_table_black_book_1_init_region)
+    (On red_coffee_mug_1 study_table_red_coffee_mug_1_init_region)
+  )
+
+  (:goal
+    (And (on red_coffee_mug_1 wooden_two_layer_shelf_1_top_side))
+  )
+
+)

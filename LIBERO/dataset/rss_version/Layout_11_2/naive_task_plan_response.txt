@@ -1,0 +1,1 @@
+(pick black_book_1),(put wooden_shelf_1)

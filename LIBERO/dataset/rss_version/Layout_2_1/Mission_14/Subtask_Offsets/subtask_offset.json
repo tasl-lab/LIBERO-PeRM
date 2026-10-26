@@ -1,0 +1,24 @@
+{
+  "mission_id": "14",
+  "pick_handle:porcelain_mug_1": [
+    [
+      0.0,
+      0.0,
+      0.0
+    ]
+  ],
+  "move_to:plate_1": [
+    [
+      -0.05,
+      -0.06,
+      0.0
+    ]
+  ],
+  "put_handle:plate_1": [
+    [
+      -0.05,
+      -0.06,
+      0.0
+    ]
+  ]
+}

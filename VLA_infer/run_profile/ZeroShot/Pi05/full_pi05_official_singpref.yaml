@@ -1,0 +1,40 @@
+# 0-shot eval for the official pi0.5 LIBERO checkpoint on the v5 SinglePref suite.
+# 42 missions × {base, pref} × 3 trials = 252 episodes.
+#
+# Series 3 + base condition auto-routes to no_pref_layout/*.bddl (PolicyEval/eval.py:pick_bddl).
+# Series 1/2 + base shares the same bddl as pref (no separate no_pref_layout).
+#
+# Launch (two shells):
+#   server: bash VLA_infer/server_pi05.sh VLA_infer/run_profile/ZeroShot/full_pi05_official_singpref.yaml
+#   client: bash VLA_infer/run_client.sh  VLA_infer/run_profile/ZeroShot/full_pi05_official_singpref.yaml
+#
+# Aggregate after completion:
+#   cd LIBERO && python scripts/aggregate_eval.py \
+#     /data3/zhixu/LIBERO-PeRM/Policy_output/0shot/single-pref/pi05_official_singpref_0shot/pi05_official \
+#     --suite single-pref
+
+experiment_name: pi05_official_singpref_0shot
+exp_type: 0shot
+task_suite: single-pref
+
+# missions omitted → eval.py auto-fills from task_suites.yaml (42 missions).
+
+conditions: [base, pref]
+num_trials: 4
+replan_steps: 5
+max_steps: null
+seed: 7
+
+save_hdf5: false
+save_video: true
+save_gif: false
+
+server:
+  vla: pi05
+  name: pi05_official
+  host: 0.0.0.0
+  port: 8009
+  config: pi05_libero
+  checkpoint: gs://openpi-assets/checkpoints/pi05_libero
+  cuda_devices: "4,5"
+  default_prompt: null

@@ -1,0 +1,17 @@
+{
+  "mission_id": "3",
+  "pick_bowl:akita_black_bowl_1": [
+    [
+      0.0,
+      0.0,
+      -0.06
+    ]
+  ],
+  "put_bowl:plate_1": [
+    [
+      0.02,
+      0.0,
+      0.0
+    ]
+  ]
+}

@@ -1,0 +1,41 @@
+{
+  "mission_id": "82",
+  "pick_bottle:black_book_1": [
+    [
+      -0.08,
+      0.0,
+      0.0
+    ]
+  ],
+  "pick_bottle:yellow_book_1": [
+    [
+      -0.08,
+      -0.01,
+      0.0
+    ]
+  ],
+  "move_to:wooden_two_layer_shelf_1": [
+    [
+      0.1,
+      0.01,
+      0.3
+    ],
+    [
+      -0.08,
+      0.03,
+      0.4
+    ]
+  ],
+  "put:wooden_two_layer_shelf_1": [
+    [
+      0.1,
+      0.01,
+      0.3
+    ],
+    [
+      -0.08,
+      0.03,
+      0.4
+    ]
+  ]
+}

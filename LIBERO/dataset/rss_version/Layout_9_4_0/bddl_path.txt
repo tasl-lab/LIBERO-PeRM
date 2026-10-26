@@ -1,0 +1,1 @@
+./dataset/Layout_9_4_0/P_BENCH_SCENE_l9_4_0pick_ketchup_and_put_on_plate.bddl

@@ -1,0 +1,37 @@
+# 0-shot sweep using the OFFICIAL pi0.5 LIBERO checkpoint (not our LoRA).
+# Same sweep shape as full_pi05.yaml: 70 missions × 2 conditions × 3 trials = 420 ep.
+#
+# The pi05_libero ckpt was trained on the public LIBERO benchmark demos, not on
+# our P_Bench single-pref data — treat results as an out-of-distribution upper
+# bound on what a generic LIBERO-tuned pi0.5 does on our preference-aware tasks.
+#
+# Launch:
+#   server: bash VLA_infer/server_pi05.sh VLA_infer/run_profile/ZeroShot/full_pi05_official.yaml
+#   client: bash VLA_infer/run_client.sh  VLA_infer/run_profile/ZeroShot/full_pi05_official.yaml
+
+experiment_name: pi05_singlepref_official
+exp_type: 0shot
+task_suite: single-pref
+
+# missions omitted → eval.py auto-fills from task_suites.yaml (70 missions)
+
+conditions: [base]
+num_trials: 3
+replan_steps: 5
+max_steps: null
+seed: 7
+
+server:
+  # --- identity ---
+  vla: pi05
+  name: pi05_official
+  host: 0.0.0.0
+  port: 8009
+  # --- policy loading ---
+  config: pi05_libero
+  # gs:// path — openpi's download.maybe_download caches at
+  # ~/.cache/openpi/openpi-assets/checkpoints/pi05_libero/. Already present
+  # on this device, so no re-download.
+  checkpoint: gs://openpi-assets/checkpoints/pi05_libero
+  cuda_devices: "4,5,6,7"
+  default_prompt: null

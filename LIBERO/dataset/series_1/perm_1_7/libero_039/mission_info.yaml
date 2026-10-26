@@ -1,0 +1,22 @@
+workspace: kitchen_scene5
+language_instructions: Put the black bowl in the top drawer of the cabinet
+optimized_instruction: Put black bowl in top drawer
+libero_instruction: put the black bowl in the top drawer of the cabinet
+bddl_file: KITCHEN_SCENE5_put_the_black_bowl_in_the_top_drawer_of_the_cabinet.bddl
+high_pref_lan: ''
+low_pref_lan: Move higher
+subtask_offset:
+  move_to:_all: [0.0, 0.0, 0.0]
+damping_level: 0
+naive_plan:
+- [pick, akita_black_bowl_1]
+- [put, white_cabinet_1]
+task_plan:
+- [pick_right_edge, akita_black_bowl_1]
+- [put_right_edge, white_cabinet_1_cabinet_top]
+high_prefs: []
+low_prefs:
+- type: height_offset
+  params:
+    height_offset: 0.1
+  description: Move higher

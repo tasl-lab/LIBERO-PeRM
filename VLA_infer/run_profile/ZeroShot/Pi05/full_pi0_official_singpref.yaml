@@ -1,0 +1,41 @@
+# 0-shot eval for the official pi0 LIBERO checkpoint on the v5 SinglePref suite.
+# Same sweep shape as pi0.5: 42 missions × {base, pref} × 3 trials = 252 episodes.
+#
+# pi0 (no VLM head) vs pi0.5 (with VLM head) — same openpi server, different
+# `config` + `checkpoint` strings.
+#
+# Launch (two shells):
+#   server: bash VLA_infer/server_pi05.sh VLA_infer/run_profile/ZeroShot/full_pi0_official_singpref.yaml
+#   client: bash VLA_infer/run_client.sh  VLA_infer/run_profile/ZeroShot/full_pi0_official_singpref.yaml
+#
+# Aggregate after completion:
+#   cd LIBERO && python scripts/aggregate_eval.py \
+#     /data3/zhixu/LIBERO-PeRM/Policy_output/0shot/single-pref/pi0_official_singpref_0shot/pi0_official \
+#     --suite single-pref
+
+experiment_name: pi0_official_singpref_0shot
+exp_type: 0shot
+task_suite: single-pref
+
+# missions omitted → eval.py auto-fills from task_suites.yaml (42 missions).
+
+conditions: [base, pref]
+num_trials: 4
+replan_steps: 5
+max_steps: null
+seed: 7
+
+save_hdf5: false
+save_video: true
+save_gif: false
+
+server:
+  vla: pi0                   # openpi server (server_pi05.sh) accepts pi05 / pi0;
+                             # `config` string below dispatches model variant.
+  name: pi0_official
+  host: 0.0.0.0
+  port: 8010                 # different port from pi0.5 to allow parallel runs
+  config: pi0_libero
+  checkpoint: gs://openpi-assets/checkpoints/pi0_libero
+  cuda_devices: "6,7"
+  default_prompt: null

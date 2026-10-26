@@ -1,0 +1,1 @@
+./dataset/Layout_3_1/P_BENCH_SCENE_l3_1pick_the_salad_dressing_and_put_it_into_the_basket.bddl

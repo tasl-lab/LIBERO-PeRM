@@ -1,0 +1,24 @@
+{
+  "mission_id": "9",
+  "pick:glazed_rim_porcelain_ramekin_1": [
+    [
+      0.0,
+      0.02,
+      0.02
+    ]
+  ],
+  "put:plate_1": [
+    [
+      -0.03,
+      0.02,
+      0.0
+    ]
+  ],
+  "move_to_approach:plate_1": [
+    [
+      0.0,
+      0.0,
+      0.88
+    ]
+  ]
+}

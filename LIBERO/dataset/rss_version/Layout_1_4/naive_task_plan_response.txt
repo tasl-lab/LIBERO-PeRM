@@ -1,0 +1,1 @@
+(pick green_butter_1),(put basket_1),(pick chocolate_pudding_1),(put basket_1)

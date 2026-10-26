@@ -1,0 +1,1 @@
+./dataset/Layout_1_10/P_BENCH_SCENE_l1_10put_both_the_bowl_and_the_mug_into_the_basket.bddl

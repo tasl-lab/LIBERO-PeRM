@@ -1,0 +1,1 @@
+./dataset/Layout_6_7/P_BENCH_SCENE_l6_7put_my_bowl_and_pudding_into_the_drawer.bddl

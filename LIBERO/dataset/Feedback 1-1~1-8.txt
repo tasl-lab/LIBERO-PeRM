@@ -1,0 +1,16 @@
+1-1_004	2/2	SR=1.00	AvgSteps=264.5
+1-1_006	2/2	SR=1.00	AvgSteps=298.0
+1-2_062	0/2	SR=0.00	AvgSteps=314.0 X， unsuccess
+1-2_065	2/2	SR=1.00	AvgSteps=202.5
+1-3_107	2/2	SR=1.00	AvgSteps=146.0
+1-3_109	2/2	SR=1.00	AvgSteps=153.0
+1-4_053	2/2	SR=1.00	AvgSteps=171.0 X, no avoid 效果
+				       X
+1-5_109	2/2	SR=1.00	AvgSteps=152.5 X, lower during move_to,最好酒瓶略微高出柜子即可，不够自然的话就换个layout即可
+1-5_070	2/2	SR=1.00	AvgSteps=149.0 X, 最好再低一点
+1-6_071	2/2	SR=1.00	AvgSteps=181.0 X, 只是simple pick, preference 要求go straight
+1-6_067	2/2	SR=1.00	AvgSteps=172.0 X, 同上
+1-7_039	1/2	SR=0.50	AvgSteps=215.0 X, pudding 位置摆放有问题 会碰到drawer 调整一下 
+1-7_015	1/2	SR=0.50	AvgSteps=455.5 X, 同上，同时成功的case里也没把碗完全放进去 看一下
+1-8_061	2/2	SR=1.00	AvgSteps=131.0 X, 是turn off stove，同时要在move的时候就开始旋转（这个试下move_to结束之前插入旋转角度），具体实现你可以去改turn_off_stove
+1-8_049	2/2	SR=1.00	AvgSteps=122.0 X, pick的时候要有旋转，来夹这个歪着的butter，且在move的时候就有旋转

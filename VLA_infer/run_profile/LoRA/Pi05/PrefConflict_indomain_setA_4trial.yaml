@@ -1,0 +1,47 @@
+# PrefConflict — TRUE in-domain eval on training-pair (Set A) missions.
+# Previous PrefConflict_4trial.yaml accidentally hit Set B suite missions
+# (1-2_113 / 1-7_104 / 2-1_077 / 3-15_106_1) which weren't in tasksuite.yaml,
+# producing empty/wrong prompts. This runfile pins missions to the actual
+# trained set + uses the same tasksuite.yaml as prompt source.
+# 13 missions × 4 = 52 eps.
+
+experiment_name: PrefConflict_indomain_setA_pi05_step27k_4trial
+exp_type: lora_ft
+task_suite: prefconflict
+
+prompt_source_yaml: /data3/zhixu/LIBERO-PeRM/VLA_data/PrefConflict/tasksuite.yaml
+
+missions:
+  - 1-1_004
+  - 1-2_004
+  - 1-5_114
+  - 1-7_114
+  - 2-13_001
+  - 2-1_001
+  - 2-8_ood3
+  - 2-9_ood3
+  - 3-5_120_1
+  - 3-15_120_1
+  - 3-1_006_1c
+  - 3-9_118_1c
+  - 3-8_007_1c
+
+conditions: [pref]
+num_trials: 4
+replan_steps: 5
+max_steps: null
+seed: 7
+
+save_hdf5: true
+save_video: true
+save_gif: false
+
+server:
+  vla: pi05
+  name: pi05_prefconflict_run1_step26999_indomain_setA
+  host: 0.0.0.0
+  port: 8035
+  config: pi05_prefconflict_lora_v1
+  checkpoint: /data3/zhixu/LIBERO-PeRM/VLAs/openpi/checkpoints/pi05_prefconflict_lora_v1/pi05_prefconflict_run1/26999
+  cuda_devices: "4"
+  default_prompt: null

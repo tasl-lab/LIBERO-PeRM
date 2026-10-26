@@ -1,0 +1,4 @@
+1.|| ('pick_bowl', 'white_porcelain_mug_1'), ('put_bowl', 'plate_1') ||
+2.|| "required": [] ||
+3.|| pick up objects from its edge ||
+

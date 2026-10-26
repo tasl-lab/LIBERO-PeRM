@@ -1,0 +1,103 @@
+(define (problem LIBERO_Study_Tabletop_Manipulation)
+  (:domain robosuite)
+  (:language Pick the white mug by its handle and place it on the plate)
+    (:regions
+      (red_coffee_mug_init_region
+          (:target study_table)
+          (:ranges (
+              (0.14 0.10 0.19 0.15)
+            )
+          )
+          (:yaw_rotation (
+              (0.0 0.0)
+            )
+          )
+      )
+      (porcelain_mug_init_region
+          (:target study_table)
+          (:ranges (
+              (-0.025 -0.025 0.025 0.025)
+            )
+          )
+          (:yaw_rotation (
+              (0.0 0.0)
+            )
+          )
+      )
+      (black_book_init_region
+          (:target study_table)
+          (:ranges (
+              (0.16 -0.14 0.21 -0.09)
+            )
+          )
+          (:yaw_rotation (
+              (0.0 0.0)
+            )
+          )
+      )
+      (plate_init_region
+          (:target study_table)
+          (:ranges (
+              (0.10 -0.28 0.15 -0.24)
+            )
+          )
+          (:yaw_rotation (
+              (0.0 0.0)
+            )
+          )
+      )
+      (desk_caddy_init_region
+          (:target study_table)
+          (:ranges (
+              (-0.21000000000000002 0.10 -0.19 0.12)
+            )
+          )
+          (:yaw_rotation (
+              (3.141592653589793 3.141592653589793)
+            )
+          )
+      )
+      (right_contain_region
+          (:target desk_caddy_1)
+      )
+      (left_contain_region
+          (:target desk_caddy_1)
+      )
+      (back_contain_region
+          (:target desk_caddy_1)
+      )
+      (front_contain_region
+          (:target desk_caddy_1)
+      )
+    )
+
+  (:fixtures
+    study_table - study_table
+    desk_caddy_1 - desk_caddy
+  )
+
+  (:objects
+    yellow_book_1 - yellow_book
+    white_yellow_mug_1 - white_yellow_mug
+    porcelain_mug_1 - porcelain_mug
+    plate_1 - bigger_plate
+  )
+
+  (:obj_of_interest
+    porcelain_mug_1
+    plate_1
+  )
+
+  (:init
+    (On desk_caddy_1 study_table_desk_caddy_init_region)
+    (On yellow_book_1 study_table_black_book_init_region)
+    (On porcelain_mug_1 study_table_porcelain_mug_init_region)
+    (On white_yellow_mug_1 study_table_red_coffee_mug_init_region)
+    (On plate_1 study_table_plate_init_region)
+  )
+
+  (:goal
+    (And (On porcelain_mug_1 plate_1))
+  )
+
+)

@@ -1,0 +1,32 @@
+{
+  "_comment:": [
+    "Out-of-domain configuration for pick_the_bowl_by_edge_and_put_it_on_the_plate Layout 5 - secondary items repositioned"
+  ],
+  "workspaces": "living_room_table",
+  "bddl_file_names": "libero_pbench/L5_6_out_of_domain.bddl",
+  "language_instructions": "Pick the center black bowl and put it on the red plate",
+  "layout_id": "5_6_out_of_domain",
+  
+  "high_pref_lan": [
+    "pick up the bowl from the edge of the bowl"
+  ],
+  "low_pref_lan": [
+    ""
+  ],
+  "mission_ids": [
+    "12"
+  ],
+  "mission_mask": [
+    1
+  ],
+
+  "subtask_offset": [
+    {
+      "mission_id": "12",
+      "pick_bowl:akita_black_bowl_1": [[0.0, 0.0, -0.06]],
+      "put_bowl:plate_1": [[0.02, 0.0, 0.0]]
+    }
+  ],
+  
+  "fluency_improvement": 0
+}

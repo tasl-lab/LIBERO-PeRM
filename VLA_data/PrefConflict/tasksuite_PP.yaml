@@ -1,0 +1,29 @@
+# PrefConflict — PP eval setting (combined opposing prefs in prompt).
+# Same BDDL/init as in-domain; only `preferences` field overridden to A,B combo.
+# Tested missions: 5 pp pairs × 2 = 10 missions.
+
+suite: prefconflict_PP
+
+tasks:
+  "1-1_004":    "Put alphabet soup and cream cheese in basket"
+  "1-2_004":    "Put alphabet soup and cream cheese in basket"
+  "1-5_114":    "Put chocolate pudding in basket"
+  "1-7_114":    "Put chocolate pudding in basket"
+  "2-13_001":   "Put black bowl in bottom drawer and close it"
+  "2-1_001":    "Put black bowl in bottom drawer and close it"
+  "2-8_ood3":   "Move basket to left"
+  "2-9_ood3":   "Move basket to left"
+  "3-5_120_1":  "Put tomato sauce in basket"
+  "3-15_120_1": "Put tomato sauce in basket"
+
+preferences:
+  "1-1_004":    "Speed up, Slow down"
+  "1-2_004":    "Speed up, Slow down"
+  "1-5_114":    "Close to ground when moving, Move higher"
+  "1-7_114":    "Close to ground when moving, Move higher"
+  "2-13_001":   "Pick from left edge, Pick from right edge"
+  "2-1_001":    "Pick from left edge, Pick from right edge"
+  "2-8_ood3":   "Push instead of pick-and-put, Drag instead of pick-and-put"
+  "2-9_ood3":   "Push instead of pick-and-put, Drag instead of pick-and-put"
+  "3-5_120_1":  "Prefer bigger objects, Prefer smaller objects"
+  "3-15_120_1": "Prefer bigger objects, Prefer smaller objects"

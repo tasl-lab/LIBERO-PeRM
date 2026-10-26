@@ -1,0 +1,43 @@
+# Experiment X — pi0 base + SingPref v5 LoRA, step 44999.
+#
+# Pair to U (pi05_base + SingPref): same data + same recipe + same prompt protocol;
+# only architecture differs (pi0 vs pi0.5). Tests backbone-agnostic LoRA learning.
+#
+# Train data : perm/SingPref (40 missions, anchor prompt `Task: ... Preference: ...`)
+# Train cfg  : pi0_singpref_lora_v1   (registered in VLAs/openpi/src/openpi/training/config.py)
+# Train run  : pi0_singpref_run1
+# Train script: VLA_train/openpi/runme_finetune_X.sh (preceded by runme_cal_stats_X.sh)
+#
+# Suite: single-pref × {pref} × 4 trials = 160 episodes.
+#
+# Launch:
+#   server: bash VLA_infer/server_pi05.sh VLA_infer/run_profile/InDomain/X_pi0_singpref_step45k.yaml
+#   client: bash VLA_infer/run_client.sh  VLA_infer/run_profile/InDomain/X_pi0_singpref_step45k.yaml
+# Aggregate:
+#   python LIBERO/scripts/aggregate_eval.py /data3/zhixu/LIBERO-PeRM/Policy_output/lora_ft/single-pref/X_pi0_singpref_step45k/pi0_singpref_run1_step44999 --suite single-pref
+
+experiment_name: X_pi0_singpref_step45k
+exp_type: lora_ft
+task_suite: single-pref
+
+prompt_source_yaml: /data3/zhixu/LIBERO-PeRM/VLA_data/SinglePref/tasksuite_v0.yaml
+
+conditions: [pref]
+num_trials: 4
+replan_steps: 5
+max_steps: 1250          # 1180 (U max successful) + 70 buffer
+seed: 7
+
+save_hdf5: false
+save_video: true
+save_gif: false
+
+server:
+  vla: pi0
+  name: pi0_singpref_run1_step44999
+  host: 0.0.0.0
+  port: 8015
+  config: pi0_singpref_lora_v1
+  checkpoint: /data3/zhixu/LIBERO-PeRM/VLAs/openpi/checkpoints/pi0_singpref_lora_v1/pi0_singpref_run1/44999
+  cuda_devices: "4,5,6,7"
+  default_prompt: null

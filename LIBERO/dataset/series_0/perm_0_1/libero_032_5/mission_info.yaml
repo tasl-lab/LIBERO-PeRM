@@ -1,0 +1,20 @@
+workspace: main_table
+language_instructions: Put a sauce in basket
+optimized_instruction: Put a sauce in basket
+libero_instruction: put a sauce in basket
+bddl_file: pick_up_the_blue_ketchup_and_place_it_in_the_basket.bddl
+high_pref_lan: ''
+low_pref_lan: ''
+subtask_offset:
+  move_to:_all: [0.0, 0.0, 0.0]
+  put:basket_1:
+  - [0.0, 0.0, 0.0]
+damping_level: 0
+naive_plan:
+- [pick, blue_ketchup_1]
+- [put, basket_1]
+task_plan:
+- [pick, blue_ketchup_1]
+- [put, basket_1]
+high_prefs: []
+low_prefs: []

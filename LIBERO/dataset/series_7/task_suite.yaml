@@ -1,0 +1,75 @@
+# Series 7 — LIBERO-Comprehensive (Suite 5, Q7 / RQ1-paraphrase axis)
+# =============================================================================
+# 34 missions × 2 paraphrase settings (S1 fused / S2 reasoning) = 68 lang strings.
+#
+# Mission selection rule (2026-04-29):
+#   For each pref family X-Y in single-pref v2 (34 families covering Series 1/2/3),
+#   pick the mission with the highest 0-shot **pref-condition** SR averaged
+#   across pi05_pref + pi0_pref. Tie-break: composite avg over all 4 0-shot
+#   columns, then mission_id alphabetically.
+#   Source: Policy_output/0shot/single-pref/0shot_official_summary.xlsx.
+#   Rationale: Q7 measures whether paraphrasing degrades pref-following on
+#   missions where the canonical pref *can* already be followed; weak-baseline
+#   missions add noise.
+#
+# NO new demos / BDDLs / init states live under series_7/ — all physical
+# assets reused verbatim from series_1 / series_2 / series_3 via mission_id.
+#
+# Per-mission language strings:  LIBERO/dataset/series_7/language.yaml
+# Paraphrasing rules (S1 / S2):  LIBERO/dataset/series_7/reference.md
+# Suite registry entry:          LIBERO/configs/task_suites.yaml (`comprehensive`)
+#
+# INVARIANT: every mission_id below MUST be in the `single-pref` suite of
+# task_suites.yaml (strict subset).
+# =============================================================================
+
+suite: comprehensive
+series: 7
+description: >
+  LIBERO-Comprehensive — language paraphrase axis. 34 missions (one
+  best-0-shot mission per pref family) reused from series 1/2/3. Each
+  mission is rendered under 2 settings: S1 fused (task + pref combined
+  in one fluent sentence; no reasoning required) and S2 reasoning (task
+  stated, plus a context fact requiring commonsense inference to recover
+  the canonical pref). No new physical data; series_7/ is language-only.
+
+missions:
+  # ── Series 1 (8) — motion pref, one per family ──
+  - 1-1_004      # speed_up        (pref SR 1.00)
+  - 1-2_113      # slow_down       (pref SR 1.00)
+  - 1-3_107      # max_acc         (pref SR 0.75)
+  - 1-4_034      # avoid_object    (pref SR 1.00)
+  - 1-5_114      # low_path        (pref SR 1.00)
+  - 1-6_105      # straight_path   (pref SR 1.00)
+  - 1-7_104      # high_path       (pref SR 1.00)
+  - 1-8_114      # rotation        (pref SR 0.38; only mission in family)
+
+  # ── Series 2 (11) — skill pref, one per family ──
+  - 2-1_077      # pick_right_edge   (pref SR 1.00)
+  - 2-2_077      # pick_back_edge    (pref SR 0.75)
+  - 2-3_077      # pick_handle       (pref SR 0.75)
+  - 2-4_119      # pick_top_angle    (pref SR 1.00)
+  - 2-5_116      # pick_left_side    (pref SR 1.00)
+  - 2-6_119      # pick_right_side   (pref SR 1.00)
+  - 2-10_065     # throw             (pref SR 0.75)
+  - 2-11_118     # pick_front        (pref SR 1.00)
+  - 2-12_009     # rotate_when_place (pref SR 1.00)
+  - 2-13_001     # pick_left_edge    (pref SR 1.00)
+  - 2-14_109     # lay_down          (pref SR 0.75)
+
+  # ── Series 3 (15) — profile pref, one per family ──
+  - 3-1_004_1    # prefer_green        (pref SR 0.88)
+  - 3-2_001_1    # prefer_red          (pref SR 0.00; only choice)
+  - 3-3_117_2    # prefer_yellow       (pref SR 0.00; only choice)
+  - 3-4_104_1    # prefer_blue         (pref SR 0.00; only choice)
+  - 3-5_120_1    # prefer_bigger       (pref SR 0.12)
+  - 3-6_101_1    # upper_drawer_food   (pref SR 0.00; only choice)
+  - 3-7_101_1    # middle_drawer_kw    (pref SR 0.00; only choice)
+  - 3-8_007_1    # double_portion      (pref SR 0.75)
+  - 3-9_118_1    # prefer_dairy        (pref SR 0.62)
+  - 3-10_117_1   # prefer_sweet        (pref SR 0.00; only choice)
+  - 3-11_112_1   # prefer_sour         (pref SR 0.00; only choice)
+  - 3-12_109_1   # prefer_boxed        (pref SR 0.00; only choice)
+  - 3-13_120_1   # prefer_bottled      (pref SR 0.00; only choice)
+  - 3-14_107_1   # prefer_canned       (pref SR 0.00; tied 107_1/114_1)
+  - 3-15_106_1   # prefer_smaller      (pref SR 0.00; only choice)

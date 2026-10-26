@@ -1,0 +1,414 @@
+import os
+import sys
+from typing import List, Tuple, Optional
+from itertools import groupby
+
+import cv2
+import numpy as np
+
+# Add the project root to the python path so we can import from LIBERO
+sys.path.insert(0, os.path.join(os.path.dirname(__file__), "../.."))
+
+from LIBERO.TaskGen.FMs import (
+
+    ask_FM_image,
+    ask_gpt5_text,
+    ask_qwen_image, 
+    ask_qwen_text,
+    ask_gemini3_image,
+    ask_gemini3_text
+)
+
+
+subtask_description="""
+- Pick
+Generally pick everything
+
+- Pick_bowl
+Pick bowl/plate/open-cup shaped objects that need to pick the edges.
+
+- Pick_bottle
+Pick bottle-shaped objects that need to pick from the bottleneck.
+
+- Pick_from_side
+Pick any object from the side.
+
+- Put
+Generally put everything on sth/somewhere.
+
+- Put_bowl
+Put bowl/plate/open-cup shaped objects. 
+
+- Put_on
+Put objects on top of sth.
+
+- Push
+Push objects toward sth or push certain direction.
+
+"""
+
+
+def evaluate_sub_task(main_goal, sub_task, image_path, model_provider="gpt"):
+    """
+    This function calls a VLM to evaluate if a sub-task is completed,
+    and then uses an LLM to standardize the response to "yes" or "no".
+
+    Args:
+        main_goal (str): The main goal of the task.
+        sub_task (str): The specific sub-task to evaluate.
+        image_path (str): The path to the image of the final state.
+        model_provider (str): "gpt" or "qwen".
+
+    Returns:
+        A tuple containing:
+        - str: The raw response from the VLM.
+        - str: The standardized "yes" or "no" answer.
+    """
+
+    # 1. Formulate the prompt for the VLM
+    vlm_prompt = f"""As an expert robot task evaluator, your job is to determine if a specific sub-task has been successfully completed by looking at an image.
+    
+Context:
+- Main Goal: "{main_goal}"
+- Sub-task to evaluate: "{sub_task}"
+
+Question:
+Based on the image provided, has the sub-task "{sub_task}" been fully and correctly carried out?
+
+Answer with a "Yes" or "No", followed by a brief justification for your decision.
+"""
+
+    # 2. Call the VLM
+    print(f"[VLM Evaluator] Calling VLM ({model_provider}) for sub-task: {sub_task}...")
+    try:
+        if model_provider == "qwen":
+            raw_vlm_response = ask_qwen_image(
+                image_path=image_path,
+                instruction=vlm_prompt,
+                role_instruction="You are an expert in evaluating robot task completion from images."
+            )
+        elif model_provider == "gemini":
+            raw_vlm_response = ask_gemini3_image(
+                image_path=image_path,
+                instruction=vlm_prompt,
+                role_instruction="You are an expert in evaluating robot task completion from images."
+            )
+        else:
+            raw_vlm_response = ask_FM_image(
+                image_path=image_path,
+                instruction=vlm_prompt,
+                role_instruction="You are an expert in evaluating robot task completion from images.",
+                model="gpt"
+
+            )
+    except Exception as e:
+        print(f"[VLM Evaluator] Error calling VLM: {e}")
+        return "VLM call failed", "error"
+
+    # 3. Formulate the prompt for standardization
+    standardization_prompt = f"""From the following response, extract only the binary decision: 'yes' or 'no'.
+
+Response: "{raw_vlm_response}"
+
+Rules:
+- Return ONLY the word 'yes' or 'no'.
+- The output must be lowercase.
+- Do not include any other explanations, punctuation, or whitespace.
+"""
+
+    # 4. Call the LLM to standardize the answer
+    print(f"[VLM Evaluator] Standardizing response ({model_provider})...")
+    try:
+        if model_provider == "qwen":
+            standardized_answer = ask_qwen_text(
+                instruction=standardization_prompt,
+                role_instruction="You are a text-processing assistant that returns only 'yes' or 'no'."
+            ).strip().lower()
+        elif model_provider == "gemini":
+            standardized_answer = ask_gemini3_text(
+                instruction=standardization_prompt,
+                role_instruction="You are a text-processing assistant that returns only 'yes' or 'no'."
+            ).strip().lower()
+        else:
+            standardized_answer = ask_gpt5_text(
+                instruction=standardization_prompt,
+                role_instruction="You are a text-processing assistant that returns only 'yes' or 'no'."
+            ).strip().lower()
+
+        # Final check to ensure it's either 'yes' or 'no'
+        if standardized_answer not in ["yes", "no"]:
+            # Fallback logic if the LLM fails to follow instructions
+            if "yes" in raw_vlm_response.lower():
+                standardized_answer = "yes"
+            else:
+                standardized_answer = "no"
+
+    except Exception as e:
+        print(f"[VLM Evaluator] Error during standardization: {e}")
+        return raw_vlm_response, "error"
+
+    print(f"[VLM Evaluator] Standardized Answer: {standardized_answer}")
+
+    return raw_vlm_response, standardized_answer
+
+
+def _build_sequence_collage(
+    image_paths: List[str],
+    *,
+    max_cols: int = 6,
+    output_dir: Optional[str] = None,
+    collage_name: str = "sequence_collage.png",
+) -> Optional[str]:
+    """
+    Given a list of image paths, build a tiled collage image and save it.
+
+    Returns:
+        Absolute path to the saved collage image, or None if building fails.
+    """
+    valid_frames = []
+    for p in image_paths:
+        if not os.path.exists(p):
+            print(f"[VLM Evaluator] Warning: image not found, skipping in collage: {p}")
+            continue
+        img = cv2.imread(p)
+        if img is None:
+            print(f"[VLM Evaluator] Warning: failed to read image, skipping in collage: {p}")
+            continue
+        valid_frames.append(img)
+
+    if not valid_frames:
+        print("[VLM Evaluator] Error: no valid images to build collage.")
+        return None
+
+    # Ensure consistent size (use first frame as reference)
+    h, w = valid_frames[0].shape[:2]
+    resized = [cv2.resize(f, (w, h)) for f in valid_frames]
+
+    rows = []
+    for i in range(0, len(resized), max_cols):
+        row_imgs = resized[i : i + max_cols]
+        row = np.hstack(row_imgs)
+        rows.append(row)
+
+    # Pad rows to the same width so we can stack them vertically
+    max_width = max(row.shape[1] for row in rows)
+    padded_rows = []
+    for row in rows:
+        h_row, w_row = row.shape[:2]
+        if w_row < max_width:
+            pad_width = max_width - w_row
+            pad = np.zeros((h_row, pad_width, row.shape[2]), dtype=row.dtype)
+            row = np.hstack([row, pad])
+        padded_rows.append(row)
+
+    collage = np.vstack(padded_rows)
+
+    if output_dir is None:
+        output_dir = os.path.join(
+            os.path.dirname(__file__),
+            "..",
+            "..",
+            "dataset",
+            "evaluation_images",
+            "sequence_collages",
+        )
+    os.makedirs(output_dir, exist_ok=True)
+    collage_path = os.path.abspath(os.path.join(output_dir, collage_name))
+
+    cv2.imwrite(collage_path, collage)
+    print(f"[VLM Evaluator] Saved sequence collage to: {collage_path}")
+    return collage_path
+
+
+def evaluate_task_sequence(
+    main_goal: str,
+    sub_tasks: List[str],
+    image_paths: List[str],
+    collage_folder:str,
+    *,
+    trajectory_id: Optional[str] = None,
+    model_provider: str = "gpt",
+) -> Tuple[str, str, str]:
+    """
+    Evaluate whether the *overall task* was successfully completed, given
+    the full sequence of sub-tasks and corresponding images.
+
+    This builds a collage of the sequence frames and asks the VLM for a
+    structured judgment including sub-task verdicts.
+
+    Args:
+        main_goal: Natural language description of the overall task.
+        sub_tasks: Ordered list of sub-task strings.
+        image_paths: Ordered list of image paths, aligned with sub_tasks.
+        trajectory_id: Optional identifier (e.g. "pref0", "task1") used for naming the collage file.
+        model_provider: "gpt" or "qwen".
+
+    Returns:
+        (raw_response, standardized_answer, vlm_prompt)
+    """
+
+    if trajectory_id is None:
+        trajectory_id = "traj"
+
+    collage_name = f"{trajectory_id}_sequence_collage.png"
+    collage_path = _build_sequence_collage(image_paths, collage_name=collage_name,output_dir=collage_folder)
+
+    if collage_path is None:
+        return "Failed to build collage", "error", ""
+
+    # Group consecutive identical subtasks and track their frame ranges
+    unique_subtasks_info = []
+    current_start = 1
+    # groupby needs the iterable to be sorted if we wanted global grouping, 
+    # but here we want consecutive grouping which is what groupby does by default on unsorted input.
+    for k, g in groupby(sub_tasks):
+        count = len(list(g))
+        current_end = current_start + count - 1
+        unique_subtasks_info.append({
+            "name": k,
+            "start": current_start,
+            "end": current_end
+        })
+        current_start += count
+
+    # Build a compact textual narration of the sequence with frame context
+    steps_text = "\n".join(
+        f"- Subtask {i + 1}: {info['name']} (Frames {info['start']}-{info['end']})"
+        for i, info in enumerate(unique_subtasks_info)
+    )
+
+    vlm_prompt = f"""You are an expert robot task evaluator. You will see a collage image made from a sequence of frames of a robot executing a task. The image from the top left is the first frame (frame 0), and continues from left to right, top to bottom sequentially.
+
+Context:
+- Main Goal: "{main_goal}"
+- Ordered Subtasks (with corresponding frame numbers in the collage):
+{steps_text}
+And FYI: here are descriptions of subtasks that help you decide if they are completed:
+{subtask_description}
+
+
+The collage image lays out these frames in reading order (left-to-right, top-to-bottom).
+Frame 1 is top-left.
+
+Question:
+1. For EACH subtask listed above, determine if it was successfully completed based on the visual evidence in the assigned frames.
+2. Determine if the MAIN GOAL was fully and correctly completed.
+
+Your response format MUST be strictly in plain text:
+
+Overall_Verdict: <yes or no>
+Overall_Reason: <brief justification>
+
+Subtask_Analysis:
+Subtask 1: <yes or no> - <reason>
+Subtask 2: <yes or no> - <reason>
+...
+"""
+
+    print(f"[VLM Evaluator] Calling VLM ({model_provider}) for full task sequence (trajectory_id={trajectory_id})...")
+    try:
+        if model_provider == "qwen":
+            raw_vlm_response = ask_qwen_image(
+                image_path=collage_path,
+                instruction=vlm_prompt,
+                role_instruction="You are an expert in evaluating whether a robot has successfully completed a task from a sequence of images.",
+            )
+        elif model_provider == "gemini":
+            raw_vlm_response = ask_gemini3_image(
+                image_path=collage_path,
+                instruction=vlm_prompt,
+                role_instruction="You are an expert in evaluating whether a robot has successfully completed a task from a sequence of images.",
+            )
+        else:
+            raw_vlm_response = ask_FM_image(
+                image_path=collage_path,
+                instruction=vlm_prompt,
+                role_instruction="You are an expert in evaluating whether a robot has successfully completed a task from a sequence of images.",
+                model="gpt"
+            )
+    except Exception as e:
+        print(f"[VLM Evaluator] Error calling VLM for task sequence: {e}")
+        return "VLM call failed", "error", vlm_prompt
+
+    # Standardization logic looking for Overall_Verdict
+    standardization_prompt =  f"""From the following response, extract ONLY the 'Overall_Verdict' value.
+
+Response: "{raw_vlm_response}"
+
+Rules:
+- Look for the line starting with 'Overall_Verdict:'.
+- Return ONLY the word 'yes' or 'no'.
+- The output must be lowercase.
+"""
+
+    print(f"[VLM Evaluator] Standardizing task-level response ({model_provider})...")
+    try:
+        if model_provider == "qwen":
+             standardized_answer = ask_qwen_text(
+                instruction=standardization_prompt,
+                role_instruction="You are a text-processing assistant that returns only 'yes' or 'no'.",
+            ).strip().lower()
+        elif model_provider == "gemini":
+             standardized_answer = ask_gemini3_text(
+                instruction=standardization_prompt,
+                role_instruction="You are a text-processing assistant that returns only 'yes' or 'no'.",
+            ).strip().lower()
+        else:
+            standardized_answer = ask_gpt5_text(
+                instruction=standardization_prompt,
+                role_instruction="You are a text-processing assistant that returns only 'yes' or 'no'.",
+            ).strip().lower()
+
+        if standardized_answer not in ["yes", "no"]:
+            # Improved fallback for structured output
+            lower_response = raw_vlm_response.lower()
+            if "overall_verdict: yes" in lower_response:
+                standardized_answer = "yes"
+            elif "overall_verdict: no" in lower_response:
+                standardized_answer = "no"
+            # Legacy fallback
+            elif "answer: yes" in lower_response:
+                standardized_answer = "yes"
+            elif "answer: no" in lower_response:
+                standardized_answer = "no"
+            else:
+                # Default to no if unclear
+                standardized_answer = "no"
+    except Exception as e:
+        print(f"[VLM Evaluator] Error during task-level standardization: {e}")
+        return raw_vlm_response, "error", vlm_prompt
+
+    print(f"[VLM Evaluator] Task-level standardized answer: {standardized_answer}")
+
+    # Append a rich log entry with prompt and responses
+    try:
+        log_dir = os.path.join(
+            os.path.dirname(__file__),
+            "..",
+            "..",
+            "dataset",
+            "GPT_calls",
+        )
+        os.makedirs(log_dir, exist_ok=True)
+        log_path = os.path.abspath(os.path.join(log_dir, "task_vlm_log.txt"))
+        with open(log_path, "a", encoding="utf-8") as f:
+            f.write("=== Task-level VLM call ===\n")
+            f.write(f"trajectory_id: {trajectory_id}\n")
+            f.write(f"model_provider: {model_provider}\n")
+            f.write(f"main_goal: {main_goal}\n")
+            f.write("sub_tasks:\n")
+            for i, info in enumerate(unique_subtasks_info, start=1):
+                f.write(f"  - Subtask {i}: {info['name']} (Frames {info['start']}-{info['end']})\n")
+            f.write("image_paths:\n")
+            for p in image_paths:
+                f.write(f"  - {os.path.abspath(p)}\n")
+            f.write("VLM_prompt:\n")
+            f.write(vlm_prompt + "\n")
+            f.write("raw_vlm_response:\n")
+            f.write(str(raw_vlm_response) + "\n")
+            f.write(f"standardized_answer: {standardized_answer}\n")
+            f.write("\n")
+    except Exception as e:
+        print(f"[VLM Evaluator] Warning: failed to write task-level VLM log: {e}")
+
+    return raw_vlm_response, standardized_answer, vlm_prompt

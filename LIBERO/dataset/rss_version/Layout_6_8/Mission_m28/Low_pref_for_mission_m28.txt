@@ -1,0 +1,2 @@
+1.||approach_object, ("ground_1", 0.2)||
+2.|| To move the bowl at a low height relative to the ground to prevent spilling the food.||

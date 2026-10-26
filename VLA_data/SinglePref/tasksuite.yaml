@@ -1,0 +1,212 @@
+# SinglePref suite (42 missions, 2026-04-27)
+# Generated from each mission_info.yaml: language_instructions / optimized_instruction / pref_lan.
+# Edit here to paraphrase prompt without touching mission_info.yaml.
+
+pairings:
+  "1-1":   ['004', '006']
+  "1-2":   ['113']
+  "1-3":   ['107', '109']
+  "1-4":   ['034']
+  "1-5":   ['114']
+  "1-6":   ['105']
+  "1-7":   ['104']
+  "1-8":   ['114']
+  "2-1":   ['019', '077']
+  "2-2":   ['019', '077']
+  "2-3":   ['077']
+  "2-4":   ['119']
+  "2-5":   ['116']
+  "2-6":   ['119']
+  "2-10":  ['065']
+  "2-11":  ['118']
+  "2-12":  ['009']
+  "2-13":  ['001']
+  "2-14":  ['109']
+  "3-1":   ['004_1', '006_1']
+  "3-2":   ['001_1']
+  "3-3":   ['117_2']
+  "3-4":   ['104_1']
+  "3-5":   ['120_1']
+  "3-6":   ['101_1']
+  "3-7":   ['101_1']
+  "3-8":   ['007_1']
+  "3-9":   ['118_1']
+  "3-10":  ['117_1']
+  "3-11":  ['112_1']
+  "3-12":  ['109_1']
+  "3-13":  ['120_1']
+  "3-14":  ['107_1', '114_1']
+  "3-15":  ['106_1']
+
+libero_instructions:
+  "1-1_004": "put both the alphabet soup and the cream cheese box in the basket"
+  "1-1_006": "put both the cream cheese box and the butter in the basket"
+  "1-2_113": "pick up the butter and place it in the basket"
+  "1-3_107": "put the cream cheese in the bowl"
+  "1-3_109": "put the wine bottle on top of the cabinet"
+  "1-4_034": "put the black bowl in the bottom drawer of the cabinet"
+  "1-5_114": "pick up the chocolate pudding and place it in the basket"
+  "1-6_105": "put the bowl on the stove"
+  "1-7_104": "put the bowl on the plate"
+  "1-8_114": "pick up the chocolate pudding and place it in the basket"
+  "2-1_019": "put the black bowl on the plate"
+  "2-1_077": "put the white mug on the left plate"
+  "2-2_019": "put the black bowl on the plate"
+  "2-2_077": "put the white mug on the left plate"
+  "2-3_077": "put the white mug on the left plate"
+  "2-4_119": "pick up the salad dressing and place it in the basket"
+  "2-5_116": "pick up the ketchup and place it in the basket"
+  "2-6_119": "pick up the salad dressing and place it in the basket"
+  "2-10_065": "pick up the alphabet soup and put it in the tray"
+  "2-11_118": "pick up the orange juice and place it in the basket"
+  "2-12_009": "pick up the book and place it in the back compartment of the caddy"
+  "2-13_001": "put the black bowl in the bottom drawer of the cabinet and close it"
+  "2-14_109": "put the wine bottle on top of the cabinet"
+  "3-1_004_1": "put both the alphabet soup and the cream cheese box in the basket"
+  "3-1_006_1": "put both the cream cheese box and the butter in the basket"
+  "3-2_001_1": "put the black bowl in the bottom drawer of the cabinet and close it"
+  "3-3_117_2": "pick up the milk and place it in the basket"
+  "3-4_104_1": "put the bowl on the plate"
+  "3-5_120_1": "pick up the tomato sauce and place it in the basket"
+  "3-6_101_1": "open the top drawer and put the bowl inside"
+  "3-7_101_1": "open the top drawer and put the bowl inside"
+  "3-8_007_1": "put the white mug on the left plate and put the yellow and white mug on the right plate"
+  "3-9_118_1": "pick up the orange juice and place it in the basket"
+  "3-10_117_1": "pick up the milk and place it in the basket"
+  "3-11_112_1": "pick up the bbq sauce and place it in the basket"
+  "3-12_109_1": "put the wine bottle on top of the cabinet"
+  "3-13_120_1": "pick up the tomato sauce and place it in the basket"
+  "3-14_107_1": "put the cream cheese in the bowl"
+  "3-14_114_1": "pick up the chocolate pudding and place it in the basket"
+  "3-15_106_1": "put the bowl on top of the cabinet"
+
+tasks:
+  "1-1_004": "Put alphabet soup and cream cheese in basket"
+  "1-1_006": "Put cream cheese and butter in basket"
+  "1-2_113": "Put butter in basket"
+  "1-3_107": "Put cream cheese on bowl"
+  "1-3_109": "Put wine bottle on top of cabinet"
+  "1-4_034": "Put black bowl in bottom drawer"
+  "1-5_114": "Put chocolate pudding in basket"
+  "1-6_105": "Put bowl on stove"
+  "1-7_104": "Put bowl on plate"
+  "1-8_114": "Put chocolate pudding in basket"
+  "2-1_019": "Put black bowl on plate"
+  "2-1_077": "Put white mug on left plate"
+  "2-2_019": "Put black bowl on plate"
+  "2-2_077": "Put white mug on left plate"
+  "2-3_077": "Put white mug on left plate"
+  "2-4_119": "Put salad dressing in basket"
+  "2-5_116": "Put ketchup in basket"
+  "2-6_119": "Put salad dressing in basket"
+  "2-10_065": "Put alphabet soup in tray"
+  "2-11_118": "Put orange juice in basket"
+  "2-12_009": "Put book in back caddy compartment"
+  "2-13_001": "Put black bowl in bottom drawer and close it"
+  "2-14_109": "Put wine bottle on top of cabinet"
+  "3-1_004_1": "Put alphabet soup and cream cheese in basket"
+  "3-1_006_1": "Put cream cheese and butter in basket"
+  "3-2_001_1": "Put bowl in bottom drawer and close it"
+  "3-3_117_2": "Put milk in basket"
+  "3-4_104_1": "Put bowl on plate"
+  "3-5_120_1": "Put tomato sauce in basket"
+  "3-6_101_1": "Put an item inside"
+  "3-7_101_1": "Open one drawer layer and put bowl inside"
+  "3-8_007_1": "Put white mug on left plate"
+  "3-9_118_1": "Put a drink in basket"
+  "3-10_117_1": "Put a drink in basket"
+  "3-11_112_1": "Put a sauce in basket"
+  "3-12_109_1": "Put a food or drink on top of cabinet"
+  "3-13_120_1": "Put a tomato-flavored sauce in basket"
+  "3-14_107_1": "Put a food in bowl"
+  "3-14_114_1": "Put a food in basket"
+  "3-15_106_1": "Put a bowl on top of cabinet"
+
+preferences:
+  "1-1_004": "Speed up"
+  "1-1_006": "Speed up"
+  "1-2_113": "Slow down"
+  "1-3_107": "Avoid sudden acceleration"
+  "1-3_109": "Avoid sudden acceleration"
+  "1-4_034": "Keep away from wine bottle"
+  "1-5_114": "Close to ground when moving"
+  "1-6_105": "Move straight"
+  "1-7_104": "Move higher"
+  "1-8_114": "Rotate when moving"
+  "2-1_019": "Pick from right edge"
+  "2-1_077": "Pick from right edge"
+  "2-2_019": "Pick from back edge"
+  "2-2_077": "Pick from back edge"
+  "2-3_077": "Pick by handle"
+  "2-4_119": "Pick from top at an angle"
+  "2-5_116": "Pick from left side"
+  "2-6_119": "Pick from right side"
+  "2-10_065": "Throw instead of placing"
+  "2-11_118": "Pick from front"
+  "2-12_009": "Rotate when placing"
+  "2-13_001": "Pick from left edge"
+  "2-14_109": "Lay object down when placing"
+  "3-1_004_1": "Prefer green objects"
+  "3-1_006_1": "Prefer green objects"
+  "3-2_001_1": "Prefer red objects"
+  "3-3_117_2": "Prefer yellow objects"
+  "3-4_104_1": "Prefer blue objects"
+  "3-5_120_1": "Prefer bigger objects"
+  "3-6_101_1": "Upper drawer for food and drink"
+  "3-7_101_1": "Middle drawer for kitchenware"
+  "3-8_007_1": "Serve double portion"
+  "3-9_118_1": "Prefer dairy products"
+  "3-10_117_1": "Prefer sweet drinks"
+  "3-11_112_1": "Prefer sour sauces"
+  "3-12_109_1": "Prefer boxed objects"
+  "3-13_120_1": "Prefer bottled objects"
+  "3-14_107_1": "Prefer canned food"
+  "3-14_114_1": "Prefer canned food"
+  "3-15_106_1": "Prefer smaller objects"
+
+
+# ─── tasks_original (paraphrase, kept for diff/audit; not used at runtime) ───
+# tasks_original:
+#   "1-1_004": "Put both the alphabet soup and the cream cheese box in the basket"
+#   "1-1_006": "Put both the cream cheese box and the butter in the basket"
+#   "1-2_113": "Pick up the butter and put it in the basket"
+#   "1-3_107": "Put the cream cheese on the bowl"
+#   "1-3_109": "Put the wine bottle on the top of the drawer"
+#   "1-4_034": "Put the black bowl in the bottom drawer of the cabinet"
+#   "1-5_114": "Pick the chocolate pudding and place it in the basket"
+#   "1-6_105": "Put the bowl on the stove"
+#   "1-7_104": "Put the bowl on the plate"
+#   "1-8_114": "Pick up the chocolate pudding and put it in the basket"
+#   "2-1_019": "Put the black bowl on the plate"
+#   "2-1_077": "Put the white mug on the left plate"
+#   "2-2_019": "Put the black bowl on the plate"
+#   "2-2_077": "Put the white mug on the left plate"
+#   "2-3_077": "Put the white mug on the left plate"
+#   "2-4_112": "Pick the BBQ sauce and place it in the basket"
+#   "2-4_119": "Pick the salad dressing and place it in the basket"
+#   "2-5_112": "Pick the BBQ sauce and place it in the basket"
+#   "2-5_116": "Pick the ketchup and place it in the basket"
+#   "2-6_119": "Pick the salad dressing and place it in the basket"
+#   "2-10_065": "Pick up the alphabet soup and put it in the tray"
+#   "2-11_118": "Pick the orange juice and place it in the basket"
+#   "2-12_009": "Pick up the book and place it in the back compartment of the caddy"
+#   "2-13_001": "Put the black bowl in the bottom drawer of the cabinet and close it"
+#   "2-14_109": "Put the wine bottle on top of the cabinet"
+#   "3-1_004_1": "Put both the alphabet soup and the cream cheese box in the basket"
+#   "3-1_006_1": "Put both the cream cheese box and the butter in the basket"
+#   "3-2_001_1": "Put the bowl in the bottom drawer of the cabinet and close it"
+#   "3-3_117_2": "Pick the milk and place it in the basket"
+#   "3-4_104_1": "Put the bowl on the plate"
+#   "3-5_120_1": "Pick the tomato sauce and place it in the basket"
+#   "3-6_101_1": "Put an item inside"
+#   "3-7_101_1": "Open the one layer of the drawer and put the bowl inside"
+#   "3-8_007_1": "Put the white mug on the left plate"
+#   "3-9_118_1": "Pick up a drink and place it in the basket"
+#   "3-10_117_1": "Pick up a drink and place it in the basket"
+#   "3-11_112_1": "Pick a sauce and place it in the basket"
+#   "3-12_109_1": "Pick a food or drink and put it on the top of the drawer"
+#   "3-13_120_1": "Pick a tomato-flavored sauce and place it in the basket"
+#   "3-14_107_1": "Put a food in the bowl"
+#   "3-14_114_1": "Pick a food and place it in the basket"
+#   "3-15_106_1": "Put a bowl on top of the cabinet"
+

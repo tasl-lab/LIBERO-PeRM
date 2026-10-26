@@ -1,0 +1,74 @@
+{
+  "_comment:": [
+    "workspaces: the scene type corresponding to each BDDL file",
+    "bddl_file_names: BDDL files to be used for data generation",
+    "language_instructions: language instructions corresponding to each BDDL file, i.e. a mission, feel free to change it if necessary",
+    "running_layout_ids: layout/scenes indices to be used for data generation, e.g. [0] means only the first bddl in bddl_file_name will be used",
+    "high_level_preferences: a list of high-level preferences that will be used during data generation",
+    "enabled_high_pref_ids: the indices of high-level preferences to be enabled during data generation",
+    "low_pref_type:a list of low-level preferences that can be used during data generation",
+    "enabled_low_pref_ids: the indices of high-level preferences to be enabled during data generation"
+  ],
+
+  "workspaces":
+    "living_room_table"
+  ,
+
+  "bddl_file_names":
+    "libero_pbench/L7_5_out_of_domain.bddl",
+  "language_instructions":
+    "Prepare me a drink in the basket",
+
+  "layout_id": "7_5_out_of_domain",
+
+  "high_pref_lan": [
+    "I prefer bottle drinks if possible"
+  ],
+  "_comment__":["↑↑↑↑↑For this case, we need to manually modify",
+    "the goal condition, because the mug is target but new to this layout↑↑↑↑"],
+  "low_pref_lan": [
+    ""
+  ],
+
+  "mission_ids": [
+    "49"
+  ],
+
+  "mission_mask": [
+    1
+  ],
+
+
+
+  "__comment": ["↓↓↓↓↓↓↓↓Below is the offset for skill-obj pair, so that you don't need to change the code each when you manually check a demo video↓↓↓↓↓↓↓↓",
+                "↓↓↓↓↓↓↓↓To make it simple, we assume each time you only run single mission (i.e. skill-obj sequence), and only the subtask_offset will effect, the rest is just extra back up ↓↓↓↓↓↓↓↓"],
+
+  "subtask_offset":
+    [
+      {
+      "mission_id": "49",
+      "pick:red_bigger_wine_1":[
+          [0.00, 0.00, 0.02]
+      ],
+      "put:wooden_tray_1": [
+        [0, 0.00, 0.18],
+        [-0, 0.00, 0.18]
+      ],
+      "move_to:wooden_tray_1": [
+        [0, 0.00, 0.25],
+        [-0, 0.00, 0.25]
+      ]
+      }
+    ],
+
+
+
+  "___comment":["↑↑↑↑↑↑↑↑Here we may have multiple offset for same skill-obj pair, these offset will be used under rotation ↑↑↑↑↑↑↑↑"],
+  "_comment_":["↓↓↓↓↓↓↓↓The fluency improvement are used to remove unnecessary arm rise,down so that accelerate, but may cause bug, so set false in default ↓↓↓↓↓↓↓↓"],
+  "fluency_improvement": 0
+
+
+}
+
+
+

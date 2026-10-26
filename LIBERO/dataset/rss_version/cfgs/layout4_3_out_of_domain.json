@@ -1,0 +1,34 @@
+{
+  "_comment:": [
+    "Out-of-domain configuration for pick_the_bowl_and_put_it_on_the_plate Layout 4 - secondary items repositioned"
+  ],
+  "workspaces": "living_room_table",
+  "bddl_file_names": "libero_pbench/L4_3_out_of_domain.bddl",
+  "language_instructions": "Pick the center black bowl and put it on the red plate",
+  "layout_id": "4_3_out_of_domain",
+  
+  "high_pref_lan": [
+    " "
+  ],
+  "low_pref_lan": [
+    "No sudden acceleration"
+  ],
+  "mission_ids": [
+    "6"
+  ],
+  "mission_mask": [
+    1
+  ],
+
+  "subtask_offset": [
+    {
+
+      "mission_id": "6",
+      "pick_bowl:akita_black_bowl_1": [[0.0, 0.0, -0.05]],
+      "put_bowl:plate_1": [[0.02, 0.0, 0.0]]
+    }
+
+  ],
+  
+  "fluency_improvement": 0
+}

@@ -1,0 +1,54 @@
+(define (problem LIBERO_Floor_Manipulation)
+  (:domain robosuite)
+  (:language Visualize all available object)
+    (:regions
+      (basin_faucet_init_region
+          (:target Test_workspace)
+          (:ranges (
+              (-0.025 -0.025 0.025 0.025)
+            )
+          )
+          (:yaw_rotation (
+              (-3.141592653589793 3.141592653589793)
+            )
+          )
+      )
+      (target_region
+          (:target Test_workspace)
+          (:ranges (
+              (-0.01 -0.31 0.01 -0.29)
+            )
+          )
+          (:yaw_rotation (
+              (3.141592653589793 3.141592653589793)
+            )
+          )
+      )
+      (hot_water
+          (:target basin_faucet_1)
+      )
+      (cold_water
+          (:target basin_faucet_1)
+      )
+    )
+
+  (:fixtures
+  )
+
+  (:objects
+    basin_faucet_1 - basin_faucet
+  )
+
+  (:obj_of_interest
+    basin_faucet_1
+  )
+
+  (:init
+    (On basin_faucet_1 basin_faucet_init_region)
+  )
+
+  (:goal
+    (And)
+  )
+
+)

@@ -1,0 +1,32 @@
+{
+  "mission_id": "30",
+  "move_to:red_orange_juice_1": [
+    [
+      0.0,
+      -0.06,
+      0.03
+    ]
+  ],
+  "pick:red_orange_juice_1": [
+    [
+      0.0,
+      -0.06,
+      0.03
+    ]
+  ],
+  "put:basket_1": [
+    [
+      0.0,
+      0.0,
+      0.1
+    ]
+  ],
+  "move_to:basket_1": [
+    [
+      0.0,
+      0.0,
+      0.12
+    ]
+  ],
+  "move_to_height:basket_1": -0.35
+}

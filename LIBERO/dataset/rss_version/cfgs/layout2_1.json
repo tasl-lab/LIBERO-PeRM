@@ -1,0 +1,34 @@
+{
+  "_comment:": [
+    "Configuration for pick_the_mug_by_handle_and_put_it_on_the_plate Layout 2"
+  ],
+  "workspaces": "living_room_table",
+  "bddl_file_names": "libero_pbench/L2_1.bddl",
+  "language_instructions": "Pick the mug and put it on the plate",
+  "layout_id": "2_1",
+  
+  "high_pref_lan": [
+    "Pick and put the mug by its handle"
+  ],
+  "low_pref_lan": [
+    ""
+  ],
+  "mission_ids": [
+    "14"
+  ],
+  "mission_mask": [
+    1
+  ],
+
+  "subtask_offset": [
+    {
+      "mission_id": "14",
+      "pick_handle:porcelain_mug_1": [[0.0, 0.0, 0.0]],
+      "move_to:plate_1": [[-0.05, -0.06, 0.0]],
+      "put_handle:plate_1":[[-0.05, -0.06, 0.0]]
+    }
+  ],
+  
+  "fluency_improvement": 0
+}
+

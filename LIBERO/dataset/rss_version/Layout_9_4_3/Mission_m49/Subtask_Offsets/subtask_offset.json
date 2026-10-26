@@ -1,0 +1,31 @@
+{
+  "mission_id": "m49",
+  "pick:blue_ketchup_2": [
+    [
+      0.0,
+      0.01,
+      0.02
+    ]
+  ],
+  "move_to:blue_ketchup_2": [
+    [
+      0.0,
+      0.02,
+      0.02
+    ]
+  ],
+  "put:blue_plate_2": [
+    [
+      0.02,
+      0,
+      0
+    ]
+  ],
+  "move_to:blue_plate_2": [
+    [
+      0.02,
+      0,
+      0
+    ]
+  ]
+}

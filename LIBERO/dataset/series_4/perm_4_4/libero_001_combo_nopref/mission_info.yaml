@@ -1,0 +1,29 @@
+workspace: kitchen_scene4
+language_instructions: Put the bowl in the bottom drawer of the cabinet
+optimized_instruction: Put the bowl in the bottom drawer of the cabinet
+libero_instruction: put the black bowl in the bottom drawer of the cabinet
+bddl_file: KITCHEN_SCENE4_put_the_black_bowl_in_the_bottom_drawer_of_the_cabinet_and_close_it.bddl
+high_pref_lan: ''
+low_pref_lan: ''
+subtask_offset:
+  move_to:_all:
+  - 0.0
+  - 0.0
+  - 0.0
+  put:white_cabinet_1_cabinet_bottom:
+  - - -0.05
+    - 0.02
+    - 0.0
+damping_level: 0
+naive_plan:
+- - pick
+  - akita_black_bowl_1
+- - put
+  - white_cabinet_1_cabinet_bottom
+task_plan:
+- - pick_left_edge
+  - akita_black_bowl_1
+- - put
+  - white_cabinet_1_cabinet_bottom
+high_prefs: []
+low_prefs: []

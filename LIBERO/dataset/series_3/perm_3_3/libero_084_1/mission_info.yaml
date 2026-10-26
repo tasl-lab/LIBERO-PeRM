@@ -1,0 +1,38 @@
+workspace: study_scene1
+language_instructions: Pick up the book and place it in the left compartment of the
+  caddy
+optimized_instruction: Put book in back caddy compartment
+libero_instruction: pick up the book and place it in the left compartment of the caddy
+bddl_file: STUDY_SCENE1_pick_up_the_book_and_place_it_in_the_left_compartment_of_the_caddy.bddl
+high_pref_lan: Prefer yellow objects
+low_pref_lan: ''
+subtask_offset:
+  move_to:_all: [0.0, 0.0, 0.0]
+  move_to:desk_caddy_1:
+  - [0.03, -0.12, 0.1]
+  put:desk_caddy_1:
+  - [0.03, -0.15, 0.1]
+
+damping_level: 0
+naive_plan:
+- [pick, black_book_1]
+- [put, desk_caddy_1_left_contain_region]
+task_plan:
+- [pick, yellow_book_1]
+- [put, desk_caddy_1_left_contain_region]
+high_prefs: []
+low_prefs:
+- type: plan_choice
+  params:
+    mode: object
+    pref_objs: [yellow_book_1]
+    naive_objs: [black_book_1]
+    criterion_threshold: 0.5
+    criterion_direction: 1
+  description: Prefer yellow objects
+low_pref_calibration:
+  plan_choice:
+    pref_anchor: 1.0
+    n_pref: 10
+    naive_anchor: 0.0
+    n_naive: 10

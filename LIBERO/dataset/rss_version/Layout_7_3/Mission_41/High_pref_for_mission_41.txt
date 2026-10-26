@@ -1,0 +1,4 @@
+1.|| ('pick', 'milk_1'), ('put', 'wooden_tray_1'), ('pick', 'cream_cheese_1'), ('put', 'wooden_tray_1') ||
+2.|| "required": [('pick', 'milk_1'), ('pick', 'cream_cheese_1')], "prohibited": [('_ALL', 'orange_juice_1'), ('_ALL', 'red_alphabet_soup_1')], "order": [[('pick', 'milk_1'), ('put', 'wooden_tray_1')], [('pick', 'cream_cheese_1'), ('put', 'wooden_tray_1')]] ||
+3.|| I Prefer to choose diary objects if possible ||
+

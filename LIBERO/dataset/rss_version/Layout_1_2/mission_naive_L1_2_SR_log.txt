@@ -1,0 +1,2 @@
+Success rate for mission naive_L1_2: 1/1
+Success rate for mission naive_L1_2: 1/1

@@ -1,0 +1,31 @@
+{
+  "mission_id": "m37",
+  "move_to:red_bigger_wine_1": [
+    [
+      -0.08,
+      -0.05,
+      0
+    ]
+  ],
+  "pick_bottle:red_bigger_wine_1": [
+    [
+      -0.08,
+      -0.05,
+      0
+    ]
+  ],
+  "put:wooden_tray_1": [
+    [
+      0.1,
+      0.15,
+      0.3
+    ]
+  ],
+  "move_to:wooden_tray_1": [
+    [
+      0.1,
+      0.15,
+      0.3
+    ]
+  ]
+}

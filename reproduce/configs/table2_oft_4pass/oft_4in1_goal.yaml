@@ -1,0 +1,42 @@
+# OpenVLA-OFT 4-in-1 — pref condition only, unnorm=libero_goal_no_noops
+# Part of 4-pass best-of-N (libero_{spatial,object,goal,10}_no_noops).
+# Per-mission max across 4 passes → final pref SR.
+# (base SR = 91.2% already done by zhixu on HPCC.)
+
+experiment_name: oft_4in1_goal_repro
+exp_type: 0shot
+task_suite: single-pref
+
+conditions: [base, pref]
+num_trials: 3
+replan_steps: 8
+max_steps: null
+seed: 7
+save_hdf5: true
+
+save_video: false
+save_gif: false
+
+server:
+  vla: openvla_oft
+  name: oft_4in1_goal
+  host: 0.0.0.0
+  port: 8030
+  config: openvla_oft_4in1
+  checkpoint: /data3/zhixu/LIBERO-PeRM/checkpoints/openvla_oft_4in1
+  cuda_devices: "4"
+  device: "cuda:0"
+  default_prompt: null
+
+  use_l1_regression: true
+  use_diffusion: false
+  use_film: false
+  use_proprio: true
+  num_images_in_input: 2
+  proprio_dim: 8
+  unnorm_key: libero_goal_no_noops
+
+  load_in_8bit: false
+  load_in_4bit: false
+  image_size: 224
+  action_dim: 7

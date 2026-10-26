@@ -1,0 +1,31 @@
+{
+  "mission_id": "40",
+  "move_to:bigger_cheese_1": [
+    [
+      0.02,
+      -0.0,
+      0.02
+    ]
+  ],
+  "pick:bigger_cheese_1": [
+    [
+      0.02,
+      -0.0,
+      0.02
+    ]
+  ],
+  "move_to:bigger_cheese_2": [
+    [
+      0.0,
+      -0.0,
+      -0.02
+    ]
+  ],
+  "pick:bigger_cheese_2": [
+    [
+      0.0,
+      -0.0,
+      -0.02
+    ]
+  ]
+}

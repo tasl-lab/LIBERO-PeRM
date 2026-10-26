@@ -1,0 +1,131 @@
+(define (problem LIBERO_Kitchen_Tabletop_Manipulation)
+  (:domain robosuite)
+  (:language L9_5_1Put the cheese into the drawer)
+    (:regions
+      (red_cream_cheese_1_init_region
+          (:target kitchen_table)
+          (:ranges (
+              (0.0049999999999999975 -0.125 0.055 -0.075)
+            )
+          )
+          (:yaw_rotation (
+              (0.0 0.0)
+            )
+          )
+      )
+      (red_ramekin_1_init_region
+          (:target kitchen_table)
+          (:ranges (
+              (-0.07500000000000001 -0.275 -0.025 -0.225)
+            )
+          )
+          (:yaw_rotation (
+              (0.0 0.0)
+            )
+          )
+      )
+      (white_cabinet_1_init_region
+          (:target kitchen_table)
+          (:ranges (
+              (-0.01 0.29 0.01 0.31)
+            )
+          )
+          (:yaw_rotation (
+              (0.0 0.0)
+            )
+          )
+      )
+      (ketchup_1_init_region
+          (:target kitchen_table)
+          (:ranges (
+              (-0.2 0.05 -0.15 0.1)
+            )
+          )
+          (:yaw_rotation (
+              (0.0 0.0)
+            )
+          )
+      )
+      (top_side
+          (:target white_cabinet_1)
+          (:ranges (
+            )
+          )
+          (:yaw_rotation (
+              (0 0)
+            )
+          )
+      )
+      (top_region
+          (:target white_cabinet_1)
+          (:ranges (
+            )
+          )
+          (:yaw_rotation (
+              (0 0)
+            )
+          )
+      )
+      (middle_region
+          (:target white_cabinet_1)
+          (:ranges (
+            )
+          )
+          (:yaw_rotation (
+              (0 0)
+            )
+          )
+      )
+      (bottom_region
+          (:target white_cabinet_1)
+          (:ranges (
+            )
+          )
+          (:yaw_rotation (
+              (0 0)
+            )
+          )
+      )
+      (top_side
+          (:target white_cabinet_1)
+      )
+      (top_region
+          (:target white_cabinet_1)
+      )
+      (middle_region
+          (:target white_cabinet_1)
+      )
+      (bottom_region
+          (:target white_cabinet_1)
+      )
+    )
+
+  (:fixtures
+    kitchen_table - kitchen_table
+    white_cabinet_1 - white_cabinet
+  )
+
+  (:objects
+    red_cream_cheese_1 - red_cream_cheese
+    red_ramekin_1 - red_ramekin
+    ketchup_1 - ketchup
+  )
+
+  (:obj_of_interest
+    red_cream_cheese_1
+    red_ramekin_1
+  )
+
+  (:init
+    (on red_cream_cheese_1 kitchen_table_red_cream_cheese_1_init_region)
+    (on red_ramekin_1 kitchen_table_red_ramekin_1_init_region)
+    (on white_cabinet_1 kitchen_table_white_cabinet_1_init_region)
+    (on ketchup_1 kitchen_table_ketchup_1_init_region)
+    (close white_cabinet_1_top_region)
+  )
+
+  (:goal
+    (And (in red_cream_cheese_1 white_cabinet_1_middle_region) (close white_cabinet_1_middle_region))
+  )
+
+)

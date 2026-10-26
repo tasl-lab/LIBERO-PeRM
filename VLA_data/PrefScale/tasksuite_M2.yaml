@@ -1,0 +1,77 @@
+# LIBERO-Scale M2 cell: K=3, N=50, total = 5×3×50 = 750 demos
+# 15 missions × 50 demos. Auto-generated from PrefScale/tasksuite.yaml (master)
+
+pairings:
+  "0-1": ['032', '032_1', '032_2']                          # no-pref baseline
+  "1-1": ['004', '004_1', '004_2']                          # motion (Speed up)
+  "2-5": ['116', '116_1', '116_2']                          # skill (Pick from left side)
+  "3-2": ['097_1', '097_2', '097_3']                        # profile (Prefer red objects)
+  "4-3": ['116', '116_1', '116_2']                          # multi (Pick from left side + Speed up)
+
+tasks:
+  "0-1_032": "Put a sauce in basket"
+  "0-1_032_1": "Put an item in basket"
+  "0-1_032_2": "Put an item in basket"
+  "1-1_004": "Put alphabet soup and cream cheese in basket"
+  "1-1_004_1": "Put alphabet soup and cream cheese in basket"
+  "1-1_004_2": "Put alphabet soup and cream cheese in basket"
+  "2-5_116": "Put the ketchup in basket"
+  "2-5_116_1": "Put the ketchup in basket"
+  "2-5_116_2": "Put the ketchup in basket"
+  "3-2_097_1": "Put a book on top of the shelf"
+  "3-2_097_2": "Put a book on top of the shelf"
+  "3-2_097_3": "Put a book on top of the shelf"
+  "4-3_116": "Put the ketchup in basket"
+  "4-3_116_1": "Put the ketchup in basket"
+  "4-3_116_2": "Put the ketchup in basket"
+
+preferences:
+  "0-1_032": ""
+  "0-1_032_1": ""
+  "0-1_032_2": ""
+  "1-1_004": "Speed up"
+  "1-1_004_1": "Speed up"
+  "1-1_004_2": "Speed up"
+  "2-5_116": "Pick from left side"
+  "2-5_116_1": "Pick from left side"
+  "2-5_116_2": "Pick from left side"
+  "3-2_097_1": "Prefer red objects"
+  "3-2_097_2": "Prefer red objects"
+  "3-2_097_3": "Prefer red objects"
+  "4-3_116": "Pick from left side. Speed up"
+  "4-3_116_1": "Pick from left side. Speed up"
+  "4-3_116_2": "Pick from left side. Speed up"
+
+n_demos:
+  "0-1_032": 50
+  "0-1_032_1": 50
+  "0-1_032_2": 50
+  "1-1_004": 50
+  "1-1_004_1": 50
+  "1-1_004_2": 50
+  "2-5_116": 50
+  "2-5_116_1": 50
+  "2-5_116_2": 50
+  "3-2_097_1": 50
+  "3-2_097_2": 50
+  "3-2_097_3": 50
+  "4-3_116": 50
+  "4-3_116_1": 50
+  "4-3_116_2": 50
+
+role:
+  "0-1_032": "train_eval"
+  "0-1_032_1": "train_eval"
+  "0-1_032_2": "train_eval"
+  "1-1_004": "train_eval"
+  "1-1_004_1": "train_eval"
+  "1-1_004_2": "train_eval"
+  "2-5_116": "train_eval"
+  "2-5_116_1": "train_eval"
+  "2-5_116_2": "train_eval"
+  "3-2_097_1": "train_eval"
+  "3-2_097_2": "train_eval"
+  "3-2_097_3": "train_eval"
+  "4-3_116": "train_eval"
+  "4-3_116_1": "train_eval"
+  "4-3_116_2": "train_eval"

@@ -1,0 +1,40 @@
+# PrefConflict — PP setting: combined opposing prefs.
+# 10 missions × 4 trial = 40 eps.
+
+experiment_name: PrefConflict_PP_pi05_step27k_4trial
+exp_type: lora_ft
+task_suite: prefconflict
+
+prompt_source_yaml: /data3/zhixu/LIBERO-PeRM/VLA_data/PrefConflict/tasksuite_PP.yaml
+
+missions:
+  - 1-1_004
+  - 1-2_004
+  - 1-5_114
+  - 1-7_114
+  - 2-13_001
+  - 2-1_001
+  - 2-8_ood3
+  - 2-9_ood3
+  - 3-5_120_1
+  - 3-15_120_1
+
+conditions: [pref]
+num_trials: 4
+replan_steps: 5
+max_steps: null
+seed: 7
+
+save_hdf5: true
+save_video: true
+save_gif: false
+
+server:
+  vla: pi05
+  name: pi05_prefconflict_run1_step26999_PP
+  host: 0.0.0.0
+  port: 8032
+  config: pi05_prefconflict_lora_v1
+  checkpoint: /data3/zhixu/LIBERO-PeRM/VLAs/openpi/checkpoints/pi05_prefconflict_lora_v1/pi05_prefconflict_run1/26999
+  cuda_devices: "7"
+  default_prompt: null

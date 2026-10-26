@@ -1,0 +1,2 @@
+1.||avoid_object, ("wine_bottle_1", 0.2)||
+2.||To avoid colliding with the wine bottle while moving the object, maintain a safety distance of 0.2 meters from it.||

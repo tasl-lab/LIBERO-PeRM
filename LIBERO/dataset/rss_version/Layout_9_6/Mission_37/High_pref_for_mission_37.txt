@@ -1,0 +1,4 @@
+1.|| ('open_drawer', 'white_cabinet_1_cabinet_middle'), ('pick', 'glazed_rim_porcelain_ramekin_1'), ('put', 'white_cabinet_1_cabinet_middle'), ('close_drawer', 'white_cabinet_1_cabinet_middle') ||
+2.|| "required": [] ||
+3.|| I Prefer to use the middle drawer for kitchenware ||
+

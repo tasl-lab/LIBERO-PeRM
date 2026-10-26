@@ -1,0 +1,2 @@
+1.||speed_range, (0.5, 0.5)||
+2.||To slow down the robot's movement to roughly 0.5 times the original speed to ensure the cheese is handled carefully.||

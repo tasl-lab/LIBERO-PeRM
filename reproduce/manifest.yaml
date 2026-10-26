@@ -1,0 +1,68 @@
+# Paper result → experiment code → runfile / training config / checkpoint step / output dir.
+# Paths are relative to the repo root; runfiles relative to VLA_infer/run_profile/ unless they start with reproduce/.
+# status: reproducible | partial | missing  (what this repo can regenerate on its own)
+
+shared:
+  rollout_client: VLA_infer/run_client.sh           # → LIBERO/PolicyEval/eval.py, then LIBERO/tools/eval_summary.py (SR, SA)
+  policy_servers: VLA_infer/server_{pi05,groot,smolvla,univla,openvla_oft}.sh
+  train_scripts:  VLA_train/openpi/runme_{gen_finetune_data,cal_stats,finetune}_<EXP>.sh
+  train_configs:  VLAs/openpi/src/openpi/training/config.py   # backed up in VLA_train/openpi_overlay/
+  eval_suites:    LIBERO/configs/task_suites.yaml
+  demo_data:      VLA_data/<Suite>/Mission_<id>.hdf5 + tasksuite*.yaml
+  outputs:        Policy_output/<0shot|lora_ft>/<suite>/<experiment_name>/<server.name>/{evalresult.xlsx, <cond>/<mission>/rollout_summary.yaml}
+
+table2_zeroshot:                      # exp code D; suite single-pref (40 missions), conditions base (No-Pref) + pref (All-Pref)
+  pi05:      {runfile: reproduce/configs/table2_zeroshot/pi05_official_singpref.yaml, ckpt: gs://openpi-assets/checkpoints/pi05_libero, status: reproducible}
+  pi0:       {runfile: reproduce/configs/table2_zeroshot/pi0_official_singpref.yaml,  ckpt: gs://openpi-assets/checkpoints/pi0_libero,  status: reproducible,
+              note: "paper row is labelled π0-fast; the run used openpi config pi0_libero (flow-matching π0). No pi0_fast run exists."}
+  groot_n16: {runfile: reproduce/configs/table2_zeroshot/groot16.yaml, ckpt: checkpoints/groot_n16_libero, status: reproducible}
+  smolvla:   {runfile: reproduce/configs/table2_zeroshot/smolvla.yaml, ckpt: checkpoints/smolvla_libero,   status: reproducible}
+  univla:    {runfiles: 'reproduce/configs/table2_zeroshot/univla_{spatial,object,goal,10}.yaml', merge: best-of-4 per mission (reproduce/aggregate_best_of_n.py), status: reproducible}
+  openvla_oft: {runfiles: 'reproduce/configs/table2_oft_4pass/oft_4in1_{spatial,object,goal,10}.yaml', merge: best-of-4 per mission, status: reproducible,
+                note: "paper No-Pref 91.2 came from the same 4-unnorm-key sweep on an HPC cluster (bcc/zeroshot_eval.sbatch)"}
+  originals: [ZeroShot/Pi05/full_pi05_official_singpref.yaml, ZeroShot/Pi05/full_pi0_official_singpref.yaml, ZeroShot/v2/*.yaml]
+  sa_note: "the reproduce/ copies turn on save_hdf5 so eval_summary can score motion-tier SA; the original v2 runs did not save HDF5, so their SA columns cannot be regenerated from the shipped rollouts"
+
+table3_sft:                            # all rows from pi05_base; SinglePref demos = VLA_data/SinglePref (40 missions × 100)
+  pi05_lora:      {exp: U, train: [runme_gen_finetune_data_U, runme_cal_stats_U, runme_finetune_U], config: pi05_singpref_lora_v1, step: 44999,
+                   eval: [LoRA/Pi05/U_pi05_singpref_step45k.yaml, LoRA/Pi05/U_singlepref_rerun.yaml], status: reproducible,
+                   note: "paper All-Pref = per-mission max over the two sweeps (default max_steps vs 1250)"}
+  pi05_mix_lora:  {exp: Y, train: [runme_gen_finetune_data_Y, runme_cal_stats_Y, runme_finetune_Y], config: pi05_singpref_mix_lora_v1, step: 44999,
+                   eval: LoRA/Pi05/Y_pi05_singpref_mix_step45k.yaml, status: reproducible, extra_data: "LIBERO RLDS (path in runme_gen_finetune_data_Y.sh)"}
+  pi05_seq_lora:  {exp: V, train: [runme_finetune_V], config: pi05_libero_singpref_lora_v1, step: 44999, base: gs://openpi-assets/checkpoints/pi05_libero,
+                   eval: LoRA/Pi05/V_pi05_libero_singpref_step45k.yaml, status: reproducible, note: "reuses U's LeRobot dataset + norm stats"}
+  comprepref_col: {eval: 'LoRA/Pi05/Comp/Comp_S1_pi05_{singpref,singpref_mix,libero_singpref}_lora_step45k.yaml', suite: comprehensive, prompts: LIBERO/dataset/series_7/language.yaml, status: reproducible}
+  pi05_lora_star: {status: missing, note: "unseen-layout SinglePref eval: no runfile, suite or output in this repo"}
+
+fig4_prefscale:                        # exp code H; 5 tiers per layout; eval pref condition only
+  cells:
+    M1: {demos: 250,  K: 1, N: 50,  config: pi05_scale_H_K1_lora_v1, train_exp: H_K1, step: 19999}
+    M2: {demos: 750,  K: 3, N: 50,  config: pi05_scale_H_M2_lora_v1, train_exp: H_M2, step: 19999}
+    M3: {demos: 2250, K: 3, N: 150, config: pi05_scale_H_M3_lora_v1, train_exp: H_M3, step: 29999, paper_label: L2, note: "checkpoint no longer on disk — retrain"}
+    M4: {demos: 5250, K: 7, N: 150, config: pi05_scale_H_M4_lora_v1, train_exp: H_M4, step: 49999}
+    L1: {demos: 2250, K: 2, N: 225, config: pi05_scale_H_L1_lora_v1, train_exp: H_L1, step: 29999}
+    L3: {demos: 2250, K: 5, N: 90,  config: pi05_scale_H_L3_lora_v1, train_exp: H_L3, step: 29999}
+    L4: {demos: 2295, K: 3, N: 85,  config: pi05_scale_H_L4_lora_v1, train_exp: H_L4, step: 29999, note: "pref + matched no-pref missions"}
+  eval:
+    in_domain:      LoRA/Pi05/H_<cell>_4trial.yaml                 # suite liberoscale
+    unseen_layout:  LoRA/Pi05/H_<cell>_layout_ood.yaml             # suite liberoscale_layout_ood
+    unseen_layout_different_task: LoRA/Pi05/H_<cell>_pref_ood_{speed,left,red,multi}.yaml   # suite liberoscale_pref_ood, mean over the 4
+  collect: reproduce/fig4_collect.py
+  status: partial
+  note: "PrefScale demo HDF5 (35 missions × 300) are not on disk any more — regenerate with LIBERO/batch_run (mode data_gen, tasksuite PrefScale) before the train stage; no plotting script shipped"
+
+table4_prefcompose:                    # exp PrefCompose; 12 trained + 4 held-out missions
+  train: {exps: [runme_gen_finetune_data_PrefCompose, runme_cal_stats_PrefCompose, runme_finetune_PrefCompose], config: pi05_prefcompose_lora_v1, step: 21000, note: "run stopped at 21k of 25k; paper uses 21000"}
+  eval:  LoRA/Pi05/PrefCompose_step21k_4trial.yaml
+  cells: reproduce/table4_cells.py     # composition (4-3, 4-4 → eval AB) / decomposition (4-5, 4-6 → eval B)
+  status: partial
+  note: "decomposition cells and composition Eval match the paper; composition In-dom. comes out 50.0 vs 58.3, and the paper's decomposition Eval SA = 0.0 is a manual re-score not in code"
+
+table5_prefconflict:                   # exp PrefConflict; trained on single-pref demos only
+  train: {exps: [runme_gen_finetune_data_PrefConflict, runme_cal_stats_PrefConflict, runme_finetune_PrefConflict], config: pi05_prefconflict_lora_v1, step: 26999}
+  eval:
+    pp_in_domain: LoRA/Pi05/PrefConflict_indomain_setA_4trial.yaml
+    pp_conflict:  [LoRA/Pi05/PrefConflict_PP_4trial.yaml, LoRA/Pi05/PrefConflict_PP_setB_4trial.yaml]   # paper = mean of set A and set B
+    tp_conflict:  LoRA/Pi05/PrefConflict_PT_4trial.yaml
+  status: partial
+  note: "SR columns and PP in-domain SA reproduce; conflict SA used a manual 'drag' direction override; Pref-Dom., Follow-pref and Incomplete have no script"

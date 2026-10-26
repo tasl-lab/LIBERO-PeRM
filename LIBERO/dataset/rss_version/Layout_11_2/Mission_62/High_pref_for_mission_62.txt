@@ -1,0 +1,3 @@
+1.|| ('pick_with_load', 'blue_plate_1'), ('put_with_load', 'wooden_shelf_1') ||
+2.|| "required": [('pick_with_load', 'blue_plate_1'), ('put_with_load', 'wooden_shelf_1')], "prohibited": [('_ALL', 'black_book_1'), ('_ALL', 'yellow_book_1'), ('_ALL', 'yellow_book_2')], "order": [[('pick_with_load', 'blue_plate_1'), ('put_with_load', 'wooden_shelf_1')]] ||
+3.|| Pick from the horizontal side ||

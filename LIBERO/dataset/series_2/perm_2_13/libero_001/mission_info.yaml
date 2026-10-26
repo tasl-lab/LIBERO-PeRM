@@ -1,0 +1,41 @@
+workspace: kitchen_scene4
+language_instructions: Put the black bowl in the bottom drawer of the cabinet and close it
+optimized_instruction: Put black bowl in bottom drawer and close it
+libero_instruction: put the black bowl in the bottom drawer of the cabinet and close it
+bddl_file: KITCHEN_SCENE4_put_the_black_bowl_in_the_bottom_drawer_of_the_cabinet_and_close_it.bddl
+high_pref_lan: Pick from left edge #left right is from the perspective of the robot
+low_pref_lan: ''
+subtask_offset:
+  move_to:_all: [0.0, 0.0, 0.0]
+damping_level: 0
+naive_plan:
+- [pick_left_edge, akita_black_bowl_1]  # plain pick cannot lift the bowl (rim-only); naive = opposite edge of the right-edge pref (bowl init region moved back like 2-1_001 on 2026-09-01 so the drawer can close)
+- [put, white_cabinet_1_cabinet_bottom]
+- [close_drawer, white_cabinet_1_cabinet_bottom]
+task_plan:
+- [pick_right_edge, akita_black_bowl_1]
+- [put_right_edge, white_cabinet_1_cabinet_bottom]
+- [close_drawer, white_cabinet_1_cabinet_bottom]
+high_prefs:
+- description: Pick from left edge
+  action_parameters:
+    pick_right_edge:
+    - {}
+    put_right_edge:
+    - {}
+low_prefs:
+- type: grasp_offset
+  params:
+    axis: y
+    frame: world
+    signed: True
+    target_obj: akita_black_bowl_1
+    criterion_threshold: -0.008067
+    criterion_direction: -1
+  description: Pick from left edge
+low_pref_calibration:
+  grasp_offset:
+    pref_anchor: -0.053645
+    n_pref: 10
+    naive_anchor: 0.037512
+    n_naive: 10

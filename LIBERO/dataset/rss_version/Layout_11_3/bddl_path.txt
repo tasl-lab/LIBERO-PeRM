@@ -1,0 +1,1 @@
+./dataset/Layout_11_3/P_BENCH_SCENE_l11_3pick_the_mug_and_put_it_on_the_shelf.bddl

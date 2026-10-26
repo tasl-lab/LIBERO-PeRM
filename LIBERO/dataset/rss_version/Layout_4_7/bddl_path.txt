@@ -1,0 +1,1 @@
+./dataset/Layout_4_7/P_BENCH_SCENE_l4_7fill_my_top_drawer_with_a_food_and_close_it.bddl

@@ -1,0 +1,1 @@
+./dataset/Layout_3_6_1/P_BENCH_SCENE_l3_6_1prepare_a_sauce_in_the_basket.bddl

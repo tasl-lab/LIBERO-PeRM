@@ -1,0 +1,4 @@
+Based on the task instruction and the important hint ("Slowdown 0.5 times and then slowdown 0.5 times"), the target speed ratio is calculated as $0.5 \times 0.5 = 0.25$. Here are 4 personalized low-level preferences derived from this constraint and the scene context:
+
+1.||speed_range, (0.25, 0.25)||
+2.|| To set the robot's speed strictly to 0.25 times the original speed, following the instruction to slow down 0.5 times twice (0.5 * 0.5 = 0.25).||

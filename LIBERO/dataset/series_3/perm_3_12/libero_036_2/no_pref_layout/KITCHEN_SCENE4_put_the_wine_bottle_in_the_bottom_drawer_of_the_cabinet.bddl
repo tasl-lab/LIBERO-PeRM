@@ -1,0 +1,91 @@
+(define (problem LIBERO_Kitchen_Tabletop_Manipulation)
+  (:domain robosuite)
+  (:language put the wine bottle in the bottom drawer of the cabinet)
+    (:regions
+      (white_cabinet_init_region
+          (:target kitchen_table)
+          (:ranges (
+              (-0.01 0.29 0.01 0.31)
+            )
+          )
+          (:yaw_rotation (
+              (0.0 0.0)
+            )
+          )
+      )
+      (akita_black_bowl_init_region
+          (:target kitchen_table)
+          (:ranges (
+              (0.0049999999999999975 -0.07500000000000001 0.055 -0.025)
+            )
+          )
+          (:yaw_rotation (
+              (0.0 0.0)
+            )
+          )
+      )
+      (wine_bottle_init_region
+          (:target kitchen_table)
+          (:ranges (
+              (-0.375 -0.014999999999999979 -0.32499999999999996 0.035000000000000024)
+            )
+          )
+          (:yaw_rotation (
+              (0.0 0.0)
+            )
+          )
+      )
+      (top_side
+          (:target white_cabinet_1)
+      )
+      (top_region
+          (:target white_cabinet_1)
+      )
+      (middle_region
+          (:target white_cabinet_1)
+      )
+      (bottom_region
+          (:target white_cabinet_1)
+      )
+      (small_orange_juice_init_region
+          (:target kitchen_table)
+          (:ranges (
+              (-0.1 -0.2 -0.05 -0.15)
+            )
+          )
+          (:yaw_rotation (
+              (0.0 0.0)
+            )
+          )
+      )
+    )
+
+  (:fixtures
+    kitchen_table - kitchen_table
+    white_cabinet_1 - white_cabinet
+  )
+
+  (:objects
+    akita_black_bowl_1 - akita_black_bowl
+    wine_bottle_1 - wine_bottle
+      small_orange_juice_1 - small_orange_juice
+  )
+
+  (:obj_of_interest
+    small_orange_juice_1
+    white_cabinet_1
+  )
+
+  (:init
+    (On akita_black_bowl_1 kitchen_table_akita_black_bowl_init_region)
+    (On wine_bottle_1 kitchen_table_wine_bottle_init_region)
+    (On white_cabinet_1 kitchen_table_white_cabinet_init_region)
+    (Open white_cabinet_1_bottom_region)
+    (On small_orange_juice_1 kitchen_table_small_orange_juice_init_region)
+  )
+
+  (:goal
+    (And (In wine_bottle_1 white_cabinet_1_bottom_region))
+  )
+
+)

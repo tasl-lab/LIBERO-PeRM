@@ -1,0 +1,1 @@
+./dataset/Layout_4_1/P_BENCH_SCENE_l4_1pick_the_center_black_bowl_and_put_it_on_the_red_plate.bddl

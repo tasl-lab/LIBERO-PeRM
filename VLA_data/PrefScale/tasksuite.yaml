@@ -1,0 +1,176 @@
+# LIBERO-Scale unified tasksuite
+# Used by convert_perm_hdf5_to_lerobot_singpref_anchor.py
+#
+# K=1 baseline = all 5 train_eval missions (one per tier) jointly
+#   total demos = sum of n_demos for train_eval missions
+# K=3, K=7 = same structure but each tier extends with extra layouts (TODO)
+#
+# Roles:
+#   train_eval — used for both training and in-domain eval
+#   eval_only  — held-out, used for layout-OOD eval only (no demos generated)
+
+pairings:
+  "0-1": ['032']           # B0  no-pref baseline
+  "1-1": ['004']           # M1  motion (Speed up)
+  "2-5": ['116']           # M2  skill (Pick from left side)
+  "3-2": ['097_1']         # M3  profile (Prefer red objects)
+  "4-3": ['116']           # M4  multi (Pick from left side + Speed up)
+
+tasks:
+  # Base (K=1 train_eval)
+  "0-1_032":   "Put a sauce in basket"
+  "1-1_004":   "Put alphabet soup and cream cheese in basket"
+  "2-5_116":   "Put the ketchup in basket"
+  "3-2_097_1": "Put a book on top of the shelf"
+  "4-3_116":   "Put the ketchup in basket"
+  # Layout variants — task derived from BDDL :goal (target → container)
+  # 0-1: blue_ketchup → basket (uniform)
+  "0-1_032_1": "Put an item in basket"
+  "0-1_032_2": "Put an item in basket"
+  "0-1_032_3": "Put a sauce in basket"
+  "0-1_032_4": "Put a sauce in basket"
+  "0-1_032_5": "Put a sauce in basket"
+  "0-1_032_6": "Put a sauce in basket"
+  # 1-1: targets vary across variants
+  "1-1_004_1": "Put alphabet soup and cream cheese in basket"
+  "1-1_004_2": "Put alphabet soup and cream cheese in basket"
+  "1-1_004_3": "Put the black book in basket"
+  "1-1_004_4": "Put the black book in basket"
+  "1-1_004_5": "Put the chocolate pudding in basket"
+  "1-1_004_6": "Put the chocolate pudding in basket"
+  # 2-5: ketchup/bbq_sauce, basket/red_basket
+  "2-5_116_1": "Put the ketchup in basket"
+  "2-5_116_2": "Put the ketchup in basket"
+  "2-5_116_3": "Put the bbq sauce in basket"
+  "2-5_116_4": "Put the bbq sauce in basket"
+  "2-5_116_5": "Put the ketchup in basket"
+  "2-5_116_6": "Put the ketchup in basket"
+  # 3-2: red book / red_alphabet_soup / alphabet_soup; shelf or red_basket
+  "3-2_097_2": "Put a book on top of the shelf"
+  "3-2_097_3": "Put a book on top of the shelf"
+  "3-2_097_4": "Put the alphabet soup in basket"
+  "3-2_097_5": "Put the alphabet soup in basket"
+  "3-2_097_6": "Put the alphabet soup in basket"
+  "3-2_097_7": "Put the alphabet soup in basket"
+  # 4-3: ketchup/bbq_sauce, basket/red_basket
+  "4-3_116_1": "Put the ketchup in basket"
+  "4-3_116_2": "Put the ketchup in basket"
+  "4-3_116_3": "Put the bbq sauce in basket"
+  "4-3_116_4": "Put the bbq sauce in basket"
+  "4-3_116_5": "Put the bbq sauce in basket"
+  "4-3_116_6": "Put the bbq sauce in basket"
+
+preferences:
+  # Base
+  "0-1_032":   ""                                  # no-pref
+  "1-1_004":   "Speed up"
+  "2-5_116":   "Pick from left side"
+  "3-2_097_1": "Prefer red objects"
+  "4-3_116":   "Pick from left side. Speed up"
+  # Variants — same pref per slot
+  "0-1_032_1": ""
+  "0-1_032_2": ""
+  "0-1_032_3": ""
+  "0-1_032_4": ""
+  "0-1_032_5": ""
+  "0-1_032_6": ""
+  "1-1_004_1": "Speed up"
+  "1-1_004_2": "Speed up"
+  "1-1_004_3": "Speed up"
+  "1-1_004_4": "Speed up"
+  "1-1_004_5": "Speed up"
+  "1-1_004_6": "Speed up"
+  "2-5_116_1": "Pick from left side"
+  "2-5_116_2": "Pick from left side"
+  "2-5_116_3": "Pick from left side"
+  "2-5_116_4": "Pick from left side"
+  "2-5_116_5": "Pick from left side"
+  "2-5_116_6": "Pick from left side"
+  "3-2_097_2": "Prefer red objects"
+  "3-2_097_3": "Prefer red objects"
+  "3-2_097_4": "Prefer red objects"
+  "3-2_097_5": "Prefer red objects"
+  "3-2_097_6": "Prefer red objects"
+  "3-2_097_7": "Prefer red objects"
+  "4-3_116_1": "Pick from left side. Speed up"
+  "4-3_116_2": "Pick from left side. Speed up"
+  "4-3_116_3": "Pick from left side. Speed up"
+  "4-3_116_4": "Pick from left side. Speed up"
+  "4-3_116_5": "Pick from left side. Speed up"
+  "4-3_116_6": "Pick from left side. Speed up"
+
+n_demos:
+  # All 35 missions: 150 demos for training (gen 300, train uses first 150)
+  "0-1_032":   150
+  "0-1_032_1": 150
+  "0-1_032_2": 150
+  "0-1_032_3": 150
+  "0-1_032_4": 150
+  "0-1_032_5": 150
+  "0-1_032_6": 150
+  "1-1_004":   150
+  "1-1_004_1": 150
+  "1-1_004_2": 150
+  "1-1_004_3": 150
+  "1-1_004_4": 150
+  "1-1_004_5": 150
+  "1-1_004_6": 150
+  "2-5_116":   150
+  "2-5_116_1": 150
+  "2-5_116_2": 150
+  "2-5_116_3": 150
+  "2-5_116_4": 150
+  "2-5_116_5": 150
+  "2-5_116_6": 150
+  "3-2_097_1": 150
+  "3-2_097_2": 150
+  "3-2_097_3": 150
+  "3-2_097_4": 150
+  "3-2_097_5": 150
+  "3-2_097_6": 150
+  "3-2_097_7": 150
+  "4-3_116":   150
+  "4-3_116_1": 150
+  "4-3_116_2": 150
+  "4-3_116_3": 150
+  "4-3_116_4": 150
+  "4-3_116_5": 150
+  "4-3_116_6": 150
+
+role:
+  # All 35 train_eval (full 5×7 grid for K=7 cell)
+  "0-1_032":   "train_eval"
+  "0-1_032_1": "train_eval"
+  "0-1_032_2": "train_eval"
+  "0-1_032_3": "train_eval"
+  "0-1_032_4": "train_eval"
+  "0-1_032_5": "train_eval"
+  "0-1_032_6": "train_eval"
+  "1-1_004":   "train_eval"
+  "1-1_004_1": "train_eval"
+  "1-1_004_2": "train_eval"
+  "1-1_004_3": "train_eval"
+  "1-1_004_4": "train_eval"
+  "1-1_004_5": "train_eval"
+  "1-1_004_6": "train_eval"
+  "2-5_116":   "train_eval"
+  "2-5_116_1": "train_eval"
+  "2-5_116_2": "train_eval"
+  "2-5_116_3": "train_eval"
+  "2-5_116_4": "train_eval"
+  "2-5_116_5": "train_eval"
+  "2-5_116_6": "train_eval"
+  "3-2_097_1": "train_eval"
+  "3-2_097_2": "train_eval"
+  "3-2_097_3": "train_eval"
+  "3-2_097_4": "train_eval"
+  "3-2_097_5": "train_eval"
+  "3-2_097_6": "train_eval"
+  "3-2_097_7": "train_eval"
+  "4-3_116":   "train_eval"
+  "4-3_116_1": "train_eval"
+  "4-3_116_2": "train_eval"
+  "4-3_116_3": "train_eval"
+  "4-3_116_4": "train_eval"
+  "4-3_116_5": "train_eval"
+  "4-3_116_6": "train_eval"

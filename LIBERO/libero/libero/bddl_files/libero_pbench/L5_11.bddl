@@ -1,0 +1,229 @@
+(define (problem LIBERO_Living_Room_Tabletop_Manipulation)
+  (:domain robosuite)
+  (:language L5_5Pick the porcelain ramekin and put it on the plate)
+    (:regions
+      (red_plate_1_init_region
+          (:target main_table)
+          (:ranges (
+              (-0.1 -0.01 -0.05 0.01)
+            )
+          )
+          (:yaw_rotation (
+              (0 0)
+            )
+          )
+      )
+      (black_bowl_1_init_region
+          (:target main_table)
+          (:ranges (
+              (0.1 0.05 0.14 0.09)
+            )
+          )
+          (:yaw_rotation (
+              (0 0)
+            )
+          )
+      )
+      (plate_1_init_region
+          (:target main_table)
+          (:ranges (
+              (0.05 0.19 0.07 0.21)
+            )
+          )
+          (:yaw_rotation (
+              (0 0)
+            )
+          )
+      )
+      (cookies_1_init_region
+          (:target main_table)
+          (:ranges (
+              (0.06 0.02 0.08 0.04)
+            )
+          )
+          (:yaw_rotation (
+              (0 0)
+            )
+          )
+      )
+      (glazed_rim_porcelain_ramekin_1_init_region
+          (:target main_table)
+          (:ranges (
+              (-0.21 0.19 -0.19 0.21)
+            )
+          )
+          (:yaw_rotation (
+              (0 0)
+            )
+          )
+      )
+      (wooden_cabinet_1_init_region
+          (:target main_table)
+          (:ranges (
+              (0.02 -0.22 0.04 -0.21)
+            )
+          )
+          (:yaw_rotation (
+              (0 0)
+            )
+          )
+      )
+      (flat_stove_1_init_region
+          (:target main_table)
+          (:ranges (
+              (-0.42 -0.15 -0.4 -0.13)
+            )
+          )
+          (:yaw_rotation (
+              (0 0)
+            )
+          )
+      )
+      (next_to_plate_region
+          (:target main_table)
+          (:ranges (
+              (0.0 0.3 0.02 0.32)
+            )
+          )
+          (:yaw_rotation (
+              (0 0)
+            )
+          )
+      )
+      (next_to_box_region
+          (:target main_table)
+          (:ranges (
+              (0.12 -0.08 0.14 -0.06)
+            )
+          )
+          (:yaw_rotation (
+              (0 0)
+            )
+          )
+      )
+      (next_to_ramekin_region
+          (:target main_table)
+          (:ranges (
+              (-0.19 0.31 -0.17 0.33)
+            )
+          )
+          (:yaw_rotation (
+              (0 0)
+            )
+          )
+      )
+      (table_front
+          (:target main_table)
+          (:ranges (
+              (0.19 -0.01 0.21 0.01)
+            )
+          )
+          (:yaw_rotation (
+              (0 0)
+            )
+          )
+      )
+      (top_region
+          (:target wooden_cabinet_1)
+          (:ranges (
+            )
+          )
+          (:yaw_rotation (
+              (0 0)
+            )
+          )
+      )
+      (middle_region
+          (:target wooden_cabinet_1)
+          (:ranges (
+            )
+          )
+          (:yaw_rotation (
+              (0 0)
+            )
+          )
+      )
+      (bottom_region
+          (:target wooden_cabinet_1)
+          (:ranges (
+            )
+          )
+          (:yaw_rotation (
+              (0 0)
+            )
+          )
+      )
+      (top_side
+          (:target wooden_cabinet_1)
+          (:ranges (
+            )
+          )
+          (:yaw_rotation (
+              (0 0)
+            )
+          )
+      )
+      (cook_region
+          (:target flat_stove_1)
+          (:ranges (
+            )
+          )
+          (:yaw_rotation (
+              (0 0)
+            )
+          )
+      )
+      (top_side
+          (:target wooden_cabinet_1)
+      )
+      (top_region
+          (:target wooden_cabinet_1)
+      )
+      (middle_region
+          (:target wooden_cabinet_1)
+      )
+      (bottom_region
+          (:target wooden_cabinet_1)
+      )
+      (cook_region
+          (:target flat_stove_1)
+      )
+    )
+
+  (:fixtures
+    main_table - table
+    wooden_cabinet_1 - wooden_cabinet
+
+  )
+
+  (:objects
+    red_plate_1 - red_plate
+    black_bowl_1 - black_bowl
+
+    glazed_rim_porcelain_ramekin_1 - glazed_rim_porcelain_ramekin
+    red_bowl_1 - red_bowl
+    plate_1 - plate
+  )
+
+  (:obj_of_interest
+    glazed_rim_porcelain_ramekin_1
+    plate_1
+  )
+
+  (:init
+    (on red_plate_1 main_table_red_plate_1_init_region)
+    (on black_bowl_1 main_table_black_bowl_1_init_region)
+    (on plate_1 main_table_plate_1_init_region)
+    (on red_bowl_1 main_table_glazed_rim_porcelain_ramekin_1_init_region)
+    (on wooden_cabinet_1 main_table_wooden_cabinet_1_init_region)
+    (On glazed_rim_porcelain_ramekin_1 wooden_cabinet_1_top_side)
+
+  )
+
+  (:goal
+    (And
+    (On red_bowl_1 red_plate_1)
+    )
+  )
+
+)

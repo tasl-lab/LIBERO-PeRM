@@ -1,0 +1,46 @@
+# Experiment U — SingPref v5 LoRA from pi05_base, step 44999 (final, num_train_steps=45_000).
+#
+# Train data : perm/SingPref (42 missions, anchor prompt `Task: ... Preference: ...`)
+# Train config: pi05_singpref_lora_v1   (registered in VLAs/openpi/src/openpi/training/config.py)
+# Train run   : pi05_singpref_run1
+# Train script: VLA_train/openpi/runme_finetune_U.sh
+# Train→Eval prompt: byte-for-byte must match convert_perm_hdf5_to_lerobot_singpref_data_test.py::compose_prompt
+#   → set prompt_source_yaml below + exp_type=lora_ft + condition=pref → eval.py mode 1 (anchor)
+#
+# Suite: single-pref × {pref} × 4 trials = 168 episodes.
+# Pref-only — base condition omitted because U is a pref-conditioned LoRA; base SR is
+# bounded by D (pi05 official 0-shot) and not the metric of interest here.
+#
+# Launch:
+#   server: bash VLA_infer/server_pi05.sh VLA_infer/run_profile/InDomain/U_pi05_singpref_step45k.yaml
+#   client: bash VLA_infer/run_client.sh  VLA_infer/run_profile/InDomain/U_pi05_singpref_step45k.yaml
+# Aggregate:
+#   python LIBERO/scripts/aggregate_eval.py /data3/zhixu/LIBERO-PeRM/Policy_output/lora_ft/single-pref/U_pi05_singpref_step45k/pi05_singpref_run1_step44999 --suite single-pref
+
+experiment_name: U_pi05_singpref_step45k
+exp_type: lora_ft
+task_suite: single-pref
+
+# Anchor prompt source — must be the same yaml the train-side convert script reads.
+prompt_source_yaml: /data3/zhixu/LIBERO-PeRM/VLA_data/SinglePref/tasksuite_v0.yaml
+
+# missions omitted → eval.py auto-fills 42 missions from task_suites.yaml.
+conditions: [pref]
+num_trials: 4
+replan_steps: 5
+max_steps: null
+seed: 7
+
+save_hdf5: false
+save_video: true
+save_gif: false
+
+server:
+  vla: pi05
+  name: pi05_singpref_run1_step44999
+  host: 0.0.0.0
+  port: 8012
+  config: pi05_singpref_lora_v1
+  checkpoint: /data3/zhixu/LIBERO-PeRM/VLAs/openpi/checkpoints/pi05_singpref_lora_v1/pi05_singpref_run1/44999
+  cuda_devices: "4,5,6,7"
+  default_prompt: null

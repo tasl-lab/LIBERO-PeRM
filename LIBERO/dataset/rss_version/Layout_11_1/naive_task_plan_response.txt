@@ -1,0 +1,1 @@
+(pick yellow_book_1),(put desk_caddy_1)

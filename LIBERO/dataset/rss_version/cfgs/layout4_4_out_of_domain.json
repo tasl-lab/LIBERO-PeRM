@@ -1,0 +1,41 @@
+{
+  "_comment:": [
+    "Out-of-domain configuration for pick_the_cheese_and_put_it_on_the_plate Layout 4 - secondary items repositioned"
+  ],
+  "workspaces": "living_room_table",
+  "bddl_file_names": "libero_pbench/L4_4_out_of_domain.bddl",
+  "language_instructions": "Pick the cream cheese and put it on the plate",
+  "layout_id": "4_4_out_of_domain",
+  
+  "high_pref_lan": [
+    "",
+    ""
+  ],
+  "low_pref_lan": [
+    "Avoid the stove when you move",
+    "slow down 0.5 times"
+  ],
+  "mission_ids": [
+    "8",
+    "54"
+  ],
+  "mission_mask": [
+    0,
+    1
+  ],
+
+  "subtask_offset": [
+    {
+      "mission_id": "8",
+      "pick:cream_cheese_1": [[0.0, 0.0, 0.0]],
+      "put:plate_1": [[-0.07, 0.0, -0.1]]
+    },
+    {
+      "mission_id": "54",
+      "pick:cream_cheese_1": [[0.0, 0.0, -0.03]],
+      "put:plate_1": [[0.0, 0.0, -0.15]]
+    }
+  ],
+  
+  "fluency_improvement": 0
+}

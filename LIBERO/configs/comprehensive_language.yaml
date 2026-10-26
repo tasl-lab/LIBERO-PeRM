@@ -1,0 +1,255 @@
+# LIBERO-Comprehensive — Language Variant Suite (Experiment K → L)
+# =============================================================================
+# 20 missions × 4 language levels (L0 / L1 / L2 / L3) = 80 language strings.
+# Reuses existing SingPref demos — **zero new demo generation**.
+# Mission ids must remain a strict subset of `single-pref` in task_suites.yaml.
+#
+# Level definitions (from experiments/experiment.md, Phase 2d node K):
+#   L0  no pref          — plain task language; baseline / pretraining-prior check
+#   L1  explicit pref    — canonical pref string (verbatim from mission_info.yaml)
+#   L2  idiomatic pref   — natural-language idiom that maps directly to the pref
+#                          (e.g. "be gentle" → slow ; "stay low" → low path)
+#   L3  commonsense pref — context fact that requires reasoning to map to pref
+#                          (e.g. "I just had wrist surgery" → slow / careful)
+#
+# Selection criteria (paraphrase-friendly):
+#   - clear action verb + object + location in the task
+#   - pref type admits at least one natural idiom (L2) and one commonsense fact (L3)
+#   - balance across Series 1 (motion) / Series 2 (skill) / Series 3 (profile)
+#
+# Coverage: 7 motion + 7 skill + 6 profile pref types.
+#
+# Consumed by:
+#   PolicyEval/eval.py runfiles for the L experiment (0-shot Q7).
+#   At rollout time the runfile picks (mission_id, level) → language_text and
+#   feeds it as the prompt; eval.py uses the same BDDL/init-state as SingPref.
+#
+# Generated 2026-04-26 (Zhixu).
+# =============================================================================
+
+description: >
+  LIBERO-Comprehensive: 20 missions × 4 language paraphrase levels (L0-L3).
+  Tests language-grounding robustness of VLAs at varying degrees of indirection
+  between the user instruction and the underlying preference.
+
+levels:
+  L0:
+    name: no_pref
+    desc: Plain task instruction with no preference clause. Baseline.
+  L1:
+    name: explicit
+    desc: Canonical pref clause appended to the task (= current SingPref language).
+  L2:
+    name: idiomatic
+    desc: Idiomatic phrase that maps to the pref via convention (no reasoning).
+  L3:
+    name: commonsense
+    desc: Context fact requiring commonsense reasoning to recover the pref.
+
+missions:
+
+  # ── Series 1 — Motion preference (7) ────────────────────────────────────────
+
+  - mission_id: 1-1_004
+    pref_type: speed_up
+    task: Put both the alphabet soup and the cream cheese box in the basket.
+    pref_canonical: Speed up by 2 times.
+    languages:
+      L0: Put both the alphabet soup and the cream cheese box in the basket.
+      L1: Put both the alphabet soup and the cream cheese box in the basket. Speed up by 2 times.
+      L2: Put both the alphabet soup and the cream cheese box in the basket. Be quick about it.
+      L3: Put both the alphabet soup and the cream cheese box in the basket. Guests will be at the door any minute and I still need to set the table.
+
+  - mission_id: 1-2_113
+    pref_type: slow_down
+    task: Pick up the butter and put it in the basket.
+    pref_canonical: Slow down by 0.5 times.
+    languages:
+      L0: Pick up the butter and put it in the basket.
+      L1: Pick up the butter and put it in the basket. Slow down by 0.5 times.
+      L2: Pick up the butter and put it in the basket. Take your time with it.
+      L3: Pick up the butter and put it in the basket. The butter has been sitting on the counter and is starting to soften, so handle it carefully.
+
+  - mission_id: 1-3_107
+    pref_type: high_acceleration
+    task: Put the cream cheese on the bowl.
+    pref_canonical: High acceleration.
+    languages:
+      L0: Put the cream cheese on the bowl.
+      L1: Put the cream cheese on the bowl. Use high acceleration.
+      L2: Put the cream cheese on the bowl. Move with snap — sharp starts, no drifting.
+      L3: Put the cream cheese on the bowl. We're recording a highlight reel today and I want every transition to look punchy.
+
+  - mission_id: 1-4_034
+    pref_type: avoid_object
+    task: Put the black bowl in the bottom drawer of the cabinet.
+    pref_canonical: Keep away from the wine bottle.
+    languages:
+      L0: Put the black bowl in the bottom drawer of the cabinet.
+      L1: Put the black bowl in the bottom drawer of the cabinet. Keep away from the wine bottle.
+      L2: Put the black bowl in the bottom drawer of the cabinet. Give the wine bottle a wide berth.
+      L3: Put the black bowl in the bottom drawer of the cabinet. The wine bottle is half empty and tips over easily.
+
+  - mission_id: 1-5_114
+    pref_type: low_path
+    task: Pick the chocolate pudding and place it in the basket.
+    pref_canonical: Close to the ground when moving.
+    languages:
+      L0: Pick the chocolate pudding and place it in the basket.
+      L1: Pick the chocolate pudding and place it in the basket. Close to the ground when moving.
+      L2: Pick the chocolate pudding and place it in the basket. Stay low while you move.
+      L3: Pick the chocolate pudding and place it in the basket. There is a hanging lamp directly above the workspace — don't bump it.
+
+  - mission_id: 1-6_105
+    pref_type: straight_path
+    task: Put the bowl on the stove.
+    pref_canonical: Go straight when moving.
+    languages:
+      L0: Put the bowl on the stove.
+      L1: Put the bowl on the stove. Go straight when moving.
+      L2: Put the bowl on the stove. Take a direct route, no detours.
+      L3: Put the bowl on the stove. The kitchen is cramped and there's no room to wander around.
+
+  - mission_id: 1-7_104
+    pref_type: high_path
+    task: Put the bowl on the plate.
+    pref_canonical: Go higher when moving.
+    languages:
+      L0: Put the bowl on the plate.
+      L1: Put the bowl on the plate. Go higher when moving.
+      L2: Put the bowl on the plate. Lift it high above the surface.
+      L3: Put the bowl on the plate. The counter is wet — don't let the bottom of the bowl drag through any spills.
+
+  # ── Series 2 — Skill preference (7) ─────────────────────────────────────────
+
+  - mission_id: 2-1_077
+    pref_type: pick_right_edge
+    task: Put the white mug on the left plate.
+    pref_canonical: Pick from the right edge.
+    languages:
+      L0: Put the white mug on the left plate.
+      L1: Put the white mug on the left plate. Pick from the right edge.
+      L2: Put the white mug on the left plate. Approach the mug from its right side.
+      L3: Put the white mug on the left plate. There is a sticker on the left side of the mug I don't want to peel off.
+
+  - mission_id: 2-2_019
+    pref_type: pick_back_edge
+    task: Put the black bowl on the plate.
+    pref_canonical: Pick from the back edge.
+    languages:
+      L0: Put the black bowl on the plate.
+      L1: Put the black bowl on the plate. Pick from the back edge.
+      L2: Put the black bowl on the plate. Grab it from the far edge.
+      L3: Put the black bowl on the plate. The front rim of the bowl is chipped — grip the safer side.
+
+  - mission_id: 2-3_077
+    pref_type: pick_handle
+    task: Put the white mug on the left plate.
+    pref_canonical: Pick by the handle.
+    languages:
+      L0: Put the white mug on the left plate.
+      L1: Put the white mug on the left plate. Pick by the handle.
+      L2: Put the white mug on the left plate. Use the handle to grip it.
+      L3: Put the white mug on the left plate. The mug just came out of the microwave and is too hot to grab by the body.
+
+  - mission_id: 2-5_116
+    pref_type: pick_left_side
+    task: Pick the ketchup and place it in the basket.
+    pref_canonical: Pick from the left side.
+    languages:
+      L0: Pick the ketchup and place it in the basket.
+      L1: Pick the ketchup and place it in the basket. Pick from the left side.
+      L2: Pick the ketchup and place it in the basket. Reach in from the left.
+      L3: Pick the ketchup and place it in the basket. The right side is wedged against another bottle — only the left is clear.
+
+  - mission_id: 2-11_118
+    pref_type: pick_front
+    task: Pick the orange juice and place it in the basket.
+    pref_canonical: Pick from front.
+    languages:
+      L0: Pick the orange juice and place it in the basket.
+      L1: Pick the orange juice and place it in the basket. Pick from front.
+      L2: Pick the orange juice and place it in the basket. Approach it head-on.
+      L3: Pick the orange juice and place it in the basket. The carton is pushed up against the back wall — only the front face is reachable.
+
+  - mission_id: 2-13_001
+    pref_type: pick_left_edge
+    task: Put the black bowl in the bottom drawer of the cabinet and close it.
+    pref_canonical: Pick from the left edge.
+    languages:
+      L0: Put the black bowl in the bottom drawer of the cabinet and close it.
+      L1: Put the black bowl in the bottom drawer of the cabinet and close it. Pick from the left edge.
+      L2: Put the black bowl in the bottom drawer of the cabinet and close it. Grab the left edge of the bowl.
+      L3: Put the black bowl in the bottom drawer of the cabinet and close it. The right side of the bowl has a wet rim from rinsing — keep your gripper dry.
+
+  - mission_id: 2-14_109
+    pref_type: lay_down
+    task: Put the wine bottle on top of the cabinet.
+    pref_canonical: Lay the wine bottle down on top of the cabinet instead of placing it upright.
+    languages:
+      L0: Put the wine bottle on top of the cabinet.
+      L1: Put the wine bottle on top of the cabinet. Lay the wine bottle down on top of the cabinet instead of placing it upright.
+      L2: Put the wine bottle on top of the cabinet. Lay it flat on its side.
+      L3: Put the wine bottle on top of the cabinet. Wine should age horizontally so the cork stays moist.
+
+  # ── Series 3 — User profile preference (6) ──────────────────────────────────
+
+  - mission_id: 3-1_006_1
+    pref_type: prefer_green
+    task: Put both the cream cheese box and the butter in the basket.
+    pref_canonical: Prefer green objects.
+    languages:
+      L0: Put both the cream cheese box and the butter in the basket.
+      L1: Put both the cream cheese box and the butter in the basket. Prefer green objects.
+      L2: Put both the cream cheese box and the butter in the basket. Go with the leaf-colored ones.
+      L3: Put both the cream cheese box and the butter in the basket. It's St. Patrick's Day — let's stick to the holiday color.
+
+  - mission_id: 3-2_001_1
+    pref_type: prefer_red
+    task: Put the bowl in the bottom drawer of the cabinet and close it.
+    pref_canonical: Prefer red objects.
+    languages:
+      L0: Put the bowl in the bottom drawer of the cabinet and close it.
+      L1: Put the bowl in the bottom drawer of the cabinet and close it. Prefer red objects.
+      L2: Put the bowl in the bottom drawer of the cabinet and close it. Go with the warm-colored one.
+      L3: Put the bowl in the bottom drawer of the cabinet and close it. I'm decorating for Christmas dinner.
+
+  - mission_id: 3-5_120_1
+    pref_type: prefer_bigger
+    task: Pick the tomato sauce and place it in the basket.
+    pref_canonical: Prefer bigger objects.
+    languages:
+      L0: Pick the tomato sauce and place it in the basket.
+      L1: Pick the tomato sauce and place it in the basket. Prefer bigger objects.
+      L2: Pick the tomato sauce and place it in the basket. Go with the supersize one.
+      L3: Pick the tomato sauce and place it in the basket. We're meal-prepping for the whole family this week.
+
+  - mission_id: 3-8_007_1
+    pref_type: double_portion
+    task: Put the white mug on the left plate.
+    pref_canonical: Serve a double portion.
+    languages:
+      L0: Put the white mug on the left plate.
+      L1: Put the white mug on the left plate. Serve a double portion.
+      L2: Put the white mug on the left plate. Don't skimp — be generous.
+      L3: Put the white mug on the left plate. Two friends are coming over for coffee — set a place for each of them.
+
+  - mission_id: 3-9_118_1
+    pref_type: prefer_dairy
+    task: Pick up a drink and place it in the basket.
+    pref_canonical: Prefer dairy products.
+    languages:
+      L0: Pick up a drink and place it in the basket.
+      L1: Pick up a drink and place it in the basket. Prefer dairy products.
+      L2: Pick up a drink and place it in the basket. Go with the calcium-rich kind.
+      L3: Pick up a drink and place it in the basket. My kid is recovering from a broken leg and needs more calcium.
+
+  - mission_id: 3-15_106_1
+    pref_type: prefer_smaller
+    task: Put a bowl on top of the cabinet.
+    pref_canonical: Prefer smaller objects.
+    languages:
+      L0: Put a bowl on top of the cabinet.
+      L1: Put a bowl on top of the cabinet. Prefer smaller objects.
+      L2: Put a bowl on top of the cabinet. The compact one will do.
+      L3: Put a bowl on top of the cabinet. I'm just having a snack — no need for serving size.

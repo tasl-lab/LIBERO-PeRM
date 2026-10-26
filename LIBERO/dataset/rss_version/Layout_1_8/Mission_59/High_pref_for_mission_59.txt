@@ -1,0 +1,5 @@
+1.|| ('pick_bottle', 'salad_dressing_1'), ('put', 'red_basket_1') ||
+2.|| "required": [('pick_bottle', 'salad_dressing_1')], "prohibited": [('pick', 'salad_dressing_1'), ('pick_from_side', 'salad_dressing_1')], "order": [[('pick_bottle', 'salad_dressing_1'), ('put', 'red_basket_1')]] ||
+3.|| I Prefer pick the top part of objects ||
+
+

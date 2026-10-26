@@ -1,0 +1,34 @@
+workspace: ''
+language_instructions: Pick the BBQ sauce and place it in the basket
+optimized_instruction: Put BBQ sauce in basket
+libero_instruction: pick up the bbq sauce and place it in the basket
+bddl_file: pick_up_the_bbq_sauce_and_place_it_in_the_basket.bddl
+high_pref_lan: ''
+low_pref_lan: Speed up
+subtask_offset:
+  move_to:_all:
+  - 0.0
+  - 0.0
+  - 0.0
+  put:basket_1:
+  - - -0.05
+    - 0.0
+    - 0.0
+damping_level: 0
+naive_plan:
+- - pick
+  - bbq_sauce_1
+- - put
+  - basket_1
+task_plan:
+- - pick
+  - bbq_sauce_1
+- - put
+  - basket_1
+high_prefs: []
+low_prefs:
+- type: speed_range
+  params:
+    min_speed: 2.0
+    max_speed: 2.0
+  description: Speed up

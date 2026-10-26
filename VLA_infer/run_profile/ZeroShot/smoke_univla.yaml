@@ -1,0 +1,37 @@
+# Smoke test: UniVLA (qwbu/univla-7b-224-sft-libero, libero-10 head) 0-shot
+# on 2 missions × 2 conditions × 2 trials. Uses the libero-10 checkpoint as a
+# general-purpose head (our SinglePref missions cross multiple underlying
+# LIBERO suites; libero-10 is the long-horizon/most-general choice).
+experiment_name: univla_singlepref_smoke
+exp_type: 0shot
+task_suite: single-pref
+
+missions:
+  - 1-1_004
+  - 2-1_019
+
+conditions: [base, pref]
+num_trials: 2
+replan_steps: 8
+max_steps: null
+seed: 7
+
+save_hdf5: false
+save_video: true
+save_gif: false
+
+server:
+  vla: univla
+  name: univla_libero_10
+  host: 0.0.0.0
+  port: 8011
+  # unnorm_key selects which LIBERO suite's action stats to use. Tied to the
+  # checkpoint loaded (libero_10 here). Change both together if switching.
+  config: univla_libero_10
+  checkpoint: /data3/zhixu/LIBERO-PeRM/checkpoints/univla_libero/univla-libero-10
+  # action_decoder.pt lives inside the checkpoint dir (see repo README).
+  action_decoder: /data3/zhixu/LIBERO-PeRM/checkpoints/univla_libero/univla-libero-10/action_decoder.pt
+  unnorm_key: libero_10
+  cuda_devices: "2"
+  device: "cuda:0"
+  default_prompt: null

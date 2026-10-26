@@ -1,0 +1,1 @@
+(pick bigger_tomato_sauce_1),(put plate_1)

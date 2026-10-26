@@ -1,0 +1,129 @@
+# LIBERO-PrefScale: the 100 tasks counted in the 312-task benchmark (LIBERO/dataset/SUITE_PLAN_312.md, section 5.2).
+# tasksuite.yaml next to this file is the 35-mission training registry behind Fig. 4 of the paper; it is left as is.
+#
+# A task is one layout + one task instruction + one preference prompt. Five slots keep task and preference fixed
+# and vary the layout; 12 no-preference twins share a layout with a preference mission; the 12 pref-ood tasks put
+# the four preferences on three layouts of the no-preference task (unseen layout, different task).
+#
+# Not counted: 2-5_116_10 (salad dressing) and 2-5_116_11 (book). Their left-side grasp falls back to the
+# right-side parameters or to a default that does not transfer; see the DEBUG_NOTES.md in those directories.
+
+suite: prefscale
+
+slots:
+  nopref:    {family: "0-1", preference: ""}
+  speed:     {family: "1-1", preference: "Speed up"}
+  left_side: {family: "2-5", preference: "Pick from left side"}
+  red:       {family: "3-2", preference: "Prefer red objects"}
+  multi:     {family: "4-3", preference: "Pick from left side. Speed up"}
+
+tasks:
+  nopref:   # 13
+    - 0-1_032
+    - 0-1_032_1
+    - 0-1_032_2
+    - 0-1_032_3
+    - 0-1_032_4
+    - 0-1_032_5
+    - 0-1_032_6
+    - 0-1_032_7
+    - 0-1_032_8
+    - 0-1_032_9
+    - 0-1_032_10
+    - 0-1_032_11
+    - 0-1_032_12
+  speed:   # 16
+    - 1-1_004
+    - 1-1_004_1
+    - 1-1_004_2
+    - 1-1_004_3
+    - 1-1_004_4
+    - 1-1_004_5
+    - 1-1_004_6
+    - 1-1_004_7
+    - 1-1_004_8
+    - 1-1_004_9
+    - 1-1_034
+    - 1-1_065
+    - 1-1_070
+    - 1-1_077
+    - 1-1_104
+    - 1-1_114
+  left_side:   # 16
+    - 2-5_116
+    - 2-5_116_1
+    - 2-5_116_2
+    - 2-5_116_3
+    - 2-5_116_4
+    - 2-5_116_5
+    - 2-5_116_6
+    - 2-5_116_7
+    - 2-5_116_8
+    - 2-5_116_9
+    - 2-5_058
+    - 2-5_068
+    - 2-5_062
+    - 2-5_065
+    - 2-5_114
+    - 2-5_118
+  red:   # 15
+    - 3-2_097_1
+    - 3-2_097_2
+    - 3-2_097_3
+    - 3-2_097_4
+    - 3-2_097_5
+    - 3-2_097_6
+    - 3-2_097_7
+    - 3-2_097_8
+    - 3-2_097_9
+    - 3-2_097_10
+    - 3-2_081_1
+    - 3-2_001_1
+    - 3-2_019_1
+    - 3-2_062_1
+    - 3-2_116_1
+  multi:   # 16
+    - 4-3_116
+    - 4-3_116_1
+    - 4-3_116_2
+    - 4-3_116_3
+    - 4-3_116_4
+    - 4-3_116_5
+    - 4-3_116_6
+    - 4-3_116_7
+    - 4-3_116_8
+    - 4-3_116_9
+    - 4-3_058
+    - 4-3_068
+    - 4-3_062
+    - 4-3_065
+    - 4-3_114
+    - 4-3_118
+  pref_ood:   # 12
+    - 1-1_032_7
+    - 2-5_032_7
+    - 3-2_032_7
+    - 4-3_032_7
+    - 1-1_032_8
+    - 2-5_032_8
+    - 3-2_032_8
+    - 4-3_032_8
+    - 1-1_032_9
+    - 2-5_032_9
+    - 3-2_032_9
+    - 4-3_032_9
+
+# no-preference twin -> the preference mission on the same layout (its metric scores the twin's rollout)
+nopref_paired:   # 12
+  1-1_004_nopref: 1-1_004
+  1-1_004_1_nopref: 1-1_004_1
+  1-1_004_2_nopref: 1-1_004_2
+  2-5_116_nopref: 2-5_116
+  2-5_116_2_nopref: 2-5_116_2
+  2-5_116_3_nopref: 2-5_116_3
+  3-2_097_1_nopref: 3-2_097_1
+  3-2_097_2_nopref: 3-2_097_2
+  3-2_097_4_nopref: 3-2_097_4
+  4-3_116_nopref: 4-3_116
+  4-3_116_2_nopref: 4-3_116_2
+  4-3_116_3_nopref: 4-3_116_3

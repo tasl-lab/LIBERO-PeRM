@@ -1,0 +1,1 @@
+(pick red_plate_1),(put microwave_1)

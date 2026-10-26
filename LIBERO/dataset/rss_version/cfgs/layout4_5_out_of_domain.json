@@ -1,0 +1,44 @@
+{
+  "_comment:": [
+    "Out-of-domain configuration for pick_the_porcelain_and_put_it_on_the_plate Layout 4 - secondary items repositioned"
+  ],
+  "workspaces": "main_table",
+  "bddl_file_names": "libero_pbench/L4_5_out_of_domain.bddl",
+  "language_instructions": "Pick the porcelain ramekin and put it on the plate",
+  "layout_id": "4_5_out_of_domain",
+  
+  "high_pref_lan": [
+    "",
+    ""
+  ],
+  "low_pref_lan": [
+    "Approach ground when you move",
+    "slow down 0.5 times, and Approach ground plate when you move"
+  ],
+  "mission_ids": [
+    "10",
+    "m6"
+  ],
+  "mission_mask": [
+    1,
+    1
+  ],
+
+  "subtask_offset": [
+    {
+      "mission_id": "10",
+      "pick:glazed_rim_porcelain_ramekin_1": [[0.0, 0.02, 0.02]],
+      "put:plate_1": [[-0.03, 0.02, 0.0]],
+      "move_to_approach:plate_1": [[0.0, 0.0, 0.88]]
+    },
+    {
+      "mission_id": "m6",
+      "pick:glazed_rim_porcelain_ramekin_1": [[0.0, 0.02, -0.03]],
+      "put:plate_1": [[-0.03, 0.02, 0.0]],
+      "move_to_approach:plate_1": [[0.0, 0.0, 0.88]],
+      "move_to_height:glazed_rim_porcelain_ramekin_1":-0.2
+    }
+  ],
+  
+  "fluency_improvement": 0
+}

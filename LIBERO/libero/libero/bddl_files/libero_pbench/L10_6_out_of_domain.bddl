@@ -1,0 +1,176 @@
+(define (problem LIBERO_Study_Tabletop_Manipulation)
+  (:domain robosuite)
+  (:language Put a food on my plate)
+    (:regions
+      (desk_caddy_1_init_region
+          (:target study_table)
+          (:ranges (
+              (-0.21000000000000002 -0.15000000000000002 -0.19 -0.13)
+            )
+          )
+          (:yaw_rotation (
+              (3.141592653589793 3.141592653589793)
+            )
+          )
+      )
+      (cream_cheese_1_init_region
+          (:target study_table)
+          (:ranges (
+              (-0.025 -0.225 0.025 -0.175)
+            )
+          )
+          (:yaw_rotation (
+              (0.0 0.0)
+            )
+          )
+      )
+      (macaroni_and_cheese_1_init_region
+          (:target study_table)
+          (:ranges (
+              (-0.025 0.165 0.025 0.185)
+            )
+          )
+          (:yaw_rotation (
+              (0.0 0.0)
+            )
+          )
+      )
+      (alphabet_soup_1_init_region
+          (:target study_table)
+          (:ranges (
+              (-0.025 -0.025 0.025 0.025)
+            )
+          )
+          (:yaw_rotation (
+              (0.0 0.0)
+            )
+          )
+      )
+      (plate_1_init_region
+          (:target study_table)
+          (:ranges (
+              (0.17500000000000002 0.125 0.225 0.175)
+            )
+          )
+          (:yaw_rotation (
+              (0.0 0.0)
+            )
+          )
+      )
+      (red_coffee_mug_behind_region
+          (:target study_table)
+          (:ranges (
+              (0.05 0.09999999999999999 0.15000000000000002 0.2)
+            )
+          )
+          (:yaw_rotation (
+              (0.0 0.0)
+            )
+          )
+      )
+      (black_book_init_region
+          (:target study_table)
+          (:ranges (
+              (0.07500000000000001 -0.025 0.125 0.025)
+            )
+          )
+          (:yaw_rotation (
+              (0.0 0.0)
+            )
+          )
+      )
+      (desk_caddy_right_region
+          (:target study_table)
+          (:ranges (
+              (-0.25 0.09999999999999999 -0.15000000000000002 0.2)
+            )
+          )
+          (:yaw_rotation (
+              (3.141592653589793 3.141592653589793)
+            )
+          )
+      )
+      (right_contain_region
+          (:target desk_caddy_1)
+          (:ranges (
+            )
+          )
+          (:yaw_rotation (
+              (0 0)
+            )
+          )
+      )
+      (left_contain_region
+          (:target desk_caddy_1)
+          (:ranges (
+            )
+          )
+          (:yaw_rotation (
+              (0 0)
+            )
+          )
+      )
+      (back_contain_region
+          (:target desk_caddy_1)
+          (:ranges (
+            )
+          )
+          (:yaw_rotation (
+              (0 0)
+            )
+          )
+      )
+      (front_contain_region
+          (:target desk_caddy_1)
+          (:ranges (
+            )
+          )
+          (:yaw_rotation (
+              (0 0)
+            )
+          )
+      )
+      (right_contain_region
+          (:target desk_caddy_1)
+      )
+      (left_contain_region
+          (:target desk_caddy_1)
+      )
+      (back_contain_region
+          (:target desk_caddy_1)
+      )
+      (front_contain_region
+          (:target desk_caddy_1)
+      )
+    )
+
+  (:fixtures
+    study_table - study_table
+    desk_caddy_1 - desk_caddy
+  )
+
+  (:objects
+    alphabet_soup_1 - alphabet_soup
+    plate_1 - plate
+    macaroni_and_cheese_1 - macaroni_and_cheese
+    cream_cheese_1 - cream_cheese
+  )
+
+  (:obj_of_interest
+    alphabet_soup_1
+    plate_1
+  )
+
+  (:init
+    (on desk_caddy_1 study_table_desk_caddy_1_init_region)
+    (on cream_cheese_1 study_table_cream_cheese_1_init_region)
+    (on macaroni_and_cheese_1 study_table_macaroni_and_cheese_1_init_region)
+    (on alphabet_soup_1 study_table_alphabet_soup_1_init_region)
+    (on plate_1 study_table_plate_1_init_region)
+  )
+
+  (:goal
+    (And (on alphabet_soup_1 plate_1))
+  )
+
+)

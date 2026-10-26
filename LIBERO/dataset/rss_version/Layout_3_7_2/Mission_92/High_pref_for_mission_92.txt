@@ -1,0 +1,3 @@
+1.|| ('pick_bottle', 'milk_1'), ('put', 'basket_1') ||
+2.|| "required": [('pick_bottle', 'milk_1')], "prohibited": [('pick_from_side', '_ALL')] ||
+3.|| I prefer pick the top part of the object ||

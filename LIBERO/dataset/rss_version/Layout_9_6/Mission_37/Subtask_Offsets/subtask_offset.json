@@ -1,0 +1,45 @@
+{
+  "mission_id": "37",
+  "move_to:glazed_rim_porcelain_ramekin_1": [
+    [
+      0.0,
+      -0.02,
+      -0.0
+    ]
+  ],
+  "pick:glazed_rim_porcelain_ramekin_1": [
+    [
+      0.0,
+      -0.02,
+      -0.0
+    ]
+  ],
+  "open_drawer:white_cabinet_1_cabinet_middle": [
+    [
+      0.0,
+      -0.05,
+      0
+    ]
+  ],
+  "put:white_cabinet_1_cabinet_middle": [
+    [
+      0.0,
+      -0.05,
+      0.15
+    ]
+  ],
+  "move_to:white_cabinet_1_cabinet_middle": [
+    [
+      0.0,
+      -0.05,
+      0.2
+    ]
+  ],
+  "close_drawer:white_cabinet_1_cabinet_middle": [
+    [
+      0.0,
+      0.02,
+      0
+    ]
+  ]
+}
